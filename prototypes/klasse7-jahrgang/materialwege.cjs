@@ -102,7 +102,38 @@ function programmingLessons(pages) {
   return lessons;
 }
 
+// Derselbe Materiallink steht in der breiten Vergleichstabelle oder in einer Zeile
+// des Lernbogens. Die sichtbaren Feldnamen stammen aus den tatsächlichen Spaltenköpfen.
+function adaptMaterialTable(pages) {
+  const file = 'lehrpersonen.html';
+  const html = currentPage(pages, file);
+  const section = /(<h2 id="unterrichtsmaterial">[^<]*<\/h2>\s*)<div class="table-wrap"[^>]*>(<table>[\s\S]*?<\/table>)<\/div>/;
+  if (!section.test(html)) throw Error('Materialübersicht fehlt im Jahresleitfaden.');
+  const adapted = html.replace(section, (_, heading, table) => {
+    const labels = [...table.matchAll(/<th\b[^>]*>([^<]+)<\/th>/g)].map(match => match[1]);
+    const rows = table.replace(/<tbody>([\s\S]*?)<\/tbody>/, (_, body) => {
+      return '<tbody role="rowgroup">' + body.replace(/<tr>([\s\S]*?)<\/tr>/g, (_, row) => {
+        let column = 0;
+        const cells = row.replace(/<td\b[^>]*>([\s\S]*?)<\/td>/g, (_, content) => {
+          const index = column++;
+          if (index === 0) return '<th scope="row" role="rowheader">' + content + '</th>';
+          return '<td role="cell"><span class="year-material-label" aria-hidden="true">'
+            + labels[index] + '</span>' + content + '</td>';
+        });
+        if (column !== labels.length) throw Error('Unvollständige Zeile der Materialübersicht.');
+        return '<tr role="row">' + cells + '</tr>';
+      }) + '</tbody>';
+    });
+    const accessible = rows.replace('<table>', '<table role="table" aria-labelledby="unterrichtsmaterial">')
+      .replace('<thead>', '<thead role="rowgroup">').replace('<tr>', '<tr role="row">')
+      .replace(/<th(?! scope="row")\b([^>]*)>/g, '<th scope="col" role="columnheader"$1>');
+    return heading + '<div class="table-wrap year-material-table">' + accessible + '</div>';
+  });
+  pages.set('klasse7/' + file, adapted);
+}
+
 function addMaterialRoutes(pages) {
+  adaptMaterialTable(pages);
   for (const area of [...Object.keys(teachingPlans), 'programmieren']) addYearLink(pages, area);
   attachUnitBriefings(pages, 'medien', 'med', 5);
   attachUnitBriefings(pages, 'daten', 'dat', 5);

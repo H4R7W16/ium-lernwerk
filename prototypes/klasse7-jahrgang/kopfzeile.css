@@ -199,6 +199,74 @@
   .year-shell-header .year-topic-links { inset-inline: 18px; width: auto; }
 }
 
+/* Reguläre Lernseiten: Marke und Bogenstandort teilen auf Tablets eine Zeile
+   mit der Hauptnavigation. Die drei Hauptziele bleiben auch mit Touch erreichbar. */
+@media screen and (min-width: 761px) and (max-width: 1366px) {
+  .year-header.year-shell-header {
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 16px;
+    padding: 8px clamp(18px, 3vw, 32px);
+  }
+  .year-shell-header .year-shell-identity {
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .year-shell-header .year-shell-identity .brand { width: clamp(214px, 22vw, 280px); }
+  .year-shell-header .year-shell-nav { width: auto; }
+  .year-shell-header .year-shell-context {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    white-space: nowrap;
+  }
+  .year-shell-header .year-topic-links { inset-inline: auto clamp(18px, 3vw, 32px); }
+  .task-route-workbar + main { margin-top: 12px; }
+}
+
+@media screen and (max-width: 760px) {
+  .year-header.year-shell-header { gap: 2px; padding: 8px 18px 6px; }
+  .year-shell-header .year-shell-identity {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  .year-shell-header .year-shell-identity .brand { width: clamp(169px, 46vw, 215px); }
+  .year-shell-header .year-shell-context {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 44px;
+    overflow-wrap: anywhere;
+  }
+  .year-shell-header .year-brand-subject { margin-top: 3px; }
+  .year-shell-header .year-shell-nav > a,
+  .year-shell-header .year-topics > summary { min-height: 44px; }
+}
+
+/* Links an Bildmaterial, Arbeitsunterlagen und Rückwegen lassen sich als einzelne
+   Ziele antippen, ohne die fachlichen Texte oder die Projektionsseiten zu ändern. */
+.figure-help a,
+.media-path .mp-picker nav a,
+.lw-grade7 .aside-back,
+.lw-grade7 .phase-links a,
+.lw-grade7 .lesson-article a[href="../bilder/alg6-codekarte.svg"],
+.year-material-routes a {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding-inline: .2em;
+}
+.media-path .mp-picker nav a { display: flex; }
+.lw-grade7 .lesson-article a[href="../bilder/alg6-codekarte.svg"] {
+  vertical-align: middle;
+  font-weight: 600;
+}
+
 /* Verweise außerhalb des Vorlesetexts und am Unterrichtsmaterial der vier Bögen. */
 .year-material-routes {
   max-width: 1040px;
@@ -215,4 +283,61 @@ main .year-material-routes { margin: 8px 0 16px; padding: 0; }
   .year-material-routes { display: none; }
   .year-header.year-shell-header,
   .year-shell-header + .year-tools { display: none; }
+}
+
+/* Die Materialübersicht zeigt dieselben vier Lernbögen auch im geteilten iPad-Fenster. */
+.year-material-table .year-material-label { display: none; }
+.year-material-table tbody th { font-weight: inherit; text-align: start; background: transparent; }
+
+@media screen and (max-width: 680px) {
+  .year-reader .year-material-table { overflow: visible; }
+  .year-reader .year-material-table table {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    border: 0;
+  }
+  .year-material-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .year-material-table tbody { display: grid; gap: 1rem; }
+  .year-material-table tbody tr {
+    display: grid;
+    padding: .45rem .85rem;
+    border: 1px solid #c8d1cb;
+    border-radius: .5rem;
+  }
+  .year-reader .year-material-table tbody :is(th,td) {
+    display: grid;
+    grid-template-columns: minmax(6rem, .72fr) minmax(0, 1.6fr);
+    align-items: center;
+    gap: .5rem;
+    border: 0;
+    padding: .15rem 0;
+    min-width: 0;
+    text-align: start;
+    overflow-wrap: anywhere;
+  }
+  .year-reader .year-material-table tbody th {
+    display: block;
+    font-weight: 700;
+    border-bottom: 1px solid #dee2df;
+  }
+  .year-material-table .year-material-label {
+    display: block;
+    color: #52605b;
+    font-size: .875rem;
+  }
+  .year-material-table a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+@media screen and (pointer: coarse) {
+  .year-material-table tbody :is(th, td) { padding-block: .15rem; }
+  .year-material-table a { display: inline-flex; align-items: center; min-height: 44px; }
 }
