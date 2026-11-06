@@ -11,21 +11,31 @@ test('Medienbogen veröffentlicht sämtliche Aufgaben und Lehrmaterialien mit un
  assert.deepEqual(f.aufgaben,[45,45,90,45,45]);assert.equal(f.minuten,270);
  for(let i=1;i<=5;i++){assert.ok(published.has(ROOT+'med-'+i+'-briefing.html'));assert.ok(published.has(ROOT+'projektion-'+i+'.html'));}
 });
-test('Medien und Programmieren sind von Aufgaben und Startseiten gegenseitig erreichbar',()=>{
- for(const [name,html]of published){
-  if(!name.endsWith('.html'))continue;
-  if(name.startsWith(ROOT)&&!name.includes('/projektion-')){
-   assert.match(html,/data-grade-switch/,name);
-   assert.match(html,/aria-label="Klassenstufe wählen, aktuell Klasse 7"/,name);
-   assert.match(html,/href="\.\.\/programmieren\/index\.html">Programmieren<\/a>/,name);
-  }
-  if(name.startsWith('klasse7/programmieren/')&&/<nav class="year-nav"/.test(html)){
-   const nav=html.match(/<nav class="year-nav"[^>]*>([\s\S]*?)<\/nav>/)[1];
-   const ref=nav.match(/href="([^"]+)">Medien<\/a>/)?.[1];assert.ok(ref,name);
-   assert.equal(path.posix.normalize(path.posix.join(path.posix.dirname(name),ref)),ROOT+'index.html',name);
+test('Medien und Programmieren sind von Aufgaben und Startseiten gegenseitig erreichbar', () => {
+ const seen = new Set();
+ for (const [name, html] of published) {
+  const area = name.split('/')[1];
+  if (!name.startsWith('klasse7/') || !name.endsWith('.html') || !["medien","programmieren"].includes(area)
+   || name.includes('/snap/') || /projektion(?:-\d+)?\.html$/.test(name)
+   || /<(?:body|main)\b[^>]*class="[^"]*\bprojection\b/.test(html)) continue;
+  seen.add(area);
+  assert.match(html, /data-grade-switch/, name);
+  assert.match(html, /aria-label="Klassenstufe wählen, aktuell Klasse 7"/, name);
+  const menu = html.match(/<details class="year-topics"[^>]*>([\s\S]*?)<\/details>/)?.[1];
+  assert.ok(menu, name + ': Themenmenü fehlt');
+  const links = [...menu.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].map(([, attributes, body]) => ({
+   target: new URL(attributes.match(/\bhref="([^"]+)"/)?.[1], 'https://example.test/ium-lernwerk/' + name).href,
+   label: (attributes.match(/\baria-label="([^"]+)"/)?.[1] || body.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim(),
+  }));
+  for (const [target, label] of [["medien","Medien"],["programmieren","Programmieren"]]) {
+   const link = links.find(link => link.target === 'https://example.test/ium-lernwerk/klasse7/' + target + '/index.html');
+   assert.ok(link, name + ' → ' + target);
+   assert.match(link.label, new RegExp('(?:^|\\s)' + label + '(?:\\s|$)'), name + ': Linkbeschriftung ' + label);
   }
  }
+ assert.deepEqual([...seen].sort(), ["medien","programmieren"]);
 });
+
 test('Redaktionell geprüfte Texte und Bilder bleiben außerhalb des dokumentierten Publikationsadapters gleich',()=>{
  const fs=require('node:fs'),dir=path.join(__dirname,'inhalt');
  for(const name of fs.readdirSync(dir))if(name.endsWith('.html')){

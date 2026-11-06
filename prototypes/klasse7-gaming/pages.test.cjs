@@ -37,9 +37,14 @@ test('Alle vier Lernbögen und der Jahrgangseinstieg erreichen Gaming, Gaming er
 test('Öffentliche Webfassung enthält keine internen Freigabetexte, lokalen Pfade oder Antworterfassung',()=>{
  for(const [name,html]of published){if(!name.startsWith(ROOT)||!name.endsWith('.html'))continue;
   assert.doesNotMatch(html,/C:[\\/]Users[\\/]|127\.0\.0\.1|localhost|Lokale Lesefassung|Konzeptfreigabe|nicht Teil dieses Auftrags|Projektgrundlage im Vault|Vor öffentlicher Veröffentlichung|<(?:input|textarea|iframe|form)\b/i,name);
-  const scripts=[...html.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map(m=>m[1]);assert.deepEqual(scripts,['grade-navigation.js'],name);
+  const scripts=[...html.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map(m=>m[1]);
+  const projection=/projektion(?:-\d+)?\.html$/.test(name)||/<(?:body|main)\b[^>]*class="[^"]*\bprojection\b/.test(html);
+  assert.deepEqual(scripts,projection?['grade-navigation.js']:['../kopfzeile.js','grade-navigation.js'],name);
  }
- const js=published.get(ROOT+'grade-navigation.js');assert.doesNotMatch(js,/fetch\(|localStorage|sessionStorage|sendBeacon|XMLHttpRequest/);
+ for(const script of [ROOT+'grade-navigation.js','klasse7/kopfzeile.js']){
+  const js=published.get(script);assert.equal(typeof js,'string',script);
+  assert.doesNotMatch(js,/fetch\s*\(|localStorage|sessionStorage|indexedDB|sendBeacon|XMLHttpRequest|WebSocket/,script);
+ }
  const plan=published.get(ROOT+'gamingbogen-durchfuhrung-und-auswertung.html');for(let i=1;i<=12;i++)assert.ok(plan.includes('G'+String(i).padStart(2,'0')));
  assert.match(plan,/Keine personenbezogene Reflexionsliste/);assert.match(plan,/ein bis zwei Wochen/);
 });
