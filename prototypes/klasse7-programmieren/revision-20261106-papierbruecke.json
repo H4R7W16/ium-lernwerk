@@ -1,0 +1,1315 @@
+{
+  "base": "afb6c61bdb237abfb219f62b07d513351e441f2f75a85c646904652459db41cb",
+  "date": "2026-11-06",
+  "scope": "G5-M05: Vierseitiger fiktiver Bilderbeitrag für den Werbevergleich; Lehr-/Text-/Druckzugang und Offlinebestand. Weitere Klasse-5-Seiten ändern ausschließlich den eingebetteten Katalog (Paketversion 2.1.0).",
+  "changes": {
+    "klasse5/lernstudio/index.html": {
+      "before": "09f6edbd5d7526a75dc85d96ef1f18abfc98c6fdf8572a0b715d10baad1f7334",
+      "after": "836d1535689a4d57f29646f26a05ff6d3dbc49691ef528e0fe039064c557a359"
+    },
+    "klasse5/lernstudio/wissen.html": {
+      "before": "6df2919ca14aea1275709c075cc5ab4f96814789adba3aa99929a36b712336a2",
+      "after": "e734b9984ecca0c3124effa2b5b00e0812b8abbfba02c8ea616c9d0ee524675d"
+    },
+    "klasse5/lernstudio/lehrkraft.html": {
+      "before": "43aeb8d2c51c3554a10d5cd7d579c67c149630bf62b11909c85998a873592f12",
+      "after": "4348534ee397ce3140844318389824618cde8174063d8334f212055aba821c9c"
+    },
+    "klasse5/medienanalyse/index.html": {
+      "before": "dceb2889298162a08048b31883e61b367e291bf1f9cc6f057fd230c23746cf3d",
+      "after": "71525ef8dc347776d2d8bed30420277070061f3c4c6c760e5e75c8ec5ef48c8a"
+    },
+    "klasse5/medienanalyse/wissen.html": {
+      "before": "f340f0bb54340707c052212e33c6b05e15ab90d99c22cb2577a6e10ccd148585",
+      "after": "fd76fbe29efedd206ce475112cac8b29e660adbd0c79f435bcd56397c9de972e"
+    },
+    "klasse5/medienanalyse/lehrkraft.html": {
+      "before": "004640dd8abbc4aef68d9ba676bcda5557025f2f3c9b299f661f5a0e59decf84",
+      "after": "f6c25081c67864ea2598a02dadc3997d4c22e7cc674b7569f77d78e8f4d799be"
+    },
+    "klasse5/medienanalyse/material.html": {
+      "before": "ab9915a07977351fc25ec4e188bb39aa173dc6dc9bd4289590db02ccca4cd6dd",
+      "after": "31ada656adec1e6bba7744099448de93b0ad912223cbf627de068216d542a474"
+    },
+    "klasse5/medienanalyse/baustein-eindruck.html": {
+      "before": "ba32693a2d43e69b5610e2091e642ec5b2505828b2d445ce5c30bbda29730969",
+      "after": "7915dc6d8762f9a2a9a68fedcc14861d26b5156684bf25496455c911172c7de5"
+    },
+    "klasse5/medienanalyse/baustein-wirkung.html": {
+      "before": "35b331db8357e33ffd082d63b1d8ffc8cd661205158233bd1cb3087c3ccd19df",
+      "after": "eddd9a1b25be9abd6d777a61486982108a2347afcb492943aa2679d43bc0ae25"
+    },
+    "klasse5/medienanalyse/baustein-belege.html": {
+      "before": "ba1affc229391d74deafe6f9c57eec04f4ec6597f6151397c64f7bb10ca43705",
+      "after": "b889112dfe31a1f5c5c079770e5d58f9655f60fdece876ca8012953e965c6c6b"
+    },
+    "klasse5/medienanalyse/baustein-gestalten.html": {
+      "before": "cac44d3493dd54856b2c7b09bf0639af4fc3bb8b9d5a058008d15be157e482b3",
+      "after": "df71a5715c3e6da9a9b8c1a5d73391ec68d0a7c5ae38becfd5648d160a036837"
+    },
+    "klasse5/medienanalyse/baustein-transfer.html": {
+      "before": "9be499770a65d5a756fe2c39ecb7e664f75be60bce8e92e0b0023be47d0c5c62",
+      "after": "1d88210ed7b1e5aeec417f4a353e755302548c88f4e104c66e94681c2e64c8b9"
+    },
+    "klasse5/quellenquest/index.html": {
+      "before": "aae08ce57df13267233e3b24feb2ef62fc950863004ca4528e61fc44ea7b9039",
+      "after": "1c4b7d1c6ea594768ed534dc2d791038a5146b0b1afc39682a4645dc6d78a108"
+    },
+    "klasse5/quellenquest/wissen.html": {
+      "before": "bd372e7c60a36e1b9855b7ba01df4158755e76755cee8a31a34e001f233b2aee",
+      "after": "d5d6b1520f60829456239194884def732f12433e3caadea3863e4efc2e808ce5"
+    },
+    "klasse5/quellenquest/lehrkraft.html": {
+      "before": "01fc53b6fb3f8d05fc99d7396c8dca31722cb9c7f9c734ddb9a293af2d88097e",
+      "after": "7bacc0280214f5eb74179a8c6fa256a4c0689e2c644c865e7171033fa8b5c730"
+    },
+    "klasse5/quellenquest/material.html": {
+      "before": "499f132f95b2c26371b085668a9c36ec007928c34465c75abb63d47932e14f7e",
+      "after": "a8ee96fb7b56defffa75f4a139aaaab8a7802c404683b45c67194745ff9d9307"
+    },
+    "klasse5/quellenquest/baustein-auftrag.html": {
+      "before": "9f3546cb8bb1908dc43483e16ea5e78e1b77049f0d9ef4e798fcbd3a75210dbe",
+      "after": "44f5490fff9165fbd41bf2ab079926ed0fb4eecda3bb5152918d2afa132a7a6c"
+    },
+    "klasse5/quellenquest/baustein-quellen.html": {
+      "before": "133511e1aa22855d6467306597b2394f1277874d38ac3837787459a10c581308",
+      "after": "4288217bbb8ed704e29b569865bf6ea860820dea92718eefc2c1a6270515a831"
+    },
+    "klasse5/quellenquest/baustein-belege.html": {
+      "before": "6f6db52545a58c5ebf6935450af45ddae85f1cc9be095a1a4c62742c344a0ed9",
+      "after": "4dfc43783647e4fd47be4c3667b73803dfc0553d0f33277bae96989364f040d8"
+    },
+    "klasse5/quellenquest/baustein-antwort.html": {
+      "before": "1bf22888038f89d8c940308d7ea4c8448d83067aad6c11c11fc038529de29cc9",
+      "after": "924a16a9c7baf94780bbb92ed9876663fec0d7a2f18e77c8785a5c139714001a"
+    },
+    "klasse5/quellenquest/baustein-transfer.html": {
+      "before": "7d2ab90c02420f11fe70cc0bd51c0ded4d58e80a3d812c7fb299543e8afef519",
+      "after": "f52c6f62a34009ae81eb0f6a2adab0144cd297ec41c3cac45aa2a6438be6a428"
+    },
+    "klasse5/quellenquest/wiederaufnahme.html": {
+      "before": "a642633d5ebcf0ba7a22149d236fb7d3f19b21a9f9ecc132c89287779be4b3a5",
+      "after": "6ab5665bb289d1ff1660f39dc6577cf953a7aac15516f613512edca7804b29dc"
+    },
+    "klasse5/medienanalyse/wiederaufnahme.html": {
+      "before": "dd7e121430d7d12804718015ab42cdbc4a5cc8cf6532cbf9f09aeab7ab2ecd55",
+      "after": "f62493bdd8e4c021ed6d6953024e111981dae750e54928ceb7d598511f7356dc"
+    },
+    "klasse5/lernstudio/material.html": {
+      "before": "54601a1651bcbbae8a08cd498f7913856baca5cd6bb9f2d1aa8e6d9159d169de",
+      "after": "397dfc396ff48616e5b6f5959b1bdfdc7b472674361ad932d921143515e81d98"
+    },
+    "klasse5/lernstudio/baustein-start.html": {
+      "before": "7027dba37ecc7a00f34ebf2438f933266324a549775d1303f4bb04684883f40f",
+      "after": "1db84733253ccb421a4175c9894d62d5d5140093d38bcc81db8cfa1f5f2f412d"
+    },
+    "klasse5/lernstudio/baustein-loop.html": {
+      "before": "22b5195d934740e02284310bfa3681b92ed088c634e92b70e9c252d8b7f6cc4e",
+      "after": "3a9f0c06fb457e0ffa96e9956b1401bea708e1abd3e6e1ea943183d41407e89b"
+    },
+    "klasse5/lernstudio/baustein-after.html": {
+      "before": "d7de77b1ebf2b2c149bdd308d7e656c7de6cdc5d1c3452fc73331ecf256ce6c9",
+      "after": "e2473772c91d735a1fbba9378a4ea0dda0eef34251bb08bc633f8ed32dd9728c"
+    },
+    "klasse5/lernstudio/baustein-repair.html": {
+      "before": "2104b503a69a4d101c1db0abd813bad8654699b3f023354cf52bec1b5eb77587",
+      "after": "84ea22b2465f4d808b60b90df57253993d645a4bf311e7e59d627ea4bf247b8c"
+    },
+    "klasse5/lernstudio/baustein-example.html": {
+      "before": "377a7c1e7c38d433f6aabbde95264d036fc950d748d2931bab81caf6767c85ab",
+      "after": "ddea48412351c6d41308d346bcadf5f09b84d502a73ed7c5e48f669e048e0762"
+    },
+    "klasse5/lernstudio/baustein-rows.html": {
+      "before": "e2feea97f995d54a38dde66fea849ef340cbcf237905b7d11c7cc429f1ac36f7",
+      "after": "dcfaa3c71c25c6cacb671f318027522e3ab73260147a643394cb967971543f4b"
+    },
+    "klasse5/lernstudio/baustein-switch.html": {
+      "before": "26530755802d932612d314ec5f3bad539bff18f88e0c70a1d62ad654702e021b",
+      "after": "3d3a9ba0c80fb66e43d40bd59994f9cfdf1fda5291ebf714e6f02e5fcc0e5027"
+    },
+    "klasse5/lernstudio/baustein-own.html": {
+      "before": "6fc4bf2ba0f8d685e0f69fe80d35ecdb25c3579dc3fb37f29d76c2b750fa5f4d",
+      "after": "948acc310d9612fa3bbf5049fb636cff7e00506f5b1b447a54c1eb367ebebff9"
+    },
+    "klasse5/lernstudio/baustein-check.html": {
+      "before": "da8591e6cd96247f9960d768096372305fb5bfb23d33756037eac1f286c67162",
+      "after": "14a4292fd9b095c7062020a69fd193554ddc944ecc3eb7ffdafee3b4ea4ffd87"
+    },
+    "klasse5/lernstudio/baustein-transfer.html": {
+      "before": "8488515a5d1bea4a26d72fe212b41e7f3098ffaeb70132753cbf80164398c414",
+      "after": "165ed95400f9fd6e934f936d26c7f916a4bde3a8012504a0165cd4d6abfeafad"
+    },
+    "klasse5/lernstudio/baustein-return.html": {
+      "before": "9d9aee61c60832e6a85f7aa62e94cd4da8374cfbb0d678cb0142434e0b0fb25a",
+      "after": "7b176fa4ea3994ab3319cb9fbb22dacf6e9815e9e534c6b39606352d2cd4fb70"
+    },
+    "klasse5/lernstudio/wiederaufnahme.html": {
+      "before": "ff17e48ab4c5ef0ea768602b1ce6237a29db57711723420c413b313f23e60434",
+      "after": "3546fb7b6ffcf79336c7045d08b1e17be0bfc91774d283f8b27d912d7df12642"
+    },
+    "klasse5/ablaeufe/index.html": {
+      "before": "458068e9d73b4d3fc7e0d9fb423758de95cf3ad0ead213e27170e088b4efe853",
+      "after": "25e56d9c18eead1a7045a6becd17e2a602340f67312f3b7d4a9c7656ab5d25fa"
+    },
+    "klasse5/ablaeufe/schritt-auftakt.html": {
+      "before": "ccb55d9cb1af484c8ef1514b1a9f59637b952b9f59a5126259f6dfbb1af60066",
+      "after": "7c77e5709a0d61392c2a9fd92f491c8e620cd55ee80575e4988814246b3c97c5"
+    },
+    "klasse5/ablaeufe/baustein-auftakt.html": {
+      "before": "755dd903952f799dc1347bf1b3d29156d16c8d1115439bd32aab381e39ce749d",
+      "after": "b0711defb5e52d65a61d632a67537ce733f94e10a07402328f5295f963dde4cb"
+    },
+    "klasse5/ablaeufe/schritt-modell.html": {
+      "before": "275f876ba51020f0692d37e17611dc7a4a523f4f1d748a781565276e8ed0c92a",
+      "after": "b8926150de7df8a5f85b3e323feb7c905bfb7d701aa2e0a1a7002ce6ed31afd7"
+    },
+    "klasse5/ablaeufe/baustein-modell.html": {
+      "before": "9643afa02c8a5b6c26048b6e996ab087b49d8cfe62531a2cb0e1a1e881bf7273",
+      "after": "e504140a15444e8777754c64a1ea20fc07fef0d96e922c94ef715140a6c30af0"
+    },
+    "klasse5/ablaeufe/schritt-grafik.html": {
+      "before": "a5e0cc98a889088dabd650b566b17ba4e3964d0c51a72c05bf90c6a4f8719270",
+      "after": "232fa924f5906049840bdf4e20ec38fa296f9f14e721d329bf9444b228b5719d"
+    },
+    "klasse5/ablaeufe/baustein-grafik.html": {
+      "before": "0741ded7a3e8ba35945f23359b957df70c58a383d09108a0a0d5f0a1c86bc664",
+      "after": "6e34639232345189cacb6eb6e19b5327798a5638487e6be8ff0cedde0c8cf90a"
+    },
+    "klasse5/ablaeufe/schritt-programm.html": {
+      "before": "748593af0a239e2b2ac74783caeebef7f008695d1e61ceaf6b3b8b8888bc8147",
+      "after": "afc510e1a855d281413fcb5e003f704161496e4c274163cdba45532d4bdcfc49"
+    },
+    "klasse5/ablaeufe/baustein-programm.html": {
+      "before": "fb03e271bcb878863f7b74793e7a6760373f71be6684f0d9f0d98e8a4d6ae31c",
+      "after": "92663cb699212d002b9b7b9abd6cdd364ee6a99905d2efffa7f1482e9b5fb391"
+    },
+    "klasse5/ablaeufe/baustein-programm-ipad.html": {
+      "before": "a3fced98d177e9392b2998d3d30e40ba114dc3219637859e0af4496dca2c5aba",
+      "after": "e243d64ab56acb892a65e9f6190da4f1fa2372f66f34368457fe71645a4b6502"
+    },
+    "klasse5/ablaeufe/baustein-programm-windows.html": {
+      "before": "8e3206b025df8079d2e6033944827709885f499b608851b549c2079841acc642",
+      "after": "4390e7895d68844c425c8a3c026975c31a451b9134d4cf3277fad5a13628ffed"
+    },
+    "klasse5/ablaeufe/schritt-entwurf.html": {
+      "before": "7970896793edf48aa501fabd81242e8a672754286a8bb81da08bc3b07ea62724",
+      "after": "f8fae61b42462f06baea90c1239860c69c677047162280216617d64ad2031247"
+    },
+    "klasse5/ablaeufe/baustein-entwurf.html": {
+      "before": "916711e1cc7322853f4f33e94a66d75be9cb5e9bd0325b51d09a52da0a34cbc1",
+      "after": "ffef341fb94b52f2f053e44e980e5b8158c3ee817b55df768798b82f0e979d5b"
+    },
+    "klasse5/ablaeufe/schritt-pruefen.html": {
+      "before": "f3f8ebf4ff664df45a5165483da83939dedf7caf6bcca7150114a93c57c22148",
+      "after": "25027691fd60c6233717e504de1246865b11ee752c2fe9c85b3eedee729c425a"
+    },
+    "klasse5/ablaeufe/baustein-pruefen.html": {
+      "before": "4b999f914296d806ba911eba5e3557eef85b6e5c34610eff8f3cc53ce794861f",
+      "after": "956781c59d604d781cde95f9714e652e6d69b7f9d9c3ca7d49773c75e918ddf6"
+    },
+    "klasse5/ablaeufe/schritt-transfer.html": {
+      "before": "ab7bc3ed3ac99f5254d203a1d4c82292bb92fada8a85bc3a62f0cdf3e484b69a",
+      "after": "5a50d13e416c52ed0e4f63e26bdba3ffbe367e1366a039fdce8e93b79d159d8f"
+    },
+    "klasse5/ablaeufe/baustein-transfer.html": {
+      "before": "2ff545de5bc67514a10f528e736b122e52fdd8cd4198d7f5794547d0c15fb5e8",
+      "after": "68ca10195c5580905f4b02a4d4bec3f1677ff05584937b868ee4c9e5c943f483"
+    },
+    "klasse5/ablaeufe/schritt-sichern.html": {
+      "before": "f1fd846cd99f9a9aed919a8cf844dda0ac26e3d2128e10eff58d8fb80bc3a60c",
+      "after": "13950740ddbcf3d4111fefdcc0c28326e5a687f14e92f160216a6b191556a0d7"
+    },
+    "klasse5/ablaeufe/baustein-sichern.html": {
+      "before": "ff477e11e287e9e2a7b16830c09ac1f92283c25ccedb55b04c5986f12a4647ae",
+      "after": "e1a5f5587e4ae4789e29b2a311d97362a5cffc9a6faff73d0d1e7d84d9036cd4"
+    },
+    "klasse5/ablaeufe/schritt-erinnern.html": {
+      "before": "641e6b3a0b862db0bab747cfce19e2a236d1d2aa8b5aecca9a13d549034e247f",
+      "after": "0ad0febf9646fbc04b92bd30da898d82947af1e984a3d397a58c8af625365dde"
+    },
+    "klasse5/ablaeufe/baustein-erinnern.html": {
+      "before": "1fac8dc1cf5ab9bf6444fd8e1709645570295ceb8394c3194634321eb1075c9d",
+      "after": "ccc14628af9909930f74a881939936d2aa88e5006da3ef8ec77a6b482c706959"
+    },
+    "klasse5/ablaeufe/wissen.html": {
+      "before": "7321bfbcc318ac19bb67e7e177dbce04c3676cf922fd374c3bb060d1749cea7c",
+      "after": "486445defa107d2f05ddfcbb81a89e71aacc3d0bf36e4f35ee27e0e784336476"
+    },
+    "klasse5/ablaeufe/material.html": {
+      "before": "99666072b49f42728d9649c3329f1f4adf2ce834c3986d7cd7ba26992df6db55",
+      "after": "a1c7066759e0c6f739c7072bc51703c18d767cf9986716c294fdf1eca4cc431a"
+    },
+    "klasse5/ablaeufe/lehrkraft.html": {
+      "before": "454fd390f495984f979a90eb0ec2f44ac04307e8d609f6a9f1ebd237dc097754",
+      "after": "8387e0fcf40d0e77e3302f79e2941c881ad3fe48f5f4113791d5ba3d866825fa"
+    },
+    "klasse5/ablaeufe/briefing.html": {
+      "before": "64e185af43b2df4c1168f3c42f5ab1988466d3907d98f5be356ff3775c41afaa",
+      "after": "9b622546f697266399eb57fb87ed488221e186b154df62f5da8ed5f2d6d7029a"
+    },
+    "klasse5/ablaeufe/bild-station.html": {
+      "before": "800a3703423c1bdfa16b663f48832f13a93c2d88f1b070d1e377d10f29895f29",
+      "after": "3b3e07751bcea4bce95587b7984889b851b16d33d580bf314e0a9144c3efaee5"
+    },
+    "klasse5/ablaeufe/bild-ablauf.html": {
+      "before": "c46095778ecc93c7240b7760a854f52d9b1ad159e7c254530f3926b34836ee27",
+      "after": "fa689b563b69e6c78163482a407941d7fe7565d29828e35ba7ab8573a40f685d"
+    },
+    "klasse5/ablaeufe/bild-auftrag.html": {
+      "before": "7c64c5ec4b1857ccfe5fc99d10531d11d4621926dfcae39f5413bc7138773663",
+      "after": "bc648f28c2b5a3655fef480e1d68675b835aff0ece9b4c761083e68d97880e9e"
+    },
+    "klasse5/dateien/index.html": {
+      "before": "2dcb114a271e2e62c7ca1a71185859f68ad4741609221826f30bdf249e01a545",
+      "after": "7f1e127406f5381ce227215a4a3f52c1445cdc99cb612f8058ce137ae3ebb54e"
+    },
+    "klasse5/dateien/schritt-finden.html": {
+      "before": "3e3d524dd7f63c435a3902e870c4afd414f5ff405df65e9543aef75208bc6b17",
+      "after": "a76c29c7c4d11897acd08237ecc0a3530957880d325bd0b586e900dafb48cc9c"
+    },
+    "klasse5/dateien/baustein-finden.html": {
+      "before": "e1478bdfd64a0988c57025f6ad9dc2437946f7fbac2ff0bb0265bc5c8563a021",
+      "after": "36b99eca04cf8261e62e70e5d4212c832d09b4ac9df1ba124cb953491af08862"
+    },
+    "klasse5/dateien/schritt-verstehen.html": {
+      "before": "21b97f65865ba5332c5cf73bfea46662d749ea409ea138a96afb4be8ea3b5aed",
+      "after": "c544257faddc101777cbb85af5f929ce864a340a62e727f47b7bbd16627bcffa"
+    },
+    "klasse5/dateien/baustein-verstehen.html": {
+      "before": "3b34d3772375187111b7270934543e8e6ac628413e9f030b62e05bfcd71f1bb3",
+      "after": "dd3ce34693e2ded89d70df3baa1ebabd87f8182c2e08e824b7d0b1da79edb63d"
+    },
+    "klasse5/dateien/schritt-planen.html": {
+      "before": "a37d448267038a6a84c43d319eedc8ecff86abb228e0ae043bab5fe82d320d96",
+      "after": "fc428bd06e1e6fa7ee54da552b348fe49d9b3538b3f9109cd177c3a242ee72ff"
+    },
+    "klasse5/dateien/baustein-planen.html": {
+      "before": "92a23a8fde2552c447e9463ca05b112d73481191384c495f05d7c957e183903a",
+      "after": "4e278aa131a4cd6a39a1d03954976a7b5ed622ee2a852df92f771fefe009b622"
+    },
+    "klasse5/dateien/schritt-ablegen.html": {
+      "before": "57756b7f36ff3049cde23139f572fb68747ef02f0900440fe88df3fb98179d39",
+      "after": "fa501ab22eadf4fb5ef18d7a5ae5fb4e85f356fe275215829bc89093ff39d0a8"
+    },
+    "klasse5/dateien/baustein-ablegen.html": {
+      "before": "a492406dbc9d1379bc56d723471d727a9ca6afe8bdb09c072b7ba9c5a52c43d5",
+      "after": "e91019a1ec1d2e0b244bac23bc1566d3d82d14324f4c500669cc61d345022a59"
+    },
+    "klasse5/dateien/baustein-ablegen-ipad.html": {
+      "before": "a323d73f57098b8bd34e9576b87b1a89b8f6f128139b37a6839481771bc1abce",
+      "after": "87a58902156325eefbaea485163fd4319a4e9458ad9cbd2b9717352158a3f82d"
+    },
+    "klasse5/dateien/baustein-ablegen-windows.html": {
+      "before": "46d3cce69e8eca8d3ce5dced8c12a4c2876fa65b1874b2c50a854e5b4674efe5",
+      "after": "ed896e64558e19df6bb759c7cb2988f04e1e9dae404a795fd04d0fd7fdd47a7d"
+    },
+    "klasse5/dateien/schritt-wiederfinden.html": {
+      "before": "5629afe0d738092b0187b8f94b4373f5c9404c072afe8f038b5319e37eaa29e8",
+      "after": "d990b3da5ab0d04d6ece366b94934fe240282043be22f08963bca7923a2ed9c1"
+    },
+    "klasse5/dateien/baustein-wiederfinden.html": {
+      "before": "25c0ea2ceb5062dd9b3220dbe8ffc811a44d67b7968a453d05b6aa8f29089531",
+      "after": "3b0f160f9ec5629fb1a296cd67fbfc4a8eaf6f183b0956b82710179da393a3a2"
+    },
+    "klasse5/dateien/schritt-transfer.html": {
+      "before": "7789d6d631dabd68acd64049e80afc9f249f3f55ec449add83da9b26b14dd620",
+      "after": "1ede241e97b28c06fcdec4b6a51e334095de42f93a809c66423a0b6045871c1e"
+    },
+    "klasse5/dateien/baustein-transfer.html": {
+      "before": "2789452fde4489baabcc39717c790220d44726df4145d6e62c33607d390ea99a",
+      "after": "84f39edbe525f67470905a86ae1333e23f8a14ebcc169dc18f6a4854b18f013a"
+    },
+    "klasse5/dateien/schritt-abrufen.html": {
+      "before": "3ace58d2fdac01fdc86337fab75de61742ba304ec85e0c664cbda665def44c24",
+      "after": "e6203ca157dd2274bb06662b3dff5c047e60c05965a26c246705263732e6afa9"
+    },
+    "klasse5/dateien/baustein-abrufen.html": {
+      "before": "0d5bc72ac086abb897aba8edc48421a3f72bc256e70b03477831945fd8701519",
+      "after": "159951c183ee93c655507bc96306ff3c15c37f85ce39662cc95c293dc6758bb5"
+    },
+    "klasse5/dateien/wissen.html": {
+      "before": "d5563c8aeb608f12d05fc40692476fd4877e6dc57d814aa75b065c25310c8348",
+      "after": "c8ba53da44b7c3ae4e3570ecac64948325965b82de510decdde5f93de530a95a"
+    },
+    "klasse5/dateien/material.html": {
+      "before": "7d0b074a6581a8b72c4da5d7b4fca999e884ef85cd3db40f83bd651e01163318",
+      "after": "18b73bfed1f38a1022f825ece83915a34adbdf8eec29ca5f97cece5b0e9b8ab9"
+    },
+    "klasse5/dateien/lehrkraft.html": {
+      "before": "98163a20add39b2b49a6fc70f2928d3e2ec6a78158d102b886f54c64c7624f0a",
+      "after": "14b153b2c34586b6bd6ac9a42c066770ac2fad2f6627e72923d6bf1e58076e69"
+    },
+    "klasse5/dateien/briefing.html": {
+      "before": "9d093dc3536c958cc1b4ffc73faea1a1c789a56eabb733347a9a3d85a0f65489",
+      "after": "32cac9eede1425d1ef197a3c9973f740769962ff3be54cab64faeaee6de7bd8d"
+    },
+    "klasse5/dateien/bild-ablage.html": {
+      "before": "2b7b2ca4b1c6e93a8d7d3eda2b2224a18011fe378a513dc067863b2ff59ccd75",
+      "after": "a0fe3da6b0af8ba8a38aed9c04488c038ac3b93c58e86ceec0b7601bff34137e"
+    },
+    "klasse5/dateien/bild-ipad-weg.html": {
+      "before": "b99a898474f4d9fc95e0ef7634e500f4c08154682387e0b8d1f7200e549acaa6",
+      "after": "e5ec2d71fb043ed079190ef1391d666a0a8cbbe8e1d34996d55c92d8705f4746"
+    },
+    "klasse5/dateien/bild-windows-weg.html": {
+      "before": "a8f649d23bb0fc3e7354cbd1a5e2acd254207b7f001237d4365930dba63ba467",
+      "after": "196be0a5da969baad225bdb6948eea6e1909f47e3b8a6cced30c0f25101d6585"
+    },
+    "klasse5/dateien/bild-vorschau-datei.html": {
+      "before": "110847e40221bdbb7d3c5bbf1b6fc73758c209ec4a8348cf15cd96b141ccf9e1",
+      "after": "5bd8bd304cf6e190a5ae8a9f8d0acd23995112016c8388d65c87c7463b5f931d"
+    },
+    "klasse5/dateien/bild-datei-aenderungen.html": {
+      "before": "1c489b3c8a519ce85314839795f1ddb002bbc75aa6e90ddf0177722689ee3745",
+      "after": "467e34dd3de921a4a201d42732511854af461072809dcc1307184cf0901a00f3"
+    },
+    "klasse5/geraete/index.html": {
+      "before": "4fe888926864d8b4028556938d06ee17734489252ac47f9e539fa4a99d3774db",
+      "after": "78544fbe8c12436d70536322e166a103c3c6fa9185f66f412b11410bfd8b8646"
+    },
+    "klasse5/geraete/schritt-auftakt.html": {
+      "before": "af3684c6ba3d31f333f5a6760ec4524128d0b87b8f4e42bb4abada122c02dfe6",
+      "after": "26b8bec0f1d410bc403649fb02ca9490b07aa0d153126366290f508e79ffb7f1"
+    },
+    "klasse5/geraete/baustein-auftakt.html": {
+      "before": "8167eb4512dbf053fb0f2c8341d630fa2b0a5c8d81231c5512e9fa39637c5b6c",
+      "after": "83499f60783e53e5cb6e274b3b8188f0943b9506d683d0aaa8901fa8d5ed10c3"
+    },
+    "klasse5/geraete/schritt-modell.html": {
+      "before": "95080cf16541d81d8b08572dafc32d888e380765cb9ff5f044abf1efc26c6e7d",
+      "after": "b4c8ab4b96caa8a4ae3e3119ac32f3b6617d7d2318a5a1c50af477c1506d773a"
+    },
+    "klasse5/geraete/baustein-modell.html": {
+      "before": "172866c573f84cc81603ad092ef19a551eed10c2d0ae29ec87dc061394ca525a",
+      "after": "7ad42e0d13cf906de53549e03fce5232ceb703dfe973534fff3aedfa0bca4f4b"
+    },
+    "klasse5/geraete/schritt-geraet.html": {
+      "before": "b4f147d53ba7685e7daef457c0c8f503c3786d04f6cad1eadb932eb34880083e",
+      "after": "1290e99a7c239e5734d0409a5292119a7ef021afd9a169fe050002aa3ed7e9ab"
+    },
+    "klasse5/geraete/baustein-geraet.html": {
+      "before": "977ce274bd8e83c51e9345732429c5de1620206a011aa25c82d9f7a615fb616c",
+      "after": "602f269fec9fad36f8d5f6f2eab6d2a0a7fe6879da796962b08a955549cd1afe"
+    },
+    "klasse5/geraete/baustein-geraet-ipad.html": {
+      "before": "da344a49e56d3896a08d3ebfdfed79ffabb2438208a2a99819e3f870bc9b3cfd",
+      "after": "fd76d0dbe61e6d1161c0c6571d0130b898f5908f87bef77e1342d14cedf107f5"
+    },
+    "klasse5/geraete/baustein-geraet-windows.html": {
+      "before": "2b05fc1bee7ffdfc269c3f08b66f358bc1a2adf5b9712e131a2d1eb0421ded48",
+      "after": "d9dfd9aa9371ef080ce643c9867c1a766c88b35aad74b5055638f31f1d7aaf00"
+    },
+    "klasse5/geraete/schritt-neuer-fall.html": {
+      "before": "b26e8905bffb4ff2a940b851a5034e059d282cabcc9f9e88fb081449ffd28782",
+      "after": "aeffe1dfe594eccbeb9435a376842a6716c43f63c3a64adb5acf43bf192ae67b"
+    },
+    "klasse5/geraete/baustein-neuer-fall.html": {
+      "before": "690122a3e6fd2307a6d12d7e69be7277bc71545282f17e66040fa40bc08b4193",
+      "after": "0896972bf2d3e3f32de6bf948173b565ce360d1cc0a406ccc2de563c9287b11c"
+    },
+    "klasse5/geraete/schritt-wiederaufnahme.html": {
+      "before": "34f4c1a0cdee887fd5c48c8b8bac92b692c4b26a81befa96c8272667eb7f9ac7",
+      "after": "c40a6a0c8d94fc01fe3246c83b2c4ac8c0fd3068e6bfd1d91b8173cc7dfe4331"
+    },
+    "klasse5/geraete/baustein-wiederaufnahme.html": {
+      "before": "10b60426a577117cba4dc073c9eb86d5858b6dca66f4e00fb4cb18178b0e1d35",
+      "after": "08b3ca9d46a6908f907d5e8a5f6f93155eb8d0c7775e27cce5dcaf992ad46586"
+    },
+    "klasse5/geraete/wissen.html": {
+      "before": "49e8ac80d9fb66e814326758840cc3f1af3414a969c0eece1b0ca23a50b57051",
+      "after": "b3c779b03dcd2cdfb1315f6404ba12612b7b97a28b3a08607cfd0225f67ac2bc"
+    },
+    "klasse5/geraete/material.html": {
+      "before": "f08635399d7037509247649a0dd499e6b6c6cfe7ce8d5e3a91489d8913c5bb80",
+      "after": "a5548c9fb0b7f668a5465aafec1842d3c067613689e39fd8c78576d3849f7924"
+    },
+    "klasse5/geraete/lehrkraft.html": {
+      "before": "3b6f77ea2d0ad256863dee87cb7565b13c7716dff46c844a838bb27222e22fbb",
+      "after": "cd1918bb89d00b55b80d9bafe58690836d7b3ec72ffcb63cf449fc185a20cbf5"
+    },
+    "klasse5/geraete/briefing.html": {
+      "before": "e7c29977b0d7dfe474fa2563566748a3d21cffbdd5dcb8d49f9348f353d153bc",
+      "after": "267dfcfbf8ce646595700c0f436016df6b0b458728018c4f7480503638e7349f"
+    },
+    "klasse5/geraete/bild-schichten.html": {
+      "before": "f5b125319ad342c78f308a8356b31797f0407d5df165a381971a266d211deb6f",
+      "after": "8120ca3534af788a3f3c26c37abb959b1e30279783aefedd31af1f086d0c72aa"
+    },
+    "klasse5/geraete/bild-rechnen.html": {
+      "before": "6b73df997d6f62b62d55f896236a6ba07ff352b51cee60d1e13f7252c638a834",
+      "after": "5ed00217a0215dc93adb19c7d0cee37952840bbda3070c58d4cb3ae3962dea55"
+    },
+    "klasse5/geraete/bild-browser.html": {
+      "before": "659c7a602d0eb06bba32bb60aaabe752f04fae4085843425dbe102ad184c2cea",
+      "after": "be5c27254167c5fde52868d7b377dfc315d39b22eac89ed513bc9e0e0449a533"
+    },
+    "klasse5/geraete/bild-browser-adresse.html": {
+      "before": "073ffe7208e12e4a7700ba2f7e5b1233ad6488b58c242a10aeefa81c8c13f365",
+      "after": "8fefb095ab732dbd0f0d766f13118322408068e8b9c7871a7c0a7a15a7184288"
+    },
+    "klasse5/geraete/bild-schreiben.html": {
+      "before": "ff90f500de8242a372877bc003a1676aef97804250d773ea691d46cc8cb072b3",
+      "after": "76fcd96d9ee758cea744c5024a374ffb60f1075abe5600c55a96fb1ce48ef63a"
+    },
+    "klasse5/medienprodukt/index.html": {
+      "before": "280373363434bde4097fba574b45bfe9e99ec5a246ee76c9aa88ff091314631f",
+      "after": "fe0b2e64dfbcd399639dbc6604365ee68679833950b46e21bb459d6d54edf40c"
+    },
+    "klasse5/medienprodukt/schritt-wirkung.html": {
+      "before": "5aa2f35aa47dd8ccd0e7e7c0582abc6d062ec5d355771267c906afd13387f357",
+      "after": "5836ef3e2880ec0e4b981f988b2329a3ced9c32bc4cf850db2a78ccc7160c854"
+    },
+    "klasse5/medienprodukt/baustein-wirkung.html": {
+      "before": "2a6394a308ea4fb995258a55c67488f6674674e160fb7a116ab897069fd42a7b",
+      "after": "357fbbea2c3bc2eb96708c960be2b5d593dc240e95e51bd1903d8900f82fa981"
+    },
+    "klasse5/medienprodukt/schritt-text.html": {
+      "before": "2513cd13035468cca8e80c8c45d9ee0478c81e8fc7c58235e69fbe14068085fa",
+      "after": "e5aa2b0d59a7eaba19bb2b014889c1859169a5fad9b34135da57d634d0d05f07"
+    },
+    "klasse5/medienprodukt/baustein-text.html": {
+      "before": "2e0f97c915b9e2cee4b51eb313bba82ee1f61f203c5a0de267e30f1a6d8be0ee",
+      "after": "43d9c8777ec1393a10a79c01d6337b1900b464d455ad0d4a9909a0de2c0431fa"
+    },
+    "klasse5/medienprodukt/baustein-text-ipad.html": {
+      "before": "61951910be001e06923104f949d8fdc01e6a0a780c545e0ce3db72747c17dcc9",
+      "after": "d2d7b0b6302dcf79fa530645dea8f78694d95be87f62c601a0d5d9e911cd9ac8"
+    },
+    "klasse5/medienprodukt/baustein-text-windows.html": {
+      "before": "71c6ab7f3ccc9ece4307725106285f6bc7ee3e3ad9540d5850f197468e5e02ff",
+      "after": "951ed7fbcd8b2aa19b4195e535a7981572f07b5fc47e48c61b8f653e09be2a44"
+    },
+    "klasse5/medienprodukt/schritt-objekt.html": {
+      "before": "8d8e95caeac7e0e2b45b327c4de52a41838325dccbedee3fd8ba642deef2b0c5",
+      "after": "7f20ac837ca665669aa2635582f4ae5c1127452abf2ee0b1a0da32ae986dcae6"
+    },
+    "klasse5/medienprodukt/baustein-objekt.html": {
+      "before": "68bb84c8241c7405ece6fd1bb4d20fb2ce32ecbe95a5f84e58704bea6cff5ccd",
+      "after": "b3c18e7005eb7f8c268ac40b53fbdf534ae45981e831928a9dd5d03629d5b89a"
+    },
+    "klasse5/medienprodukt/baustein-objekt-ipad.html": {
+      "before": "14269d7c3a11ef60d079eb358ffa749ba0df2c11b9f447ceb51dc3723263ca15",
+      "after": "ccf642411d0d8b9a2a91c21034bf1a3f3123acec742881845b46aa9b3e80e021"
+    },
+    "klasse5/medienprodukt/baustein-objekt-windows.html": {
+      "before": "4653dad217d31ef1f7c850e64a1d2360922484ba42f61042c73adb7c4b1c85a9",
+      "after": "4e7091c2aa1a90eca61c9a65fc491f1184cdd33fe5489c3f3310d6957d459274"
+    },
+    "klasse5/medienprodukt/schritt-planen.html": {
+      "before": "1bac0d1afad24d92573a1dbe705a7ccf61cccbd4fcb5739fd4ca71ab255ec226",
+      "after": "ceb0170667663ba38add3fd6f5729f6cb9ddbe892ab338774d2c888df03dd3e6"
+    },
+    "klasse5/medienprodukt/baustein-planen.html": {
+      "before": "0330b5a3cab4d8abfaadf0462eb46d8fdc414a111ea9a356bf6a52c66ef9ecc5",
+      "after": "eb00ea91543f2419f99b95ef6907451ecf9810137520d065a6b7c2a257438720"
+    },
+    "klasse5/medienprodukt/schritt-gestalten.html": {
+      "before": "e9ebb62ec2b2d2042b3cd39d5b12d1df92de73c4a8f5bbfb4aa314ba3d8c3088",
+      "after": "e4be1524c1633d28fa6c63c287a8512076df311de4a9b29b42c927947ea524a8"
+    },
+    "klasse5/medienprodukt/baustein-gestalten.html": {
+      "before": "af62028a85a2a56401451dc464cb4cb0b93ec75bbdb5571d837822eedfd2ecb6",
+      "after": "4b13ec97d39c1e69d3e518e6c8761a5d907dacd979537435f6bcc888e5ce6521"
+    },
+    "klasse5/medienprodukt/schritt-austauschen.html": {
+      "before": "d58ae816438ebde34b41ca945ef14d156b74ea121d6a94f6b2bfef6deede25b0",
+      "after": "2cf0df7d3b4b535b95c0baa753318901911bd13e092295b14e326105aa9f43f6"
+    },
+    "klasse5/medienprodukt/baustein-austauschen.html": {
+      "before": "ba198b6380a744b6962d28dbe4b609c7393383f618138ac5fde92b7dd850a8fb",
+      "after": "d35de139b09e49b1b68aec3488f9a3dd1fc6ff583b12e7ac842ddde40d64bfdf"
+    },
+    "klasse5/medienprodukt/schritt-lesetest.html": {
+      "before": "d05e4ab736d89974ffed75eb75212aa7c1a2843d74ab806c1b7ae791dece6b69",
+      "after": "4c5c9c5a935060ea1a1341864b8b5e25d71994e10721f5c1a4b295e19cbf78df"
+    },
+    "klasse5/medienprodukt/baustein-lesetest.html": {
+      "before": "cccd7eb1f6c5a852dfc58f0536d3d317ff583309a66cb64642430278379eba2b",
+      "after": "9433addc5f8c1b226e320a37324a3ff919dca168629d69a8b8b87c3eababf8c1"
+    },
+    "klasse5/medienprodukt/schritt-ueberarbeiten.html": {
+      "before": "03ebcc7767f2bf599fe3625a8e15151bfa1307b5e0c28afd51a76b9781085484",
+      "after": "24bb4b32d8e61e64db356a4e1d90c7b1d5346bdc7ba1c60537f0c61b86248800"
+    },
+    "klasse5/medienprodukt/baustein-ueberarbeiten.html": {
+      "before": "bec48d95bd54bb16ff64706c0743d3a47dc09c002121f1d0b37a307141105d70",
+      "after": "e14225915190521e966fa189299866f19ab5fc84857a31b7b3f65c9a969d3040"
+    },
+    "klasse5/medienprodukt/schritt-rechte.html": {
+      "before": "862a41bb46e95bb3b360a31cfe604b18033bcadb27bdb5b3e38d6e834a670927",
+      "after": "41ccf75738162c05e9cf234b47cd33612c7a455b5505809b22294f25410c0f89"
+    },
+    "klasse5/medienprodukt/baustein-rechte.html": {
+      "before": "4cf9d551466f200368c4ef49deb15d4f7f1737f64485921dca092f7e54a55b83",
+      "after": "352bdf0356bf1fde8749d016d40a60b9e437931c7750c645a092f309890fa8db"
+    },
+    "klasse5/medienprodukt/schritt-dateiweg.html": {
+      "before": "d072f7acea069581f9587cffd7232613b6a14812e143fc1fd366df38fe72046f",
+      "after": "fc3c38d7850e764af65fc26dc13274b3cc09820d272c17c5cd3cf1a4b3ccfd2d"
+    },
+    "klasse5/medienprodukt/baustein-dateiweg.html": {
+      "before": "1320f053aaa1f31401f1720ebbb0ddd01314445b42546579fcc2637d4cb03032",
+      "after": "b18d338b272fa41edd024ae2775c3652312aa2fa6edd9d902c36c647758ab3a1"
+    },
+    "klasse5/medienprodukt/baustein-dateiweg-ipad.html": {
+      "before": "14c2c7fecd32d42c615d47a13bfa2bc80171c1649b1f163a6aedb2cfc9a41aff",
+      "after": "64b1b3d8b39f00cce493181863a06bf064f32f33f2fc664bf1f571c1cd9ad1e6"
+    },
+    "klasse5/medienprodukt/baustein-dateiweg-windows.html": {
+      "before": "31237e12ce2a4d7061ede78e534465083bfbdfa8b88affd2aaa8971ce8e46cc7",
+      "after": "614f39c6a87d54e73f647ca8a2a2623e2e5aa303b9c855ef151a57c39baa9535"
+    },
+    "klasse5/medienprodukt/schritt-vorstellen.html": {
+      "before": "f7ae741065b8767c807474c81089065dd7cd97dd0f11651251daab5cf715a671",
+      "after": "92df99a615ffaa4d01191b55dc98de6ed46ca5d0a8e0846c4f67847b6d7d05a3"
+    },
+    "klasse5/medienprodukt/baustein-vorstellen.html": {
+      "before": "2f99414526fb7399dda1238f211065b971cdde97d77ee8025cffd8ec9711809c",
+      "after": "95035944c5664471939e64230b37b8d4fe6e6ed44904d7202e3bd08abc188648"
+    },
+    "klasse5/medienprodukt/schritt-schulraum.html": {
+      "before": "6ca6e1c744c04fb399efd7b610c4029697170147c54b5a5b7402b90587894e58",
+      "after": "00430142eb15c3e943ea52d39b5a6a94dc6078a45d51f0973afe791cb15bc210"
+    },
+    "klasse5/medienprodukt/baustein-schulraum.html": {
+      "before": "00e60138a13cca7e5c72bfb91c0ef77f556cc99ebf00281f180f059aaea36209",
+      "after": "652946e3e251b9f9e9d96763a1eda8faa75c37c8676c6120c5aa1e77ae81dbac"
+    },
+    "klasse5/medienprodukt/schritt-sichern.html": {
+      "before": "9fdeecf12e9f898bf60a2f13f77fb18bb2f4ab937c920513d00598d31b6766d1",
+      "after": "71d270a43f5bbe183fef3ee48b374c79d130a7f3edf27fc9f801e31b89da881d"
+    },
+    "klasse5/medienprodukt/baustein-sichern.html": {
+      "before": "84e8e1540ec252aa0f7cea1ab129e6d8296d6654f86e0649daeee6d9c3cccd32",
+      "after": "e44f970fe1d48c78bd7b1f66a9b7b5e6764b45d0a0da0ed99f3bdb5efabc5bf0"
+    },
+    "klasse5/medienprodukt/schritt-erinnern.html": {
+      "before": "c1b2df7a8252eb055e8baa1745a7cc47aa3bd18a99bc6c16620f4abebe2ab049",
+      "after": "9b2c9003a2507cb1302d4435a7470aee1d757828a1006afe7af30a52c21f2ee1"
+    },
+    "klasse5/medienprodukt/baustein-erinnern.html": {
+      "before": "9c2667e085d0a7339cb115923a163a9d166803773d7ef1a335b70bc8868914bc",
+      "after": "3192a4c5847c53c96bae93e722c50dd462825e70509397028635f16bfe91b34d"
+    },
+    "klasse5/medienprodukt/wissen.html": {
+      "before": "ce7835d5fa10c12b1db2cf9090b418b701b4b1803fb939c7cffd71ac553b2c04",
+      "after": "605821d529c9873aaa59b953e614a8f75d8d2e48b6d2b2c43c20cd335f34b923"
+    },
+    "klasse5/medienprodukt/material.html": {
+      "before": "49cdddd551af0b10b4a7d67265a6718267d78071d9608e4700e471fafffb305b",
+      "after": "70542b0ba93943545272a76c21a977a77fcc29535c3717124f2c70b0fa71596b"
+    },
+    "klasse5/medienprodukt/lehrkraft.html": {
+      "before": "6dd8b17e8a4459f56d0817b90511320024855431e419584a7ef11781a2d17530",
+      "after": "d9f361f1465111ae4eebffd8ca589c57ee1c7ceec232a7eb1b0c56feaff701c1"
+    },
+    "klasse5/medienprodukt/briefing.html": {
+      "before": "e9e85389851e1109b194aed2997bb0bec665aa0a691a7577540462626697657d",
+      "after": "166186e7c3aa3d7a988b1db29b2cc0db239cd2080a70448244661b653768c715"
+    },
+    "klasse5/medienprodukt/bild-beispiel-a.html": {
+      "before": "84f53ae49fa1840136ac05aa110333651c8c2a8a08098246fbb289bc4d16b4a6",
+      "after": "fb7650ccb889fb1cc02f5622c68651dc001bd78bcecdc473e3197dc43e727fb2"
+    },
+    "klasse5/medienprodukt/bild-beispiel-b.html": {
+      "before": "68ddb24ce135b82cbe27904e8f43485b3e0d2eabfc6a8142690d75c50c10030a",
+      "after": "ba6ae03fb33c6cade405d629bfd92d96bd59647abdac301e1841c650e5847062"
+    },
+    "klasse5/medienprodukt/bild-mond-vergleich.html": {
+      "before": "26b6781c847e32b3460adb6a4a1007252938638ecacfd6eefe00054e55733108",
+      "after": "48eb5473eaa78686953bfe9124df1e417b66c579360a62d4982ced19d0064a8f"
+    },
+    "klasse5/medienprodukt/bild-wortprobe.html": {
+      "before": "fbd7decb28b2b2c6a007c75aef03a264a0422cdd80c468f31f68cec8585df97f",
+      "after": "74ac1cfd9fa10637359dacbc31ff15e445fab4293804d0530d0ecc1aa9537dda"
+    },
+    "klasse5/medienprodukt/bild-absatzprobe.html": {
+      "before": "a8bf69af7ca6d6936c08bc5fa68cd41d634bb5fe083732e26e68bac3b580d4e3",
+      "after": "2e3eec7642a4e991adfcd407dbd8a3ed9ebf8c127cadc8b13668b907b98c9151"
+    },
+    "klasse5/medienprodukt/bild-umbruchprobe.html": {
+      "before": "6553522e74b8e4185741ef14496112cc9cd425fb2c611edcb07d267ef7e09993",
+      "after": "f1d097d77b26cf4b35130e8805a9f16351c21938b770198b66b200112f32fcdf"
+    },
+    "klasse5/medienprodukt/bild-weitergabe.html": {
+      "before": "770f2cfbcb2f709ecc025c4832af8757e043d6560c4dee71cfe77743e07753e9",
+      "after": "36f33febe83595fa028f17144549a1ece0f80144212f88931fb7e96386c26995"
+    },
+    "klasse5/medienwirkung/index.html": {
+      "before": "2c3114d22f8dfde294902bc882e9a9a3363f9c2a9e54821c74b26a8f3c660925",
+      "after": "fa7a540549f32715daf874a556a819ec4ea73328f1f46c2a9b2cf87fdd3f1972"
+    },
+    "klasse5/medienwirkung/schritt-werbung.html": {
+      "before": "5ec9259f686a82e8139de40379d75a7e0b7bc06121bacf5f0917486e38640a6a",
+      "after": "e15b28030ecb605e587b2e29a954e4f59a354ab1728e2b23a4ef42b0f846f7a4"
+    },
+    "klasse5/medienwirkung/baustein-werbung.html": {
+      "before": "ea704c0502b492f3bc1ff7c0e703a06957ea25da0cb05648cff9817b3c14e4f5",
+      "after": "e9fec401c7224907b012f9b21d6dc0d1c0249521c44826605101b7b3715274a4"
+    },
+    "klasse5/medienwirkung/schritt-bildlabor.html": {
+      "before": "12ba3c45b6dfa20de951af2e5383a81e830af6019a723f31f0c7e20ca6267f8b",
+      "after": "6b493191c2396fa75bc2d3cbf5f9c7c0502e3b83da047350187ee5af886f76b4"
+    },
+    "klasse5/medienwirkung/baustein-bildlabor.html": {
+      "before": "ee6af1c31824ba647a51c3d91f06619f83b2d6017b44111ae5f3fdb061ad1d8f",
+      "after": "a73e48872fc52e9c0eb5da98faf0aaa205eea86eb913b8c0e9ce71606686bc85"
+    },
+    "klasse5/medienwirkung/schritt-selbstbild.html": {
+      "before": "ffc8a271ec336c89e0b70dc155f810995c55d0372dc75e15ce852ea5cf181e0f",
+      "after": "38e310618626e57d30a0133ffc7c6d540de465ecdec67a700b5d9e9d13d006e9"
+    },
+    "klasse5/medienwirkung/baustein-selbstbild.html": {
+      "before": "c82e9407dc47b600043f12bf022b91b470f01aa2c83f974366d6ce0da036789f",
+      "after": "a50f8c4de4fbeff58a79a7a039e7b6c73d6e7466d830fd45155e52fdb613bd8d"
+    },
+    "klasse5/medienwirkung/schritt-gestalten.html": {
+      "before": "e160baa075a9f4fe61d3c68794527f558a531a42dd26c3d8a72484adf34f7a8a",
+      "after": "15002ebb36e74098c0ae53fffe533da806cd2d255a0c41607f1546d629298851"
+    },
+    "klasse5/medienwirkung/baustein-gestalten.html": {
+      "before": "b0bac7a0083277af7a6c310382f1dbd9610982dadb526b5e6f2682e0f8d86ba6",
+      "after": "3c4580ab053df70bb94fdea8f5a89af7c38430373ff09e77812f2920b3b18be1"
+    },
+    "klasse5/medienwirkung/schritt-rueckmeldung.html": {
+      "before": "67271d1f9343a39c94cd286e3b81a53542688417eee96eb874ed8ae77e258994",
+      "after": "e4b3eeb8fd11a5e21cfac2ca7890f7af9c29916d09b046d232b044ba59151835"
+    },
+    "klasse5/medienwirkung/baustein-rueckmeldung.html": {
+      "before": "360bf760f4b6aa46431c0efb2c5b7c5d1b5955b6760adb745bc20fdbae5a9d60",
+      "after": "f6cc23f1f3b2d279cd1d4d4347613325e167b0bc2f8dd3ea4ca2be6d20e6f019"
+    },
+    "klasse5/medienwirkung/schritt-nachdenken.html": {
+      "before": "343cf1e0f17deecd2017eee497a72f3d93967e2c3a7f82d2e17da5b2cdab67d8",
+      "after": "7777ec8b0245c929fe2088fb2f4dd1dc448685ca68ac8b3ef2d2937937dc0f05"
+    },
+    "klasse5/medienwirkung/baustein-nachdenken.html": {
+      "before": "b6e48fd582b9a46e7994b9e7034190c9a5f3230aa578fa6392576068d0bee8cd",
+      "after": "2a4021248a5a910ea3aeb57375e531fb9873e9a3f40bcfcdf14ecbe738874507"
+    },
+    "klasse5/medienwirkung/schritt-optionen.html": {
+      "before": "38665ffc67f314bc11c1c2816e347e6de8ee0a51deee3b886336ca2ec7baa798",
+      "after": "ef0a1bddfd6520574619a8714582008ed82c00d8642ce7a80ef042808ba351c0"
+    },
+    "klasse5/medienwirkung/baustein-optionen.html": {
+      "before": "827adff935f43bfc8f23f084b710f6b1e91271b947f22ceb53992af0fb7777be",
+      "after": "146e8fc49cb0774b6cdd2da04b15a77d3954c6cca601b4f50f161ffceb3f110a"
+    },
+    "klasse5/medienwirkung/schritt-transfer.html": {
+      "before": "544ebd20c1f2014293076d894120330ce413bf39a7cb12185ced2a9ec4f9f083",
+      "after": "3f90497e020421b4c00603b1f8e254913cd9a3949e3bcb958525ee89b736e54b"
+    },
+    "klasse5/medienwirkung/baustein-transfer.html": {
+      "before": "fe049e0feaa417cccb73934fac2bde4a4a84fd19e1d75ab7a7e070e467eb251f",
+      "after": "bba171865eca0d994044bdb5ebe73a2964893a250e7c0d0bc1d58e8546fd61e9"
+    },
+    "klasse5/medienwirkung/schritt-handeln.html": {
+      "before": "c3e3e0873a2bc2ca7c1a4ab46395bf80f15234a079e58bf606afb2fd694a87d1",
+      "after": "08d8e4c8737a9d535da3a4337c46c6fa443361a7e62b6e8193e30ef10081092c"
+    },
+    "klasse5/medienwirkung/baustein-handeln.html": {
+      "before": "8bc9e6d67bf6aa2da8cc5ed5f71a7ec846dbeb2657289c11cf1aaa716a2a167b",
+      "after": "b3fe340dc4f890cd8241f50d094de5884092bc73698be60276278a87dcad14fc"
+    },
+    "klasse5/medienwirkung/schritt-erinnern.html": {
+      "before": "eae1b49deb5cc852bb723481f7ca798cbfadfee9971857f240880a9b03792798",
+      "after": "77e1e991b9a98c28fd52d7819b45cfe1ecce8efdf0becea72f3be5260e6fe0f5"
+    },
+    "klasse5/medienwirkung/baustein-erinnern.html": {
+      "before": "3e606c01903221e725fca44bb0877804534d21f5f2cc10b2c757a53d75229127",
+      "after": "ffb2a6fb7be92972c34a7b201f9273d096b1c4bce94664d10b50a68261a22fb0"
+    },
+    "klasse5/medienwirkung/wissen.html": {
+      "before": "c3e38cdab6067c015d19f89e398d1257f61781c864255b8d608ec44a8de818e0",
+      "after": "89853e1984d20ab2ca720a6f74f48f16bb02ae09b1c63ef1e145b1d87128281e"
+    },
+    "klasse5/medienwirkung/material.html": {
+      "before": "afc4d325e894f2a0dc4813dfaaa949a42d754c98095b7647f3d7b2f769cf35c1",
+      "after": "3bbce1e99e43ac571b2f7f6ffef0be75fd3d1df9c97cb50ef9cfe9e34bf97461"
+    },
+    "klasse5/medienwirkung/lehrkraft.html": {
+      "before": "5ab6f9db1ae0f6b0c9d7170b47fcc51a19521fae451fb2621800eaaf54bd8a92",
+      "after": "cc88fc1247637bf06ceb550a9c246e05f5151c591e28adba3bec3da83a474b40"
+    },
+    "klasse5/medienwirkung/briefing.html": {
+      "before": "0d6195477d7c1cdaebcfd4525b6d76bfe055d13c0dbd515a774db2b41772a0ed",
+      "after": "c40159e97ec601bd029956537fae23c6a190278db4d80e37016f3c1e78167d63"
+    },
+    "klasse5/medienwirkung/bild-magazin.html": {
+      "before": "03b488c8abc86c9bdfacefe248baaa4384027eb609e7cc166e1c80a5f297ef7d",
+      "after": "2449b4c31a32a7e4f9d488d27af041e52619ea0b6d6776bbc408ab52112cb730"
+    },
+    "klasse5/medienwirkung/bild-video.html": {
+      "before": "ee269aeb2c7de84d9355f7abaf7b55bf61d315df8de2a5e2b4c17cf04ab0b36b",
+      "after": "8b2b0e5909ece87f3429c0559ff95f31c11ddb77e08bb09459a33f171c25087b"
+    },
+    "klasse5/medienwirkung/bild-selbstbild.html": {
+      "before": "c8f478ab29b612ee05a676a3b0635ac94f838ee5a40eaf0c94044fcefe965bbb",
+      "after": "f8a501784d359a2aff12f700618182332c1a5a9b90ec45183377bb8a39fb6709"
+    },
+    "klasse5/medienwirkung/bild-versuche-kontext.html": {
+      "before": "39fc0d31f6146bfb288ffd86274f332aace145046fb1287de1fd461645bad488",
+      "after": "8ae967760968fdbf0cdcc7aefcf1f6c4ac70424aa51dd3eedb5b9259c7fa3e61"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/karte-01.webp": {
+      "before": null,
+      "after": "231d545c249293bc39e769368682f231fcbee01ec420215039dd90ec0fb61367"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/index.html": {
+      "before": null,
+      "after": "2ec81f2e3a7082ae97530ff79fdb52f53b612545585bc45e8525ecfcfce9d3b2"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/alle.html": {
+      "before": null,
+      "after": "bafd47f2867c1a773a73a1c377b3adfcecd27cc4542c7cb045ef73ea35891482"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/texte.html": {
+      "before": null,
+      "after": "59b781340777d058196cbb29d938a07108c9adc3bfa671efb87d5bcc5b2833d3"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/karussell.css": {
+      "before": null,
+      "after": "b1a691d45fede73755a07909e001c68e44fc995b3c15a19294ef6b49c057d31f"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/karussell.js": {
+      "before": null,
+      "after": "7f781755bd5d4a641a5db26b27d9fe40e98e4c6535ddf1cb06ba31888b5b9aff"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/assets/bridge.webp": {
+      "before": null,
+      "after": "3841ebe482cce423fe1757a8c5b72154761435ccbb5945a0da96fd760ec03331"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/assets/fold.webp": {
+      "before": null,
+      "after": "967084627d7efe24082f186654125e170f1990e5e14390e26a07d9df110a0773"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/karte-02.webp": {
+      "before": null,
+      "after": "f8bd0836fd7019dd19fcd1dc86926c107a213865909ce9a6f0d2b912037c5628"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/karte-03.webp": {
+      "before": null,
+      "after": "9438d607d93a097abc067834b42e5e303722521bf33c2d0698c9c73c918b6c58"
+    },
+    "klasse5/medienwirkung/assets/medienwirkung/papierbruecke/karte-04.webp": {
+      "before": null,
+      "after": "c0c82a9965028bacbe7b505725eb4e247d099fb8c37bcb0620a266d2cadab79e"
+    },
+    "klasse5/recherche/index.html": {
+      "before": "24ef66e3f9e274d7a90421a3cbc5c3ce56bc8b3179d8e840f2286e77d67f74b5",
+      "after": "0fe7082c49d606f7e2aaa304c191a58f5c650f0b0a66eea2a695d2a5318da81c"
+    },
+    "klasse5/recherche/schritt-frage.html": {
+      "before": "4032dab1b02829ee2a63d1d1ce71fba46a9c3250b3665c93df645845d7ae7148",
+      "after": "6c05a41542e743bd6f28fda089d12e576c952c600d4af49cb0108f841b9eaed3"
+    },
+    "klasse5/recherche/baustein-frage.html": {
+      "before": "45b3c1a89b321b3fab706038168442e4d1257422973f85ddcfb8b321df1cfbbb",
+      "after": "d2c92a0fc5e94a5dafdd818ce1db698b293ec7c457016ff949713cee483b1dc2"
+    },
+    "klasse5/recherche/schritt-suchplan.html": {
+      "before": "d08404a50055c264e977c03761710c7822dfa3e9962ecb3e95a9e357f2fd653b",
+      "after": "8e090819363346c0d5c50d290fd09385434eb774c7015bb2b394896a2c6f6a68"
+    },
+    "klasse5/recherche/baustein-suchplan.html": {
+      "before": "37ed673070848c93bc72453b3f4ac1e089d37ef10257dc645564ac6c11db1ad8",
+      "after": "a4988c3644c2a7704376cccbbb9d6f93a6586fba898feb2e21367d70614d48da"
+    },
+    "klasse5/recherche/schritt-suchen.html": {
+      "before": "18c47964c2d68a49ccfa155601c42a56e99dbd6fefc599e307a088e034df03fa",
+      "after": "2f1c602c4f97dc2d7c014c4ff4de32799908f675956ee56dbee5fdcd922336ed"
+    },
+    "klasse5/recherche/baustein-suchen.html": {
+      "before": "0ff18ba978b1ce192374226757b1d126536d988da22fee6fc508fa207d741279",
+      "after": "a7e3583d41f5e6b81e470c3257a1b1e179dd09dd5372b045c797d501fb510cea"
+    },
+    "klasse5/recherche/schritt-pruefen.html": {
+      "before": "11f950116581ec3950e1d3673168d74198097bccbe9f68fb4bbdd5e44c888659",
+      "after": "85fbff990294744f817696dbc0241e710993edb50c7be498cd3fc62261bb3b9f"
+    },
+    "klasse5/recherche/baustein-pruefen.html": {
+      "before": "80ddba3a2c092c67da9f3d9675d894d7863a5e20b61a6057bf1a905abd2e90ba",
+      "after": "3a4af4e500683e692229d3da54e4edf6ad6cfae1e474b077d149f67b1f3d9948"
+    },
+    "klasse5/recherche/schritt-ordnen.html": {
+      "before": "65e0df8231099fb46d3e24d6df0c4dcb715da584cb00e66c5b11b619ac760416",
+      "after": "ea774b0913f1e98321f88deeee8c4311a5ebecb0f09f0623c64dcdec376f6681"
+    },
+    "klasse5/recherche/baustein-ordnen.html": {
+      "before": "31df6b4aa4c9bce4cfad943cdcc095cd7b90464ee1eff782948778388bdcbd95",
+      "after": "3b1aef105541d4298f379be6e13d09225bb943473f3c0571ad1ac87ef00c4feb"
+    },
+    "klasse5/recherche/schritt-transfer.html": {
+      "before": "b8ed41889aeca577b17639122eb767c10559c9b7656d674f3136a1e328b58163",
+      "after": "ff8e28190f5c24eea4f9c8b01313c5653818380cf93094a27ab6186cb2cea26d"
+    },
+    "klasse5/recherche/baustein-transfer.html": {
+      "before": "2fa58f2f0b39bd3ec78b47d88f3be018f454fabd1aef9eac2aa109b9fa84c866",
+      "after": "b72b6d3df86da7fcee88d9e4a790711dff2eaaf8e8152d9e3b8e8d1d5dd23e2f"
+    },
+    "klasse5/recherche/schritt-wiederaufnahme.html": {
+      "before": "61cbc28397fe123094f15a62a20f0d2841111d027445030e240685248b94a672",
+      "after": "aca1cc070a86ddaa4cc1753b17d33f0ce0bd27c9feffd5624a3556697b98a4c0"
+    },
+    "klasse5/recherche/baustein-wiederaufnahme.html": {
+      "before": "8c88b4b322598c6029ec8dc42657e8c35942d331e51146e24f1e25d717711a5f",
+      "after": "801ceb26c064d7d8ea5052fed3a2a2d756f135c0ff95036d732313669edcb40e"
+    },
+    "klasse5/recherche/wissen.html": {
+      "before": "fc689975c070a7a88911d6ce766708b327dfeb340b9d5a58171e9f171a5bd079",
+      "after": "d72a338b7e62c5ca7edba353c08d86c9ec32395206cf010227ab3df998cde205"
+    },
+    "klasse5/recherche/material.html": {
+      "before": "f292da50d83cff32d231d77fc61961710e25dcf19953e4948dd916ff27a0b5c9",
+      "after": "176451fe806c6ea918e55f2af41c0e284a96dd8045303ad10a7912a744045785"
+    },
+    "klasse5/recherche/lehrkraft.html": {
+      "before": "d9b647b0c5a19a5a1a53e81e2a509172ac7983c0f8736d5eec1e33eed7e406b1",
+      "after": "7fe956cf481f257f347de21d07813ede8113e702bc4d1e90cfc56dcf82a119bc"
+    },
+    "klasse5/recherche/briefing.html": {
+      "before": "f37e6770fcadee53e67010a061100c2b09e74319712a88a211e8c2b9427b08c3",
+      "after": "acb0652ef09613072c5ca51cc40ffbfa28a08085d04347ddf633c4a6de397e4a"
+    },
+    "klasse5/recherche/bild-mond-rund.html": {
+      "before": "94fa8200597cbdf7518dd2d9764cd44fbab39cc70d5cab4a4191c09f380e564c",
+      "after": "3e876a17565592944e0fe04b6e39e1153c21de31a90b3d0a75b8ae1f8165e183"
+    },
+    "klasse5/recherche/bild-mond-sichel.html": {
+      "before": "71a0223af565e4876b06c0e44afbbf1e1cc6f4334f1f693e72e125ad6208f301",
+      "after": "7eedd3245d77d7e00d480890c3c96e09877bf4cd905770f55a5fc72c6f806843"
+    },
+    "klasse5/recherche/bild-lea-suche1.html": {
+      "before": "6184cdee1b2caf3019b8dc0437e17c42a8e6d43bb0dfcdbdf448713a2777ac3d",
+      "after": "d9bd76bf29313eaf5e7c0baf724afd122aaff4b6e4b06c08152b695969e946fa"
+    },
+    "klasse5/recherche/bild-lea-treffer1.html": {
+      "before": "806a1a760e31111cf8a41c84e26dc963bb7e68bdf12891c9448b2f2adc185aa7",
+      "after": "d8a953e987b481263bd7da4bf58bbe8a58082f526ab32b1edb045bd215f898f1"
+    },
+    "klasse5/recherche/bild-lea-suche2.html": {
+      "before": "d8030fa576014f9b061bb9bec8a03b47598c96783208f368c19cafaf4043ab52",
+      "after": "70da68871949086ae737db759cbae856685435ceeeca770cdcfdb0a1d7e6e1c0"
+    },
+    "klasse5/recherche/bild-lea-treffer2.html": {
+      "before": "ec3e1e752e3f9e50b59e9d6e88e793123c89cf714fc735876640c4616f846796",
+      "after": "eb96bac1fa608c7c8e0fd23f4231f9600fdbb393035e869072d54ec066eb9ab3"
+    },
+    "klasse5/recherche/bild-lea-sophie.html": {
+      "before": "5619296434d2b48ffeeea30eda552819f7a8898e4961237a2f95510ca2868ae2",
+      "after": "096f4663036f0389230ac2bb336fd71f236e8acd3daff5431c1984423adb0d0b"
+    },
+    "klasse5/recherche/bild-lea-titel.html": {
+      "before": "81fcdbb0a4da65c5446a10d3b67a1ad711b9d39ce87ebca7fdc48104caaff5d4",
+      "after": "6da116f5e3771d8598e302d16d5c2b3fe2d24814eb4dd25e6609c66e8c6f8073"
+    },
+    "klasse5/recherche/bild-lea-text.html": {
+      "before": "f90ea538cfb394583e724d39cf60dd1e0724daa600481f03a893003c4d1df861",
+      "after": "254dbd42226ed8b1919bdf33e44a9bdcdda655d3c538d34cf9d533d576d0913f"
+    },
+    "klasse5/recherche/bild-buecherei-zeiten.html": {
+      "before": "f59c5a0a25c12e6a327f3ae189f9472ae36ab7352c6e8f479e8ed88ca1c9b046",
+      "after": "d759c8dd363dd7c6c833c0db787a8e20d7388806db79eb3cf92c805521092015"
+    },
+    "klasse5/recherche/wissen-frage.html": {
+      "before": "29f1888a081e96f3d191d74489ed1249fd6fe4c432d95e7bc68a0d9eae944399",
+      "after": "29a74c80118996a52da69b49900cada3a6fbb8c7b81b4501992aee36990be5e2"
+    },
+    "klasse5/recherche/wissen-suchplan.html": {
+      "before": "07d37e94320cf59a6a526f84982e8021da44629a2b291cfdc8e222f3a9778d19",
+      "after": "546c4cfa4ab0dd0bb4adb58b2294aac7b7bd1506e7ea7f6c8e9e6bd2624eb0be"
+    },
+    "klasse5/recherche/wissen-suchen.html": {
+      "before": "bf56a62607ec761c8b2b7c3846bd607fea8db040a9c4e11d2397a7e0224234ef",
+      "after": "beaeb1d2267826a6699d94bf2378a0ea8b0c53ca182e2322da08efc893e82eea"
+    },
+    "klasse5/recherche/wissen-pruefen.html": {
+      "before": "bffaf4b0885bad7cb3f984190d94eb7f0dd2870aedbaabde737366e4c6a17b46",
+      "after": "f76798546458600a877d3ed26032fa5ed84f9de1762df4d0f0dcc7018e278b3e"
+    },
+    "klasse5/recherche/wissen-ordnen.html": {
+      "before": "be51d9d3fea61b8d1253ed9ba04ec662f27212c64c56a7ac6a6cf971cd21ffea",
+      "after": "442087a28cb35c2a287993b912b0002bd6ecb37039a64b73b5ae0f16e159cdaa"
+    },
+    "klasse5/recherche/wissen-transfer.html": {
+      "before": "c2d91cbb4616d56d610b1068992b8942daccaabb9025f7d443697dfb766f52dc",
+      "after": "2fc669adc74825f6a5cdc57a101a81517727ca383e9540fd76e74de3d554b38e"
+    },
+    "klasse5/recherche/wissen-wiederaufnahme.html": {
+      "before": "28e9b8bb2a03706b7f0a6dd8a352f9b2283ac16b707ea969cd08ff6651704f4f",
+      "after": "7b6be4047a6f31c1705b93ca45de451c95540564cea0f3c6d242edb2fe615a2e"
+    },
+    "klasse5/recherche/quellen.html": {
+      "before": "e7bb889a5ba63fe1dda701590bc1ec579ddecf11b607627669584f6ef0ebd622",
+      "after": "62e661cb98cb8d1835c206f58d1ea62f53dd625b0eda5169b78343730759a481"
+    },
+    "klasse5/recherche/leas-weg-bildfolge.html": {
+      "before": "7cdd4268944b9ceeccfae8d156afa68aed9e4f0e3e01788c13136498d6842b31",
+      "after": "3446be44cb6c43c2896e1c565b72d00fb3c5ba76cea4018ac1f4f0be9fe1b045"
+    },
+    "klasse5/recherche/leas-weg-lesetext.html": {
+      "before": "02bdfb17dc7e68c61127d93873627547daa40aa5ce85717459d35c9ccc8feb38",
+      "after": "5b9ffe543a95a8ff614715d001fc647fd7c428b6b97664b57fdb9df91bef6fa7"
+    },
+    "klasse5/recherche/quellen-rq05.html": {
+      "before": "8832896832bf7e28d7fafa9dc951000d9ea65a06789da8fce7a15718513b8a4f",
+      "after": "de589c2a1d442cf242e5badefb5fbe90fa8cde511c683193910183243f59d730"
+    },
+    "klasse5/recherche/quellen-rq02.html": {
+      "before": "495899671bd059d358c532dcee0a9afa10883da26baacf37f47e2e244f9585e4",
+      "after": "b05188992c392047c52c71b90c5289b6e313c65446f3911de873714e7267cec6"
+    },
+    "klasse5/recherche/bild-lea-text-pruefen.html": {
+      "before": "29fd7fe5abd4d2de78afc66a3c47aa018411b4441221f227015739ad0af5d5d0",
+      "after": "cb0e6b2706b0026905d0827c0efd341541f18c467278fe4f7736bd2a74976424"
+    },
+    "klasse5/recherche/bild-fundseite.html": {
+      "before": "7b179d0cbf107b786ced90d1a862851c62ee7efc4565e32b593a1eb8ed5e752c",
+      "after": "8e275873ef92938f887cd7f542d68cd92011c95971d234dfe828c0e443ed4318"
+    },
+    "klasse5/recherche/bild-suchweg.html": {
+      "before": "a502b8e33a5885b8883026d9781438b91341040d7e5121238eb287960b2444c2",
+      "after": "04cc5b6078ccb8886277d8bf43ca7caa0367854e7ba4922fe05414bb055566bd"
+    },
+    "klasse5/recherche/baustein-suchen-ipad.html": {
+      "before": "ec0e0f16c4b9a80324679284d067833378f699f18a29effb117a32b31cb31338",
+      "after": "9ce62706c109847be703909b73de8830695a377bd64b1538c8602351aa6fab98"
+    },
+    "klasse5/recherche/baustein-suchen-windows.html": {
+      "before": "08262f40128a43d4479759c008996b2b0502e692c9975a1c77c1ef43dd6e56bc",
+      "after": "96342675ce69bbdfeaee77bfe0181b51642bc66d6f993023613d235f2677ea35"
+    },
+    "klasse5/recherche/schritt-lesen.html": {
+      "before": "34395368b14ae935c67dfae0e55b165b043ad6cec31e9d632ce0c2b6fc95af42",
+      "after": "4890d919e0f4cd352889c27827c22239a16325fcbc6b45c139df77a90ebda1b9"
+    },
+    "klasse5/recherche/wissen-lesen.html": {
+      "before": "6d440c0895ccc1e95edf85d3b848cfab454a51d0f096ec08930b1e7ef128b1ff",
+      "after": "b27a04f3a6eb32ebc38f5c0f8414fd1a38a7b819c0e9c471aa5e208223525b8b"
+    },
+    "klasse5/recherche/baustein-lesen.html": {
+      "before": "72702abb47aef2a66d0cc9ec9ec6396cfcf4a413f920a52e531e6b92acf807ad",
+      "after": "1cc56edb984f589b1f4a3dcaea73105a5f2bc47647a4b1565d0e44c2f5aabcf5"
+    },
+    "klasse5/recherche/schritt-ueberarbeiten.html": {
+      "before": "fba077111e382f482647e173118fcab89213f82630a8c60635ad32c6fd69fcde",
+      "after": "c3856c97695b6189823bdf6c2efd7402e3037b565c2d5b5ecd3fc1e75054fa93"
+    },
+    "klasse5/recherche/wissen-ueberarbeiten.html": {
+      "before": "f35f891b44a3714bc26297da0e31745557efbb96a4688dd0c273417f259b7dcb",
+      "after": "60f57295623ae3b7a26ca367745feafa7514fbca194072fc73f3efc43444bf4d"
+    },
+    "klasse5/recherche/baustein-ueberarbeiten.html": {
+      "before": "83aab9be41f72a362cd580d8d3f69964f0224536895d90b84c17b39137d6ceea",
+      "after": "3d614454c98d23ed71f1021f471061e29de5f5631d5ad18189bc6782552d0e18"
+    },
+    "klasse5/recherche/schritt-sichern.html": {
+      "before": "55703229acadecfef63fb7ee955efc6e7612c9337e309443bb06a0f425a4ddca",
+      "after": "2d83d68a7448de0f3c954c9bbac676d13d737937da46c87f7839f117dd3602f9"
+    },
+    "klasse5/recherche/wissen-sichern.html": {
+      "before": "7e9ec0fc464d486d6c73e18d3862b027799c7f1abf11e484b0767ea1131cbd17",
+      "after": "348c02923520c96171a139e121212504d2723cf393054062ee709ee1cfbb390b"
+    },
+    "klasse5/recherche/baustein-sichern.html": {
+      "before": "1ea9cc29b8e5e249adaaca46db7d0bfea3cdefe9740aa0577b39b8ba13f81969",
+      "after": "b5b3c95723796f80fc990efb830c23b8647e54847db1120d495154c1bf8abf3d"
+    },
+    "klasse5/recherche/referenz-ende.html": {
+      "before": "30a844ad99a952d0c063f1ae2fb50934e7d674add032f917b73d9bd869e8caf3",
+      "after": "018d6d0d70b3e749a6f6a86b5d3645dabf1fcb3a169be4e22764333e197c748a"
+    },
+    "klasse5/speicher-zugang/index.html": {
+      "before": "f8747067fd1a0ccb9235dceb169ac73f9b8549f031f768d4c751a94f752ecf5e",
+      "after": "1e7bd84db308ca8f124d2b49c98cbcb2183d05c7b1fc2bac2c5f7bda089c5848"
+    },
+    "klasse5/speicher-zugang/schritt-auftakt.html": {
+      "before": "0975a8c67380f117d94096cc2cbe5b34b8e31e4eae210af4f0faad7475db51f8",
+      "after": "8a41c5e5415e7fb8ceb147f3c10c9c9c6e7b7c43bfe418abe4d612dc02b93616"
+    },
+    "klasse5/speicher-zugang/baustein-auftakt.html": {
+      "before": "6a5d864a49230bbce60ab9bb4f55616aad635dc0adafb78d97b97389ec746ec3",
+      "after": "7346a2b06f03af8642ee12ab91b5c10818a72a3555a63f53dde6817a90a974dc"
+    },
+    "klasse5/speicher-zugang/schritt-vergleichen.html": {
+      "before": "8c44ad718316288c965e5041335388b3adb561338b93d7c4c1943e4f6214bcda",
+      "after": "441f9527c35b001c889a551a1822c40168337229b7c12e87ab736422fab4948a"
+    },
+    "klasse5/speicher-zugang/baustein-vergleichen.html": {
+      "before": "72e2da398f0b5a2d6065f71205a5bd66964fe758512cb0113e333125487263a6",
+      "after": "82d0833d7d211fc9eb1066f9c7b5c739973d723fad4429ced9f3ab963c4201ba"
+    },
+    "klasse5/speicher-zugang/schritt-pruefen.html": {
+      "before": "9f33250a14817bd77980f963cce56724dc21df05403a7f4c80f9d7ad28ab021b",
+      "after": "b065233a501a23a31699640c1b49bae01363903f71f959796ed2e25441e91536"
+    },
+    "klasse5/speicher-zugang/baustein-pruefen.html": {
+      "before": "a55252c60bbed5b3a6d28ff38dc94ff45aa93614103d8f2e60e90fbe1e94c9b7",
+      "after": "1538e9855c58875479c953ea2dc2e3511a08bf271445cd89c8db6298ce21db95"
+    },
+    "klasse5/speicher-zugang/baustein-pruefen-ipad.html": {
+      "before": "e2dc8b11e7b46e24dc2406fae2ba68c99f7e40d11a42a9dd942e793b1da19793",
+      "after": "ec63d0f2a3de316b73905b4972cde54c66950a63fa646cd29a6f956973f71502"
+    },
+    "klasse5/speicher-zugang/baustein-pruefen-windows.html": {
+      "before": "6bbf7095e747fd106522c9ca6c62d8b301a6e71f081b3b059aae57894fc522a1",
+      "after": "2172e7fdc68e0ca081fe41c90d9b3026c8946059efdd1e5c37dd39f84991ebc8"
+    },
+    "klasse5/speicher-zugang/schritt-schuetzen.html": {
+      "before": "5c2ded33e3771a3e35c3792009f509766c8c5ad43d8a629c07f96e35e0f0ebc3",
+      "after": "a1d3aaf20610a7e957225710b980be5763f1c6db0d78bb537fe71a85e70aee4f"
+    },
+    "klasse5/speicher-zugang/baustein-schuetzen.html": {
+      "before": "62fc9581dca5f8b99a382b8a4ad8e372601c868f9d6004107e2d7e7d74892b24",
+      "after": "1438ad5dbc0cd2c6a66d522e9ab2eb3c2069152072ef252370b3b6ef7cac91b5"
+    },
+    "klasse5/speicher-zugang/baustein-schuetzen-ipad.html": {
+      "before": "bf27689dc9ef8ad17046099c800e7fa1221c382145883c3c11b857c592f180df",
+      "after": "a6c62401847b68ca69731e0155d92f14d18ccf82e16a480ddd5d15d547275578"
+    },
+    "klasse5/speicher-zugang/baustein-schuetzen-windows.html": {
+      "before": "264fa86b2119484c8ec60eaffdad2f34d2108d34c981d359375dc093a9de670b",
+      "after": "11b1c68dcba5e8ae31eb93772cb7a5a78b879357717601535647242ffff11caf"
+    },
+    "klasse5/speicher-zugang/schritt-entscheiden.html": {
+      "before": "7465ffdad3ab72595f88c5d90ae6c1f8cd90420c02c5013899e70f6d887afa63",
+      "after": "c7ba01b3323de3de513cce2fc6a8fcffe4997ddf14332f6cec3965b9be581475"
+    },
+    "klasse5/speicher-zugang/baustein-entscheiden.html": {
+      "before": "3cff6c7e71f41eb274702f94c41f91e5de5062416abac18a6410c912a4017837",
+      "after": "4aca255abfb16d4c6d0f654e80418dd0ff12267ea4437544f2e621463fa1f418"
+    },
+    "klasse5/speicher-zugang/schritt-wiederaufnahme.html": {
+      "before": "c3631e6b3e48b1ac98bee3305b34ee3b381c1c066c0b2aeb696303c776d66f29",
+      "after": "9f9015c03b08c838cecefb833ee8b3af79566753a099a7e619df2b06b34c88eb"
+    },
+    "klasse5/speicher-zugang/baustein-wiederaufnahme.html": {
+      "before": "cf497d6b815d48bb7dcce9f3bca6fe0e0a1874cb45f3403962971e625875eb84",
+      "after": "2b468ebbaf583057c957548d661f493182fc037085661367b2022a7663dde15c"
+    },
+    "klasse5/speicher-zugang/wissen.html": {
+      "before": "fa9e7f4c55955346d1ceba7800b606d7279a756fce12a63d875b6ce93a1c331e",
+      "after": "0f630a6d29a048aaabd48b7d4865cdfb947aeb5d5c86e7b3bf12199855b430ce"
+    },
+    "klasse5/speicher-zugang/material.html": {
+      "before": "46295e1a653c52f4c05060ff7f1caffaac6c9b482d71d2f6b1ed1b88cc28130e",
+      "after": "b785f58e2fb4d200f11dff61d0f0dea8e3af7ebeaef5d030df7f092131293f3c"
+    },
+    "klasse5/speicher-zugang/lehrkraft.html": {
+      "before": "f0da056d7f392e17f0d63d1174eb65cfff4f90e4ccb5cdfa3d2833159070831d",
+      "after": "28e8ace144e6a8a9e8ae26f666a0c3fc134b9fc2c923e41f53e58f281df601aa"
+    },
+    "klasse5/speicher-zugang/briefing.html": {
+      "before": "404b6d3f584000bc4445e7a6f9d78730d665ff89ed58645a2233abd9c638b3f3",
+      "after": "551a60b0f5bf2167b68c309b465a50b723973eba4ace2b045866c7076854a297"
+    },
+    "klasse5/speicher-zugang/bild-ordnerfrage.html": {
+      "before": "c366aea541126f05eb9e0e7c513ea76a417ca6dd187816d984f6c565fafd767f",
+      "after": "57551c4b6980d27b81dfca111e2098d86312befe1dd6f899dfe20565153aac33"
+    },
+    "klasse5/speicher-zugang/bild-lokal.html": {
+      "before": "8abfe77b2fece48fc2d2502313db4f8f69ac36460886909278284c681e63e1b3",
+      "after": "783e661e55e07118f43c5db50d35d9a2dd3eb6b55e3f71d5fec23cb6b86502ab"
+    },
+    "klasse5/speicher-zugang/bild-schulcloud.html": {
+      "before": "197adc4f9ae5e41cf5cbed8ddf5cab21105585dc03dafac0017714072274f0f6",
+      "after": "2ccc56b76cf17e15959fc717c7f451a6e7b25d43fbda74f85ef101088fd69e8c"
+    },
+    "klasse5/speicher-zugang/bild-schutz-zustaende.html": {
+      "before": "65974daba714ce781c23d9d80e5138855260abb09863957b73bb48f209db6e88",
+      "after": "ff1afcbae9cb1c240b3a57d39007e4e2b825f87c40feb8c2324dd58efb1c4460"
+    },
+    "klasse5/zusammenarbeit/index.html": {
+      "before": "9099bbf7960f34957b7d0ce8e0915f0e35ec3b5b0f23deccabc2708ecfc250d1",
+      "after": "d80dd5af29cc33fb2cea5be2f2f0247dd7868499f87cf6b54ba590fa40a5f4cb"
+    },
+    "klasse5/zusammenarbeit/schritt-arbeitsraum.html": {
+      "before": "2ebdff4052235889a1c3cfda8e30553e8ed3a5f01733b670f9f09d503beb8256",
+      "after": "3fe2e2a41fcb71cfe7c189015e1dd8e1ff4fe331803f12e43ab7f7e7bb157336"
+    },
+    "klasse5/zusammenarbeit/baustein-arbeitsraum.html": {
+      "before": "5694eed0256392cf64efa7b827878a5e4d211e74da4fd40a47280fd9df202976",
+      "after": "96c2dd25d865b5eada03db762e06f91b33666d7130d5b1e9309ccab0fb5a68cd"
+    },
+    "klasse5/zusammenarbeit/baustein-arbeitsraum-ipad.html": {
+      "before": "36a90d272e08a24a5236d819f9897451fbc3fc3041d1e9711008b6975458a68c",
+      "after": "2d41299a54e919dca11397f12d217ec07442994da5f9179d5fa7b66bd48dd4f2"
+    },
+    "klasse5/zusammenarbeit/baustein-arbeitsraum-windows.html": {
+      "before": "1141709e2d1b9f9baa219188f55aeb1a65d0c1143763ae47762af9dc225a2963",
+      "after": "ecbace431b179db75936457a47566efcd83027fc9c252358d4b0b5b738e1507e"
+    },
+    "klasse5/zusammenarbeit/schritt-nachricht.html": {
+      "before": "5a46bb0b497bba81227ddc0a3d58b4d0bc7f707a6bfa2d00fa588b52d86759dc",
+      "after": "680f7e2ff22a1a4342365c63af9d0982e7d1f226f2b3a9c0a2e35d72c98193c6"
+    },
+    "klasse5/zusammenarbeit/baustein-nachricht.html": {
+      "before": "ca431e9641e1ff5f95dacafd7e9006ee4d74a10137af37c33943a2ca9b1a44f8",
+      "after": "2f1a95520fa34392c76ff0f5196381b91071422682fbbc5022ffbbd76249ca0d"
+    },
+    "klasse5/zusammenarbeit/schritt-klaeren.html": {
+      "before": "a7b20c2c61061bc95406c97ceea33fe0cb7df1d2a8fc3b7f17ab6ead573a7d95",
+      "after": "4e16e2d795573eb03296b396a3690a8a6b56176152690b8c15b7cad0eee309e2"
+    },
+    "klasse5/zusammenarbeit/baustein-klaeren.html": {
+      "before": "14073831590766729d9a322823c247601bbc4f902b4313a2bba9729676fb8b37",
+      "after": "9961551a2719873c4b261a092a30b6c48e7871284a5a4c9e1f70b9336429747a"
+    },
+    "klasse5/zusammenarbeit/schritt-vereinbaren.html": {
+      "before": "b35b8399d6509eae9c530aeb2d2e99bee291f2f2baab489e0337cbb666d69ae6",
+      "after": "7347b7bbe9615d17f24efe3148068cbd22b1753c189694f147a5b5f5e0cb7c7a"
+    },
+    "klasse5/zusammenarbeit/baustein-vereinbaren.html": {
+      "before": "03f8c1b5f728ca07c61456e774336ad527ee4cfdf3cfce3d1ba8733e3a4ea5b5",
+      "after": "a0ec0df4ccc363cb08f93e5878c04d3865e4c46a25ff36e12de20c9816c7aff7"
+    },
+    "klasse5/zusammenarbeit/schritt-beitragen.html": {
+      "before": "ed2a4c02adfb8d8f4617cd5c8206ca2c3ec61bd64ef71e96b75eab8063946e23",
+      "after": "1c32e7f2c933490e4aaeccfe59ab20ce7f9a372e50de7164039e09b5303a25ed"
+    },
+    "klasse5/zusammenarbeit/baustein-beitragen.html": {
+      "before": "df25389fa6a10a366a13f6a69afb435132dd4c0a1480e0031b62aa745ee28f02",
+      "after": "a3cb5e6e8dcce8980dfa3da1b931d522e668ad0311eba2272150181588cafdfb"
+    },
+    "klasse5/zusammenarbeit/baustein-beitragen-ipad.html": {
+      "before": "47cee55dc6322dcc9d7c3095656daeb6c8708b27cbc285b0083e58aab8554cfa",
+      "after": "e90d2dbbd0a14ec5269552abfb64381e11ccd950b2aadec7a00db6db5843823d"
+    },
+    "klasse5/zusammenarbeit/baustein-beitragen-windows.html": {
+      "before": "1b0cad0967cf2db3f024836ef71a92356ac0e6f05ee14eae4c8dc9a71bd9d698",
+      "after": "227a88ac89fc50394b1bafc57d041cedf2de9e3eae5fcbf39f53485e00972b17"
+    },
+    "klasse5/zusammenarbeit/schritt-rueckmelden.html": {
+      "before": "fa9267d2c1a44a1baa64ef3caffdc8dbc82fd6963f8d0cb817aedc66ea6d9016",
+      "after": "8e26a0bc0eefeed33ef4510a9eee9775b2f05481b752f669f7d394e3a8c79e32"
+    },
+    "klasse5/zusammenarbeit/baustein-rueckmelden.html": {
+      "before": "074adef97b5d4da47ee3cc269609bced7fadbe2c886c1184ebe99e2174610760",
+      "after": "e86baa4c153e32004e01a44afeb6b155c7521dc90642870cbfc3f637c5213136"
+    },
+    "klasse5/zusammenarbeit/schritt-ueberarbeiten.html": {
+      "before": "cac47993f2ebea84aa43add312fb2409be4e3614d88e03712174360d28911ab2",
+      "after": "d714a05b07f703e5906215979854a6290649fa00616c5d8a17b22eeeaf7681d9"
+    },
+    "klasse5/zusammenarbeit/baustein-ueberarbeiten.html": {
+      "before": "0850adb2846c0c134579c303d642a45f92a2b39774834bf894d4f0a58a738f7f",
+      "after": "5519e04dcaa211cbe082e53dca81f51ace9ff65eea54e24fc2873088fed636fc"
+    },
+    "klasse5/zusammenarbeit/schritt-konflikt.html": {
+      "before": "15de3fc7a72b4d0862676deb829cad671c3a99ca934da9e0f06b305a736c7b8d",
+      "after": "99b6c42ffa847c0ac7a11298ece7ad1054a22ffd0b60c5e23a491c6be8e80257"
+    },
+    "klasse5/zusammenarbeit/baustein-konflikt.html": {
+      "before": "ad957fd99a39efb76900a9034d53f49394218b63c25a64c829237e4d594bf7dc",
+      "after": "f6b84ac408dd7309f982561478df9831083487f56ac38f1ecec76dd8a3aea043"
+    },
+    "klasse5/zusammenarbeit/schritt-sichern.html": {
+      "before": "54bdb583e8c1375c05131a49a7d7c656f8c061be6761358d4d26e3ac8b159a24",
+      "after": "4b1cd5f27a9ffeedcfafda88752da7dae43f98d024c0b0245b5743590f0036a3"
+    },
+    "klasse5/zusammenarbeit/baustein-sichern.html": {
+      "before": "5b956349fb9959aa12fe0991a8ca3194a754680bd72de295e1dfb3cf77181c11",
+      "after": "b44420d23ba3dc0de56207f17522a97fb4a30960b569ff7758ce62e213dd50d7"
+    },
+    "klasse5/zusammenarbeit/schritt-erinnern.html": {
+      "before": "10436b8fc89f991356daded87e7a97ac2ec4dafc90707abfcadd39417df63cf0",
+      "after": "4669b465f256248b6e42fdb1c13edcb60d938671f11e30677ee4b9813c731bb3"
+    },
+    "klasse5/zusammenarbeit/baustein-erinnern.html": {
+      "before": "52c50cdc9895ca2a8c1f468c182b161ec1fae725c8e44dd0c30dc33991ffba7e",
+      "after": "73a5f0eca59e895065bddd800fde1317e08233df6c470fd4b72c738bb49a75ad"
+    },
+    "klasse5/zusammenarbeit/wissen.html": {
+      "before": "68f7c2a3ce095071a879479439962b24a9cbd17fda4d704e536671ef42123a43",
+      "after": "b270189d3f4d128e8433f57ddec6a10e699c2fe54204fac0eff660a31affeee2"
+    },
+    "klasse5/zusammenarbeit/material.html": {
+      "before": "9752b9f2fbe4a478a3d96d2dc05043cbe1933c2a8987de4a9a30af9d3ab5863a",
+      "after": "c5536ec9c85e84ad235e9f5fdae188449b23ce4c11f5dfe20afb185f12e40a1f"
+    },
+    "klasse5/zusammenarbeit/lehrkraft.html": {
+      "before": "6a0c80e58549cebba0c79584aac4b54b1ec06166e9a34b0e10db99639f0c3b50",
+      "after": "d999711923960d90395e303ded6f0879fdd79cbda9296f8b25db9df0f0de9233"
+    },
+    "klasse5/zusammenarbeit/briefing.html": {
+      "before": "03a5fe75915ad83627873d94677f23433aeb38ef91d651e949304c84b4ff42e2",
+      "after": "8a807cd1080aa4ddf9235440602f2a47719abfc67a41fa0ed75ffcf3b29c3545"
+    },
+    "klasse5/zusammenarbeit/bild-kursraum-einstieg.html": {
+      "before": "8ec725cf6503aadf680c6211de655c1713051da1fb61232b62531a82fd2089de",
+      "after": "8fd5a6c434f1ccbe6bbb61ddd41484958082b680ee9ba2473e7e650ea6a18b87"
+    },
+    "klasse5/zusammenarbeit/bild-nachricht-aenderung.html": {
+      "before": "a31fa4f7de60d5d21e3a5ea0e7008961ec42d5526c55935fa5b1ff409ed90b25",
+      "after": "e7bd99eb0dc88d008edb840c0fb69e519fe0164edec5c872ffcea17e83cd48c5"
+    },
+    "klasse5/index.html": {
+      "before": "535940f109cee0e6bb3702498f282f987af530f5a5a616e413febb30d8315a58",
+      "after": "20d052c441bab4b7fceea16c19080ff4fd01d0ae0c2db2ee00da90c1d6df56ba"
+    },
+    "klasse5/wissen.html": {
+      "before": "fe2c7fa53ba30b29d888448ca84f904a1cd434408adb5a58be3155ab42bff1b7",
+      "after": "dde9207dac3d8a2b337412fbce023c55b5745a064f3d9ddd20bbd518f3fcf48e"
+    },
+    "klasse5/material.html": {
+      "before": "5af732849b21cba2b97e7ffe2e4c499957fc2aa06c76df010d8c87982c5b3ce4",
+      "after": "b1c7c1c9839cdf3bbfd7343b3bcaa4c25a9cf7e4d27f03c0b5c318b08ecb612f"
+    },
+    "klasse5/lehrkraft.html": {
+      "before": "ee37e95a3baf60b6b0145d7be76fa39752f5f1014e8340bc7f97028a2ce95095",
+      "after": "f778aec07a10f0ec3382456ebe4772d06b8fac5bc00bf5ffee67d8590c329050"
+    },
+    "klasse5/einfuehrung.html": {
+      "before": "c3ce0a2ab1533bb6847043a137f7c05de18b1c50dbe2789bdede12f283efc69d",
+      "after": "4b98ce78ee5d175bcca17617f5361e85a7d4ce85c649e9143b793df7859dc80d"
+    },
+    "klasse5/stoffverteilung.html": {
+      "before": "413770a2cad6e8e9ecbbfce35f89060a6a5e6fb584473a144fa3712dd7f77c7e",
+      "after": "de1c7fa60f7353df9b1448cc02076582205a1b85b9a6e853ad997c27dc6c425c"
+    },
+    "klasse5/review.html": {
+      "before": "300f54205ecd8681b3e7ba1dddc7dc783ef5f18b232f7a1184f48624ceadb26c",
+      "after": "8681e105622cf023f592136e222ab55f6c27e763eac10573a13f4b3d2f795e08"
+    },
+    "klasse5/zusammenhaenge.html": {
+      "before": "2d65b19806abfd463fe846112c33999856fbdafaf53a369e12732f29f64ef365",
+      "after": "f26ebd19d66e473be90ef86e2a65205e65118fbce36160693fd1d322c1278600"
+    },
+    "klasse5/reihe-arbeitsraum.html": {
+      "before": "d750797f38286036eb6d101cd33b3284cd5b8d8aa127e123482952bdd5f20c43",
+      "after": "dd23ec42f6dd3713922910820d4f6f57a4663608cc22e24cee26760dc73d73f5"
+    },
+    "klasse5/reihe-recherche.html": {
+      "before": "a74bfc12686bc48fd2e01820a597ea9a64286378a19d79c1434a58e89f5ea77b",
+      "after": "4f8b5fd3a29f87d9a38e30a5b158c48e66a4eb71107f89762ca193124c8e2c35"
+    },
+    "klasse5/reihe-zusammenarbeit.html": {
+      "before": "60cd5083d54008c9be2d8cdf2ee93d162afb9149b65d3296f86840db03d697b3",
+      "after": "8ad64e5fb6c4a7bae30a61dcfb4425fef5b24d9dfdcb7904f23eb66eda50af81"
+    },
+    "klasse5/reihe-medienprodukt.html": {
+      "before": "83befba02040d77ff8addcb0d1d0d2d3e7ceb599409b83f95c3e315e6042ba25",
+      "after": "282c9001aff6aa8e8263f4e7d559750bef87c136ab55b40d32059a516cde4c39"
+    },
+    "klasse5/reihe-medienwirkung.html": {
+      "before": "3500be047f13dbc2ab226346d378c9bace67195492b783c39994128d37693eaa",
+      "after": "c4a4a740a874266a07435a33c68942de63504bda69c31fc1b6a2210306dff2ae"
+    },
+    "klasse5/reihe-ablaeufe.html": {
+      "before": "4fc86fe112946b525e291bb7d0be72e24f244ba263db693e7249a8b19e0b3d9d",
+      "after": "4c3cda27bf22595ebd9f902b735965c328abb15d2cff5ca99b45d5495cb11c6c"
+    },
+    "klasse5/arbeit.html": {
+      "before": "ac51a08e69eabe6f0c0088bdfd89e4c60558c4bbc8aff7324631b742522cc153",
+      "after": "394ec7e4900a4377b7190d1e2a4d2d84a3aedd525cb4a352b46a28ce5f858bc6"
+    },
+    "klasse5/informationen.html": {
+      "before": "16c93687635ec3ef187907a18f9d072f35a0ba35e209e2fb905befe27e7cccbf",
+      "after": "af7c395a8e251e0ca04e2ac9bfd9e9bf955db3258ac8c798e6325314d3328f73"
+    },
+    "klasse5/mantel-sw.js": {
+      "before": "4d19e013378c316d4464586b32693a98cc645681c76e29e068cf1fea96f51f8d",
+      "after": "3a9382769fae9e7df232aea571711a5f0c429ef537eb09e3b8f7b5f06df478d9"
+    }
+  }
+}

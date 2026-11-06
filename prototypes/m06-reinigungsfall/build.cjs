@@ -71,7 +71,7 @@ function prepare() {
     if (name.endsWith('.html')) {
       for (const [, url] of source.matchAll(/(?:href|src)="([^"]+)"/g)) {
         if (url.startsWith('#') || /^(?:https?:|mailto:)/i.test(url)) continue;
-        const relative = url.split('#')[0];
+        const relative = url.split(/[?#]/)[0];
         const target = path.posix.normalize(path.posix.join(path.posix.dirname(name), relative.endsWith('/') ? `${relative}index.html` : relative));
         if (!assets.has(target)) throw new Error(`Unpublished link ${name}: ${url}`);
       }

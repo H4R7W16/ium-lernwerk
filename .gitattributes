@@ -1,1 +1,4 @@
 * text=auto eol=lf
+
+# Preserve the reviewed media bundle byte-for-byte.
+prototypes/shared/inhalte/assets/medienwirkung/papierbruecke/** -text
