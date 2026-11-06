@@ -7,6 +7,7 @@ const { units, isProjection, regularNavigation, projectionNavigation } = require
 
 const { addTaskRoutes } = require('./aufgabenwege.cjs');
 const { addMaterialRoutes } = require('./materialwege.cjs');
+const { addWorkOverview } = require('./arbeit-adapter.cjs');
 
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 
@@ -58,7 +59,7 @@ function addYearRoutes(source) {
     const href = path.posix.relative(path.posix.dirname(name), 'klasse7/' + stylesheet);
     routes.set(name, html.replace('</head>', '<link rel="stylesheet" href="' + href + '"></head>'));
   }
-  return routes;
+  return addWorkOverview(routes);
 }
 
 module.exports = { addYearRoutes, units };

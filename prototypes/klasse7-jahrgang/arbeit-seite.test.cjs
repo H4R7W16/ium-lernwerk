@@ -1,0 +1,7 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const {renderWorkPage}=require('./arbeit-seite.cjs');
+const catalog={grade:7,version:1,areas:[{id:'dat',name:'Daten',path:'daten/index.html',notesPath:'daten/notizen.html'}],tasks:[{id:'dat-1',title:'Sicher </script><img src=x onerror=alert(1)>',area:'dat',code:'DAT-1',path:'daten/dat-1.html',places:[{id:'',title:'Ganze Aufgabe'}]}]};
+test('Übersicht lädt persönliche Logik nur in ihrem eigenen Einstieg und bietet einen Einstieg ohne JavaScript',()=>{const html=renderWorkPage(catalog);assert.match(html,/<main[^>]*id="inhalt"/);assert.match(html,/id="work-app"/);assert.match(html,/<noscript>[\s\S]*Daten/);assert.match(html,/work-overview-storage\.js/);assert.match(html,/Auf diesem Gerät behalten/);});
+test('Eingebetteter Katalog kann kein Script-Ende einschleusen und bleibt verlustfrei lesbar',()=>{const html=renderWorkPage(catalog),json=html.match(/<script id="work-catalog" type="application\/json">([\s\S]*?)<\/script>/)[1];assert.deepEqual(JSON.parse(json),catalog);assert.doesNotMatch(json,/<\/script/i);});
+test('Die Einstiegsseite erklärt den Umfang der Sicherung und den freiwilligen Einsatz',()=>{const html=renderWorkPage(catalog);assert.match(html,/Dateien separat/);assert.match(html,/freiwillig/);assert.match(html,/kein zweites Portfolio/);assert.match(html,/keine automatische Abgabe/);assert.match(html,/Aufgabe merken/);});
