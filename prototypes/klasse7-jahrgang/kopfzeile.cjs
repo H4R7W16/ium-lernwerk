@@ -9,6 +9,12 @@ const units = [
   ['gaming', 'Gaming'],
 ];
 
+const topicDescriptions = {
+  medien: 'Was zeigen wir – und was lassen wir weg?',
+  daten: 'Wie wird Information zu Daten?',
+  programmieren: 'Wie steuerst du den Rover?',
+  gaming: 'Wer bestimmt, wann Schluss ist?',
+};
 const knowledgePages = {
   medien: 'medien/medienbogen-sicherung.html',
   daten: 'daten/datenbogen-sicherung.html',
@@ -44,11 +50,12 @@ function unitTools(name, oldHeader, knowledgePage) {
   }).join('');
 }
 
-function topicLink(name, current, id, target, label, ref) {
+function topicLink(name, current, id, target, label, ref, description = '') {
   const isCurrentPage = name === 'klasse7/' + target;
   const selected = current === id;
   const status = isCurrentPage ? ' aria-current="page"' : selected ? ' aria-current="true"' : '';
-  return '<a' + status + ' href="' + ref(target) + '">' + label + '</a>';
+  return '<a' + status + ' href="' + ref(target) + '"><strong>' + label + '</strong>'
+    + (description ? '<small>' + description + '</small>' : '') + '</a>';
 }
 
 function regularNavigation(name, oldHeader, ref, hasLocalMaterials) {
@@ -60,7 +67,9 @@ function regularNavigation(name, oldHeader, ref, hasLocalMaterials) {
     : '<a class="year-shell-context" href="' + ref(location.target) + '">' + location.label + '</a>';
   const topics = [
     topicLink(name, current, undefined, 'index.html', 'Jahrgangsübersicht', ref),
-    ...units.map(([id, label]) => topicLink(name, current, id, id + '/index.html', label, ref)),
+    ...units.map(([id, label], index) => topicLink(name, current, id, id + '/index.html',
+      String(index + 1).padStart(2, '0') + ' · ' + (id === 'gaming' ? 'Gaming und Wohlbefinden' : label),
+      ref, topicDescriptions[id])),
   ].join('');
   const knowledge = knowledgePages[current] || 'wissen.html';
   const onKnowledgePage = name === 'klasse7/' + knowledge;
@@ -68,7 +77,8 @@ function regularNavigation(name, oldHeader, ref, hasLocalMaterials) {
     + '<div class="year-shell-identity">' + brand(ref, false) + context + '</div>'
     + '<nav class="year-shell-nav" aria-label="Lernwerk">'
     + '<details class="year-topics" data-lw-menu><summary>Themen <span aria-hidden="true">▾</span></summary>'
-    + '<div class="year-topic-links">' + topics + '</div></details>'
+    + '<div class="year-topic-links">' + topics
+    + '<button type="button" data-lw-close-menu>Schließen</button></div></details>'
     + '<a' + (onKnowledgePage ? ' aria-current="page"' : '') + ' href="' + ref(knowledge) + '">Wissen</a>'
     + '<a href="' + ref(materialTarget(current)) + '" aria-label="Unterrichtsmaterial">'
     + '<span class="year-nav-full">Unterrichtsmaterial</span><span class="year-nav-short">Material</span></a></nav></header>';

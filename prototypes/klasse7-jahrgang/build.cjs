@@ -20,7 +20,7 @@ function addYearRoutes(source) {
       all.set('klasse7/' + file.slice(7), /\.(html|txt)$/.test(file) ? bytes.toString('utf8') : bytes);
     }
   }
-  for (const asset of ['jahreswege.css', 'jahrgang-gamepad.svg', 'kopfzeile.css']) {
+  for (const asset of ['jahreswege.css', 'jahrgang-gamepad.svg', 'kopfzeile.css', 'kopfzeile.js']) {
     all.set('klasse7/' + asset, fs.readFileSync(path.join(__dirname, asset), 'utf8'));
   }
   for (const [name, original] of all) {
@@ -32,7 +32,8 @@ function addYearRoutes(source) {
     const hasLocalMaterials = original.includes('<!--year-plan-->');
     const navigation = projection ? projectionNavigation(name, oldHeader, ref) : regularNavigation(name, oldHeader, ref, hasLocalMaterials);
     let sheets = '<link rel="stylesheet" href="' + ref('jahreswege.css') + '">';
-    if (!projection) sheets += '<link rel="stylesheet" href="' + ref('kopfzeile.css') + '">';
+    if (!projection) sheets += '<link rel="stylesheet" href="' + ref('kopfzeile.css') + '">'
+      + '<script src="' + ref('kopfzeile.js') + '" defer></script>';
     let html = original.replace(oldHeader, navigation)
       .replace('</head>', sheets + '</head>')
       .replace('Lehrmaterial auswählen', 'Material für Lehrpersonen');

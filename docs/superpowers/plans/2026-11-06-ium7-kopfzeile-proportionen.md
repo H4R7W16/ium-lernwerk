@@ -33,3 +33,14 @@ Integration: eigener Branch `fix/ium7-kopfzeile-proportionen-20261106` auf Basis
 Nach Quellprüfung präzisiert: Die Referenz zeigt das Kompaktlogo bereits bei 1050 px. Deshalb wird zusätzlich der reguläre Bild-Breakpoint in kopfzeile.cjs angeglichen. Projektionen behalten 700 px. Mobile Sichtung: white-space:nowrap der Referenz verhindert einen zusätzlichen Umbruch der Fachzeile.
 
 Abschluss: Frischer Build 1373 Dateien; 16/16 Prüfungen bestanden; 91 reguläre HTML-Seiten nur mit Logo-Breakpoint geändert, ein Stylesheet geändert, 1281 Dateien bytegleich. Browserausgabe bytegleich zur Endfassung. Qualitätslauf READY_FOR_REVIEW, Prüffassung 7174e377e32639daa853a4b542df63c963a0716140e8d86e25dd8d325bbfb7be. Zusätzlicher Quellreview ohne wesentliche Befunde. Screenshots und Messungen unter Assets/IuM-Lernwerk/Design/2026-11-06-kopfzeile-harmonie im gemeinsamen Workspace.
+
+## Folgeauftrag: aufgeklapptes Themenmenü
+
+Freigegeben: Themenmenü wie Klasse 5/6 mit Nummern, kurzen Beschreibungen und Schließen-Bedienung; „Deine Arbeit“ bleibt vorerst weg.
+
+- [x] `kopfzeile.cjs`: vorhandene Jahrgangstitel als Kurzbeschreibungen, nummerierte Themen und Schließen-Schaltfläche ausgeben.
+- [x] `kopfzeile.css`: Zeilen, Schrift, Abstände, Trennlinien, Standortmarkierung, begrenzte Menühöhe und Schaltfläche nach Referenz.
+- [x] `kopfzeile.js` und `build.cjs`: Schließen/Escape samt Fokusrückkehr nur auf regulären Klasse-7-Seiten einbinden. Kein Arbeitsstandskript laden.
+- [x] Frisch bauen, 16 bestehende Prüfungen ausführen, Menü auf Desktop/Tablet/Handy einschließlich Scrollen und Tastatur sichten; Inhalts- und Ausnahmeerhalt vergleichen.
+- [x] Qualitätsnachweis erneuern und bestehenden PR53 aktualisieren. Noch keine Veröffentlichung beauftragt.
+Menü-Abschluss: 1374 Dateien; 16/16 Tests bestanden; 91 reguläre HTML nur im Themenmenü und bei der Menüskript-Einbindung geändert, ein Stylesheet geändert und ein Menüskript ergänzt; 1281 Dateien unverändert. Gesichtete Ausgabe bytegleich zum frischen Endbuild. Desktop/Tablet/Mobil und Schließen/Escape samt Fokusrückgabe geprüft. Qualitätslauf READY_FOR_REVIEW, Prüffassung d779de05e429ae6ff891c12a17d4c8714c10bf5d78dc3d218a98e90346dfc0e5. Nachweise: Assets/IuM-Lernwerk/Design/2026-11-06-themenmenue-harmonie. Keine Veröffentlichung.

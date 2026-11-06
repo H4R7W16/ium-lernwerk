@@ -139,31 +139,48 @@
   z-index: 1;
   top: 100%;
   right: 32px;
-  width: min(720px, calc(100% - 64px));
-  max-height: 70vh;
+  width: min(720px, calc(100vw - 40px));
+  max-height: min(65vh, 36rem);
   overflow-y: auto;
   overscroll-behavior: contain;
   margin: 0;
   padding: 12px;
-  border: 1px solid #c8d1cb;
+  border: 1px solid #dee2df;
   border-radius: 12px;
   background: white;
   box-shadow: 0 12px 30px #222a2f18;
+  font: 400 18px/1.6 "Segoe UI", system-ui, sans-serif;
 }
 .year-shell-header .year-topics:not([open]) > .year-topic-links { display: none; }
 
 .year-shell-header .year-topic-links a {
-  display: flex;
-  align-items: center;
+  display: block;
   min-height: 48px;
-  padding: 10px 12px;
-  border-radius: 6px;
-  color: var(--header-ink);
-  line-height: 1.4;
+  padding: 13px;
+  border-bottom: 1px solid #dee2df;
+  color: var(--header-accent);
   text-decoration: none;
 }
-
-.year-shell-header :is(a, summary):focus-visible {
+.year-shell-header .year-topic-links strong { font-size: 17px; }
+.year-shell-header .year-topic-links small { display: block; color: #5b656d; }
+.year-shell-header .year-topic-links a:hover { border-radius: 6px; }
+.year-shell-header .year-topic-links a[aria-current] {
+  color: var(--header-accent);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--header-accent);
+}
+.year-shell-header .year-topic-links button {
+  margin: 12px;
+  padding: 8px 16px;
+  min-height: 48px;
+  border: 1px solid #768291;
+  border-radius: 8px;
+  color: var(--header-accent);
+  background: white;
+  font: inherit;
+  cursor: pointer;
+}
+.year-shell-header :is(a, summary, button):focus-visible {
   outline: 3px solid var(--header-accent);
   outline-offset: 3px;
 }
