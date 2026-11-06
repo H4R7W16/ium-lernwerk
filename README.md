@@ -1,10 +1,66 @@
 # IuM-Lernwerk
 
-**[Lernwerk Klasse 5 öffnen](https://h4r7w16.github.io/ium-lernwerk/klasse5/)** · [Hinweise für Lehrpersonen](https://h4r7w16.github.io/ium-lernwerk/klasse5/lehrkraft.html) · [Prüffassung und Rückmeldung](https://h4r7w16.github.io/ium-lernwerk/klasse5/review.html)
+**Informatik und Medienbildung für die Klassen 5–7 am Gymnasium in Baden-Württemberg.** Das Lernwerk verbindet digitale Aufgaben, Werkzeuge, fachliche Sicherungen und Materialien für Lehrpersonen.
 
-Das aktuelle Lernwerk für Informatik und Medienbildung in Klasse 5 bündelt sechs Reihen und ergänzende Werkstätten unter einer gemeinsamen Oberfläche. Die neue Gestaltung verwendet die IuM-Wortmarke und Blau als Akzentfarbe für Klasse 5. Der Stand ist zur Sichtung und Erprobung bestimmt; eine gemessene Lernwirkung oder vollständige Prüfung auf Schulgeräten ist damit nicht behauptet.
+| Jahrgang | Lernwerk öffnen | Unterricht vorbereiten |
+| --- | --- | --- |
+| **Klasse 5** | [Zum Lernwerk](https://h4r7w16.github.io/ium-lernwerk/klasse5/) | [Hinweise und Material](https://h4r7w16.github.io/ium-lernwerk/klasse5/lehrkraft.html) |
+| **Klasse 6** | [Zum Lernwerk](https://h4r7w16.github.io/ium-lernwerk/klasse6/) | [Hinweise und Material](https://h4r7w16.github.io/ium-lernwerk/klasse6/lehrkraft.html) |
+| **Klasse 7** | [Zum Lernwerk](https://h4r7w16.github.io/ium-lernwerk/klasse7/) | [Jahresplanung und Übergänge](https://h4r7w16.github.io/ium-lernwerk/klasse7/lehrpersonen.html) |
 
-GitHub Pages veröffentlicht die bisherige Fassung unter `klasse5/` mit unverändertem Wurzeleinstieg sowie ein zusätzliches Recherche-Beispiel unter `beispiele/recherche/`. Frühere Fassungen bleiben im Quellcode erhalten, sind aber auf GitHub Pages nicht mehr als eigene Lernseiten verfügbar. Der [Klasse-5-Pages-Workflow](.github/workflows/klasse5-pages.yml) baut die statische Ausgabe aus den Quellen; ältere Pages-Deployjobs sind stillgelegt.
+[Didaktisches Gesamtkonzept 5–7](https://h4r7w16.github.io/ium-lernwerk/klasse5/gesamtkonzept.html) · [Projektvorstellung auf HArtificial](https://hartificial.de/projekte/ium-lernwerk/) · [Projektstand und offene Punkte](docs/projektstand.md)
+
+## Was ist enthalten?
+
+- **Klasse 5:** sechs Reihen vom schulischen Arbeitsraum über Recherche und Mediengestaltung bis zu Daten und Algorithmen, ergänzt durch Werkstätten.
+- **Klasse 6:** weiterführende Aufgaben zu Netzen, Kommunikation, Codierung, Zeichnen und Medienproduktion mit Jahresstart und Anschluss an Klasse 5.
+- **Klasse 7:** die vier Lernbögen **Daten, Medien, Programmieren und Gaming** mit 22 Kernaufgaben, Eingangsdiagnose, späterer Wiederaufnahme und gemeinsamem Jahresleitfaden. Für Programmieraufgaben ist eine lokale Snap!-Lernwerkumgebung enthalten.
+- **Für Lehrpersonen:** Jahres- und Reihenplanung, Durchführungshinweise, Materialzugänge, Briefings und fachliche Sicherungen. Das gemeinsame Konzept beschreibt Progression, Lernnachweise und Zeitkonten.
+- **Orientierung:** Klassenwahl und Themenmenüs verbinden die Jahrgänge. Klasse 7 verwendet seit dem 06.11.2026 die angeglichene Kopfzeile und das Themenmenü mit eigenem grünen Jahrgangsakzent.
+
+Der veröffentlichte Stand dient der Sichtung und Erprobung. Automatisierte Prüfungen, dokumentierte Reviews und einzelne Browserprüfungen belegen keine gemessene Lernwirkung oder vollständige Erprobung auf Schul-iPads. Die konkreten offenen Punkte stehen im [Projektstand](docs/projektstand.md).
+
+## Arbeiten und sichern
+
+Zum Öffnen der Lernseiten ist kein GitHub-Konto nötig. Klasse 5/6 bieten jeweils eine lokale Arbeitsübersicht mit Wiederaufnahme und Datei-Export/-Import; optionale Browserspeicherung bleibt an Browser, Gerät und Adresse gebunden. Ein Gerätewechsel braucht eine mitgenommene Arbeitsdatei. Extern gespeicherte Übungsdateien bleiben separat und müssen ebenfalls mitgenommen werden.
+
+Klasse 7 arbeitet bisher mit Dokumenten, Heft, Bilddateien und Snap!-Projekten. Eine gemeinsame Übersicht „Deine Arbeit“ ist dort noch nicht implementiert. Ergebnisse nach dem jeweiligen Arbeitsauftrag sichern; ein Seitenwechsel allein speichert keine externe Datei. Offline-Funktionen unterscheiden sich nach Jahrgang und Werkzeug und sollten vor dem Unterricht am vorgesehenen Gerät geprüft werden.
+
+Das [zusätzliche Recherche-Beispiel mit Leas Film](https://h4r7w16.github.io/ium-lernwerk/beispiele/recherche/) bleibt als eigener Referenzstand erreichbar. Es ist keine automatische Ersatzfassung der aktuellen Klasse-5-Recherche.
+
+## Quellcode und lokale Vorschau
+
+Die aktuelle Website entsteht aus [prototypes/pages/build.cjs](prototypes/pages/build.cjs). Der historisch gewachsene Verzeichnisname ist kein Hinweis, dass nur Klasse 5 veröffentlicht wird.
+
+Voraussetzung für diesen Build ist Node.js 22 gemäß [package.json](package.json); er benötigt keine npm-Installation.
+
+```powershell
+git clone https://github.com/H4R7W16/ium-lernwerk.git
+cd ium-lernwerk
+node prototypes/pages/build.cjs
+python -m http.server 4173 --bind 127.0.0.1 --directory dist/klasse5-pages
+```
+
+Danach [Klasse 5 lokal öffnen](http://127.0.0.1:4173/klasse5/), [Klasse 6](http://127.0.0.1:4173/klasse6/) oder [Klasse 7](http://127.0.0.1:4173/klasse7/). Python 3 dient hier nur als lokaler Webserver. Für weitere Builds ein neues Ausgabeziel wählen, zum Beispiel `node prototypes/pages/build.cjs dist/vorschau-2`; der Generator überschreibt keine vorhandene Ausgabe.
+
+**`npm run build` baut das ältere Plattformfundament.** Für das aktuelle veröffentlichte Lernwerk den oben genannten Pages-Generator verwenden.
+
+| Gesucht | Einstieg |
+| --- | --- |
+| Buildkette, Quellen und Prüfungen der aktuellen Website | [Pages-Dokumentation](prototypes/pages/README.md) |
+| Änderungen beitragen und prüfen | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Produktions- und Reviewregeln | [Qualitätszyklus](docs/produktion/qualitaetszyklus.md) und [AGENTS.md](AGENTS.md) |
+| Aktuelle Gesamtkonzeptdaten | [gesamtkonzept.json](prototypes/shared/gesamtkonzept.json) |
+| Klasse-7-Jahreswege und Quellenbindung | [Jahrgangsadapter](prototypes/klasse7-jahrgang/README.md) |
+| Automatische Veröffentlichung von main | [IuM Lernwerk Pages](.github/workflows/klasse5-pages.yml) |
+
+## Frühere Entwicklungsgrundlagen
+
+Die folgende Dokumentation bleibt für bestehende Quellen, Tests und frühere Entscheidungen erhalten. Ihre Phasenbezeichnungen, Modulnummern, Zeitmodelle und Pilotverträge beschreiben die jeweiligen historischen Entwicklungsstränge. Für die heutige Website gelten die Einstiege oben und der aktuelle [Projektstand](docs/projektstand.md); alte Statusangaben werden dadurch nicht rückwirkend hochgestuft.
+
+<details>
+<summary>Historische Beispiele, Plattformphasen und Pilotverträge anzeigen</summary>
+
 
 ## Früheres Beispiel: Sauber geplant (Quellcode)
 
@@ -195,10 +251,8 @@ python -B scripts/validate_ium09.py
 python -B scripts/validate_phase0.py
 ```
 
+</details>
+
 ## Lizenzen
 
-Eigener Validierungscode steht unter der [MIT-Lizenz](LICENSE). Eigene inhaltliche Repository-Beiträge stehen unter [CC BY-SA 4.0](LICENSE-CONTENT.md), sofern eine Datei nicht ausdrücklich etwas anderes festlegt. Material Dritter behält seine jeweils ausgewiesene Lizenz.
-
-## Zusätzliches Recherche-Beispiel · 13.10.2026
-
-Der [neue Recherche-Lernweg mit Leas Film](https://h4r7w16.github.io/ium-lernwerk/beispiele/recherche/) ist ein zusätzliches Angebot. Die bisherigen Klasse-5-Seiten und der Wurzeleinstieg bleiben unverändert. [Übersicht der zusätzlichen Beispiele](https://h4r7w16.github.io/ium-lernwerk/beispiele/) · [Quelle und Sichtungsstand](prototypes/recherche-beispiel/README.md).
+Eigener Validierungscode steht unter der [MIT-Lizenz](LICENSE). Eigene inhaltliche Repository-Beiträge stehen unter [CC BY-SA 4.0](LICENSE-CONTENT.md), sofern eine Datei nicht ausdrücklich etwas anderes festlegt. Material Dritter behält seine jeweils ausgewiesene Lizenz; dies gilt auch für die mitgelieferte [Snap!-Umgebung](prototypes/klasse7-programmieren/inhalt/klasse7/programmieren/snap/LICENSE).
