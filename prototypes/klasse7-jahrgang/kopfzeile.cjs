@@ -22,7 +22,7 @@ function isProjection(name, html) {
 }
 
 function brand(ref, projection) {
-  const breakpoint = projection ? 700 : 760;
+  const breakpoint = projection ? 700 : 1050;
   const subtitle = projection ? '' : '<span class="year-brand-subject" aria-hidden="true">Informatik und Medienbildung</span>';
   return '<a class="brand" href="' + ref('index.html') + '" aria-label="IuM Lernwerk Klasse 7">'
     + '<picture><source media="(max-width:' + breakpoint + 'px)" srcset="' + ref('programmieren/brand/ium-lernwerk-7-compact.png') + '">'
