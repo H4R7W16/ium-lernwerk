@@ -7,6 +7,7 @@ const assert = require('node:assert/strict');
 function readingContent(main) {
   if (main == null) return main;
   return main
+    .replace(/<nav\b[^>]*\sdata-work-overview="bookmark"[^>]*>[\s\S]*?<\/nav>/g, '')
     .replace(/<(nav|p|span)\b[^>]*\bdata-(?:task-routes|year-material)(?=[\s=>])[^>]*>[\s\S]*?<\/\1>/g, '')
     .replace(/<span class="task-raster-column-prefix">(Spalte )<\/span>/g, '$1')
     .replace(/<[\w-]+\b[^>]*>/g, restoreAttributes)

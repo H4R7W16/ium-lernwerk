@@ -214,7 +214,7 @@
   .year-shell-header .year-shell-context { padding-inline: 0; font-size: 13px; }
   .year-shell-header .year-shell-nav {
     display: grid;
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(4, max-content);
     justify-content: space-between;
     gap: 4px;
   }
@@ -336,3 +336,13 @@ main .year-material-routes { margin: 8px 0 16px; padding: 0; }
   .year-material-table tbody :is(th, td) { padding-block: .15rem; }
   .year-material-table a { display: inline-flex; align-items: center; min-height: 44px; }
 }
+
+/* Ein freiwilliger Rückweg; auf Aufgaben läuft keine persönliche Speicherlogik. */
+.year-work-bookmark { margin: .5rem 0 1rem; padding: 0; }
+.year-work-bookmark a { display: inline-flex; align-items: center; min-height: 48px; padding: 6px 12px; border: 1px solid #c8d1cb; border-radius: 7px; color: #245743; background: #eaf2ec; font: 600 16px/1.5 "Segoe UI", system-ui, sans-serif; text-decoration: none; }
+.year-work-bookmark a:hover { background: #dceade; }
+.year-work-bookmark a:focus-visible { outline: 3px solid #245743; outline-offset: 3px; }
+@media (max-width: 400px) {
+  .year-shell-header .year-shell-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 8px; }
+}
+@media print { .year-work-bookmark { display: none; } }

@@ -81,7 +81,9 @@ function regularNavigation(name, oldHeader, ref, hasLocalMaterials) {
     + '<button type="button" data-lw-close-menu>Schließen</button></div></details>'
     + '<a' + (onKnowledgePage ? ' aria-current="page"' : '') + ' href="' + ref(knowledge) + '">Wissen</a>'
     + '<a href="' + ref(materialTarget(current)) + '" aria-label="Unterrichtsmaterial">'
-    + '<span class="year-nav-full">Unterrichtsmaterial</span><span class="year-nav-short">Material</span></a></nav></header>';
+    + '<span class="year-nav-full">Unterrichtsmaterial</span><span class="year-nav-short">Material</span></a>'
+    + '<a' + (name === 'klasse7/arbeit.html' ? ' aria-current="page"' : '')
+    + ' href="' + ref('arbeit.html') + '">Deine Arbeit</a></nav></header>';
   if (hasLocalMaterials) return header;
   const tools = unitTools(name, oldHeader, 'klasse7/' + knowledge);
   return tools ? header + '<nav class="year-tools" aria-label="Arbeitsmittel im Lernbogen">' + tools + '</nav>' : header;
