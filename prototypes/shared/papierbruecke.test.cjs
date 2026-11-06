@@ -41,3 +41,23 @@ test('Veröffentlichung bindet Beitrag samt URL-Parameter und allen Dateien in d
  assert.match(built.get('klasse5/medienwirkung/briefing.html'),/25-minütigen Werbevergleich/);
  assert.equal(p.steps.find(s=>s.id==='werbung').blocks[2].responseMode,'oral');
 });
+
+test('Erstidee steht vor Magazinvergleich und wird ohne Zusatzabgabe wieder aufgenommen',()=>{
+ const p=make(),s=p.steps.find(s=>s.id==='werbung'),pages=R.render(p);
+ assert.deepEqual(s.blocks.map(b=>b.type),['example','example','task']);
+ assert.deepEqual(s.blocks[0].media,['video']);
+ assert.deepEqual(s.blocks[1].media,['magazin']);
+ assert.match(s.blocks[0].text,/30–60 Sekunden/);
+ assert.match(s.blocks[0].text,/Was würdest du aus Jules’ Beitrag für deine Brücke übernehmen/);
+ assert.equal(s.blocks[2].responseMode,'oral');
+ assert.match(s.blocks[2].responseHint,/Vier kurze Aussagen/);
+ assert.match(s.blocks[2].prompt,/Was würdest du weiterhin übernehmen, was bleibt ungeklärt/);
+ assert.doesNotMatch(s.task,/Beginne mit dem sichtbaren Werbehinweis/);
+ for(const name of ['schritt-werbung.html','baustein-werbung.html']){
+  const html=pages.get(name);
+  assert.ok(html.indexOf('Was würdest du aus Jules’ Beitrag')<html.indexOf('id="jules-beitrag"'),name+' Erstidee vor Material');
+  assert.ok(html.indexOf('id="jules-beitrag"')<html.indexOf('magazin.svg'),name+' B vor A');
+  assert.ok(html.indexOf('magazin.svg')<html.indexOf('Vergleiche die beiden Formate'),name+' Materialien vor Analyse');
+ }
+ assert.match(p.briefing.join(' '),/25-minütigen Werbevergleich/);
+});
