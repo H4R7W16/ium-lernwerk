@@ -332,12 +332,12 @@
       "label": "Medienwirkungen",
       "title": "Medienwirkungen und Selbstdarstellung beurteilen",
       "goal": "Ein begründetes Fallurteil und ein verbesserter Bildbeitrag. Über eine eigene Medienerfahrung denkst du getrennt und geschützt nach.",
-      "rationale": "Ein kontrollierter Bildvergleich macht Wirkung untersuchbar. Werbung und eine inszenierte Erfolgsmeldung führen zu begründeten, offenen Urteilen. Eigene Gestaltung mit echter Rückmeldung verbindet Analyse und Revision. Persönliche Reflexion bleibt getrennt; neutrale Fälle erlauben gemeinsame Diskussion ohne Offenlegung.",
+      "rationale": "Ein kontrollierter Bildvergleich macht Wirkung untersuchbar. Werbung und eine inszenierte Erfolgsmeldung führen zu begründeten, offenen Urteilen. Eigene Gestaltung mit echter Rückmeldung verbindet Analyse und Revision. Persönliche Reflexion bleibt getrennt; neutrale Fälle erlauben gemeinsame Diskussion ohne Offenlegung. Der Werbevergleich beginnt mit einer eigenen Auswahl aus Jules’ vierseitigem Bastelbeitrag. Erst danach vergleichen die Lernenden die eingebettete Produktempfehlung mit einer getrennten Magazinanzeige und prüfen ihre Anfangsidee an Belegen.",
       "phases": [
         {
           "title": "Werbung und Bildausschnitt",
           "minutes": 45,
-          "action": "Werbung 25, Bildlabor beginnen 20 Minuten.",
+          "action": "Werbung 25: zuerst B und kurze eigene Auswahl, danach A/B vergleichen und die Anfangsidee prüfen; Bildlabor beginnen 20 Minuten.",
           "status": "Ausgearbeitet · zur Erprobung",
           "href": "medienwirkung/schritt-werbung.html",
           "label": "Zum Lernbogen"
@@ -380,8 +380,9 @@
         "account": "spacedPracticeMinutes",
         "text": "Drei Minuten neutraler Abruf und zwei Minuten private Wiederaufnahme mit Abstand. M01–M05: 32 von 135 vorhandenen Jahresminuten. Sofortiger Transfer gehört bereits zu den 225 Kernminuten."
       },
-      "preparation": "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen. Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe. Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen. Am Brückenfall den ausgewählten Beitrag mit vier Versuchen und Hilfe abgleichen; in der Bildwerkstatt erst Ausschnittknöpfe, danach freie Regler nutzen.",
+      "preparation": "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen. Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe. Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen. Am Brückenfall den ausgewählten Beitrag mit vier Versuchen und Hilfe abgleichen; in der Bildwerkstatt erst Ausschnittknöpfe, danach freie Regler nutzen. Im Werbevergleich zuerst Jules’ vier Bilder B und den Textzugang öffnen; 30–60 Sekunden eigene Auswahl vor A und Analyse einplanen. Bei Papierarbeit das Einzelmaterial mit allen vier Karten B vor Magazin A verwenden. Werbemarkierungen sichtbar lassen. KI-Illustrationen als erfundenes Analysematerial einordnen, nicht als realen Versuchsnachweis.",
       "decisions": [
+        "Werbung nur am Code erkannt? In Bild 2 Falttipp, Marke und Papierblock zeigen lassen. Anschließend die fehlende Vergleichsbasis für „nur mit diesem Papier“ prüfen und die erste Idee begründet bestätigen oder präzisieren. Vier kurze mündliche Aussagen innerhalb der 25 Minuten genügen.",
         "Wirkung als Gewissheit formuliert? Zweite mögliche Reaktion ergänzen.",
         "Person statt Darstellung bewertet? Konkrete Aussage und Kontext prüfen.",
         "Private Angaben angeboten? Nicht im Plenum vertiefen; bei Hilfebedarf gesondertes Gespräch anbieten.",

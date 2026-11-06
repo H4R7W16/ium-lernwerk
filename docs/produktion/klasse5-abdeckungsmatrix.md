@@ -92,7 +92,7 @@ Fundstellen nennen Autorenpaket und Schritt. Alle Belege wurden inhaltlich geles
 |---|---|---|
 | Inhalt 3.1.1.1(2) | `medienwirkung/nachdenken`, `medienwirkung/erinnern` | Eigene harmlose schulische Erfahrung, Zweck/Wirkung und nächste Entscheidung geschützt reflektieren. |
 | Inhalt 3.1.1.1(3) | `medienwirkung/nachdenken`, `medienwirkung/optionen` | Anziehung und Schwierigkeit an eigener Erfahrung privat beschreiben; Optionen am neutralen Fall diskutieren. |
-| Inhalt 3.1.1.1(5) | `medienwirkung/werbung`, `medienwirkung/erinnern` | Werbung im Magazin, Clipstandbild und neuen Spielbeispiel erkennen und Einbettung erklären. |
+| Inhalt 3.1.1.1(5) | `medienwirkung/werbung`, `medienwirkung/erinnern` | Werbung im Magazin, vierseitigen Bilderbeitrag und neuen Spielbeispiel erkennen und Einbettung erklären. Im Bilderbeitrag Bildnummer und Textstelle belegen; die erste eigene Auswahl nach dem Vergleich begründet bestätigen oder präzisieren. |
 | Inhalt 3.1.4.2(6) | `medienwirkung/selbstbild` | Wirkung von Jules Erfolgsmeldung für verschiedene Betrachtende mit Beleg und fehlendem Kontext abwägen. |
 | Inhalt 3.1.4.2(7) | `medienwirkung/handeln` | Produktkritik und wiederholte Ausgrenzung unterscheiden; örtlichen Hilfeweg und Ersatzweg zeigen. |
 | Inhalt 3.1.5.1(8) | `medienwirkung/bildlabor`, `medienwirkung/selbstbild` | Ausschnitt und Text auf Inhalt/Wirkung untersuchen, Darstellungsgrenze benennen. |

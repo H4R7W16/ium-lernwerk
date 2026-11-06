@@ -167,7 +167,7 @@ function assets(pack){
     const data=fs.readFileSync(file),limit=(name.endsWith('.mp4')?64:2)*1024*1024;if(!data.length||data.length>limit)throw new Error('Unzulässige Filmdateigröße: '+name);
     out.set(name,data);
    }
-  }return out;
+  }for(const [name,data]of require('./papierbruecke.cjs').assets(pack))out.set(name,data);return out;
  }
 function unit(pack){return {...pack,kind:pack.kind||'core',status:'working',schemaVersion:1,learningDesign:{goal:pack.product,coverage:Object.fromEntries(Object.entries(pack.coverage).map(([k,v])=>[k,v.join('/')]))},fields:pack.steps.flatMap(s=>s.blocks.filter(b=>['task','external','cooperative','retrieval'].includes(b.type)).flatMap(b=>[b.id,...(b.responseParts||[]).map(part=>b.id+'-'+part.id)].map(key=>'i:answer-'+s.id+'-'+key)))};}
 module.exports={actionLink,validate,renderBlocks,load,unit,assets,esc,paragraphs,mediaHTML,citations};

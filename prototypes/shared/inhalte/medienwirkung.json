@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M05-MEDIENWIRKUNG",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "grade": 5,
   "area": "medienwirkung",
   "family": "content",
@@ -51,19 +51,21 @@
         "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen.",
         "Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe.",
         "Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen.",
-        "Beim Erfolgsfall Beitrag und Kontextbild nebeneinander erklären lassen: Was wird gezeigt, was wurde ausgelassen? Die Bilder belegen vier Versuche und einen Falttipp, nicht den genauen Verlauf einzelner Versuche. Keine persönlichen Misserfolge als Nachweis verlangen."
+        "Beim Erfolgsfall Beitrag und Kontextbild nebeneinander erklären lassen: Was wird gezeigt, was wurde ausgelassen? Die Bilder belegen vier Versuche und einen Falttipp, nicht den genauen Verlauf einzelner Versuche. Keine persönlichen Misserfolge als Nachweis verlangen.",
+        "Für den Werbevergleich Jules’ vierseitigen Bilderbeitrag einmal öffnen. Er funktioniert ohne Konto und Ton; Pfeile, Tastatur und die Ansicht „Alle Bilder“ sind möglich. Zuerst nur B betrachten lassen; Magazin A und Analyseauftrag folgen anschließend. Bei Papierarbeit steht B im vollständigen Einzelmaterial vor A. Die Werbekennzeichnungen bleiben sichtbar. Die KI-Bilder illustrieren einen erfundenen Beitrag, sie dokumentieren keinen realen Belastungsversuch und sind keine präzise Faltanleitung."
       ]
     },
     {
       "title": "Fünf Stunden führen",
       "paragraphs": [
-        "1: Werbung 25, Bildlabor 20. 2: Bildlabor 25, Fallurteil 20. 3: Gestalten 25, Rückmeldung 20. 4: Rückmeldung 10, Nachdenken 30, Optionen 5. 5: Optionen 10, Transfer 20, Handeln 15 Minuten. Die fünf Bildwerkstatt-Stationen sind mit 90 Minuten enthalten, kein zusätzlicher Durchlauf. Navigations- und Sicherungszeit innerhalb der Phasen vorsehen.",
+        "1: Werbung 25, Bildlabor 20. 2: Bildlabor 25, Fallurteil 20. 3: Gestalten 25, Rückmeldung 20. 4: Rückmeldung 10, Nachdenken 30, Optionen 5. 5: Optionen 10, Transfer 20, Handeln 15 Minuten. Die fünf Bildwerkstatt-Stationen sind mit 90 Minuten enthalten, kein zusätzlicher Durchlauf. Navigations- und Sicherungszeit innerhalb der Phasen vorsehen. Innerhalb der 25 Minuten Werbung: B ansehen, 30–60 Sekunden eine eigene Auswahl denken oder leise sagen, dann A/B vergleichen und zur ersten Idee zurückkehren. Keine zusätzliche Zeitphase oder Abgabe.",
         "Die zusätzlichen 45 Reflexionsminuten gliedern sich in Modell 10, eigene geschützte Reflexion 20 und neutralen Optionenvergleich 15. Private Nutzungszahlen, Konten oder Probleme werden nicht verlangt. Eine eigene harmlose Erfahrung aus dieser Reihe genügt. Wer zunächst nur fiktiv arbeitet, hat eine Vorbereitung bearbeitet; persönliche Reflexion später erneut geschützt ermöglichen."
       ]
     },
     {
       "title": "Beobachten → unterstützen",
       "paragraphs": [
+        "Zuerst alle vier Bilder von B ansehen lassen und 30–60 Sekunden die Frage „Was würdest du aus Jules’ Beitrag für deine Brücke übernehmen?“ selbst bedenken oder leise beantworten lassen. Erst danach A und den Analyseauftrag nutzen. Nicht vorab nach der Werbeabsicht fragen; die vorhandenen Kennzeichnungen bleiben sichtbar. Beim anschließenden Vergleich genügt „Da ist ein Code“ für das Erkennen, noch nicht für die Einbettung: In Bild 2 Falttipp, Marke und verwendeten Papierblock zeigen lassen. Bei „Nur mit diesem Papier klappt es!“ nach dem Vergleich mit anderem Papier fragen. Vier kurze mündliche Aussagen mit Fundstellen sichern; die vierte prüft die Anfangsidee: Was bleibt sinnvoll, was ungeklärt? Eine begründete Bestätigung zählt ebenso wie eine Präzisierung. Keine zusätzliche Schreibaufgabe.",
         "Nur „gefällt mir“? Konkrete Stelle und mögliche Wirkung ergänzen. „Alle fühlen …“? Eine zweite mögliche Reaktion und die Unsicherheit benennen lassen. „Jules ist unehrlich“? Aussage am Kontext prüfen, nicht Charakter bewerten. „Talent braucht keine Übung“? Vier Versuche und Hilfe gegen dieses Ideal abwägen.",
         "Echte Rückmeldung, Werkstatthandlung und begründete Revision beobachten. Ein bereitgestellter Bogen oder Selbsthäkchen ist kein Nachweis. P56-01/02: Lerngelegenheit, freiwillige Fertigmeldung und beobachtbare Kompetenz strikt unterscheiden. Qualität persönlicher Reflexion nicht aus Fertigmeldungen ableiten und nicht durch Offenlegung prüfen. Eigene Gründe bleiben privat; gemeinsam diskutiert werden neutrale Fälle."
       ]
@@ -86,6 +88,7 @@
   "briefing": [
     "Diese fünfstündige Reihe verbindet Werbung, Bildwirkung und Selbstdarstellung mit einer geschützten eigenen Reflexion. Die bestehende Bildwerkstatt ist mit neunzig Minuten integriert. Beurteilt werden nur erfundene Fälle und ein eigener neutraler Bildbeitrag.",
     "Bereiten Sie die Hilfekarte und einen geschützten Reflexionsweg vor. Persönliche Gedanken werden nicht eingesammelt, vorgezeigt oder in normale Antwortfelder übertragen. Papier oder Denken ist gleichwertig zur freiwilligen privaten Notiz. Eine harmlose eigene Erfahrung aus dem Unterricht genügt. Ein fiktiver Fall bleibt Vorbereitung. Auf einem geteilten Gerät erhält jede Person einen eigenen Browsertab und eine unterscheidbare Arbeitsdatei. Wegblätter für das Bildlabor zusammen mit den drei verlinkten Bildblättern austeilen.",
+    "Im 25-minütigen Werbevergleich kommt zuerst Jules’ vierseitiger Bilderbeitrag B. Nach allen vier Bildern denken die Lernenden 30–60 Sekunden selbst oder sagen leise: „Was würdest du aus Jules’ Beitrag für deine Brücke übernehmen?“ Die erste Idee bleibt im Kopf, ohne Abgabe. Erst danach folgen Magazin A und der Vergleich mit Bildnummern: Werbehinweise, Einbettung, Kaufziel und Aussagegrenze. Auf Bild 2 sind Faltinformation und Papierempfehlung im selben Absatz verbunden; der Faltfix-Block gehört zum Arbeitsplatz. Bild 3 zeigt den Beginn des Münztests. In der vierten kurzen mündlichen Aussage kehren die Lernenden zur ersten Idee zurück: Was würden sie weiterhin übernehmen, was bleibt ungeklärt? Bestätigung und Präzisierung sind möglich. Textzugang und Einzelmaterial mit B vor A tragen dieselbe Belegprüfung. Die Werbemarkierungen bleiben sichtbar. Die KI-Illustrationen sind kein Experimentnachweis; die 25 Minuten bleiben unverändert.",
     "Die ersten beiden Stunden führen vom Werbevergleich über den Bildversuch zum Fallurteil. Stunde drei beginnt mit eigener Gestaltung und echtem Lesetest. Stunde vier enthält dessen Abschluss, das neutrale Reflexionsmodell und persönliche Denkzeit. Stunde fünf schließt den Optionenvergleich ab und führt über den Bibliotheksfall zu Hilfe bei Ausgrenzung.",
     "Beobachten Sie konkrete Begründungen, tatsächliche Bedienung, echte Rückmeldung und begründete Änderungen. Weder Häkchen noch freiwillige Fertigmeldungen beweisen die Qualität persönlicher Reflexion. Fünf Minuten Wiederaufnahme folgen später: drei öffentlich am neutralen Fall, zwei privat am eigenen Vorhaben.",
     "Beim Erfolgsfall Beitrag und Kontextbild nebeneinander erklären lassen: Was wird gezeigt, was wurde ausgelassen? Die Bilder belegen vier Versuche und einen Falttipp, nicht den genauen Verlauf einzelner Versuche. Keine persönlichen Misserfolge als Nachweis verlangen.",
@@ -139,8 +142,8 @@
       "author": "IuM-Lernwerk",
       "url": "https://github.com/H4R7W16/ium-lernwerk",
       "license": "Eigene Texte und SVG: CC BY-SA 4.0",
-      "checked": "2026-10-06",
-      "note": "Schematische Modelle; keine Screenshots einer bestimmten Schule."
+      "checked": "2026-11-06",
+      "note": "Eigene Unterrichtsfälle. Jules’ vierseitiger Bilderbeitrag ist fiktiv; die mit OpenAI ImageGen erzeugten Bilder sind Illustrationen, keine fremden Fotos und keine Dokumentation eines realen Belastungsversuchs. Texte und Gestaltung CC BY-SA 4.0."
     }
   ],
   "media": [
@@ -157,14 +160,14 @@
     },
     {
       "id": "video",
-      "title": "Fall B · Werbung im Erklärclip",
+      "title": "Fall B · Jules’ Bilderbeitrag",
       "kind": "image",
-      "file": "assets/medienwirkung/video.svg",
+      "file": "assets/medienwirkung/papierbruecke/karte-01.webp",
       "creator": "IuM-Lernwerk",
-      "license": "CC BY-SA 4.0 · eigene Grafik und erfundener Fall",
-      "sourceId": "cc",
-      "alt": "Erfundener Erklärclip als Standbild. Im Bild: Werbung · Faltfix; eine Papierbrücke und das Papierpaket. Sprechtext: Faltfix bezahlt diesen Clip. Nur mit diesem Papier klappt es! Mit meinem Code JULE10 sparst du. Unter dem Clip steht ein Kauflink.",
-      "caption": "Fall B · Werbung im Erklärclip · Alle Personen, Marken und Beiträge sind erfunden."
+      "license": "Text/Gestaltung: CC BY-SA 4.0 · Bilder: KI-generiert mit OpenAI ImageGen",
+      "sourceId": "eigen",
+      "alt": "Bild 1 · Eine Brücke. Nur aus Papier. Zu sehen: Eine weiße, ziehharmonikagefaltete Papierbrücke liegt auf zwei Holzklötzen. Die Falten verlaufen längs zwischen den Auflagen. Drei Münzen liegen auf dem Papier. Text im Beitrag: MINI-BAUPROJEKT. Eine Brücke. Nur aus Papier. Ich zeige dir, wie’s geht. → Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag.",
+      "caption": "Fall B · Erfundener Bilderbeitrag mit KI-Illustrationen. Keine Aufnahme eines realen Versuchs."
     },
     {
       "id": "selbstbild",
@@ -225,10 +228,10 @@
       "title": "Woran erkenne ich Werbung?",
       "paragraphs": [
         "Werbung möchte Aufmerksamkeit und Interesse für ein Angebot wecken. Hinweise sind etwa „Anzeige“, ein Kaufaufruf, ein Rabattcode oder eine bezahlte Zusammenarbeit. Ein einzelnes Lob beweist noch keine Werbung.",
-        "Im Magazin kann eine Werbefläche zwischen redaktionellen Absätzen stehen. In einem Erklärclip kann das beworbene Produkt Teil der Vorführung sein. Dann sind Unterhaltung, Erklärung und Kaufanreiz eng verbunden."
+        "Im Magazin kann eine Werbefläche zwischen redaktionellen Absätzen stehen. In einem Erklärclip oder Bilderbeitrag kann das beworbene Produkt Teil der Erklärung sein. Dann sind Basteltipp und Kaufanreiz eng verbunden."
       ],
-      "example": "Bei Jules gehören Bezahlung, Papierempfehlung und Code zum selben Clip. Prüfe die Behauptung „nur damit“ getrennt vom freundlichen Auftreten.",
-      "boundary": "Werbung kann Informationen enthalten. Ein Werbehinweis beweist weder, dass jede Aussage falsch ist, noch, dass ein Produkt gut ist.",
+      "example": "Bei Jules stehen Falttipp und Papierempfehlung im selben Absatz. Der Faltfix-Block liegt am Arbeitsplatz. Bezahlung und Code gehören zu diesem Beitrag. Prüfe „nur mit diesem Papier“ getrennt davon: Was zeigt das Material, welcher Vergleich fehlt?",
+      "boundary": "Werbung kann einen hilfreichen Tipp enthalten. Du kannst die Faltidee übernehmen und die Papierempfehlung trotzdem prüfen. Ein gelungener Versuch mit einem Papier zeigt nicht, dass anderes Papier ungeeignet ist.",
       "steps": [
         "werbung",
         "erinnern"
@@ -347,8 +350,8 @@
       "id": "werbung",
       "title": "Wer erklärt hier – und wer wirbt?",
       "goal": "Du erkennst Werbung in zwei digitalen Formaten und erklärst ihre Einbettung.",
-      "task": "Untersuche die beiden erfundenen Beiträge. Beginne mit dem sichtbaren Werbehinweis.",
-      "outcome": "Zwei begründete Werbefundstellen und ein Unterschied zwischen den Formaten.",
+      "task": "Sieh dir zuerst Jules’ vier Bilder an. Was würdest du daraus für deine Brücke übernehmen? Vergleiche danach den Beitrag mit Magazin A.",
+      "outcome": "Vier kurze begründete Aussagen: Werbehinweise, Einbettung, Kaufziel und deine überprüfte Anfangsidee.",
       "knowledge": [
         "werbung"
       ],
@@ -360,8 +363,22 @@
       "blocks": [
         {
           "type": "example",
+          "title": "B · Ein Basteltipp als Bilderbeitrag",
+          "text": "Öffne zuerst Jules’ Bilderbeitrag und sieh dir alle vier Bilder an. Was würdest du aus Jules’ Beitrag für deine Brücke übernehmen? Denke 30–60 Sekunden selbst nach oder sage deine Idee leise. Behalte sie für den Vergleich im Kopf. Du kannst vor- und zurückblättern oder alle Bilder zusammen ansehen. Der Beitrag ist für den Unterricht erfunden; die Bilder sind KI-generierte Illustrationen.",
+          "media": [
+            "video"
+          ],
+          "help": [
+            {
+              "title": "Alle vier Bilder als Text lesen",
+              "text": "Bild 1 · Eine Brücke. Nur aus Papier. Zu sehen: Eine weiße, ziehharmonikagefaltete Papierbrücke liegt auf zwei Holzklötzen. Die Falten verlaufen längs zwischen den Auflagen. Drei Münzen liegen auf dem Papier. Text im Beitrag: MINI-BAUPROJEKT. Eine Brücke. Nur aus Papier. Ich zeige dir, wie’s geht. → Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag. Bild 2 · Mein Falttrick. Zu sehen: Auf dem Holztisch liegt ein teilweise wie eine Ziehharmonika gefaltetes weißes Blatt. Ein Streifen an der langen Kante ist noch flach. Am Arbeitsplatz liegt ein Papierblock mit der Aufschrift FALTFIX und BASTELPAPIER. Holzklötze und Münzen liegen dahinter bereit. Text im Beitrag: SO FALTE ICH. Mein Falttrick. Ich falte mein Faltfix-Papier wie eine Ziehharmonika. Nur mit diesem Papier klappt es! Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag. Bild 3 · Münze für Münze. Zu sehen: Das gefaltete Blatt liegt mit beiden Enden auf festen Holzklötzen. Dazwischen liegt es frei. Eine Münze liegt in der Mitte auf dem Papier; zwei weitere liegen auf dem Tisch bereit. Hinten liegt derselbe Faltfix-Papierblock wie in Bild 2. Text im Beitrag: JETZT KOMMT DER TEST. Münze für Münze. Ich lege die Brücke auf zwei feste Auflagen. Dann kommen die Münzen einzeln dazu. Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag. Bild 4 · Dein nächstes Bauprojekt? Zu sehen: Dieselbe fertige Papierbrücke mit den Münzen auf dem Holztisch. Text im Beitrag: BAU MIT JULES. Dein nächstes Bauprojekt? Mit meinem Code sparst du. JULE10. Zum Bastelpapier. Der dargestellte Kauflink ist nicht anklickbar. Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag."
+            }
+          ]
+        },
+        {
+          "type": "example",
           "title": "A · Werbung zwischen Absätzen",
-          "text": "Lies das digitale Magazin. Die Redaktion erklärt das Falten; dazwischen steht eine gekennzeichnete Werbefläche.",
+          "text": "Lies jetzt Magazin A. Vergleiche anschließend beide Beiträge. Du kannst jederzeit zu Jules’ Bildern zurückkehren.",
           "media": [
             "magazin"
           ],
@@ -373,32 +390,18 @@
           ]
         },
         {
-          "type": "example",
-          "title": "B · Werbung mitten in der Vorführung",
-          "text": "Dies ist ein Standbild mit Sprechtext, kein abspielbares Video. Jules zeigt eine Brücke und empfiehlt dabei bezahltes Bastelpapier.",
-          "media": [
-            "video"
-          ],
-          "help": [
-            {
-              "title": "Bildinhalt als Text lesen",
-              "text": "Erfundener Erklärclip als Standbild. Im Bild: Werbung · Faltfix; eine Papierbrücke und das Papierpaket. Sprechtext: Faltfix bezahlt diesen Clip. Nur mit diesem Papier klappt es! Mit meinem Code JULE10 sparst du. Unter dem Clip steht ein Kauflink."
-            }
-          ]
-        },
-        {
           "type": "task",
           "title": "Vergleiche die beiden Formate",
-          "text": "Arbeite erst selbst, dann vergleicht zu zweit. Das Papier und die Marke sind erfunden.",
+          "text": "Erkläre erst selbst, dann vergleicht zu zweit. Das Papier und die Marke sind erfunden.",
           "id": "vergleich",
-          "prompt": "Zeige je einen sicheren Werbehinweis. Wo steckt die Werbung: zwischen Absätzen oder im gezeigten Tun? Welche Handlung soll sie anregen? Belegt Jules Satz, dass anderes Papier nicht funktioniert?",
+          "prompt": "1. Woran erkennst du in A und B sicher Werbung? Nenne bei B die Bildnummer. 2. Wo und wie sind Werbung und Basteltipp verbunden? 3. Welche Handlung soll die Werbung anregen? 4. Was belegen die Bilder zu „Nur mit diesem Papier klappt es!“? Was würdest du weiterhin übernehmen, was bleibt ungeklärt?",
           "responseMode": "oral",
-          "responseHint": "Vier kurze Aussagen mit Fundstellen genügen.",
-          "solution": "A: „ANZEIGE“ und „kaufen“ kennzeichnen den Kasten zwischen redaktionellen Absätzen. B: Bezahlung, Werbehinweis, Code und Kauflink verbinden Werbung mit dem Falten im Clip. Beide wollen zum Kauf anregen. „Nur mit diesem Papier“ wird nicht durch einen Vergleich mit anderem Papier belegt. Nicht jede beliebige Produkterwähnung wäre deshalb Werbung.",
+          "responseHint": "Vier kurze Aussagen mit Fundstellen genügen. Nutze bei B Bildnummern und Textstellen. Greife in deiner vierten Aussage deine erste Idee wieder auf; du musst sie nicht ändern.",
+          "solution": "1. A: „ANZEIGE“ und „kaufen“ kennzeichnen den Kasten zwischen redaktionellen Absätzen. B: „Werbung · Faltfix“ und „Faltfix bezahlt diesen Beitrag“ kennzeichnen die bezahlte Zusammenarbeit. 2. In Bild 2 verbindet Jules den Faltschritt mit Faltfix in einem Satzabsatz; der Papierblock ist Teil des Arbeitsplatzes. Bild 3 zeigt den Beginn des Münztests, Bild 1 das fertige Ergebnis. 3. Bild 4 ergänzt den Code JULE10 und die Aufforderung zum Papierkauf. Beide Beiträge wollen zum Kauf anregen. 4. Kein Bild zeigt einen Vergleich mit anderem Papier. Auch ein realer einzelner Versuch würde „nur mit diesem Papier“ nicht belegen. Mögliche Rückkehr zur Anfangsidee: „Die Faltidee würde ich weiterhin ausprobieren. Ob ich dafür Faltfix brauche, bleibt ungeklärt.“ Eine begründet beibehaltene erste Idee ist ebenso möglich. Der fehlende Vergleich beweist nicht, dass Faltfix schlecht ist.",
           "help": [
             {
               "title": "Ich finde nur freundliche Wörter",
-              "text": "Suche zuerst nach Bezahlung, Kennzeichnung und Kaufaufforderung. Vergleiche dann ihren Platz im Inhalt.",
+              "text": "Suche in beiden Beiträgen nach Bezahlung, Kennzeichnung und Kaufaufforderung. Zeige dann bei B eine Stelle, an der Basteltipp und Marke zusammenkommen. Für deine letzte Aussage: Wurde auch anderes Papier gezeigt?",
               "knowledge": "werbung",
               "label": "Passendes Wissen öffnen"
             }
@@ -406,8 +409,8 @@
         }
       ],
       "materialNeeds": [
-        "Material und Falltexte auf diesem Blatt; bei Bedarf vorlesen lassen",
-        "Für digitale Werkstatt und Rückmeldung: Schulgerät und Partnerperson"
+        "Zuerst alle vier Bilder von Jules’ Beitrag B, danach Magazin A; beides steht in dieser Reihenfolge im Einzelmaterial",
+        "Bei Bedarf den vollständigen Beitrag als Text lesen oder vorlesen lassen"
       ],
       "checkHelp": [
         {
@@ -1040,5 +1043,40 @@
     "example": "Leere Bibliothekssessel belegen leere Sessel im gezeigten Moment.",
     "boundary": "Sie belegen weder die Nutzung der ganzen Bibliothek noch die Absicht der Person, die fotografierte.",
     "diagnosis": "Im Bibliotheksfall nennt jede Person Bildbeleg und Aussagegrenze ohne alte Antwort. Bei Verallgemeinerung sichtbare Stelle markieren und die Behauptung erneut begrenzen. Persönliche Reflexion bleibt privat."
+  },
+  "paperbridge": {
+    "version": "2.0.0",
+    "files": [
+      "index.html",
+      "alle.html",
+      "texte.html",
+      "karussell.css",
+      "karussell.js",
+      "assets/bridge.webp",
+      "assets/fold.webp",
+      "assets/test.webp",
+      "karte-01.webp",
+      "karte-02.webp",
+      "karte-03.webp",
+      "karte-04.webp"
+    ],
+    "cards": [
+      {
+        "file": "karte-01.webp",
+        "alt": "Bild 1 · Eine Brücke. Nur aus Papier. Zu sehen: Eine weiße, ziehharmonikagefaltete Papierbrücke liegt auf zwei Holzklötzen. Die Falten verlaufen längs zwischen den Auflagen. Drei Münzen liegen auf dem Papier. Text im Beitrag: MINI-BAUPROJEKT. Eine Brücke. Nur aus Papier. Ich zeige dir, wie’s geht. → Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag."
+      },
+      {
+        "file": "karte-02.webp",
+        "alt": "Bild 2 · Mein Falttrick. Zu sehen: Auf dem Holztisch liegt ein teilweise wie eine Ziehharmonika gefaltetes weißes Blatt. Ein Streifen an der langen Kante ist noch flach. Am Arbeitsplatz liegt ein Papierblock mit der Aufschrift FALTFIX und BASTELPAPIER. Holzklötze und Münzen liegen dahinter bereit. Text im Beitrag: SO FALTE ICH. Mein Falttrick. Ich falte mein Faltfix-Papier wie eine Ziehharmonika. Nur mit diesem Papier klappt es! Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag."
+      },
+      {
+        "file": "karte-03.webp",
+        "alt": "Bild 3 · Münze für Münze. Zu sehen: Das gefaltete Blatt liegt mit beiden Enden auf festen Holzklötzen. Dazwischen liegt es frei. Eine Münze liegt in der Mitte auf dem Papier; zwei weitere liegen auf dem Tisch bereit. Hinten liegt derselbe Faltfix-Papierblock wie in Bild 2. Text im Beitrag: JETZT KOMMT DER TEST. Münze für Münze. Ich lege die Brücke auf zwei feste Auflagen. Dann kommen die Münzen einzeln dazu. Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag."
+      },
+      {
+        "file": "karte-04.webp",
+        "alt": "Bild 4 · Dein nächstes Bauprojekt? Zu sehen: Dieselbe fertige Papierbrücke mit den Münzen auf dem Holztisch. Text im Beitrag: BAU MIT JULES. Dein nächstes Bauprojekt? Mit meinem Code sparst du. JULE10. Zum Bastelpapier. Der dargestellte Kauflink ist nicht anklickbar. Auf jeder Karte: Bau mit Jules; Werbung · Faltfix; Faltfix bezahlt diesen Beitrag."
+      }
+    ]
   }
 }

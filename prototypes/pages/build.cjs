@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {prepareAdditionalPages}=require('../recherche-beispiel/build.cjs');
 const {augment}=require('../shared/class6-render.cjs');
-const preserved=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'),require('./revision-20261105-lernaufgaben.json'));
+const preserved=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'),require('./revision-20261105-lernaufgaben.json'),require('./revision-20261106-papierbruecke.json'),require('./revision-20261106-papierbruecke-v2.json'));
 const {addClass7}=require('../klasse7-programmieren/build.cjs');
 const {addMedia,connectMedia}=require('../klasse7-medien/build.cjs');
 const {addData,connectData}=require('../klasse7-daten/build.cjs');
