@@ -20,20 +20,31 @@ test('Geprüfte Quellen, Lernaufträge, Briefings und alle Bilder bleiben gebund
  const plan=main(fs.readFileSync(path.join(dir,'datenbogen-durchfuhrung-und-auswertung.html'),'utf8')).replace('<span class="reference" title="Projektgrundlage im Vault">Klasse 7 - Jahrgangsbrief</span>','<a href="../programmieren/lehrpersonen/jahrgang.html">Klasse 7 – Jahrgangsbrief</a>').replace('Die Startseite der lokalen Lesefassung öffnen.','Die Startseite der Datenwerkstatt öffnen.');
  assertReadingContent(main(published.get(ROOT+'datenbogen-durchfuhrung-und-auswertung.html')),plan,'Durchführung und Auswertung');
 });
-test('Datenwerkstatt und übrige Klasse-7-Lernbögen sind von Unterseiten gegenseitig erreichbar',()=>{
- for(const [name,html]of published){if(!name.endsWith('.html'))continue;
-  if(name.startsWith(ROOT)&&!name.includes('/projektion-')){
-   assert.match(html,/data-grade-switch/,name);
-   assert.match(html,/href="\.\.\/programmieren\/index.html">Programmieren<\/a>/,name);
-   assert.match(html,/href="\.\.\/medien\/index.html">Medien<\/a>/,name);
+test('Datenwerkstatt und übrige Klasse-7-Lernbögen sind von Unterseiten gegenseitig erreichbar', () => {
+ const seen = new Set();
+ for (const [name, html] of published) {
+  const area = name.split('/')[1];
+  if (!name.startsWith('klasse7/') || !name.endsWith('.html') || !["daten","medien","programmieren"].includes(area)
+   || name.includes('/snap/') || /projektion(?:-\d+)?\.html$/.test(name)
+   || /<(?:body|main)\b[^>]*class="[^"]*\bprojection\b/.test(html)) continue;
+  seen.add(area);
+  assert.match(html, /data-grade-switch/, name);
+  assert.match(html, /aria-label="Klassenstufe wählen, aktuell Klasse 7"/, name);
+  const menu = html.match(/<details class="year-topics"[^>]*>([\s\S]*?)<\/details>/)?.[1];
+  assert.ok(menu, name + ': Themenmenü fehlt');
+  const links = [...menu.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].map(([, attributes, body]) => ({
+   target: new URL(attributes.match(/\bhref="([^"]+)"/)?.[1], 'https://example.test/ium-lernwerk/' + name).href,
+   label: (attributes.match(/\baria-label="([^"]+)"/)?.[1] || body.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim(),
+  }));
+  for (const [target, label] of [["daten","Daten"],["medien","Medien"],["programmieren","Programmieren"]]) {
+   const link = links.find(link => link.target === 'https://example.test/ium-lernwerk/klasse7/' + target + '/index.html');
+   assert.ok(link, name + ' → ' + target);
+   assert.match(link.label, new RegExp('(?:^|\\s)' + label + '(?:\\s|$)'), name + ': Linkbeschriftung ' + label);
   }
-  if(name.startsWith('klasse7/programmieren/')&&html.includes('<nav class="year-nav"')){
-   const nav=html.match(/<nav class="year-nav"[^>]*>([\s\S]*?)<\/nav>/)[1],href=nav.match(/href="([^"]+)">Daten<\/a>/)?.[1];assert.ok(href,name);
-   assert.equal(path.posix.normalize(path.posix.join(path.posix.dirname(name),href)),ROOT+'index.html');
-  }
-  if(name.startsWith('klasse7/medien/')&&html.includes('<nav class="year-nav" aria-label="Hauptnavigation">'))assert.match(html,/href="\.\.\/daten\/index.html">Daten<\/a>/,name);
  }
+ assert.deepEqual([...seen].sort(), ["daten","medien","programmieren"]);
 });
+
 test('Öffentliche Datenfassung enthält keine lokalen Pfade, Freigabetexte oder internen Nachweise',()=>{
  for(const [name,value]of published){if(!name.startsWith(ROOT))continue;
   assert.doesNotMatch(name,/(?:^|\/)(?:qa|docs|node_modules|\.git)(?:\/|$)/i,name);
