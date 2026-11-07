@@ -1,15 +1,31 @@
-# Papierturm – drei Kommunikationsräume
-Fassung 1 · 07.11.2026 · Klasse 6 / M06
+# Papierturm – zweite Medienfassung
+07.11.2026 · Klasse 6 / M06 · Materialfassung 2, unveränderte Arbeitsdatenversion 2.0.0
 
-Die Ansichten ersetzen die bisherige Vergleichstabelle im bestehenden 30-Minuten-Schritt. Derselbe Wortlaut und dasselbe Bild stehen im Tischgespräch, im geschlossenen Schulraum und im öffentlichen Übungsfeed. Reaktionszeiten, Empfängerkreis, Weitergabe und Rollenbehauptung liefern Belege; die Wirkungsdeutung bleibt Aufgabe der Lernenden.
+## Lernfunktion
+Die gleiche wahre Botschaft „Unser Papierturm steht!“ erscheint in drei Kommunikationsräumen. A zeigt Nuri mit vier Zuhörenden am echten Objekt; B und C zeigen denselben Bildausschnitt des fertigen Turms. Unterschiedliche Zugänge, zeitversetzte Rückfragen und hilfreicher Austausch mit einer anderen Schulgruppe sind am Fall belegbar. C ist kein exklusiver Träger eines Risikofalls.
 
-Quelle für Wortlaut, Ansichten und Hintergrund: prototypes/shared/inhalte/klasse6/kommunikation.json, Eigenschaft papertower. Renderer: prototypes/shared/papierturm.cjs; Gestaltung und progressive Umschaltung: papierturm.css / papierturm.js. Integration ausschließlich über class6-render.cjs. Einzelmaterial, Projektion und Textzugang beziehen ihre Angaben aus denselben Daten. Klasse 5 bleibt unverändert.
+Bestehende 30 Minuten: 12 Raumvergleich und eigener Wirkungssatz, 8 Kontext/Deutungsprüfung und die zwei weiteren Prüfanlässe, 10 Ausgrenzung/Hilfe. Keine neue Pflichtphase, Abgabe oder Datenerhebung. Diese Minuten sind Planungsannahmen.
 
-Turmfoto: am 07.11.2026 mit OpenAI ImageGen generierte, fiktive Illustration; keine Aufnahme eines realen Versuchs und keine Bauanleitung. Vorlage: plausibler weißer Papierturm auf einem Klassenzimmertisch, natürliches Fensterlicht, keine Menschen oder Schrift. WebP-Kodierung ohne inhaltliche Retusche. KI-Kennzeichnung direkt am Bild, weitere Angaben auf papierturm-quellen.html. Eigene Redaktion/Gestaltung CC BY-SA 4.0, Code MIT; KI-Bild soweit Rechte bestehen entsprechend zur Nachnutzung bereitgestellt.
+## Materialführung
+Erst einen eigenen Satz mit Bild-/Wortbeleg formulieren; mündlich genügt. Dann den Hintergrund zu vier Bauversuchen öffnen. Anschließend denselben Satz begründet bestätigen oder präzisieren. Der wahre Erfolgspost zeigt eine Auswahl; Auswahl ist nicht automatisch eine Lüge.
+Der Wissensartikel verwendet einen Kuchen als anderes Beispiel und verrät den Turmkontext nicht.
+Altersregel und unbekannte AG-Rolle folgen als zusätzliche Prüfanlässe. Die Rollenfrage ist im schulischen Nachrichtendienst angesiedelt und gehört nicht zum öffentlichen Feed.
+A/B und B/C sind direkt wählbar; mobil stehen die ausgewählten Karten lesbar untereinander. Ohne JavaScript alle drei Ansichten. Keine automatische Erfolgsanzeige.
 
-Erste Deutung vor dem Hintergrund: zunächst motivierende oder druckerzeugende Wirkung mit Bild-/Wortbeleg formulieren. Danach die vier Bauversuche öffnen und Deutung prüfen. Im Druck den Folgeabschnitt bei Bedarf erst anschließend ausgeben. Umschalten und Lösungöffnen liefern keinen automatisierten Kompetenznachweis.
+## Bearbeitbare Quellen
+Gemeinsame Falldaten und Aufträge: prototypes/shared/inhalte/klasse6/kommunikation.json, Eigenschaft papertower mit version 2.
+Renderer: prototypes/shared/papierturm.cjs; Gestaltung/Bedienung: papierturm.css und papierturm.js.
+Integration ausschließlich über class6-render.cjs. Lernbogen, Einzelmaterial, Projektions- und Textzugang sowie Lehrhinweise/Briefing/Reihenkommentar sind zusammenzuführen.
+Die mündliche Erstdeutung und die zwei weiteren Prüfanlässe erzeugen keine neuen Speicherfelder. Das bisherige optionale Wirkungsfeld bleibt bestehen; Datenversion und Antwortkatalog werden nicht allein wegen der Medienrevision gewechselt.
+Die neue Veröffentlichungsrevision wird an revision-20261107-papierturm.json angekoppelt; V1-Nachweis bleibt erhalten.
 
-Druck: eigener expliziter Textkopf pro Karte aus derselben post-Eigenschaft und separater Druckhintergrund. Dies vermeidet im geprüften Chromium-PDF fehlende Inhalte. Bildschirmtext und Drucktext redaktionell nicht unabhängig ändern.
+## Medienherkunft
+Turmfoto aus Fassung 1: mit OpenAI ImageGen am 07.11.2026 erzeugt. Neue Tischszene am selben Tag anhand dieser Referenz erzeugt: derselbe erkennbare Papierturm, Nuri und vier Zuhörende bei einem direkten Gespräch. Keine realen Kinder, Konten oder Nachrichten. Beide Bilder sind fiktive Illustrationen; sie dokumentieren keinen echten Bauversuch und sind keine Bauanleitung.
+Aufbereitung: WebP-Kodierung ohne zusätzliche inhaltliche Retusche. Herkunft direkt am Bild und auf papierturm-quellen.html.
+Eigene Texte/Gestaltung CC BY-SA 4.0; Code MIT. KI-Bilder soweit Rechte bestehen entsprechend zur Nachnutzung bereitgestellt.
 
-Prüfung: inline Selbstreview, zwei gezielte Nacharbeitsrunden. Desktop, 390/768px, Tastatur, No-JS und tatsächlich gerenderte vier PDF-Seiten. Vollständige Pages-Prüfung plus gezielte Bindungsprüfungen nach den Druckkorrekturen. Keine echte Schulgeräte-/Screenreader-/Unterrichtserprobung. Geprüfte Vorschau; Veröffentlichung gesondert.
+## Druck und Qualität
+Druckkopf pro Karte und Druckhintergrund aus denselben Daten erzeugen. Beitragskopf wird separat gesetzt, weil die zuvor geprüfte Chromium-Paginierung Teile des normalen C-Postblocks ausließ. Den Hintergrund im Druck bei Bedarf erst nach der Erstdeutung ausgeben.
+Bestehender kritischer Prüflauf führt PT-K01–05 fort. Neue tatsächliche Bildschirm-/Tastatur-/No-JS-/Mobil- und paginierte PDF-Ausgaben sichten, technische Tests und Fassungsbindung erneuern.
+Eine redaktionelle Prüfung ist kein Nachweis von Lernwirkung oder tatsächlich passender Schulbrowser-/Screenreader-Konfiguration.
 
