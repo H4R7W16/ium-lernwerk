@@ -31,17 +31,22 @@ ________________________________________________________
 Mein Weg: selbst gefunden / Startlink bekommen / Ersatztext
 
 4 · DIESELBE ANTWORT PRÜFEN
+Markiere einen Satz deiner ersten Antwort und zeige seine erste Belegstelle.
+Nach Leas Lichtvergleich kehrst du zu diesem Satz zurück.
 Zweite Seite (Name + Link; auf Papier: am selben Linkort speichern):
 ________________________________________________________
 Vergleichbare Textstelle:
 ________________________________________________________
-Mein Stand: bestätigt / genauer / noch offen, weil …
-Zeige dazu die passende Stelle.
-________________________________________________________
-Zeige die Anbieterangaben der zwei Beispiele:
+Zeige die passenden Wörter in beiden Stellen: Was ist gleich, was ergänzt
+die zweite Stelle, was bleibt unklar?
+Zeige danach die Anbieterangaben der zwei Beispiele:
 DLR_next = Forschungseinrichtung; timeanddate = Unternehmen.
 Deine selbst gefundene erste Quelle darf zu einer anderen Anbieterart gehören.
-Erkläre an einer gelesenen Stelle, was deine Antwort stützt oder noch unklar bleibt.
+Zeige einen Hinweis, wozu eine deiner Seiten veröffentlicht wird.
+Ein Anbietername oder eine vermutete Absicht entscheidet nicht allein.
+Mein Stand: bestätigt / genauer / noch offen, weil …
+Begründe den Stand deines markierten Satzes an den beiden Textstellen.
+________________________________________________________
 Auch zwei Seiten können denselben Fehler übernehmen.
 Vergleiche mit deiner Vermutung oder vorherigen Wissenslücke.
 

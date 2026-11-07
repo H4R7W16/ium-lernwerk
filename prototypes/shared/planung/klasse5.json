@@ -151,7 +151,7 @@
         },
         {
           "title": "Zwei Quellen prüfen",
-          "action": "Herkunft, Absicht und Belege beider Quellen vergleichen: 45 Minuten.",
+          "action": "Einen Satz der eigenen Antwort festhalten, Leas Vergleich nachvollziehen, danach denselben eigenen Satz an zwei Originalstellen vergleichen: 45 Minuten.",
           "minutes": 45,
           "status": "Redaktionell geprüft · zur Erprobung",
           "href": "recherche/schritt-pruefen.html",
@@ -159,7 +159,7 @@
         },
         {
           "title": "Prüfung abschließen und ordnen",
-          "action": "Quellenvergleich 25 Minuten abschließen; Inhaltsentwurf 20 Minuten beginnen.",
+          "action": "Herkunft und einen erkennbaren Hinweis zur Veröffentlichungsabsicht prüfen; den Stand des eigenen Satzes an den Belegen begründen und mit der Anfangsvermutung vergleichen: 25 Minuten. Inhaltsentwurf 20 Minuten beginnen.",
           "minutes": 45,
           "status": "Redaktionell geprüft · zur Erprobung",
           "href": "recherche/schritt-pruefen.html",
@@ -183,7 +183,7 @@
       "decisions": [
         "Zu breite Frage? Einen erklärbaren Teilaspekt wählen.",
         "Unpassende Treffer? Suchwortänderung begründen; nach zwei Versuchen Startquellen nutzen.",
-        "Nur Anbietername als Beleg? Konkrete Stelle zeigen und ihren Bezug zur Aussage erklären lassen.",
+        "Nur Anbietername als Beleg? Zum markierten eigenen Satz zurückkehren, beide Textstellen zeigen und den Stand daran begründen lassen. Herkunft wird mitgeprüft, ersetzt den Textvergleich aber nicht.",
         "Netz fehlt? Ersatztexte lesen/ordnen; tatsächliche Suche und Originalprüfung bleiben offen.",
         "Sammlung fertig, Herkunft fehlt? Eine Quellenkarte vervollständigen und Aussage erneut prüfen."
       ],

@@ -19,7 +19,7 @@
   ],
   "duration": "210 Kernminuten: 20 Auftrag, 30 Werkstatt, 55 Entwurf, 25 Austausch, 30 Revision, 20 Teilen, 30 Transfer/Sicherung. 39 Abrufminuten vorher, 5 M06-Minuten währenddessen und 12 M07-Minuten später aus dem vorhandenen Jahreskonto.",
   "learnerDuration": "210 Minuten Kernarbeit. Deine Lehrperson verteilt sie zusammen mit den kurzen Wiederaufnahmen auf die Termine im gemeinsamen Jahresplan.",
-  "workNotice": "Sichere deine Produktdateien und die Lernwerk-Notizen getrennt. Ein ausgefülltes Feld oder Haken beweist weder Herstellung noch Austausch. Auf Papier bleiben deine Notizen bei dir; digitale Handlungen werden gesondert ausgeführt.",
+  "workNotice": "Für kurze Notizen nutzt ihr entweder die Projektspur oder die Felder im Lernwerk. Sichert die Produktdateien getrennt davon. Zeigt digitale Handlungen am Gerät; ein ausgefülltes Feld oder Haken ersetzt sie nicht. Auf Papier bleiben deine Notizen bei dir; digitale Handlungen werden gesondert ausgeführt.",
   "curriculum": {
     "moduleId": "G6-M07",
     "goalIds": [
@@ -114,7 +114,7 @@
       "creator": "IuM-Lernwerk",
       "license": "CC BY-SA 4.0",
       "sourceId": "eigen",
-      "printText": "M07 · Projektspur — kurze Stichwörter, keine zweite Ausarbeitung.\nTeamkennung / Sachfrage / Zielgruppe / gewünschte Wirkung:\nPerson A: eigener Satz + Beleg / eigene Gestaltungsoperation:\nPerson B: eigener Satz + Beleg / eigene Gestaltungsoperation:\nErstfassung v1: Dateiname und Speicherort:\nRückmeldung: konkrete Stelle / Wirkung / Vorschlag (sachlich zusammenfassen):\nAushandlung: Rückfrage und gemeinsame Entscheidung / Grund:\nRevision v2: vorher → nachher / sachlicher oder gestalterischer Grund:\nRechteprüfung: Element / Urheber / Fundstelle / Lizenzlink / Änderung / Entscheidung:\nWeg 1: Datei/Fassung / Empfängerkreis / Rechte / tatsächlich geöffnet oder noch offen:\nWeg 2: andere Übertragungsart / Datei/Fassung / auf Empfängergerät geöffnet oder noch offen:\nMein kurzer eigener Beitrag zur Auswertung:\nDie Produktdateien gesondert aufbewahren. Lernwerk-Arbeitsdatei enthält nur die dort notierten Antworten.\n"
+      "printText": "M07 · Projektspur — Alternative zu den Lernwerk-Feldern. Kurze Stichwörter an einem Ort, keine zweite Ausarbeitung.\nTeamkennung / Sachfrage / Zielgruppe / gewünschte Wirkung:\nPerson A: eigener Satz + Beleg / eigene Gestaltungsoperation:\nPerson B: eigener Satz + Beleg / eigene Gestaltungsoperation:\nErstfassung v1: Dateiname und Speicherort:\nRückmeldung: konkrete Stelle / Wirkung / Vorschlag (sachlich zusammenfassen):\nAushandlung: Rückfrage und gemeinsame Entscheidung / Grund:\nRevision v2: vorher → nachher / sachlicher oder gestalterischer Grund:\nRechteprüfung: Element / Urheber / Fundstelle / Lizenzlink / Änderung (falls nötig) / Entscheidung:\nWeg 1: Datei/Fassung / Empfängerkreis / Rechte / tatsächlich geöffnet oder noch offen:\nWeg 2: andere Übertragungsart / Datei/Fassung / auf Empfängergerät geöffnet oder noch offen:\nMein kurzer eigener Beitrag zur Auswertung:\nDie Produktdateien gesondert aufbewahren. Lernwerk-Arbeitsdatei enthält nur die dort notierten Antworten.\n"
     },
     {
       "id": "vergleich",
@@ -447,8 +447,9 @@
               ]
             }
           ],
-          "return": "Notiere nur Dateiname und je ein Beispiel für Zeichen-, Absatz- und Objektänderung. Zeige der Partnerperson die tatsächliche Bedienung.",
-          "prompt": "Datei und drei unterschiedliche Änderungen."
+          "return": "Zeige der Partnerperson direkt in deiner Übungsdatei eine Zeichen-, eine Absatz- und eine Objektänderung. Führe die Bedienung selbst vor und erkläre jeweils den Unterschied. Eine schriftliche Liste ist dafür nicht nötig.",
+          "prompt": "Meine drei Änderungen am Gerät zeigen und unterscheiden.",
+          "responseMode": "oral"
         },
         {
           "type": "task",
@@ -532,7 +533,7 @@
           "text": "Legt Frage, Zielgruppe und zwei Kernaussagen fest. Plant ein Objekt, das die Änderung erklärt. Ein dekorativer Planet allein reicht dafür nicht. Wählt die fachlich schwierige Unterscheidung, die eure Karte einer fünften Klasse erklären soll: historische und heutige Einteilung der Planeten. Plant dafür eine belegte Erklärung und eine passende Darstellung; nicht nur eine Liste von Fakten.",
           "contribution": "Jede Person formuliert einen eigenen belegten Satz und übernimmt eine konkrete Gestaltungsoperation. Verwendet Teamkennung und A/B; keine privaten Angaben.",
           "exchange": "Vergleicht die beiden Sätze auf Widerspruch. Entscheidet, was das Objekt erklären soll. Nach zehn Produktionsminuten zeigt ihr euch Satz, Beleg und Skizze; bei Lücken erst klären, dann weiterbauen. Wechselt die Bedienrolle.",
-          "return": "Halte deinen Satz, Beleg und deine geplante Operation in der Projektspur fest. Die gemeinsame Karte ersetzt diesen individuellen Beitrag nicht.",
+          "return": "Halte deinen Satz mit Beleg und deine geplante Operation entweder in der Projektspur oder im Lernwerk fest. Nutze diesen Ort auch für die folgenden Projektnotizen. Die gemeinsame Karte ersetzt deinen individuellen Beitrag nicht.",
           "prompt": "Mein Sachbeitrag mit Fundstelle und meine Gestaltungsaufgabe.",
           "help": [
             {
@@ -552,20 +553,20 @@
           "title": "Baut eure Erstfassung",
           "text": "Arbeitszeit: Plan und Belege 15 Minuten, digitale Produktion mit Rollenwechsel 30, gemeinsame Lese-/Rechtekontrolle und Sichern 10.",
           "preparation": "Lege im Schulwerkzeug eine leere einseitige Karte an; benutze eure bereits geübten Befehle.",
-          "action": "Gestaltet selbst. Die Bibliothekskarte ist ein anderes Beispiel und wird nicht als eure Lösung übernommen.",
+          "action": "Gestaltet eure Karte selbst. Die Bibliothekskarte zeigt den Weg an einem anderen Thema. Sichert eure erste Karte als editierbare Datei M07-Teamkennung-v1; sie bleibt für den späteren Vergleich erhalten.",
           "routes": [
             {
               "title": "Arbeitsweg im freigegebenen Schulwerkzeug",
               "items": [
                 "Schreibt etwa 60–90 Wörter Haupttext in eigenen Worten, mit aussagekräftiger Überschrift und kurzen Absätzen. Verknüpft zwei Kernaussagen mit den Quellen; Quellenleiste zählt nicht zum Wortziel.",
                 "Erstellt ein erklärendes Objekt: zum Beispiel einen beschrifteten Zeitvergleich, eine kleine Tabelle oder eine Formengruppe. Nutzt eigene Formen oder den Bildbaustein mit korrektem elementbezogenem Rechtehinweis. Keine fremden Fotos aus der Bildsuche übernehmen.",
-                "Prüft Lesbarkeit auf dem tatsächlichen Bildschirm und in der Vorschau. Überschrift, Antwort, Begründung und Quellen müssen auffindbar sein. Sichert die editierbare Erstfassung als M07-Teamkennung-v1.",
+                "Prüft Lesbarkeit auf dem tatsächlichen Bildschirm und in der Vorschau. Überschrift, Antwort, Begründung und Quellen müssen auffindbar sein.",
                 "Vor dem ersten Teilen Quellen und Rechte prüfen: eigener Text, Herkunft aller fremden Elemente, Lizenz und gegebenenfalls Bearbeitung. Unklares Element durch eigene Formen ersetzen; keine ungeklärte Fassung versenden."
               ]
             }
           ],
-          "return": "Halte Dateiname/Ort, deinen tatsächlich ausgeführten Beitrag und eine Gestaltungsentscheidung mit Grund fest. Die Produktdatei bleibt gesondert.",
-          "prompt": "Erstfassung, mein Beitrag und eine begründete Entscheidung."
+          "return": "Ergänze am gewählten Notizort Dateiname und Speicherort. Aktualisiere deinen Beitrag, wenn er sich beim Gestalten verändert hat, und begründe eine Gestaltungsentscheidung kurz. Die Produktdatei bleibt gesondert.",
+          "prompt": "Dateiname und Ort ergänzen; meinen Beitrag aktualisieren und eine Entscheidung begründen."
         }
       ],
       "criteria": [
@@ -705,14 +706,14 @@
         {
           "type": "explanation",
           "title": "Zwei Prüfaufträge",
-          "text": "20 Minuten für Rückmeldung und begründete Überarbeitung, weitere zehn für Rechteprüfung und die endgültige Korrektur. Arbeitet an einer Kopie v2; v1 bleibt erhalten. Ein neuer Dateiname allein ist keine Revision."
+          "text": "20 Minuten für Rückmeldung und begründete Überarbeitung, weitere zehn für Rechteprüfung, nötige Korrekturen und Export. Arbeitet an einer Kopie v2; v1 bleibt erhalten. Ein neuer Dateiname allein ist keine Revision."
         },
         {
           "type": "task",
           "id": "konflikt",
           "title": "Ein schöner Vorschlag mit ungeklärten Rechten",
-          "text": "Eine fiktive Rückmeldung empfiehlt: „Nehmt ein Foto aus der Bildsuche. Der Link genügt; es bleibt ja in der Klasse.“ Beurteilt den Vorschlag. Wendet eure Entscheidung anschließend auf das tatsächliche eigene Produkt an: unklaren Fund ersetzen oder die vorhandene Rechteleiste konkret ergänzen.",
-          "prompt": "Was ist ungeklärt, und was ändern wir im Produkt?",
+          "text": "Eine fiktive Rückmeldung empfiehlt: „Nehmt ein Foto aus der Bildsuche. Der Link genügt; es bleibt ja in der Klasse.“ Beurteilt den Vorschlag. Wendet eure Entscheidung anschließend auf das eigene Produkt an: Ersetzt einen unklaren Fund oder korrigiert fehlende Rechteangaben. Ist bereits alles geklärt, zeigt an einem Element, woran ihr das erkennt.",
+          "prompt": "Was ist ungeklärt, und was ändern oder bestätigen wir am konkreten Element?",
           "help": [
             {
               "title": "Welche Fragen sind verschieden?",
@@ -728,25 +729,25 @@
           "title": "Von v1 zu v2",
           "text": "Jede Person führt eine Änderung selbst aus und erläutert ihren Grund. Reagiert auf genau diese Verständnisstelle. Lasst die überarbeitete Stelle nochmals ohne Vorab-Erklärung lesen. Wenn alles verstanden wurde, verändert Zielgruppe oder Darstellungsgröße und prüft, ob die Erklärung noch trägt.",
           "preparation": "Öffnet eine Kopie der Erstfassung im Schulwerkzeug. Haltet die erhaltene Rückmeldung bereit.",
-          "action": "Setzt eine fachliche oder gestalterische Verbesserung um; prüft anschließend Quellen und Rechte.",
+          "action": "Überarbeitet die gewählte Stelle und prüft anschließend Quellen und Rechte. Speichert v2 editierbar und exportiert eine PDF. Öffnet die PDF neu und kontrolliert Text, Objekt und Quellen. Bewahrt v1 zum Vergleich auf.",
           "routes": [
             {
               "title": "Arbeitsweg im freigegebenen Schulwerkzeug",
               "items": [
                 "Wählt eine konkrete Stelle aus der echten Rückmeldung. Ändert Text, Anordnung oder Objekt so, dass eine benannte Hürde kleiner wird. Wenn der Vorschlag fachlich nicht trägt, begründet die Ablehnung und findet selbst eine sinnvolle Verbesserung.",
-                "Überarbeitet die Quellen-/Rechteleiste sichtbar: ergänzt genaue Fundstelle, Urheberschaft, Lizenz oder Bearbeitung, soweit nötig. War alles schon korrekt, ergänzt eine knappe klare Zuordnung „Text/Formen: selbst erstellt“ oder ordnet den vorhandenen Hinweis eindeutiger dem Element zu. Erfindet keine Lizenz für fremde Elemente.",
-                "Prüft gemeinsam: Ist die Kernaussage noch richtig? Sind Text und Bild lesbar? Hat die Änderung die Wirkung erreicht? Speichert v2 editierbar und exportiert eine PDF. Öffnet die PDF neu und kontrolliert Text, Objekt und Quellen."
+                "Prüft die Quellen-/Rechteleiste am jeweiligen Element: genaue Fundstelle, Urheberschaft, Lizenz und Bearbeitung, soweit erforderlich. Korrigiert fehlende oder unklare Angaben. Sind die Angaben bereits passend, behaltet sie bei und erklärt kurz warum. Erfindet keine Lizenz für fremde Elemente.",
+                "Prüft gemeinsam: Ist die Kernaussage noch richtig? Sind Text und Bild lesbar? Hat die Änderung die Wirkung erreicht?"
               ]
             }
           ],
-          "return": "Halte ein Vorher–Nachher-Paar mit Grund und die tatsächliche Rechtekorrektur fest. Verweise auf v1/v2; lange Texte nicht erneut abschreiben.",
-          "prompt": "Vorher → nachher, Grund und Rechtekorrektur."
+          "return": "Halte ein Vorher–Nachher-Paar mit Grund fest. Ergänze bei der Rechteprüfung nur die nötige Korrektur oder ein geprüftes Element mit kurzer Begründung. Verweise auf v1/v2; lange Texte nicht erneut abschreiben.",
+          "prompt": "Vorher → nachher, Grund und Ergebnis der Rechteprüfung."
         }
       ],
       "criteria": [
         "Die Revision verändert tatsächlich Inhalt oder Gestaltung.",
         "Ich erkläre ihren Bezug zur realen Rückmeldung.",
-        "Die Rechteprüfung hat eine nachvollziehbare Korrektur oder Präzisierung im Produkt bewirkt.",
+        "Die Rechteangaben sind am jeweiligen Element geprüft; nötige Korrekturen sind umgesetzt.",
         "v1, v2 und die geprüfte PDF sind gesichert."
       ],
       "materialNeeds": [
@@ -785,7 +786,7 @@
               ]
             }
           ],
-          "return": "Notiert für jeden Weg Übertragungsart, Fassung, Empfängerkreis und tatsächliches Öffnungsergebnis; eine Begründung genügt in Stichwörtern. Produktdatei und Lernwerk-Notizen getrennt sichern.",
+          "return": "Notiert für jeden Weg Übertragungsart, Fassung, Empfängerkreis und tatsächliches Öffnungsergebnis; eine Begründung genügt in Stichwörtern. Produktdatei und eure Notizen getrennt sichern.",
           "prompt": "Teilweg 1 und 2: Fassung, Zugriff, Zweck und gegebenenfalls offene Handlung."
         }
       ],
@@ -977,7 +978,7 @@
     {
       "title": "Verlauf: 210 Kernminuten, kein Vierstundenversprechen",
       "paragraphs": [
-        "Auftrag/Modell 20 Minuten (5 Anlass, 10 vollständiges anderes Beispiel, 5 Wirkung); Werkstatt 30 (5 Begriffe, 15 eigene Bedienprobe, 10 Lizenzkorrektur); Entwurf 55 (15 Plan/Beleg, 30 Herstellung mit Kontrolle nach zehn Produktionsminuten und Rollenwechsel, 10 Lese-/Rechtekontrolle/Sicherung); Austausch 25 (15 echter Schulkanal und Rückmeldung, 10 Aushandlung); Revision 30 (20 Produktänderung, 10 Rechtekorrektur/Export); Teilen 20 (10 finale Fassung im Schulkanal, 10 anderer Teilweg); Sichern 30 (15 lokale Vorstellung/individueller Nachweis, 10 veränderter Transfer, 5 gemeinsame Sicherung). Die 30 zusätzlichen Übungsminuten sind enthalten.",
+        "Auftrag/Modell 20 Minuten (5 Anlass, 10 vollständiges anderes Beispiel, 5 Wirkung); Werkstatt 30 (5 Begriffe, 15 eigene Bedienprobe, 10 Lizenzkorrektur); Entwurf 55 (15 Plan/Beleg, 30 Herstellung mit Kontrolle nach zehn Produktionsminuten und Rollenwechsel, 10 Lese-/Rechtekontrolle/Sicherung); Austausch 25 (15 echter Schulkanal und Rückmeldung, 10 Aushandlung); Revision 30 (20 Produktänderung, 10 Rechteprüfung/Export); Teilen 20 (10 finale Fassung im Schulkanal, 10 anderer Teilweg); Sichern 30 (15 lokale Vorstellung/individueller Nachweis, 10 veränderter Transfer, 5 gemeinsame Sicherung). Die 30 zusätzlichen Übungsminuten sind enthalten.",
         "Im gemeinsamen Jahresplan liegen die 210 Kernminuten in UE 32–36:45+45+40+45+35. Vor den 40 Kernminuten in UE 34 stehen die fünf M06-Abrufminuten; dadurch bleibt dieser Termin bei 45 Minuten. In UE 36 kommen 10 Organisationsminuten hinzu. R13/R14 folgen in UE 37/38 an späteren, verschiedenen Unterrichtstagen. Die frühere isolierte Vierstundenfolge wird nicht zusätzlich gezählt.",
         "R12 zu Beginn der UE 34 am offenen Entwurf aufrufen. Das Team markiert seine Arbeitsstelle, bearbeitet nur den zweiten M06-Fall und kehrt zum Entwurf zurück. Bei anderem örtlichen Stundenraster den Termin ansagen. Nach dem Projekt führen die beiden Links am Abschlussschritt direkt zu R13 und R14."
       ]
@@ -992,7 +993,7 @@
     {
       "title": "Beobachtung → nächste Hilfe",
       "paragraphs": [
-        "Satz ohne Beleg: zur konkreten Fundstelle zurück, Aussage gemeinsam auf deren Reichweite begrenzen. Nur Dekoration: fragen „Was kann die fünfte Klasse nach dem Objekt besser erklären?“ und erst eine beschriftete Skizze verlangen. Layoutprobleme: Auswahl des Elements zeigen lassen, Zeichen/Absatz/Objekt unterscheiden und genau eine Operation üben.",
+        "Satz ohne Beleg: zur konkreten Fundstelle zurück, Aussage gemeinsam auf deren Reichweite begrenzen. Nur Dekoration: fragen „Was kann die fünfte Klasse nach dem Objekt besser erklären?“ und erst eine beschriftete Skizze verlangen. Layoutprobleme: Auswahl des Elements zeigen lassen, Zeichen/Absatz/Objekt unterscheiden und genau eine Operation üben. Die Bedienprobe wird direkt am Gerät vorgeführt: eigene Zeichen-, Absatz- und Objektänderung zeigen und die Bedienung ausführen lassen. Eine schriftliche Liste oder Selbstauskunft ersetzt diese Beobachtung nicht.",
         "Eine Person bedient alles: Rollen sofort wechseln; jede Person einen Satz und eine Operation selbst zeigen lassen. Rückmeldung bleibt „schön“: eine konkrete Stelle vorgeben und Wirkung/Vorschlag erfragen. Streit über Änderungen: Beleg oder Zielgruppe als Kriterium nutzen, nicht nach Lautstärke entscheiden. Fehlender Kommentar: reale Ersatzperson einbeziehen, keine erfundene Rückmeldung eintragen.",
         "Rechtehinweis fehlt: Element auswählen, Herkunft/Lizenz trennen, unklaren Fund ersetzen. Link scheitert: Empfänger und Berechtigung prüfen; zweiter Upload ist kein zweiter Weg. Bei Schwierigkeiten Umfang klein halten, nicht Quellenprüfung, Rückmeldung oder Revision streichen."
       ]
@@ -1000,7 +1001,7 @@
     {
       "title": "Material, Projektion und zentrale Sicherung",
       "paragraphs": [
-        "Lernbogen und alle Einzelmaterialien sind auf der Materialseite erreichbar; Werkzeugkarte und Projektspur stehen dort als Textdateien. Die Bibliotheksabbildung mit vollständiger Textbeschreibung dient dem Vergleich, die zusätzliche Projektionsansicht bündelt Frage, Modellvergleich, Rückmeldeauftrag und Sicherung für das gemeinsame Gespräch.",
+        "Lernbogen und alle Einzelmaterialien sind auf der Materialseite erreichbar. Die Werkzeugkarte steht dort als Textdatei; die Projektspur ist die Alternative zu den Lernwerk-Feldern, kein zusätzliches Protokoll. Die Bibliotheksabbildung mit vollständiger Textbeschreibung dient dem Vergleich, die zusätzliche Projektionsansicht bündelt Frage, Modellvergleich, Rückmeldeauftrag und Sicherung für das gemeinsame Gespräch.",
         "Die zentrale geprüfte Sicherung steht im Schritt „Vorstellen, prüfen, übertragen“ und im Wissen. Klären Sie sie im Gespräch anhand konkreter Produkte; der individuelle Nachweis zeigt, was die einzelne Person erklären kann. Lehrpersonenbriefing liegt als separate readerfähige HTML-Seite vor; es ist Vorlesetext, keine produzierte Audiodatei.",
         "Für die Papierbrücke zusätzlich die sechs Original-Abrufblätter aus M01–M06 bereitstellen, für den Zwischentermin das M06-Abrufblatt erneut. Die direkten Links stehen auf dem Organisationsblatt und im Materialzugang. M02 ist ausdrücklich „Ein veraltetes Register“, Kennung abruf-index; der Quellenabruf gehört vor M03. Die Organisationsblätter ersetzen diese Aufgaben nicht."
       ]
@@ -1008,8 +1009,8 @@
     {
       "title": "Nachweise, Abdeckung und Praxisrückfluss",
       "paragraphs": [
-        "Zuordnungen: Belegen (3.1.2.2(5)/(6)) in Plan/Produkt; Text und Wirkung (3.1.5.1(5)–(9), 3.1.5.2(1)/(2)) in Werkstatt, Entwurf und Transfer; Bedienung (3.1.5.2(3)) tatsächlich am Gerät; Rechte (3.1.5.2(4)/(5)) in Lizenzkorrektur und echter Revision; Teilen (3.1.5.2(6)) an beiden Empfängerproben. Schulregeln/Zugangsschutz (3.1.1.1(1), 3.1.4.1(1)–(7)) an Kanal, Aushandlung, Vergleich und Zugangsschutz. Nur wenige passende Prozessziele je Phase fokussieren: Planen/Belegen, Austauschen/Überarbeiten, Darstellen/Reflektieren.",
-        "Prüfen Sie pro Person belegten Satz, selbst ausgeführte Operation und begründete Änderung. Gruppennote, Fortschrittsklick oder ausgefüllte Projektspur allein beweisen diese Kompetenzen nicht. Papier kann Planung und fachliche Beurteilung sichern; echte digitale Herstellung, Schulkanal und zweite Dateiübertragung bleiben bei Ausfall offen. Keine neue private M07-Reflexion; P56-04 gehört nur zum geschützten M06-Abruf.",
+        "Zuordnungen: Belegen (3.1.2.2(5)/(6)) in Plan/Produkt; Text und Wirkung (3.1.5.1(5)–(9), 3.1.5.2(1)/(2)) in Werkstatt, Entwurf und Transfer; Bedienung (3.1.5.2(3)) tatsächlich am Gerät; Rechte (3.1.5.2(4)/(5)) in Lizenzkorrektur und geprüfter Rechteleiste; Teilen (3.1.5.2(6)) an beiden Empfängerproben. Schulregeln/Zugangsschutz (3.1.1.1(1), 3.1.4.1(1)–(7)) an Kanal, Aushandlung, Vergleich und Zugangsschutz. Nur wenige passende Prozessziele je Phase fokussieren: Planen/Belegen, Austauschen/Überarbeiten, Darstellen/Reflektieren.",
+        "Prüfen Sie pro Person belegten Satz, selbst ausgeführte Operation und begründete Änderung. Gruppennote, Fortschrittsklick oder ausgefüllte Projektspur allein beweisen diese Kompetenzen nicht. Papier kann Planung und fachliche Beurteilung sichern; echte digitale Herstellung, Schulkanal und zweite Dateiübertragung bleiben bei Ausfall offen. Keine neue private M07-Reflexion; P56-04 gehört nur zum geschützten M06-Abruf. Pro Person werden kurze Notizen an einem gewählten Ort geführt; beim Entwurf den vorhandenen Planungseintrag ergänzen. Bereits passende Rechteangaben an einem konkreten Element begründet bestätigen lassen. Die fachliche oder gestalterische Revision nach echter Rückmeldung bleibt erforderlich.",
         "Nach Erprobung knapp dokumentieren: Fassung/Schritt, tatsächliche Minuten, Hürde, genutzte Hilfe, Wirkung und noch offene Handlung; ohne Namen oder private Inhalte. Nächster Anschluss ist gezielte Nachsicherung oder Übergang zu Klasse 7, keine automatische Jahresfreigabe."
       ]
     },
@@ -1034,7 +1035,7 @@
     "Bereiten Sie eine ausgefüllte Werkzeugkarte vor. Prüfen Sie Schulkanal, zweiten digitalen Teilweg, Empfängergerät und Speicherort tatsächlich. Jede Person braucht eine eigene Bedienphase. Eine reale Ersatzperson sichert Rückmeldung bei Ausfall. Es werden keine privaten Konten oder Passwörter gebraucht.",
     "Planen Sie 210 Kernminuten: 20 Auftrag, 30 Werkstatt, 55 Entwurf, 25 Austausch, 30 Revision, 20 Teilen und 30 Sicherung. Die zusätzlichen 30 Minuten für Aushandlung, Revision und zweiten Teilweg sind darin enthalten. Vier volle Schulstunden reichen für 210 Minuten nicht.",
     "Vor dem Projekt sind 39 Minuten Wiederaufnahme aus früheren Reihen vorgesehen, verteilt auf zwei Termine. Für R12 unterbrechen die Teams ihren Entwurf zu Beginn der UE 34 für fünf Minuten und kehren danach zur gemerkten Stelle zurück. Vom Projektabschluss führen Links direkt zu R13 und R14 an zwei verschiedenen späteren Tagen, je sechs Minuten. Diese Zeiten stammen aus dem vorhandenen Jahresabrufkonto.",
-    "Prüfen Sie nach zehn Produktionsminuten Satz, Beleg und Skizze. Bei bloßer Dekoration nach dem erklärten Zusammenhang fragen. Bei ungleichen Beiträgen die Bedienrolle wechseln. Eine sachliche Rückmeldung nennt Stelle, Wirkung und Vorschlag. Die Überarbeitung erhält die Erstfassung und zeigt eine echte Änderung sowie eine geklärte Rechteleiste.",
+    "Prüfen Sie nach zehn Produktionsminuten Satz, Beleg und Skizze. Bei bloßer Dekoration nach dem erklärten Zusammenhang fragen. Bei ungleichen Beiträgen die Bedienrolle wechseln. Eine sachliche Rückmeldung nennt Stelle, Wirkung und Vorschlag. Die Überarbeitung erhält die Erstfassung und zeigt eine echte Änderung sowie eine geklärte Rechteleiste. Die drei Formatierungsarten werden direkt am Gerät gezeigt; kurze Projektnotizen werden entweder in der Projektspur oder im Lernwerk geführt. Bereits korrekte Rechteangaben dürfen nach Prüfung bestehen bleiben; die begründete Änderung an Inhalt oder Gestaltung bleibt erforderlich.",
     "Beim Teilen zählt das tatsächliche Öffnen beim Empfänger. Die lokale Vorstellung ergänzt den zweiten digitalen Übertragungsweg, ersetzt ihn aber nicht. Eine Lernwerk-Arbeitsdatei enthält keine extern erzeugte Informationskarte. Ohne Zugang bleiben digitale Handlungen offen und werden nachgeholt.",
     "Lassen Sie jede Person ihren Satz und ihre Änderung erklären. Sichern Sie gemeinsam den Zusammenhang von Beleg, Gestaltung, Rechten, Rückmeldung und Zugriff. Persönliches aus der M06-Rechteprüfung bleibt geschützt. Halten Sie tatsächliche Zeiten und Hürden ohne Namen für die weitere Erprobung fest.",
     "Für Papierarbeit legen Sie zusätzlich die sechs verlinkten Original-Abrufblätter bereit. Bei M02 verwenden Sie den Indexabruf vor M07. Das M06-Blatt wird am Zwischentermin nochmals gebraucht. Die Organisationsblätter enthalten die Zeitzuordnung, nicht die vollständigen alten Aufgaben.",

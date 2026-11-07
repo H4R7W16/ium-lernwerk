@@ -18,15 +18,15 @@ sonst
     sage vorbei
 ```
 
-Nutzt die [Ablaufvorlage](../bilder/alg6-codekarte.svg). Beginnt gemeinsam bei 0 und dem ersten festen Durchlauf. Auf **einer Codekarte** trägst du die Positionen und deine Notizen ein: als kleine Skizze der Vorlage oder direkt auf einem Ausdruck. Eine zusätzliche Laufspurtabelle brauchst du nicht.
+Beginnt in der [Ablaufvorlage](../bilder/alg6-codekarte.svg) gemeinsam bei 0 und dem ersten festen Durchlauf. Ergänze Positionen und Notizen auf **einer Codekarte**: als Skizze oder auf dem Ausdruck. Eine zusätzliche Laufspurtabelle brauchst du nicht.
 
 <img src="../bilder/alg6-codekarte.svg" alt="Ablaufvorlage mit Start, fester Wiederholung, vorangestellter Abbruchfrage, Bewegung mit Rücksprung und zwei Meldungszweigen. Ergänze Positionen, Durchlaufzahlen und Wahrheitswerte." class="codekarte">
 
 ## 2 · Untersuchen und reparieren · 35 Minuten
 
-**Während der Fehlersuche brauchst du drei Prüffragen:** Wo steht der Rover? Was ergibt die nächste Bedingung? Welche Handlung folgt? Trage Antworten direkt an der entsprechenden Stelle deiner Codekarte ein.
+**Drei Prüffragen:** Wo steht der Rover? Was ergibt die nächste Bedingung? Welche Handlung folgt? Ergänze die Antworten an der passenden Stelle deiner Codekarte.
 
-**Vorhersage:** Ergänze die Positionsfolge an beiden Schleifen bis zur Meldung. Beschrifte die Bedingungsausgänge mit wahr/falsch. Notiere auch die letzte Abbruchprüfung. Erkläre mit deiner Karte, was Anweisung, feste Wiederholung, bedingte Wiederholung und Verzweigung jeweils tun.
+**Vorhersage:** Ergänze die Positionsfolge an beiden Schleifen bis zur Meldung. Beschrifte die Bedingungsausgänge mit wahr/falsch. Notiere auch die letzte Abbruchprüfung.
 
 **Prüfen:** Nutze **Schrittmodus**, **Starten**, dann **Ein Schritt**. Vergleiche mit deiner ersten Spur. Markiere die erste Prüfung, deren Folge gegen den Auftrag verstößt. Formuliere dort die Fehlerursache und ändere nur die Abbruchbedingung. Prüfe denselben Fall erneut.
 
@@ -44,9 +44,15 @@ Soll bei wahr weitergefahren oder aufgehört werden? Formuliere „erreicht oder
 
 **Deine Variante:** Wähle für die bedingte Schleife Schrittweite **12 oder 15**. Welche Wahl trifft die Marke, welche überspringt sie? Sage Endposition und Meldung vorher voraus, führe aus und ergänze beides auf der Karte. Was erklärt die Veränderung?
 
-**Nach der Reparatur: fachlich sichern.** Erkläre die vier Ablaufbausteine an deiner vorhandenen Karte; zeichne nichts erneut.
+**Nach der Reparatur: fachlich sichern.** Erkläre an deiner Karte Anweisung, feste Wiederholung, bedingte Wiederholung und Verzweigung. Zeichne nichts erneut.
 
-**Randnotizen zur selben Karte:** Ergänze knapp, was die folgenden Stellen erhalten bzw. liefern oder bewirken. Benenne Werttyp und vorhandenen Rechen-/Vergleichsoperator. Stichwörter und Wertpfeile genügen; beziehe dich auf den ursprünglichen Code.
+**Randnotizen zum ursprünglichen Code:** Ergänze auf derselben Karte: Eingabe → Wert mit Werttyp oder Wirkung. Nenne einen Rechen-/Vergleichsoperator, wenn vorhanden. Stichwörter und Pfeile genügen.
+
+<details><summary>Hilfe: Werttyp, Operator und kurze Notiz</summary>
+
+Werttypen sind Zahl, Zeichenkette (Text) und Wahrheitswert (wahr/falsch). Beispiel an anderem Code: `3 * 4`: Eingaben 3 und 4 → 12 (Zahl); Operator `*` multipliziert. Operatoren rechnen oder vergleichen, etwa `*` oder `<`.
+
+</details>
 
 | Stelle | Deine kurze Notiz |
 |---|---|
@@ -56,7 +62,7 @@ Soll bei wahr weitergefahren oder aufgehört werden? Formuliere „erreicht oder
 | `x-Position > 50` bei x = 50 | … |
 | `sage Ziel` | … |
 
-Richtwert: 10 Minuten Spur, 18 Minuten Erprobung/Reparatur/Variante, 7 Minuten Randnotizen. Wenn du festhängst, nutze einen passenden Hinweis.
+Richtwert: 10 Minuten Spur, 18 Minuten Erprobung/Reparatur/Variante, 7 Minuten Randnotizen.
 
 ## 3 · Gegencheck und Kurzfall · 15 Minuten
 
