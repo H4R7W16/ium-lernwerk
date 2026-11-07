@@ -1,7 +1,7 @@
 {
   "fassung": "1.1",
-  "datum": "2026-11-03",
-  "inhaltspruefung": "Gesamtkonzept 5–7: lokale Prüffassung 03.11.2026; Umfang, Nachweise und offene Erprobungsgrenzen im Gesamtprüfbericht.",
+  "datum": "2026-11-07",
+  "inhaltspruefung": "Gezielte Gesamtüberarbeitung im Entwicklungsbranch; historische Herkunftsbindung in quelle-vor-20261107-gesamtrevision-sha256.json erhalten. Prüfbilanz und Grenzen: docs/produktion/2026-11-07-gesamtueberarbeitung-klasse7.md.",
   "files": {
     "dat-1-briefing.html": "bd4a68dc2772e026a80dea17c7dd92bdb48b068f480e1ada4d682f1fdd728677",
     "dat-1-ein-eigener-code-muss-ruckwarts-funktionieren.html": "0398612f669f6ec73e38ac8a34da21f9d9028fee7b663170d0e03f55b0a7ca38",
@@ -21,7 +21,7 @@
     "datenbogen-projektion.html": "85372ee7370b221d9afa90d0624faa2d308f518e5cef04f3e4c9d0d0d4ead803",
     "datenbogen-quellen-und-nutzungsrechte.html": "4948a6ded113e07ac07d85fb46fcd19b3dd5744c5cfa498d77d79c8d51a9a68a",
     "datenbogen-sicherung.html": "3acc2d56f9a56fc8b85a4b9a1135ae7d535e5659eb2264865072e85e75bb8c00",
-    "datenbogen-werkstattnotizen.html": "50718ca428a4525d73773f65f2e746f6cfc33d2d01ae53c84d6ac56ea9ee0de7",
+    "datenbogen-werkstattnotizen.html": "e4141904f0f6043970bc05aa95b40d60cbdf9610f9c2d6a699df1089e2a07a88",
     "fassung.json": "9d4e15c5ffb2a1fa14762ca9f1ee850788fab6a0714a2caaa048eab2473e4bab",
     "index.html": "a9598a708a5bbdd7ebb612cf4e4c4f1c4a11d36340fce8df6bdff8bda22d123b",
     "material/datenweg.svg": "acb5fae26279da96ae3b0ef89ab40bc093fc2f91b1aa231602cc7b2b3db75c9f",

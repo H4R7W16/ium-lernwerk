@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M04-MEDIENPRODUKT",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "grade": 5,
   "area": "medienprodukt",
   "family": "content",
@@ -14,9 +14,9 @@
     "Partnerperson, ein anderes Paar für den Lesetest und ausgefüllte Werkzeugkarte der Lehrperson",
     "Gliederung aus M03 und Recherche-Notizen aus M02; ersatzweise die Startbasis"
   ],
-  "learnerDuration": "Acht Unterrichtsstunden. Ihr arbeitet Schritt für Schritt an einer Seite. Sichert am Stundenende eure Datei; beim nächsten Mal öffnet ihr genau diese Fassung. Fünf Minuten Erinnerung folgen später.",
+  "learnerDuration": "Acht Unterrichtsstunden: erst Text und Objekt in einer Formatprobe üben, dann eine Infokarte gestalten, prüfen und weitergeben. Sichert am Stundenende die gerade bearbeitete Datei am vereinbarten Ort. Fünf Minuten Erinnerung folgen später.",
   "duration": "360 Minuten / 8 Unterrichtsstunden. Zusätzlich später 5 Minuten aus dem vorhandenen Jahreskonto.",
-  "workNotice": "Eure Infokarte entsteht im freigegebenen Schreibwerkzeug. Das Lernwerk bearbeitet oder versendet sie nicht. Sichert die Produktdatei dort und mögliche Lernwerk-Notizen gesondert über „Deine Arbeit“.",
+  "workNotice": "Eure Infokarte entsteht im freigegebenen Schreibwerkzeug. Eine Werkstattspur pro Paar ist euer Notizort; darin hat jede Person eine eigene kurze Spur. Vorhandene Belege nur mit genauer Stelle vermerken. Produktdateien und Werkstattspur werden nicht automatisch in einer Lernwerk-Arbeitsdatei mitgesichert.",
   "curriculum": {
     "moduleId": "G5-M04",
     "goalIds": [
@@ -54,7 +54,7 @@
       "paragraphs": [
         "Werkzeugkarte ausfüllen und am Schulprofil prüfen: Schreibwerkzeug mit Text-, Absatz- und Objektfunktionen, Arbeitsort, Export, kompatibler lokaler Dateiweg sowie begrenzter Link im Schulraum. Jeweils mit einem zweiten Gerät öffnen. Auf gemischten iPad-/Windows-Paaren keinen gerätespezifischen Übertragungsweg voraussetzen. Erlaubte Konten, Hilfeweg und Schutzroutine festlegen; keine privaten Dienste.",
         "M02-Notizen und M03-Gliederung bereitstellen, sonst lokale Startbasis. Paare und ein zweites Paar für den Lesetest bilden; bei einem Gerät Bedienrolle regelmäßig wechseln. Jede Person muss Text und Objekt selbst bearbeiten und ihre Entscheidung erklären. Vorbereitungen auf Papier sind möglich; digitale Herstellung, Austausch, Präsentation und beide Weitergaben bleiben dann offen.",
-        "Formatphase innerhalb ihrer vorhandenen 35 Minuten in drei kurze Beobachtungsversuche gliedern: ausgewähltes Wort, ganzer Absatz, Zeilenwechsel. Erst danach Überschrift sowie Kopieren/Rückgängig verbinden. Die Bilder erklären die Wirkung, Ihre Werkzeugkarte zeigt die tatsächlich vorhandenen Knöpfe. PDF/Lesekopie und bearbeitbares Original getrennt wiederöffnen lassen."
+        "Die 35 Minuten Formatprobe umfassen drei Beobachtungsversuche mit sichtbarem Endpunkt: Wortauswahl, Absatzabstand, Zeilen-/Absatzwechsel. Danach Überschrift, Kopieren/Rückgängig sowie Speichern/Wiederöffnen. Beide Personen bedienen selbst. Die Bilder erklären die Wirkung; die Werkzeugkarte zeigt die vorhandenen Knöpfe. In derselben Formatprobe folgt die Objektübung; das Sachprodukt beginnt als neue Datei."
       ]
     },
     {
@@ -69,13 +69,13 @@
       "paragraphs": [
         "„Schöner“ ohne Grund? Leserauftrag und konkrete Fundstelle nennen lassen. Nur eine Person gestaltet? Bedienrolle wechseln, beide einen eigenen Beitrag zeigen lassen. Lesetest gelingt nur mit Erklärung? Erst still lesen lassen und an der missverstandenen Stelle revidieren. Quelle heißt nur „Internet“? Fundstelle und Bildlizenz getrennt klären. Unklarer Bildstatus? Eigenes Objekt oder bereitgestellte Grafik verwenden.",
         "Entwurf, erhaltene Rückmeldung, Revision und individuelle Erklärung bilden den Nachweis. Häkchen allein genügen nicht. Rechtekorrektur am vorbereiteten Gegenbeispiel ist Pflicht; am eigenen Produkt nur notwendige Änderungen vornehmen und nachvollziehbar prüfen. Ein korrektes Produkt braucht keinen erfundenen Fehler. Fehlende reale Handlungen gesondert nachholen.",
-        "Prozessspur knapp halten: Beim Seitenplan drei Arbeitsschritte festhalten, bei der Revision eine Abweichung erklären oder das Beibehalten belegen. Vor der Freigabe treffen beide Gestaltenden eine eigene Entscheidung zu Leserkreis und Bearbeitung innerhalb der Schulregel. Keine zusätzliche Dokumentation neben der Werkstattspur."
+        "Eine Werkstattspur pro Paar ist der verbindliche Notizort, darin A/B für eigene Beiträge. Nur aktuelle Phase ausfüllen; Vorprodukte, Nachrichten und Dateistellen verweisen statt erneut abschreiben. Die Dateifolge steht auf der Spur: Formatprobe, v1, bearbeitbare v2, exportierte v2.pdf, gesonderte Ansichtsprobe. Am Stundenende nur gerade bearbeitete Datei und Spur sichern; beim Wiederbeginn am vereinbarten Ort öffnen. Keine zusätzliche Nachweissammlung verlangen."
       ]
     },
     {
       "title": "Abschluss und Anschluss",
       "paragraphs": [
-        "Kurzvorstellungen in Gruppen aus drei Paaren organisieren; jede Person spricht. Empfänger öffnen sowohl eine lokale Kopie als auch den geschützten Link. Umfang der Freigabe kontrollieren, bei Fehlern keine öffentliche Freigabe wählen. Bearbeitbare Datei, Endfassung und Änderungsnachweis bewahren; Zugang nach Schulregel schützen. Fünf spätere Abrufminuten ergeben zusammen mit M01–M03 27 von 135 Jahresminuten. Für M05 Wirkung und Gestaltungsentscheidung aufbewahren. Nach Erprobung genügen Zeitabweichung, häufigste Hürde und nächste Anpassung."
+        "Kurzvorstellungen in Gruppen aus drei Paaren organisieren; jede Person spricht. Empfänger öffnen sowohl die lokale PDF-Kopie als auch den geschützten Link auf dieselbe geprüfte PDF. Umfang der Freigabe kontrollieren. v1, bearbeitbare v2, PDF und Werkstattspur bewahren; Ansichtsprobe bleibt getrennt, Formatprobe Übung. Zugang nach Schulregel schützen. Fünf spätere Abrufminuten ergeben zusammen mit M01–M03 27 von 135 Jahresminuten. Für M05 Wirkung und Gestaltungsentscheidung bereithalten; benötigte Zeit bleibt zu erproben."
       ]
     },
     {
@@ -98,8 +98,8 @@
     "Prüfen Sie vorher das erlaubte Schreibwerkzeug, den Speicherort und zwei echte Weitergabewege. Ein kompatibler lokaler Dateitransfer führt zu einer Kopie auf einem zweiten Gerät. Ein begrenzter Link führt in den geschlossenen Schulraum. Tragen Sie die schulischen Schritte in die Werkzeugkarte ein. iPad und Windows sind gleichwertig; private Dienste sind kein Ersatz.",
     "Der Verlauf: vierzig Minuten Wirkung, sechzig Minuten angeleitete Text- und Objektübung, fünfundzwanzig Minuten Plan, sechzig Minuten Gestaltung, zwanzig Minuten Austausch, fünfundzwanzig Minuten Lesetest und fünfunddreißig Minuten Überarbeitung. Hinzu kommen dreißig Minuten Rechteprüfung mit Korrektur, fünfzehn Minuten Dateikopie, fünfundzwanzig Minuten Vorstellung, fünfzehn Minuten Linkfreigabe und zehn Minuten Sicherung. Arbeitsstände werden innerhalb dieser Phasen gespeichert.",
     "Beobachten Sie den tatsächlichen Umgang mit Zeichen, Absätzen und Objekten sowie den Zusammenhang zwischen Rückmeldung und Änderung. Beim Lesetest erklären die Gestaltenden zunächst nichts. Unklare Bildrechte führen zu einem geklärten Ersatz. Am Gegenbeispiel korrigieren alle; am eigenen Produkt werden notwendige Änderungen begründet. Bewahren Sie die bearbeitbare Datei, eine lesbare Endfassung und die Änderungsspur. Papierarbeit ersetzt keine digitale Handlung. Fünf Minuten Abruf folgen später aus dem bestehenden Jahreskonto.",
-    "Drei geplante Arbeitsschritte werden bei der Revision mit dem tatsächlichen Weg verglichen. Vor dem Link entscheiden beide Gestaltenden über den erlaubten Leserkreis und die Bearbeitung. Das bleibt Teil der vorhandenen Planungs-, Revisions- und Freigabezeit.",
-    "Formatphase innerhalb ihrer vorhandenen 35 Minuten in drei kurze Beobachtungsversuche gliedern: ausgewähltes Wort, ganzer Absatz, Zeilenwechsel. Erst danach Überschrift sowie Kopieren/Rückgängig verbinden. Die Bilder erklären die Wirkung, Ihre Werkzeugkarte zeigt die tatsächlich vorhandenen Knöpfe. PDF/Lesekopie und bearbeitbares Original getrennt wiederöffnen lassen.",
+    "Eine Werkstattspur pro Paar bündelt die Notizen mit individuellen Abschnitten A/B. Vorhandene Quellen, Nachrichten und Dateistellen werden knapp vermerkt, nicht abgeschrieben. v1 bleibt vor Revision erhalten, v2 ist die bearbeitbare Folgefassung. Nach Rechteprüfung wird aus v2 eine PDF exportiert und über beide Wege geöffnet. Die kleine Ansichtsprobe entsteht als getrennte bearbeitbare Kopie; Formatprobe bleibt Übung. Diese Führung liegt in den bisherigen Phasenzeiten.",
+    "Die 35 Minuten Formatprobe umfassen drei Beobachtungsversuche mit sichtbarem Endpunkt: Wortauswahl, Absatzabstand, Zeilen-/Absatzwechsel. Danach Überschrift, Kopieren/Rückgängig sowie Speichern/Wiederöffnen. Beide Personen bedienen selbst. Die Bilder erklären die Wirkung; die Werkzeugkarte zeigt die vorhandenen Knöpfe. In derselben Formatprobe folgt die Objektübung; das Sachprodukt beginnt als neue Datei.",
     "Individueller Prüfpunkt: Beim stillen Lesetest lässt jede Person einen eigenen Teil erklären. Wird nur gelobt, eine konkrete Inhaltsfrage stellen; gezielt überarbeiten und mit neuem Lesen prüfen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
   ],
   "sources": [
@@ -219,7 +219,7 @@
       "creator": "IuM-Lernwerk",
       "license": "CC BY-SA 4.0 · eigene Vorlage",
       "sourceId": "bildungsplan",
-      "printText": "WERKSTATTSPUR M04\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nLeitfrage / Zielgruppe:\nWas soll die Zielgruppe danach verstehen?\nZwei Abschnitte / geplanter Zweck des Bildelements:\nVorwissen, das wir bestätigen oder verbessern:\nSachquellen / genaue Fundstellen / warum hier vertrauenswürdig:\nMedien: selbst erstellt oder Urheberschaft, Fundort, Lizenz, Änderung:\nNächste drei Arbeitsschritte / Bedienwechsel:\nGemeinsamer Arbeitsort / Dateinamen v1 und v2:\n\nJEDE PERSON FÜHRT EINE KURZE EIGENE SPUR\nMein Textbeitrag und meine Objektentscheidung:\nGesendete Rückfrage / erhaltene Antwort, sinngemäß:\nLesetest: Was hat die andere Person verstanden? Welche Stelle war unklar?\nRevision: vorher -> nachher / Grund aus der Rückmeldung:\nArbeitsplan -> tatsächlicher Weg / Grund einer Abweichung oder belegtes Beibehalten:\nRechteprüfung: geprüfter Bestandteil / nötige Änderung oder begründet unverändert:\n\nGEMEINSAMER ABSCHLUSS\nLokale Dateikopie: von Empfängerperson auf zweitem Gerät geöffnet / noch offen:\nUnsere Entscheidung: erlaubter Leserkreis / Bearbeitung ja oder nein:\nBegrenzter Link: Empfängerperson und Leserecht geprüft / noch offen:\nVorstellung: eigene Erklärung jeder Person / offene Frage:\nKleine Ansicht: eine geprüfte Anpassung und Wirkung:\nBearbeitbare Datei / Endfassung / Entwurf wiedergefunden:\n"
+      "printText": "WERKSTATTSPUR M04\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nEin Notizort pro Paar. A und B kennzeichnen die eigene Spur.\nNur die aktuelle Phase ausfüllen; Stichwörter und genaue Verweise genügen.\nTexte, Quellen und Nachrichten nicht noch einmal abschreiben.\n\nSTART UND SEITENPLAN\nLeitfrage / Leserziel:\nSkizze: Titel, zwei Abschnitte, Zweck des Bildelements:\nWas ergänzt oder korrigiert unsere Recherche am bisherigen Wissen?\nVorhandene Quellen: genaue Stelle in unserer Recherche-Notiz; neue Quellen dort ergänzen:\nDrei nächste Arbeitsschritte / Bedienwechsel:\nGemeinsamer Speicherort / vereinbarte Dateinamen:\n\nEIGENE ARBEIT · A UND B JEWEILS KURZ\nMein Text- und Objektbeitrag: Stelle / beabsichtigte Wirkung:\nEchte Rückfrage und Antwort: Stelle im Schulraum / geklärte Entscheidung:\n\nLESETEST UND REVISION · A UND B JEWEILS KURZ\nErhaltene Rückmeldung: Was wurde verstanden, was blieb unklar?\nMeine Änderung: Stelle in v1 -> Stelle in v2 / Grund:\nErneutes Lesen: Was wurde jetzt verstanden?\nArbeitsplan: begründete Abweichung oder Beibehalten an einem Schritt:\nRechteprüfung: geprüfter Bestandteil / nötige Korrektur oder belegtes Beibehalten:\n\nWEITERGABE UND ABSCHLUSS\nLokale PDF-Kopie: auf zweitem Gerät von Empfängerperson geöffnet / noch offen:\nUnsere Freigabeentscheidung: erlaubter Leserkreis / Bearbeitung ja oder nein:\nBegrenzter Link: Empfängerperson öffnet richtige PDF / Recht geprüft / noch offen:\nVorstellung: eigener Beitrag A/B / offene Sachfrage, falls vorhanden:\nAnsichtsprobe: geänderte Stelle / Gewinn und Grenze:\nNoch fehlende Handlung / nächster Schritt:\n\nDATEIFOLGE · AM VEREINBARTEN ORT ZEIGEN, NICHT ABSCHREIBEN\nFormatprobe: Text und Objekt üben; kein zweites Medienprodukt.\nInfokarte-Thema-v1: erste Fassung für Austausch und Lesetest; vor Revision bewahren.\nInfokarte-Thema-v2: bearbeitbare Kopie von v1; Revision und Rechteprüfung hier.\nInfokarte-Thema-v2.pdf: aus geprüfter v2 exportieren und öffnen; beide Weitergabewege.\nInfokarte-Thema-Ansichtsprobe: bearbeitbare Kopie von v2 nur für den kleinen Transfer.\nDiese Werkstattspur liegt auf Papier oder am vereinbarten Ort, nicht automatisch in der Lernwerk-Arbeitsdatei.\n"
     },
     {
       "id": "startbasis",
@@ -560,14 +560,14 @@
           "type": "task",
           "id": "arbeitsort",
           "title": "Eure Werkstatt vorbereiten",
-          "text": "Ihr erstellt später eine eigene Infokarte für eine andere fünfte Klasse: eine Seite, zwei kurze Abschnitte, ein hilfreiches Bildelement und Quellen. Arbeitet zu zweit. Die Lehrperson hat die Werkzeugkarte ausgefüllt.",
+          "text": "Ihr erstellt später eine Infokarte für eine andere fünfte Klasse: eine Seite, zwei kurze Abschnitte, ein hilfreiches Bildelement und Quellen. Zuerst übt ihr Text und Objekt in einer Formatprobe. Arbeitet zu zweit. Die Lehrperson hat die Werkzeugkarte ausgefüllt.",
           "media": [
             "werkzeugkarte",
             "werkstattspur"
           ],
-          "prompt": "Öffnet das vereinbarte Schreibwerkzeug und den Speicherort. Zeigt den Hilfeweg auf der Karte. Klärt, wer zuerst bedient und wann ihr wechselt.",
+          "prompt": "Öffnet das vereinbarte Schreibwerkzeug und den Speicherort. Legt dort eine Werkstattspur für euer Paar an oder nutzt ein gemeinsames Papierblatt. Zeigt den Hilfeweg auf der Werkzeugkarte. Klärt Bedienwechsel und den nächsten Arbeitsschritt.",
           "responseMode": "oral",
-          "responseHint": "Die Werkzeugkarte und eine Werkstattspur pro Paar genügen; jede Person führt darin ihre eigene kurze Spur.",
+          "responseHint": "Die Werkstattspur ist euer einziger verbindlicher Notizort. Tragt nur die Angaben der aktuellen Phase ein; noch offene Felder bleiben leer. Eigene Beiträge kennzeichnet ihr darin mit A und B.",
           "help": [
             {
               "title": "Ein Eintrag fehlt",
@@ -595,7 +595,7 @@
       "id": "text",
       "title": "Du bestimmst, was wichtig wird",
       "goal": "Du formatierst Zeichen und Absätze und nutzt die Zwischenablage bewusst.",
-      "task": "Erstelle ein kurzes Übungsdokument. Jede Person führt die Änderungen selbst aus.",
+      "task": "Übe im selben Dokument Wort, Absatz und Zeilenumbruch. Danach folgen Überschrift, Kopieren/Rückgängig und Wiederöffnen. Jede Person führt die Handlungen selbst aus.",
       "outcome": "Ein gespeicherter Übungstext mit erklärbaren Zeichen- und Absatzänderungen.",
       "knowledge": [
         "text",
@@ -610,12 +610,12 @@
         {
           "type": "example",
           "title": "Mit wenig Text üben",
-          "text": "Im erlaubten Schreibwerkzeug probierst du drei kleine Änderungen. Beginne mit „Buch wählen.“. Die drei Bilder sind Bedienmodelle; deine Knöpfe können anders aussehen."
+          "text": "In der Formatprobe übst du zuerst Wort, Absatz und Zeilenumbruch. Danach folgen Überschrift, Kopieren/Rückgängig und Speichern. Beginne mit „Buch wählen.“. Die Bilder sind Bedienmodelle; deine Knöpfe können anders aussehen."
         },
         {
           "type": "example",
           "title": "1 · Ein Wort auswählen und ändern",
-          "text": "Sage zuerst, welcher Teil fett werden soll. Markiere „Buch“, prüfe die Auswahl und ändere dann nur dieses Wort.",
+          "text": "Sage zuerst, welcher Teil fett werden soll. Markiere „Buch“, prüfe die Auswahl und ändere nur dieses Wort. Fertig mit dieser Probe: „Buch“ ist fett, „wählen.“ bleibt unverändert.",
           "media": [
             "wortprobe"
           ]
@@ -623,7 +623,7 @@
         {
           "type": "example",
           "title": "2 · Einen Absatz verändern",
-          "text": "Ergänze darunter „Bei der Ausleihe zeigen.“ als eigenen Absatz: einmal Eingabetaste. Setze den Cursor in „Buch wählen.“ und vergrößere den Abstand danach. Zeige, welche Zeile sich verschoben hat.",
+          "text": "Ergänze darunter „Bei der Ausleihe zeigen.“ als eigenen Absatz: einmal Eingabetaste. Setze den Cursor in „Buch wählen.“ und vergrößere den Abstand danach. Fertig mit dieser Probe: Zeige den neuen Abstand und erkläre, warum er zum Absatz gehört.",
           "media": [
             "absatzprobe"
           ]
@@ -631,7 +631,7 @@
         {
           "type": "example",
           "title": "3 · Eine Zeile ist noch kein Absatz",
-          "text": "Ergänze „Rückgabedatum merken.“. Vergleiche die drei Möglichkeiten im Bild. Probiere den manuellen Umbruch und einen neuen Absatz vor „Rückgabedatum“. Nimm die Probe danach zurück.",
+          "text": "Ergänze „Rückgabedatum merken.“. Vergleiche die drei Möglichkeiten im Bild. Probiere vor „Rückgabedatum“ erst einen manuellen Umbruch und dann einen neuen Absatz. Zeige den Unterschied an den Formatierungszeichen oder am Absatzabstand. Nimm die Probe danach zurück.",
           "media": [
             "umbruchprobe"
           ]
@@ -641,9 +641,9 @@
           "context": "device",
           "id": "formatieren",
           "title": "Selbst ausprobieren und erklären",
-          "text": "Arbeitet erst einzeln nacheinander. Die andere Person beobachtet, erklärt aber nicht jeden Klick vorweg.",
-          "preparation": "Nutze das erlaubte Werkzeug aus der Werkzeugkarte. Probiere die drei Versuche oben nacheinander im selben Dokument. Die Gerätehilfe unten nennt mögliche Bedienwege.",
-          "action": "Führe die drei Versuche selbst aus und erkläre jeweils die sichtbare Änderung. Ergänze am Anfang „Unsere Bücherei“ als Überschrift. Zum Schluss: Kopiere eine eigene Zeile, füge sie am Ende ein und nimm genau diese Einfügung mit Rückgängig zurück. Sichere die Datei als „Formatprobe“ am vereinbarten Ort und öffne sie dort erneut.",
+          "text": "Arbeitet nacheinander im selben Dokument. Jede Person beginnt darin einen eigenen kurzen Übungsabschnitt. Die andere beobachtet, erklärt aber nicht jeden Klick vorweg.",
+          "preparation": "Nutze das erlaubte Werkzeug aus der Werkzeugkarte. Führe die drei Versuche oben nacheinander im selben Dokument aus. Zeige nach jeder Probe die genannte Änderung. Die Gerätehilfe unten nennt mögliche Bedienwege.",
+          "action": "Schließe die drei Versuche ab. Ergänze „Unsere Bücherei“ als Überschrift. Kopiere dann eine eigene Zeile, füge sie am Ende ein und nimm genau diese Einfügung mit Rückgängig zurück. Fertig: Die ursprüngliche Zeile bleibt, die zusätzliche verschwindet. Sichere „Formatprobe“ am vereinbarten Ort, schließe die Datei und öffne sie dort erneut. Danach wechselt ihr: Die zweite Person führt die Handlungen selbst aus.",
           "routes": [
             {
               "title": "iPad · im freigegebenen Schreibwerkzeug",
@@ -676,8 +676,8 @@
               ]
             }
           ],
-          "return": "Zeige eine Zeichenänderung und eine Absatzänderung. Erkläre, warum viele Leerzeichen keine gute Ausrichtung ergeben.",
-          "prompt": "Zeige Wort- und Absatzänderung sowie den manuellen Umbruch. Was blieb nach Rückgängig erhalten?",
+          "return": "Zeige Wort- und Absatzänderung und erkläre den Unterschied zwischen manueller Zeile und Absatz. Erkläre auch, warum viele Leerzeichen keine verlässliche Ausrichtung ergeben. Bewahrt die Formatprobe für die anschließende Objektübung.",
+          "prompt": "Zeige deine Wort- und Absatzänderung. Erkläre den Unterschied, den du beim Umbruch beobachtet hast. Was blieb nach Rückgängig erhalten?",
           "responseMode": "oral",
           "responseHint": "Am Gerät erklären; kein zusätzlicher Fließtext nötig.",
           "help": [
@@ -793,7 +793,7 @@
               ]
             }
           ],
-          "return": "Erkläre, welche Information das Objekt sichtbar macht und welche Erklärung noch als Text fehlt.",
+          "return": "Zeige dein eingefügtes und angepasstes Objekt. Erkläre, welche Information es sichtbar macht und welche Erklärung noch als Text fehlt. Speichere im selben Übungsdokument „Formatprobe“. Die eigene Infokarte beginnt danach als neue Datei.",
           "prompt": "Zeige deine Objektänderung, den Nutzen und den passenden Herkunftshinweis.",
           "responseMode": "oral",
           "responseHint": "Am Objekt zeigen; die Quelle steht im Dokument.",
@@ -873,10 +873,10 @@
           "text": "Eine grobe Skizze und Stichwörter genügen. Plant keine ganze Präsentation und keine Sammlung vieler Bilder.",
           "prompt": "Zeige deinen geplanten Beitrag, seine Fundstelle und die beabsichtigte Wirkung.",
           "contribution": "Formuliere zu eurer Frage einen kurzen eigenen Satz. Erkläre: Was wusste oder vermutete ich schon? Was ergänzt oder korrigiert die Quelle? Nenne ein begründetes Merkmal ihrer Vertrauenswürdigkeit, etwa fachkundige Erklärung mit nachvollziehbarer Fundstelle.",
-          "exchange": "Vergleicht die beiden Aussagen mit euren Quellen. Plant Titel, zwei kurze Abschnitte und ein Objekt, das etwas erklärt. Legt fest, was die andere fünfte Klasse danach verstehen soll. Verteilt Textbeiträge und Bedienzeit; beide verändern später Text und Objekt. Notiert nur Stichwörter in der Werkstattspur. Legt eure nächsten drei Arbeitsschritte mit Bedienwechsel fest; drei Stichwörter in der Werkstattspur reichen.",
+          "exchange": "Vergleicht die Aussagen mit euren Quellen. Skizziert Titel, zwei kurze Abschnitte und ein erklärendes Objekt in der Werkstattspur. Legt das Leserziel fest und verteilt Textbeiträge und Bedienzeit; beide bearbeiten später Text und Objekt. Notiert eure nächsten drei Arbeitsschritte nur einmal. Für vorhandene Quellen genügt der genaue Verweis auf eure Recherche-Notiz; neue Quellenangaben kommen dort hinzu.",
           "return": "Erkläre den Zusammenhang zwischen deinem Satz, der Leitfrage und dem gewählten Objekt. Bei E1/E2 benennt ihr die Ersatztexte ausdrücklich; ungeprüfte Originale gelten nicht als geprüft.",
           "responseMode": "oral",
-          "responseHint": "Skizze und gemeinsame Werkstattspur reichen.",
+          "responseHint": "Ein Seitenplan in eurer Werkstattspur genügt. Verwendet eure geprüften Aussagen später im Produkt weiter; keine zweite Abschrift im Lernwerk.",
           "help": [
             {
               "title": "Unser Thema ist zu groß",
@@ -922,9 +922,9 @@
           "type": "cooperative",
           "id": "entwurf",
           "title": "Eine Seite, klare Entscheidungen",
-          "text": "Plant etwa zwei kurze Abschnitte mit je zwei bis vier eigenen Sätzen. Das ist eine Orientierung, kein Wortzählauftrag. Eine kurze Liste darf einen Abschnitt ersetzen, wenn sie besser passt.",
+          "text": "Legt jetzt eine neue bearbeitbare Datei „Infokarte-Thema-v1“ an; ersetzt Thema durch euren Inhalt. Die Formatprobe bleibt eure Übungsdatei. Plant zwei kurze Abschnitte mit je zwei bis vier eigenen Sätzen. Das ist eine Orientierung, kein Wortzählauftrag; eine kurze Liste darf einen Abschnitt ersetzen.",
           "contribution": "Schreibe deinen Teil in eigenen Worten und füge ihn am vereinbarten Arbeitsort ein. Verwende Überschrift und Absätze gezielt. Füge das geplante Objekt ein oder verbessere es selbst. Nenne die zugehörigen Sachquellen; ergänze bei übernommener Grafik Urheberschaft, Fundort, Lizenzlink und Änderungsstatus.",
-          "exchange": "Lest beide Teile zusammen. Prüft den roten Faden zur Leitfrage, einen erklärten schwierigen Begriff und die Lesbarkeit des Objekts. Wechselt die Bedienrolle. Nach zehn Minuten zeigt jede Person eine eigene Text- und Objektentscheidung. Sichert eure erste vollständige Fassung als v1, bevor ihr später revidiert.",
+          "exchange": "Lest beide Teile zusammen. Prüft den roten Faden zur Leitfrage, einen erklärten schwierigen Begriff und die Lesbarkeit des Objekts. Wechselt die Bedienrolle. Nach zehn Minuten zeigt jede Person eine eigene Text- und Objektentscheidung. Sichert die vollständige erste Fassung als „Infokarte-Thema-v1“. In dieser Datei folgen Austausch und Lesetest; vor der Revision bewahrt ihr sie.",
           "return": "Zeige deinen Anteil und begründe eine Gestaltungsentscheidung mit der Zielgruppe. Halte nur Stelle und Grund in deiner eigenen Spur fest.",
           "prompt": "Was hast du selbst gestaltet? Was soll diese Entscheidung beim Lesen bewirken?",
           "responseMode": "oral",
@@ -1138,9 +1138,9 @@
           "id": "revision",
           "title": "Ändern und nachprüfen",
           "text": "Ein neues Datum oder eine andere Lieblingsfarbe allein ist keine inhaltlich begründete Verbesserung.",
-          "contribution": "Sichere mit der Partnerperson die bisherige Fassung als v1. Überarbeite deinen Teil anhand einer erhaltenen Rückmeldung. Ändere Inhalt, Gliederung, Form oder Objekt dort, wo es dem Leserziel hilft.",
-          "exchange": "Speichert v2 zusätzlich zur ersten Fassung. Lasst das andere Paar die veränderte Stelle nochmals lesen oder erklären. Prüft, ob das ursprüngliche Problem kleiner geworden ist. Bessert bei Bedarf eine Stelle nach.",
-          "return": "Zeige deine Änderung und erkläre Rückmeldung → Entscheidung → beobachtete Wirkung. Halte vorher/nachher und Grund kurz in deiner eigenen Spur fest. Vergleiche außerdem eure geplante Arbeitsfolge mit dem tatsächlichen Weg: Was habt ihr aus welchem Grund geändert? Wenn sie passte, belege das an einem Schritt.",
+          "contribution": "Bewahrt die gelesene Fassung „Infokarte-Thema-v1“. Erstellt daraus eine bearbeitbare Kopie „Infokarte-Thema-v2“. Überarbeite darin deinen Teil anhand der erhaltenen Rückmeldung: Inhalt, Gliederung, Form oder Objekt dort, wo es dem Leserziel hilft.",
+          "exchange": "Lasst das andere Paar die veränderte Stelle in v2 nochmals lesen oder erklären. Prüft, ob das ursprüngliche Problem kleiner geworden ist, und bessert bei Bedarf nach. Speichert v2; v1 bleibt zum Vergleich erhalten.",
+          "return": "Zeige Rückmeldung → Entscheidung → beobachtete Wirkung an v1 und v2. Notiere in deiner Werkstattspur nur Stelle und Grund; ganze Texte musst du nicht erneut abschreiben. Vergleiche eure drei geplanten Arbeitsschritte mit dem tatsächlichen Weg und begründe eine Abweichung oder das Beibehalten an einem Schritt.",
           "prompt": "Was ist jetzt verständlicher und woran erkennst du das?",
           "responseMode": "oral",
           "responseHint": "Alte und neue Datei sowie kurze Änderungsspur reichen.",
@@ -1229,7 +1229,7 @@
           "title": "Euer Produkt prüfen und nötigenfalls ändern",
           "text": "Nehmt eure reale Fassung v2. Prüft Quellenhinweise und Medien vor der Weitergabe; erfindet keinen Fehler in einer schon korrekten Karte.",
           "contribution": "Zeige deine Sachquelle mit genauer Fundstelle. Prüfe jedes Bild, jede übernommene Tabelle und fremde Formulierung: selbst erstellt oder mit geklärter Erlaubnis? Passt der vorhandene Hinweis zu unveränderter Nutzung oder eurer tatsächlichen Bearbeitung?",
-          "exchange": "Korrigiert unvollständige Hinweise direkt in der Datei. Entfernt oder ersetzt ungeklärte Medien. Bei der eigenen Grafik ergänzt ihr den zutreffenden Änderungsstatus und den Lizenzlink. Wenn schon alles stimmt, haltet für einen konkreten Bestandteil fest, woran ihr das geprüft habt. Bewahrt die korrigierte Fassung und eure kurze Prüfspur.",
+          "exchange": "Korrigiert unvollständige Hinweise direkt in v2. Entfernt oder ersetzt ungeklärte Medien. Ergänzt bei der eigenen Grafik den zutreffenden Änderungsstatus und Lizenzlink. Wenn alles stimmt, nennt einen konkreten Bestandteil und euren Prüfbeleg. Speichert die geprüfte v2; in der Werkstattspur genügen Bestandteil und Ergebnis.",
           "return": "Erkläre eine tatsächliche Korrektur am Beispiel und das Ergebnis eurer eigenen Prüfung. Zeige genau den geprüften Bestandteil.",
           "prompt": "Was wurde geändert? Was durfte begründet unverändert bleiben?",
           "responseMode": "oral",
@@ -1292,7 +1292,7 @@
           "title": "Exportieren und lokal übertragen",
           "text": "Die Lehrperson hat einen kompatiblen Weg vorbereitet, etwa einen geeigneten USB-Datenträger oder eine erlaubte lokale Nahübertragung. Der gleiche Weg funktioniert nicht automatisch zwischen allen Geräten. Ein Bild auf eurem Bildschirm zu zeigen genügt hier nicht.",
           "preparation": "Öffnet die nach Inhalt, Gestaltung und Rechten geprüfte Infokarte. Nehmt die ausgefüllte Werkzeugkarte und ein zweites, kompatibles Schulgerät.",
-          "action": "Bewahrt die bearbeitbare Datei. Erstellt zusätzlich „Infokarte-Thema-v2.pdf“. Öffnet die PDF und prüft Seitenzahl, abgeschnittenen Text, lesbare Grafik und Quellen. Korrigiert nötigenfalls im Original und exportiert neu. Übertragt genau diese PDF auf dem vorbereiteten lokalen Weg.",
+          "action": "Öffnet die geprüfte bearbeitbare v2. Erstellt daraus zusätzlich „Infokarte-Thema-v2.pdf“ über den PDF-Export; bloßes Umbenennen erzeugt keine PDF. Öffnet sie und prüft Seitenzahl, abgeschnittenen Text, lesbare Grafik und Quellen. Korrigiert nötigenfalls in v2 und exportiert neu. Übertragt genau diese PDF auf dem vorbereiteten lokalen Weg.",
           "routes": [
             {
               "title": "iPad · PDF und lokale Kopie",
@@ -1447,7 +1447,7 @@
           "id": "freigabe",
           "title": "Zugriff prüfen statt vermuten",
           "text": "Folgt dem ausgefüllten Schulraumweg der Werkzeugkarte. Ein öffentlicher Link ist hier keine Lösung. Der zweite Weg unterscheidet sich von der lokalen Kopie: Er verweist auf die Datei am freigegebenen Ort.",
-          "contribution": "Einigt euch als Gestaltende, welches erlaubte Paar eure Karte lesen darf und ob es sie auch bearbeiten soll. Haltet eure eigene Entscheidung kurz fest; bei Uneinigkeit zunächst klären. Speichert oder ladet die geprüfte Endfassung am vereinbarten Schulort hoch. Prüft beim Erstellen des Links, wer lesen und wer bearbeiten darf. Für eine fertige Karte genügt für das lesende Paar normalerweise Leserecht; maßgeblich ist die Schulregel.",
+          "contribution": "Entscheidet als Gestaltende, welches erlaubte Paar die Karte lesen darf und ob es bearbeiten soll. Haltet die Entscheidung kurz in der Werkstattspur fest; Uneinigkeit zuerst klären. Ladet die geprüfte „Infokarte-Thema-v2.pdf“ am vereinbarten Schulort hoch oder speichert sie dort. Prüft beim Link Leserkreis und Rechte. Für die fertige Lesekopie genügt normalerweise Leserecht; maßgeblich ist die Schulregel.",
           "exchange": "Übergebt den begrenzten Link auf dem erlaubten Kanal an das vorgesehene Paar. Eine Person öffnet ihn mit ihrem eigenen erlaubten Konto. Prüft Dateinamen und Inhalt. Bei Zugriffsproblemen Hilfe holen und Berechtigung gezielt klären; niemals aus Bequemlichkeit auf öffentlich umstellen.",
           "return": "Neuer Fall: Eine erlaubte Empfängerperson ist heute abwesend und soll morgen die letzte Fassung lesen. Begründe, welcher Weg passt und was du vor einer späteren Änderung prüfen musst.",
           "prompt": "Woran erkennt ihr, dass der Link richtig funktioniert? Wie hilft er im neuen Fall?",
@@ -1510,7 +1510,7 @@
           "type": "task",
           "id": "kleineansicht",
           "title": "Eine veränderte Bedingung",
-          "text": "Stellt euch vor, die Karte wird auf einem schmalen Bildschirm gelesen. Verkleinert die Seitenansicht. Wählt eine Stelle: etwa Bildschrift, zu breiter Vergleich oder lange Überschrift. Erstellt für diese Probe eine gesonderte bearbeitbare Kopie, damit eure geteilte Endfassung erhalten bleibt.",
+          "text": "Stellt euch vor, die Karte wird auf einem schmalen Bildschirm gelesen. Verkleinert die Seitenansicht. Wählt eine Stelle: etwa Bildschrift, zu breiter Vergleich oder lange Überschrift. Erstellt dafür aus der bearbeitbaren v2 eine Kopie „Infokarte-Thema-Ansichtsprobe“. Eure geteilte PDF und v2 bleiben erhalten.",
           "prompt": "Ändere eine Stelle für die kleine Ansicht, zum Beispiel zwei Spalten untereinander oder eine kürzere Überschrift. Vergleiche vorher/nachher: Was wurde lesbarer, was kostet mehr Platz?",
           "responseMode": "oral",
           "responseHint": "Etwa fünf Minuten. Eine kleine Änderung mit Erklärung reicht; keine zweite fertige Infokarte nötig.",
@@ -1530,7 +1530,7 @@
           "title": "Arbeit wiederfinden und erklären",
           "text": "Nutzt die übrigen fünf Minuten zum Abschluss. Eine Datei im Downloadordner allein ist noch keine dauerhaft gesicherte Werkstatt.",
           "contribution": "Öffne am vereinbarten Arbeitsort die bearbeitbare Datei und die Endfassung. Zeige deine Änderungsspur. Benenne einen tatsächlichen Schritt, der gegebenenfalls noch offen ist.",
-          "exchange": "Prüft gemeinsam: v1, v2, Quellen-/Rechtehinweise, lokale Kopie und begrenzter Link. Sichert die kleine Transferprobe gesondert. Notiert fehlende Handlungen statt sie abzuhaken. Sichert mögliche Lernwerk-Notizen über „Deine Arbeit“.",
+          "exchange": "Öffnet am vereinbarten Ort v1, die bearbeitbare v2 und „Infokarte-Thema-v2.pdf“. Prüft die Weitergabeergebnisse in der Werkstattspur; die Quellen stehen im Produkt. Bewahrt „Infokarte-Thema-Ansichtsprobe“ getrennt und die Formatprobe als Übung. Notiert nur noch fehlende Handlungen. Freiwillige Lernwerk-Notizen sichert ihr zusätzlich über „Deine Arbeit“.",
           "return": "Erkläre eine Gestaltungsentscheidung und den Unterschied der beiden Weitergabewege. Führt danach die erlaubte Schutzhandlung aus der Werkzeugkarte aus.",
           "prompt": "Was kannst du jetzt am echten Produkt zeigen? Was bleibt gegebenenfalls nachzuholen?",
           "responseMode": "oral",

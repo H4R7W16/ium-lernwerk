@@ -8,7 +8,7 @@ klassenstufe: 7
 fassung: "1.2"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 ---
 
 # Medienbogen · Durchführung und Auswertung
@@ -37,7 +37,7 @@ Pro Aufgabe: eigener Erstversuch, kurzer Abgleich, gezielte Präzisierung und ve
 |---|---|---|
 | 0–10 | Erster Eindruck zu A/B/C; Rollen und Mechanismus am Radwerkstattbeispiel modellieren. Auf „kann“ und „vermutlich“ achten. | Interesse statt Mechanismus? „Was genau sieht das Publikum – und was könnte das auslösen?“ |
 | 10–20 | A und C lesen. Bei B erst den ganzen Spot ansehen oder die Lesefassung nutzen: Welches Detail fällt auf? Danach im Hörvergleich die Wirkung am selben Sprung vergleichen. An A gemeinsam die Gegenfrage zum Deckel untersuchen. | Nur ein Werturteil? Den Moment noch einmal zeigen oder beschreiben lassen. Kommentar als Beweis? Nach dem nächsten Prüfschritt fragen. |
-| 20–35 | Jede Person bearbeitet B/C, vier Wirkungswege und Quellenwahl. Nach 5–7 Minuten zwei B-Zeilen prüfen: konkretes Bild- oder Tondetail, möglicher Eindruck, offene Frage. | Nur Verkaufsabsicht genannt? Nach einem Moment im Spot fragen. Rollen vermischt? Gestaltung durch Mika und Angaben von Loop getrennt markieren. |
+| 20–35 | Jede Person führt eine Notiz: etwa 5 min zwei B/C-Zeilen, 7 min vier kurze Erklärungen, 3 min Quellenwahl mit offener Frage. Stichpunkte mit Beleg und Gedankengang genügen. Nach etwa 5 Minuten zwei B-Zeilen stichprobenartig prüfen: konkretes Bild- oder Tondetail, möglicher Eindruck, offene Frage. | Nur Verkaufsabsicht genannt? Nach einem Moment im Spot fragen. Rollen vermischt? Gestaltung durch Mika und Angaben von Loop getrennt markieren. |
 | 35–45 | 5 min begründeter Abgleich/Präzisierung; 3 min neuer Platzierungsfall; 2 min gemeinsame Sicherung. | Fehlt ein Wirkungsweg, diesen gezielt ergänzen statt alle Texte neu schreiben. |
 
 **Erwartung:** B: Mika erstellt; Loop wählt/verbreitet, finanziert über Werbung; Fizz bezahlt; Jugendliche als Publikum. Mögliche Interessen: Reichweite/Einnahmen/Verkauf. Ein möglicher B-Beleg: Beim Sprung hält Mika die Flasche hoch, während Menschen jubeln. Das kann die Flasche mit Anerkennung verbinden. Auch eine andere begründete Wirkung zählt. Der angeheftete Kommentar steht im Feed und ist ein eigener Einflussweg. C: Redaktion und eigene Seite; Provision an Kauf geknüpft, genaue Kooperationspartner außer den Verkaufsbezügen nicht genannt. Sterne bündeln Bewertungen, ersetzen keinen eigenen Test. A ist für Dichtigkeit wegen beschriebener Bedingungen ein begründbarer erster Prüfweg, kein automatischer Sieger. A prüft ein Modell B. Ob dieses von Fizz stammt, lässt das Material offen. Die Frage nach warmem Wasser unter Mikas Clip ist eine Nachfrage.
@@ -52,7 +52,7 @@ Pro Aufgabe: eigener Erstversuch, kurzer Abgleich, gezielte Präzisierung und ve
 
 | Zeit | Handeln und Steuerung | Beobachtung → nächste Hilfe |
 |---|---|---|
-| 0–10 | M1 lesen, die Aussage zur Befragung und zur Bezugsgruppe formulieren; Irrtum, Zuspitzung und absichtliche Irreführung unterscheiden. | „Alles Fake“? Nach der einzelnen überprüfbaren Behauptung fragen. |
+| 0–10 | M1 lesen, die Aussage zur Befragung und zur Bezugsgruppe (für wen soll sie gelten?) formulieren; Irrtum, Zuspitzung und absichtliche Irreführung unterscheiden. | „Alles Fake“? Nach der einzelnen überprüfbaren Behauptung fragen. |
 | 10–20 | M3–M5 lesen. Jede Person hält zuerst ein Urteil mit der Frage, der Bezugsgruppe und der Reichweite von M4 fest. Erst dann M2 öffnen, das Urteil abgleichen und P2 zeigen. | Prozentzahl blockiert? 20 Striche zeigen; Rechnen ist hier Werkzeug, nicht Hauptziel. |
 | 20–35 | Fünfsätzige Redaktionsnotiz. Früh prüfen, ob M4/M5 unterschiedlich gewichtet werden. | Nur „seriöser Absender“? Konkrete Belegstelle und Erkenntnisgrenze verlangen. |
 | 35–45 | 4 min Rückmeldung/Revision und fachlicher Sicherungssatz; 3 min Theaterfall einschließlich Kurzabgleich; 3 min geschützte Denkpause. | Private Inhalte nicht erfragen. Fehlende fachliche Aussage am Fall nachsichern. |
@@ -72,8 +72,8 @@ Mögliche Überschrift: „18 von 20 freiwillig Befragten am Kiosk wünschen lä
 | Zeit | Handeln und Steuerung | Beobachtung → nächste Hilfe |
 |---|---|---|
 | 0–15 | Original betrachten, zwei Details nennen, Beobachtung/Deutung trennen. Ausschnitt demonstrieren und rückgängig machen. | „Der Hof ist immer schmutzig“? Räumlichen und zeitlichen Aussageumfang klären. |
-| 15–30 | Alle öffnen, schneiden, ändern Sättigung, speichern Übungskopie und öffnen erneut. | Nach 7 min Dateiweg prüfen. Wenn ein grundlegender Bedienweg fehlt, kurze gezielte Demonstration; keine gesamte Designschulung. |
-| 30–35 | Jede Person plant zwei Absichten samt Mitteln. | Vor Plan keine fertige Variante abnehmen. Nur „schön/hässlich“? Zielgruppe und konkrete Bildmerkmale nachfragen. |
+| 15–30 | Original unverändert am vereinbarten Ort ablegen. Alle öffnen, schneiden, ändern Sättigung, speichern als bild-uebung.png und öffnen erneut. | Nach 7 min Dateiweg prüfen. Wenn ein grundlegender Bedienweg fehlt, kurze gezielte Demonstration; keine gesamte Designschulung. |
+| 30–35 | Jede Person plant zwei Absichten samt Mitteln; dieselbe Bildnotiz später um Rückmeldung und Revision ergänzen. | Vor Plan keine fertige Variante abnehmen. Nur „schön/hässlich“? Zielgruppe und konkrete Bildmerkmale nachfragen. |
 | 35–45 | A erstellen und sichern. Bei zwei Einzelstunden hier unterbrechen. | A-Datei und Plan B sichtbar; Stoppsignal zwei Minuten vorher. |
 | 45–60 | Bei Unterbrechung Datei wieder öffnen, dann B vom Original erstellen. | B nur Kopie von A ohne neue Absicht? Plan abgleichen. |
 | 60–70 | Partnerdeutung ohne bekannte Absicht, Bildbeleg, dann Planvergleich; Rollenwechsel. | Beide geben und erhalten eine merkmalsbezogene Rückmeldung. Bei Ausfall Lehrperson als Gegenüber. |
@@ -135,7 +135,7 @@ Die Kennungen sind Anker des bestätigten Projektmappings, keine neue wörtliche
 | M01 | 3.2.1.1(1) | Rollen unterscheiden – MED-1 B/C-Tabelle, A-Erklärung |
 | M02 | 3.2.1.1(1) | Interessen am Beitragsmerkmal – MED-1 Tabelle, Finanzierungshinweise |
 | M03 | 3.2.1.1(2) | Auswahlalgorithmus – MED-1 „Für dich“ und Grenzen des Modells |
-| M04 | 3.2.1.1(2) | Bewertungen, Kommentare, Werbung unterscheiden – MED-1 vier Sätze |
+| M04 | 3.2.1.1(2) | Bewertungen, Kommentare, Werbung unterscheiden – MED-1 vier kurze Erklärungen |
 | M05 | 3.2.1.1(3) | Herkunft, Beleg und unabhängige Prüfung – MED-2 M3/M4/M5 |
 | M06 | 3.2.1.1(3) | Indiz ist kein Wahrheitsbeweis – MED-2 Überschrift und Absichtsgrenze |
 | M07 | 3.2.1.1(4) | mögliche Manipulationsabsicht und Verbreitung – MED-2 Ausschnitt, Teilaufforderung, M5 |

@@ -473,9 +473,9 @@
           "type": "task",
           "id": "karte",
           "title": "Entwurf behalten",
-          "text": "Erstelle deine Entscheidungskarte in fünf kurzen Punkten. Wähle passende Wege für Einladung und Schichtplanung; du darfst die Zwecke trennen. Begründe deine Gewichtung, statt nur Vor- und Nachteile aufzulisten.",
-          "prompt": "1. Zweck und gewählter Weg.\n2. Nutzen, Einwand und Gewichtung mit Fallbeleg.\n3. Bild/Text: mögliche Wirkung und nötige Änderung.\n4. Ausgrenzung: verstärkende Bedingung, Verantwortung, Unterstützung und zuständiger Hilfeweg.\n5. Eine noch offene Frage.",
-          "responseHint": "Etwa fünf bis acht kurze Sätze oder eine übersichtliche Stichpunktkarte. Bewahre diesen ersten Entwurf auf.",
+          "text": "Erstelle deine Entscheidungskarte mit den fünf Punkten unten. Kurze Stichpunkte reichen. Für Einladung und Schichtplanung darfst du unterschiedliche Wege wählen. Begründe, welches Argument für deine Wahl schwerer wiegt.",
+          "prompt": "Meine Entscheidungskarte: fünf Punkte",
+          "responseHint": "Stichwörter und kurze begründete Sätze genügen; kein zusätzlicher Fließtext. Bewahre diesen ersten Entwurf für die Rückmeldung auf.",
           "help": [
             {
               "title": "Zwei Zwecke erkennen",
@@ -490,7 +490,14 @@
               "label": "Hier nachlesen"
             }
           ],
-          "solution": "Eine mögliche Empfehlung: Einladung als eigener Text ohne ungeklärtes Foto über die freigegebene Schulnachricht; interne Schichtplanung im Klassenraum. So werden Familien erreicht, ohne Schichtdaten öffentlich zu machen. Die größere Reichweite hilft der Einladung, erhöht aber die mögliche Weitergabe. Das „beim ersten Versuch“ wird sachlich korrigiert; ein Erfolg darf trotzdem gezeigt werden. Kopien verstärken die Ausgrenzung. Verantwortung liegt bei Angreifenden/Verbreitenden. Toni unterstützen und mit der Lehrperson den schulischen Hilfe- und Meldeweg nutzen. Andere begründete Lösungen sind möglich, etwa eine von der Schule verteilte Papiereinladung. Die gesamte Einladung nur im Klassenraum zu belassen erreicht die Familien im Fall nicht."
+          "solution": "Eine mögliche Empfehlung: Einladung als eigener Text ohne ungeklärtes Foto über die freigegebene Schulnachricht; interne Schichtplanung im Klassenraum. So werden Familien erreicht, ohne Schichtdaten öffentlich zu machen. Die größere Reichweite hilft der Einladung, erhöht aber die mögliche Weitergabe. Das „beim ersten Versuch“ wird sachlich korrigiert; ein Erfolg darf trotzdem gezeigt werden. Kopien verstärken die Ausgrenzung. Verantwortung liegt bei Angreifenden/Verbreitenden. Toni unterstützen und mit der Lehrperson den schulischen Hilfe- und Meldeweg nutzen. Andere begründete Lösungen sind möglich, etwa eine von der Schule verteilte Papiereinladung. Die gesamte Einladung nur im Klassenraum zu belassen erreicht die Familien im Fall nicht.",
+          "items": [
+            "Zwecke und Wege: Einladung → … ; Schichtplanung → … .",
+            "Abwägen: ein Nutzen und ein Einwand mit Fallbeleg. Ergänze kurz: „Wichtiger ist hier …, weil … .“",
+            "Bild und Text: Welche Wirkung ist möglich? Was muss am Foto bzw. an der Bildunterschrift geklärt oder geändert werden?",
+            "Ausgrenzung: Was verstärkt sie, wer trägt Verantwortung? Wie unterstützt du Toni, und welcher zuständige Hilfeweg passt?",
+            "Offen: eine Frage, die noch geklärt werden muss."
+          ]
         },
         {
           "type": "external",
@@ -838,7 +845,7 @@
       "title": "Woran Sie Lernen sehen – und wo die Grenze bleibt",
       "paragraphs": [
         "Modell/Verhältnis analog–digital: Zweckwechsel und Fallbelege, keine pauschalen Sicherheitsurteile. Vergleich: Regel aus dem fiktiven Fall herausarbeiten, eine aktuelle Schulbedingung anschließend praktisch anwenden. Selbstdarstellung: mögliche Emotion/Überzeugung mit Beleg, ohne sichere Gefühlsdiagnose.",
-        "Öffentliche Entscheidungskarte: Nutzen und Gegenargument gewichtet; Zielgruppen erreicht; Rechtefragen getrennt; Ursache der Verstärkung von Verantwortung getrennt; begründete Unterstützungs-/Meldestrategie. Mehrere Wege sind zulässig, wenn sie die Fallbedingungen einhalten. Das kommentierte Gegenbeispiel ist kein auszufüllendes Lösungsmuster.",
+        "Öffentliche Entscheidungskarte: fünf beschriftete Stichpunktgruppen genügen. Entscheidend sind Nutzen und Gegenargument mit Gewichtung; erreichte Zielgruppen; getrennte Rechtefragen; Ursache der Verstärkung getrennt von Verantwortung; begründete Unterstützungs-/Meldestrategie. Kein zusätzlicher Fließtext nötig. Mehrere Wege sind zulässig, wenn sie die Fallbedingungen einhalten. Das kommentierte Gegenbeispiel ist kein auszufüllendes Lösungsmuster.",
         "Reale Kommunikation: eigene sachliche Nachricht, tatsächliche Antwort und eigener Beitrag zur Rückmeldung; bei Bedarf am erlaubten Schulweg beobachten, ohne private Verläufe einzusammeln. Lernwerk-Notizen sind Selbstdokumentation und beweisen allein keinen Versand. Papier unterstützt echten Austausch; digitale Nutzung bleibt ohne Zugang offen.",
         "Private Eigenprüfung P56-04: eigene schulische Medienhandlung, Rechte/Regeln und Korrekturentscheidung. Neutrales Rechtsurteil ist öffentlich prüfbar, eigener Bezug bleibt privat. Freiwillige Durchführungsmeldung ist kein Qualitätsnachweis. Keine private Notiz, Namen von Hilfeempfängern oder persönliche Erfahrung benoten."
       ]
@@ -887,13 +894,13 @@
     {
       "title": "Vorbereitung und offene Gerätehandlungen",
       "paragraphs": [
-        "Vorab zwei erlaubte schulische Kommunikationswege, Empfängerkonto, Rechte, Dateiformat und konkreten lokalen Hilfeweg prüfen. Die empfangende Person bestätigt den Inhalt aus ihrem eigenen Zugang; ein sichtbarer Senden-Knopf genügt nicht.",
+        "Vorab den freigegebenen schulischen Kommunikationsweg, die vereinbarte empfangende Person, geltende Nutzungsbedingungen und den konkreten örtlichen Hilfeweg prüfen. Die empfangende Person liest und beantwortet die sachliche Übungsnachricht über ihren eigenen erlaubten Zugang; ein sichtbarer Senden-Knopf genügt nicht. Der Fallvergleich verlangt keine zweite reale Nachrichtenroute.",
         "Ohne Zugang werden Entscheidung und Nachrichtentext bearbeitet; tatsächliches Senden und Empfangen bleiben ausdrücklich offen. Innerhalb der vorhandenen Gerätephase nachholen, bei größerer Hürde im vorgesehenen Unterstützungskonto dokumentieren. Private Reflexionen weder in die gemeinsame Karte noch in die Übergabe an Klasse 7 aufnehmen."
       ]
     }
   ],
   "briefing": [
-    "M06 führt zu einer wachsenden Entscheidungskarte für ein erfundenes Schulfest. Die Lernenden vergleichen Räume, begründen Nutzen und Risiken, senden eine sachliche Übungsnachricht, erhalten echte Rückmeldung und überarbeiten ihr Urteil. Die eigene Rechteprüfung bleibt geschützt.",
+    "M06 führt zu einer wachsenden Entscheidungskarte für ein erfundenes Schulfest. Fünf beschriftete Stichpunktgruppen mit einer begründeten Gewichtung genügen; zusätzlicher Fließtext ist nicht nötig. Die Lernenden vergleichen Räume, begründen Nutzen und Risiken, senden eine sachliche Übungsnachricht, erhalten echte Rückmeldung und überarbeiten ihr Urteil. Die eigene Rechteprüfung bleibt geschützt.",
     "Bereiten Sie Schulzugang, aktuelle Bedingungen und echte Partner vor. Füllen Sie Schulwegkarte und zwei erreichbare Hilfewege aus. Keine privaten Konten, Veröffentlichung oder echten Konfliktverläufe. Alle Fallinformationen stehen lokal im Lernwerk.",
     "Planen Sie 165 Kernminuten: 20 Modell, 30 Vergleich, 35 Entscheidung/Nachricht, 25 Austausch/Revision, 30 eigene Rechteprüfung, 25 Transfer/Sicherung. Davor sechs Minuten M03 und sieben M05 aus bestehenden Konten. Später zweimal fünf M06-Minuten an getrennten Terminen vor/in M07.",
     "Im 30-Minuten-Vergleich Papierturm V2 einsetzen: A zeigt die Tischszene, B/C digitale Bildbeiträge mit wahrem Erfolgssatz; C erschließt auch hilfreichen Kontakt zu einer anderen Schulgruppe. Zuerst Räume vergleichen und einen eigenen ersten Wirkungssatz mit Beleg formulieren lassen. Dann Hintergrund öffnen und denselben Satz begründet bestätigen oder präzisieren. Mündlich genügt. C ist ein öffentlich lesbarer betreuter Schulprojektfeed. Die Altersregel betrifft einen ausdrücklich anderen erfundenen Dienst; die unbekannte AG-Rolle ist ebenfalls ein eigener Fall. Im Abschlussraster wird der begründete Rückbezug auf die erste Deutung geprüft. 12 Minuten Raumvergleich/Erstsatz, 8 Minuten Kontext/Prüfanlässe, 10 Minuten Hilfe bleiben erhalten.",

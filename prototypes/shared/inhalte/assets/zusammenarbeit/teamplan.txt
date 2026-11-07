@@ -22,7 +22,8 @@ JEDE PERSON FÜLLT IHRE EIGENE SPUR AUS
 Mein gesendeter Beitrag: Datum / Stelle im Schulraum (keine Zugangsdaten)
 Empfangene Rückmeldung, sinngemäß:
 Meine Antwort:
-Meine Überarbeitung: vorher -> nachher / Grund
+Meine Inhaltsentscheidung: Änderung oder Prüffrage + Antwort + Grund für Beibehalten
+Meine tatsächliche Überarbeitung am Abschnitt oder Regelhinweis: vorher -> nachher / Grund
 Eine gemeinsame Entscheidung / Begründung:
 
 UNSERE NACHRICHTENREGEL AUS DER PRÜFKARTE

@@ -7,7 +7,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 ---
 
 # MED-2 · Stimmt die Meldung?
@@ -57,7 +57,7 @@ Bau deinen ersten Satz zu einer Redaktionsnotiz von etwa fünf kurzen Sätzen au
 - Welche konkrete Aussage aus M1 ist mit dieser Fallakte nicht haltbar? Belege mit **M3 und einer genauen Angabe**.
 - Was stützt M4 unabhängig, und was kann M4 nicht bestätigen? Warum ist M5 keine weitere unabhängige Bestätigung?
 - Wie könnte die Meldung weitergetragen werden? Untersuche die Aufforderung und den fehlenden Kontext. Ist eine absichtliche Täuschung bewiesen oder nur möglich? Begründe.
-- Welche sachgerechte Überschrift würdest du stattdessen veröffentlichen? Nenne die begrenzte Bezugsgruppe.
+- Welche sachgerechte Überschrift würdest du stattdessen veröffentlichen? Nenne die begrenzte **Bezugsgruppe**, also die Personen, für die deine Aussage gelten soll.
 - Welche zusätzliche Prüfung wäre nötig, wenn du wissen wolltest, was die ganze Schule über den Kiosk denkt?
 
 <details><summary>Hilfe: Wie gewichte ich die Quellen?</summary>

@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-07
 tags:
   - output/lernmaterial
 ---
@@ -56,6 +56,6 @@ Eine Skizze, kurze Stichpunkte oder eine gleichwertige mündliche Erklärung kö
 
 ## Sichern und wieder aufnehmen
 
-Deine sachlichen Werkstattnotizen liegen im vereinbarten Dokument oder Heft. Speichere das Dokument am bekannten Ort, schließe es und öffne es dort wieder; nur ein Dateiname in der Notiz ist noch kein Nachweis. Bilddateien separat als Original und Varianten sichern und wieder öffnen. Ausführbarer Snap-Code wird später als XML gespeichert, nicht als Bild. Diese Dateiprüfung gehört in die jeweils vorhandene Sicherungsphase.
+Bewahre Codetabellen, Bitfolgen, eigene und rekonstruierte Raster sowie Rechnungen im vereinbarten Dokument oder Heft auf. Arbeitest du digital, speichere das Dokument am bekannten Ort und öffne es dort wieder. Bewahre dein eigenes Raster und seine Bits aus DAT-3 so auf, dass du sie in DAT-4 wiederfindest. Das gehört in die vorhandenen Sicherungsphasen.
 
 Persönliche Reflexionen gehören in eine getrennte eigene Notiz oder bleiben Gedanken. Sie werden nicht mit sachlichen Werkstattnotizen geteilt, exportiert oder an den nächsten Jahrgang übergeben.

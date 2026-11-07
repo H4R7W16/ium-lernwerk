@@ -271,7 +271,7 @@
       "title": "Vor dem Projekt: Wissen wieder aufnehmen",
       "short": "Vor dem Projekt: Wissen wieder aufnehmen",
       "goal": "Du rufst passende frühere Kenntnisse ab und klärst offene Grundlagen.",
-      "task": "Du rufst passende frühere Kenntnisse ab und klärst offene Grundlagen. · 39 Minuten auf zwei vorangehende Termine verteilt",
+      "task": "Nimm an zwei früheren Unterrichtsterminen wichtige Kenntnisse wieder auf. Bearbeite jeweils nur die drei vereinbarten Teilaufträge. Zusammen brauchst du 20 + 19 Minuten.",
       "outcome": "Du rufst passende frühere Kenntnisse ab und klärst offene Grundlagen.",
       "knowledge": [
         "belegen",
@@ -281,36 +281,40 @@
         {
           "type": "explanation",
           "title": "Zwei kurze Termine vor dem Projekt",
-          "text": "Beginne jeweils ohne Altlösung. Erst nach deinem Versuch öffnest du die dortige Vergleichshilfe. Im Jahresplan UE 30: R06 M01 „Vor M07“ 6 Minuten, R07 M04 „Andere Grenze“ 7, R08 M05 „fehlende Linie“ 7. In UE 31: R09 M02 „veraltetes Register“ 8, R10 M03 „Warum diese Anzeige?“ 6, R11 M06 „Zweck vor Reichweite“ 5. Nur diese Teile bearbeiten; sie ergeben 20+19=39 Minuten aus dem Jahresabrufkonto, keine Projektkernzeit.",
+          "text": "Beginne jeden Teilauftrag ohne Altlösung. Öffne die Vergleichshilfe erst nach deinem eigenen Versuch. Die Lehrperson vereinbart mit euch die beiden Termine vor dem Projekt.",
           "links": [
             {
-              "label": "M01 · sechs Minuten",
+              "label": "Gemeinsame Speicherfassung · 6 Minuten",
               "href": "../netze/schritt-erinnern.html#recall-erinnern-speicher"
             },
             {
-              "label": "M04 · sieben Minuten",
+              "label": "Andere Platzgrenze beim Codieren · 7 Minuten",
               "href": "../codierungen/schritt-abruf.html#recall-abruf-wahl"
             },
             {
-              "label": "M05 · sieben Minuten",
+              "label": "Fehlende Linie im Programm · 7 Minuten",
               "href": "../algorithmen/schritt-abruf.html#recall-abruf-vor-m07"
             },
             {
-              "label": "M02 · acht Minuten Index-/KI-Abruf",
+              "label": "Veraltetes Suchregister · 8 Minuten",
               "href": "../suche/schritt-abruf-index.html#recall-abruf-index-abruf"
             },
             {
-              "label": "M03 · sechs Minuten",
+              "label": "Warum diese Anzeige? · 6 Minuten",
               "href": "../werbung/schritt-abruf.html#recall-abruf-auswahl"
             },
             {
-              "label": "M06 · fünf Minuten, erste Wiederaufnahme",
+              "label": "Zweck vor Reichweite · 5 Minuten",
               "href": "../kommunikation/schritt-abruf.html#recall-abruf-weg"
             },
             {
               "href": "../wiederholen.html",
-              "label": "Genaue Teilaufträge und Rückwege im Abrufregister"
+              "label": "Teilaufträge und Rückwege zur Wiederholung"
             }
+          ],
+          "items": [
+            "Erster Termin · 20 Minuten: gemeinsame Speicherfassung (6), Codierung bei anderer Platzgrenze (7), fehlende Linie im Programm (7).",
+            "Zweiter Termin · 19 Minuten: veraltetes Suchregister (8), Auswahl einer Werbeanzeige (6), passender Kommunikationsweg (5)."
           ]
         },
         {
@@ -324,30 +328,30 @@
         {
           "type": "explanation",
           "title": "Wenn ihr mit Papier arbeitet",
-          "text": "Dieses Blatt ordnet die Zeit. Die eigentlichen Aufgaben stehen auf den sechs Originalblättern. Die Lehrperson legt sie vor Beginn aus; erst bearbeiten, dann dort vergleichen. Ein Link oder das Lesen dieses Plans ist noch kein Abruf.",
+          "text": "Die sechs Aufgaben liegen auf ihren Originalblättern. Die Lehrperson legt sie vor Beginn aus und markiert die vereinbarten Teile. Bearbeite diese zuerst selbst und vergleiche danach. Dieses Übersichtsblatt allein ersetzt die Aufgaben nicht.",
           "links": [
             {
-              "label": "M01: Erinnern · vollständiges Einzelmaterial",
+              "label": "Netze und Speicher: Erinnern · Originalblatt",
               "href": "../netze/baustein-erinnern.html"
             },
             {
-              "label": "M02: Ein veraltetes Register · vollständiges Einzelmaterial",
+              "label": "Suchen: Ein veraltetes Register · Originalblatt",
               "href": "../suche/baustein-abruf-index.html"
             },
             {
-              "label": "M03: Abruf · vollständiges Einzelmaterial",
+              "label": "Werbung: Abruf · Originalblatt",
               "href": "../werbung/baustein-abruf.html"
             },
             {
-              "label": "M04: Abruf · vollständiges Einzelmaterial",
+              "label": "Codierungen: Abruf · Originalblatt",
               "href": "../codierungen/baustein-abruf.html"
             },
             {
-              "label": "M05: Abruf · vollständiges Einzelmaterial",
+              "label": "Algorithmen: Abruf · Originalblatt",
               "href": "../algorithmen/baustein-abruf.html"
             },
             {
-              "label": "M06: Abruf · vollständiges Einzelmaterial",
+              "label": "Kommunikation: Abruf · Originalblatt",
               "href": "../kommunikation/baustein-abruf.html"
             }
           ]
@@ -358,7 +362,7 @@
         "Offene Grundlagen sind vor dem Projekt geklärt oder als Hilfeauftrag benannt."
       ],
       "materialNeeds": [
-        "Zusätzlich zu diesem Organisationsblatt: die sechs vollständigen Original-Abrufblätter M01 erinnern, M02 abruf-index, M03 abruf, M04 abruf, M05 abruf, M06 abruf; digital über die Links oder vorher von der Lehrperson ausgedruckt",
+        "Die sechs Original-Abrufblätter aus Netze und Speicher, Suchen, Werbung, Codierungen, Algorithmen und Kommunikation; digital über die Links oder von der Lehrperson ausgedruckt und mit den vereinbarten Teilen markiert",
         "Stift, frühere Ergebnisse zunächst verdeckt; vorhandene Hilfen erst nach eigenem Abruf"
       ]
     },

@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - output/lernmaterial
 ---
@@ -33,6 +33,8 @@ Wähle **eine** Strategie. Bei allen begrenzt du die Bildschirmphase und nimmst 
 **Gemeinsam üben:** Welche Strategie passt zu Lee, welche Beobachtung wäre aussagekräftig? Beispiel: „Die Teilfrage blieb im Blick“ ist prüfbarer als „Alles war besser“.
 
 **Privat vorbereiten:** In der [[Gamingbogen - Private Denkpause#Mein Versuch|privaten Notiz]] Strategie, Begründung, Endpunkt und ein Prüfkriterium festhalten. Prüfkriterien sind zum Beispiel: konnte ich nach der Pause zur Frage zurückfinden; konnte ich am vereinbarten Punkt beenden; blieben nötige Hilfen nutzbar? „Hat nicht geholfen“ oder „Unklar“ sind zulässige Ergebnisse. Wer den Fallweg nutzt, plant für Lee und kann die sachliche Arbeitsmethode trotzdem selbst erproben.
+
+Lege deine Fachnotizen und den getrennten privaten Zettel bereit. Du wechselst gleich von der Stadtbau-Karte zu drei fachlichen Stichpunkten und danach zur privaten Beobachtung. Die Lehrperson gibt die Zeitsignale.
 
 ## 3 · Erproben und beobachten · 15 Minuten
 

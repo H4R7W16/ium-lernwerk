@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - output/lernmaterial
 ---
@@ -34,6 +34,6 @@ Spiel- oder Nichtnutzungsentscheidung, eigene schulische Bewertung und Strategie
 
 ## Sichern und wieder aufnehmen
 
-Deine sachlichen Werkstattnotizen liegen im vereinbarten Dokument oder Heft. Speichere das Dokument am bekannten Ort, schließe es und öffne es dort wieder; nur ein Dateiname in der Notiz ist noch kein Nachweis. Bilddateien separat als Original und Varianten sichern und wieder öffnen. Ausführbarer Snap-Code wird später als XML gespeichert, nicht als Bild. Diese Dateiprüfung gehört in die jeweils vorhandene Sicherungsphase.
+Bewahre deine Fachnotizen zu den erfundenen Fällen im vereinbarten Dokument oder Heft auf. Arbeitest du digital, speichere das Dokument am bekannten Ort und öffne es dort wieder. Für die Fortsetzung von GAM-4 brauchst du die drei Stichpunkte zur Stadtbau-Karte; deine private Strategiebeobachtung bleibt dabei geschlossen. Das gehört in die vorhandene Sicherungsphase.
 
 Persönliche Reflexionen gehören in eine getrennte eigene Notiz oder bleiben Gedanken. Sie werden nicht mit sachlichen Werkstattnotizen geteilt, exportiert oder an den nächsten Jahrgang übergeben.

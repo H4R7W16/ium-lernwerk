@@ -216,7 +216,7 @@
         {
           "title": "Überarbeiten und weitergeben",
           "minutes": 45,
-          "action": "Rückmeldung abschließen (10 Min.), Inhalt und Rechtehinweis überarbeiten (10), Konfliktfall bearbeiten (15). Für die letzten 10 Minuten stehen die Gegenpaare fest. Endfassung im Kursraum öffnen, einander zeigen, Zugang schützen.",
+          "action": "Rückmeldung abschließen (10 Min.), Inhaltsentscheidung und konkrete Überarbeitung am Abschnitt oder Regelhinweis (10), Konfliktfall (15). Letzte 10 Minuten: Endfassung im Kursraum öffnen, zugeordnetem Paar zeigen, Zugang schützen.",
           "status": "Ausgearbeitet · zur Erprobung",
           "href": "zusammenarbeit/schritt-rueckmelden.html",
           "label": "Zur Rückmeldung"
@@ -232,11 +232,11 @@
         "Kein Zugang oder keine Partnerperson? Entwurf vorbereiten, tatsächlichen Austausch als offen führen und nachholen.",
         "Nur eine Person trägt bei? Individuelle Aussage vorzeigen lassen, Bedienrolle wechseln.",
         "Vage Rückmeldung? Eine konkrete Stelle und eine begründete Rückfrage verlangen.",
-        "Gemeinsamer Plan ohne Veränderung? Vorher/nachher am eigenen Abschnitt erklären lassen.",
+        "Abschnitt bleibt unverändert? Konkrete Rückfrage, Antwort und erneute Verständlichkeitsprüfung zeigen lassen. Individuelle Revisionsleistung dann am vorhandenen unvollständigen Nachrichtenregel-Hinweis sichern; keinen Fehler im guten Inhalt erfinden.",
         "Wiederholte Ausgrenzung? Nicht als bloßes Missverständnis behandeln; schulischen Hilfeweg einsetzen.",
         "Hält die Stunde nach der gemeinsamen Endfassung an? Zugang vor Geräteübergabe schützen. Fehlende Öffnung oder Vorführung mit Gegenpaar und Termin im Teamplan festhalten und vor M04 nachholen. Bei Bedarf Jahrespuffer nutzen. Die fünf Abrufminuten bleiben für die Erinnerung reserviert."
       ],
-      "next": "Gemeinsame Gliederung und Quellen für M04 sichern. Vor Medienproduktion fehlende digitale Handlungen nachholen. Kurzer individueller Nachweis: Beitrag, empfangene Rückmeldung, begründete Änderung, angewandte Regel. Schulzugang, drei Stunden und Lernwirkung sind noch zu erproben."
+      "next": "Gemeinsame Gliederung und Quellen für M04 sichern. Fehlende digitale Handlungen vorher nachholen. Individuell zeigen: Beitrag, echte Rückmeldung, begründete Inhaltsentscheidung und konkrete Überarbeitung am Abschnitt oder Regelhinweis. Schulzugang, drei Stunden und Lernwirkung bleiben zu erproben."
     },
     {
       "moduleId": "G5-M04",
@@ -316,7 +316,7 @@
         "account": "spacedPracticeMinutes",
         "text": "Fünf Minuten mit Abstand, zum Beispiel zu Beginn von M05: einen veränderten Fall ohne alte Notizen beurteilen. Aus dem vorhandenen 135-Minuten-Konto; M01–M04 belegen zusammen 27 Minuten. Nicht in die acht Kernstunden doppelt zählen."
       },
-      "preparation": "Werkzeugkarte mit Schreibwerkzeug, Speicher-/Exportweg, lokalem Transfer auf ein zweites kompatibles Gerät, begrenztem Link im Schulraum und Schutzroutine ausfüllen. Beide Wege auf den tatsächlichen Schulprofilen prüfen. M02/M03-Vorprodukte oder gekennzeichnete Startbasis bereitstellen; Paare, Lesepaar und Kleingruppe für Vorstellungen planen. iPad und Windows gleichwertig. Arbeitsstände innerhalb jeder Phase sichern und wieder öffnen. Die 35 Minuten Textprobe in Wort-, Absatz- und Umbruchversuch gliedern; danach Kopieren/Rückgängig. Original, PDF-Lesekopie und begrenzt freigegebenen Link beim Weitergeben unterscheiden.",
+      "preparation": "Werkzeugkarte mit Schreibwerkzeug, Speicher-/Exportweg, lokalem Transfer auf ein zweites kompatibles Gerät, begrenztem Link im Schulraum und Schutzroutine ausfüllen. Beide Wege am Schulprofil prüfen. Vorprodukte und Quellen nutzen; Paare, Lesepaar und Vorstellungsgruppe planen. Eine Werkstattspur pro Paar mit eigenen Spuren A/B; vorhandene Belege referenzieren statt abschreiben. Dateifolge: Formatprobe, v1, bearbeitbare v2, exportierte v2.pdf, getrennte Ansichtsprobe. Die 35 Minuten Textprobe umfassen drei Versuche mit Endpunkt sowie Überschrift, Kopieren/Rückgängig und Wiederöffnen. In derselben Formatprobe folgt das Objekt; die Infokarte entsteht als neue Datei. Jede Person bedient selbst; iPad und Windows gleichwertig.",
       "decisions": [
         "Begründung nur „schöner“? Leserziel und konkrete Fundstelle nennen lassen.",
         "Bedienung nur durch eine Person? Rolle wechseln, individuelle Text- und Objektänderung zeigen lassen.",
@@ -324,7 +324,7 @@
         "Bildrechte unklar? Klären oder durch eigenes/freigegebenes Objekt ersetzen.",
         "Transfer technisch nicht möglich? Vorbereitung fortsetzen, reale Handlung als offen führen und nachholen."
       ],
-      "next": "Bearbeitbare Datei, Entwurf, Endfassung und eigene Änderungsspur sichern. Kopie und Link durch Empfänger öffnen lassen. Für M05 Wirkung und Gestaltungsentscheidung bereithalten. Nach Erprobung Zeitabweichung, häufigste Hürde und Anpassung notieren; kein vollständiger Kompetenznachweis allein aus dem Produkt."
+      "next": "v1, bearbeitbare v2, exportierte v2.pdf und Werkstattspur am vereinbarten Ort bewahren; Ansichtsprobe getrennt, Formatprobe als Übung. Empfänger öffnen Kopie und begrenzten Link auf dieselbe PDF. Für M05 Wirkung und Gestaltungsentscheidung bereithalten. Zeitbedarf und häufigste Hürde nach Erprobung notieren; Produkt allein genügt nicht als Kompetenznachweis."
     },
     {
       "moduleId": "G5-M05",
@@ -380,7 +380,7 @@
         "account": "spacedPracticeMinutes",
         "text": "Drei Minuten neutraler Abruf und zwei Minuten private Wiederaufnahme mit Abstand. M01–M05: 32 von 135 vorhandenen Jahresminuten. Sofortiger Transfer gehört bereits zu den 225 Kernminuten."
       },
-      "preparation": "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen. Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe. Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen. Am Brückenfall den ausgewählten Beitrag mit vier Versuchen und Hilfe abgleichen; in der Bildwerkstatt erst Ausschnittknöpfe, danach freie Regler nutzen. Im Werbevergleich zuerst Jules’ vier Bilder B und den Textzugang öffnen; 30–60 Sekunden eigene Auswahl vor A und Analyse einplanen. Bei Papierarbeit das Einzelmaterial mit allen vier Karten B vor Magazin A verwenden. Werbemarkierungen sichtbar lassen. KI-Illustrationen als erfundenes Analysematerial einordnen, nicht als realen Versuchsnachweis.",
+      "preparation": "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen. Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe. Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien, keine gemeinsame Gerätesicherung. Zweite Person beim Bildwerkstatt-Stand über „Neu beginnen – bisherigen Stand behalten“ starten lassen. Wechselweg vorab prüfen: neutralen Stand sichern, anderen Tab nutzen, bei Rückkehr Überschrift/Ausschnitt mit Fallspur vergleichen. Nach Neustart passende Datei als eigenen neuen Stand übernehmen. Jede Person bedient selbst; private Gedanken auf Papier oder im Kopf. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen. Am Brückenfall den ausgewählten Beitrag mit vier Versuchen und Hilfe abgleichen; in der Bildwerkstatt erst Ausschnittknöpfe, danach freie Regler nutzen. Im Werbevergleich zuerst Jules’ vier Bilder B und den Textzugang öffnen; 30–60 Sekunden eigene Auswahl vor A und Analyse einplanen. Bei Papierarbeit das Einzelmaterial mit allen vier Karten B vor Magazin A verwenden. Werbemarkierungen sichtbar lassen. KI-Illustrationen als erfundenes Analysematerial einordnen, nicht als realen Versuchsnachweis.",
       "decisions": [
         "Werbung nur am Code erkannt? In Bild 2 Falttipp, Marke und Papierblock zeigen lassen. Anschließend die fehlende Vergleichsbasis für „nur mit diesem Papier“ prüfen und die erste Idee begründet bestätigen oder präzisieren. Vier kurze mündliche Aussagen innerhalb der 25 Minuten genügen.",
         "Wirkung als Gewissheit formuliert? Zweite mögliche Reaktion ergänzen.",
@@ -480,7 +480,7 @@
         "title": "Zusammenarbeit → Infokarte",
         "href": "reihe-zusammenarbeit.html",
         "incoming": "M02-Sammlung mitbringen. Ohne Vorprodukt die gekennzeichnete Startbasis nutzen. Kursraumkarte mit realen Regeln und Hilfeweg ausfüllen.",
-        "check": "Jede Person sendet und beantwortet einen Beitrag; eine Änderung am gemeinsamen Plan ist erklärbar. Fehlende digitale Handlung gezielt nachholen.",
+        "check": "Jede Person sendet und beantwortet einen Beitrag, begründet eine Inhaltsentscheidung und zeigt eine konkrete Überarbeitung am Abschnitt oder am unvollständigen Regelhinweis. Fehlende digitale Handlung gezielt nachholen.",
         "outgoing": "Gemeinsame Gliederung, Quellen und eigene Rückmeldungsspur für M04 sichern. Schon verwendete Materialien nicht erneut abschreiben."
       },
       {
@@ -489,7 +489,7 @@
         "href": "reihe-medienprodukt.html",
         "incoming": "M03-Plan und M02-Quellen nutzen; alternativ Startbasis im Schritt „Planen“. Beide Weitergabewege vorher an Schulgeräten prüfen.",
         "check": "Eigene Text-/Objektänderung, echter Lesetest und Revision; Empfängerperson öffnet Dateikopie und begrenzten Link.",
-        "outgoing": "Bearbeitbare Datei, v1/v2 und Werkstattspur aufbewahren. Sie liegen außerhalb der Lernwerk-Arbeitsdatei. M05 kann vor der Revision eingeschoben werden; danach bei M04 „Lesetest“ weiterarbeiten."
+        "outgoing": "v1, bearbeitbare v2, PDF und Werkstattspur aufbewahren; Ansichtsprobe getrennt, Formatprobe als Übung. Diese Dateien liegen außerhalb der Lernwerk-Arbeitsdatei. M05 kann vor der Revision eingeschoben werden; danach bei M04 „Lesetest“ weiterarbeiten."
       },
       {
         "moduleId": "G5-M05",

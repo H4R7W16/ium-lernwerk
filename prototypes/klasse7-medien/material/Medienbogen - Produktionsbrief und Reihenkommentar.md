@@ -8,7 +8,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-07
 tags:
   - output/planung
 ---
@@ -47,7 +47,7 @@ MED-3: eigene, ausdrücklich konstruierte Hofillustration mit verschiedenen Teil
 
 MED-4: zwei eigene Bild-Text-Karten mit denselben Figuren, unterschiedlichen Rollen und Botschaften. Keine realen Körper, Prominentenfotos oder Bewertung der Mitschülerinnen und Mitschüler. Auch die Gegenkarte wird kritisch geprüft; sie ist kein Beweis für tatsächliche Vielfalt oder Gleichberechtigung.
 
-MED-5: vier Fälle mit ausdrücklich festgelegten Kommunikationsbedingungen. Zwei Zuordnungen werden vorgemacht; alle vier werden individuell vollständig notiert. Social Engineering und Missverständnis verlangen kurze, begründete Handlungen. Kein Versand, keine Zugangsdaten, keine Angriffsübung.
+MED-5: vier Fälle mit ausdrücklich festgelegten Kommunikationsbedingungen. K1 und K2 stehen als ausgefüllte Beispiele bereit; K3 und K4 werden individuell in zwei eigenen Zeilen begründet zugeordnet. Social Engineering und Missverständnis verlangen kurze, begründete Handlungen. Kein Versand, keine Zugangsdaten, keine Angriffsübung.
 
 ## Zeit und Abhängigkeiten
 

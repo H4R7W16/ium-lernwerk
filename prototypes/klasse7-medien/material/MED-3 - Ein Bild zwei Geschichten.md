@@ -7,7 +7,7 @@ klassenstufe: 7
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 ---
 
 # MED-3 · Ein Bild, zwei Geschichten
@@ -28,11 +28,13 @@ Die Lehrperson zeigt am Original einmal einen engeren Ausschnitt und macht ihn r
 
 ## 2 · Zwei Werkzeuge ausprobieren · 15 Minuten
 
-Öffne das Arbeitsbild im vereinbarten Editor. Nutze [[MED-3 - Bedienkarte Bildbearbeitung]]. Erstelle eine Übungskopie: einmal zuschneiden, einmal Farben deutlich entsättigen, jeweils den Unterschied zum Original betrachten. Verwechsle Vergrößern der Ansicht nicht mit Zuschneiden der Datei.
+Speichere das Arbeitsbild als unverändertes `hof-original.png` am vereinbarten Ort. Bewahre dort auch deine Arbeitsdateien auf. Öffne das Original im vereinbarten Editor. Nutze [[MED-3 - Bedienkarte Bildbearbeitung]]. Erstelle eine Übungskopie: einmal zuschneiden, einmal Farben deutlich entsättigen, jeweils den Unterschied zum Original betrachten. Verwechsle Vergrößern der Ansicht nicht mit Zuschneiden der Datei.
 
-Speichere die veränderte Übungskopie unter einem neuen Namen, öffne sie wieder und zeige den Unterschied. Öffne erst danach wieder das unveränderte Original für die nächste Bearbeitung. Wenn Öffnen oder Speichern scheitert, melde das jetzt. Du brauchst für deine späteren Varianten immer das unveränderte Original als Ausgangspunkt.
+Speichere die veränderte Übungskopie als `bild-uebung.png`, öffne sie wieder und zeige den Unterschied. Öffne erst danach wieder das unveränderte Original für die nächste Bearbeitung. Wenn Öffnen oder Speichern scheitert, melde das jetzt. Du brauchst für deine späteren Varianten immer das unveränderte Original als Ausgangspunkt.
 
 ## 3 · Gestalte für eine Absicht · 45 Minuten
+
+Ergänze während der folgenden Schritte eine einzige [[Medienbogen - Werkstattnotizen#MED-3 · Bildnotiz|Bildnotiz]]: zuerst den Plan, dann Rückmeldung und Revision.
 
 **Planen, 5 Minuten:** Wähle zwei unterschiedliche Wirkungsabsichten für die Leserinnen und Leser des Schulblogs. Zum Beispiel „Hier möchte man sitzen“ und „Hier sollte aufgeräumt werden“. Eigene Absichten sind möglich, wenn du sie an Bildmerkmalen prüfen kannst. Notiere beide **vor** dem Bearbeiten. Skizziere oder beschreibe den jeweils geplanten Ausschnitt und die Farbwirkung.
 

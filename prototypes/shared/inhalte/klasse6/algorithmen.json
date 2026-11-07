@@ -353,15 +353,15 @@
           "type": "task",
           "id": "spur",
           "title": "Deine Versuche bleiben sichtbar",
-          "text": "Nimm den ersten Lauf auf. Ergänze: Was stimmt mit deiner Grafik überein? Wo liegt die erste Abweichung? Zeige einer anderen Person eine konkrete Stelle und lass sie einen nächsten Zustand vorhersagen. Ohne Partner nutzt du die Kriterien selbst oder fragst die Lehrperson.",
+          "text": "Ergänze zu deinem ersten Lauf: Was stimmt mit deiner Grafik überein? Wo liegt die erste Abweichung? Zeige einer anderen Person eine konkrete Stelle und lass sie einen nächsten Zustand vorhersagen. Ohne Partner nutzt du die Kriterien selbst oder fragst die Lehrperson.",
           "prompt": "Versuche, Rückmeldung und eigene Erklärung",
-          "responseHint": "Die Schaltfläche ergänzt genaue Spuren. Schreibe darunter selbst deine Begründung; die Spur allein erklärt noch nichts. Zeige deine eigene Stelle. Du darfst erklären und markieren statt einen langen Text schreiben."
+          "responseHint": "Der erste Lauf steht bereits im Protokoll. Ergänze dort deine Rückmeldung und Begründung; nimm denselben Lauf nicht noch einmal auf. Zeigen und mündliches Erklären sind möglich."
         },
         {
           "type": "task",
           "id": "revision",
           "title": "Eine Änderung mit Grund",
-          "text": "Notiere die Rückmeldung oder deinen Selbstvergleich. Wähle eine gezielte Änderung und sage ihre Wirkung voraus. Ist dein Band bereits richtig, verändere bewusst eine Motivlänge. Ändere Grafik und Code passend, teste und nimm den zweiten Lauf auf. Erkläre den Unterschied an einem Befehl. Stimmte dein erster Versuch bereits? Verändere nur eine Schrittweite, sage Position und Richtung am Ende voraus und prüfe. Begründe anschließend, welche Fassung deinen Entwurf besser erfüllt.",
+          "text": "Nutze die Rückmeldung oder deinen Selbstvergleich für genau eine Änderung: Bei einer Abweichung korrigierst du deren Ursache. Ist das Band bereits richtig, veränderst du bewusst eine Motivlänge, indem du einen vor-Befehl ergänzt oder weglässt. Sage vor dem neuen Lauf die Wirkung auf die Zeichnung, Endposition und Schlussrichtung voraus. Ändere Grafik und Code passend, teste und nimm den zweiten Lauf auf. Erkläre den Unterschied an einem Befehl und begründe, welche Fassung deinen Entwurf besser erfüllt.",
           "prompt": "Rückmeldung → Änderung → Erwartung → Beobachtung",
           "solution": "Verschiedene Motive sind möglich. Beispiel: wiederhole 3 [vor vor rechts vor links] ergibt drei Stufen mit Breite 2 und Höhe 1; Ende (7|4), Blick rechts. Wird vor vor zu vor, liegt das Ende bei (4|4). Dies ist ein Vergleich nach eigener Arbeit, keine vorgeschriebene Gestaltung."
         }
@@ -651,7 +651,7 @@
     {
       "title": "Rückmeldung und Sicherung",
       "paragraphs": [
-        "A zeigt Auftrag, Grafik und ersten Lauf. B nennt eine konkrete Übereinstimmung oder Abweichung an einem Befehl; A begründet und prüft die Änderung selbst. Ohne Partner übernehmen Lehrperson oder Selbstvergleich diese Funktion. Keine zusätzliche Gruppenabgabe.",
+        "A zeigt Auftrag, Grafik und den einmal aufgenommenen ersten Lauf. B nennt eine konkrete Übereinstimmung oder Abweichung an einem Befehl und sagt einen nächsten Zustand voraus; A begründet und prüft genau eine Änderung selbst. Ohne Partner übernehmen Lehrperson oder Selbstvergleich diese Funktion. Bei einem bereits passenden Band wird stattdessen eine Motivlänge bewusst verändert. Keine zusätzliche Gruppenabgabe oder dritte Pflichtfassung.",
         "Sichern Sie Anweisung, Reihenfolge, Schleifenkörper, Wiederholungszahl, Zustand und Prüfung am eigenen Programm. Jede Person erklärt einen Befehl vorher/nachher und den Unterschied zweier Versuche. Schon richtige Programme erhalten eine begründete Variation. Ein beendeter Lauf ist kein Nachweis eines passenden Ergebnisses."
       ]
     },
@@ -680,7 +680,7 @@
     {
       "title": "Individueller Prüfpunkt innerhalb der vorhandenen Aufgabe",
       "paragraphs": [
-        "Am eigenen Musterband erklärt jede Person einen Zustand mit Position, Richtung und Stift. Bei passendem Erstcode eine Schrittweite verändern und Wirkung vorhersagen. Bei Lücke nur den ersten abweichenden Befehl untersuchen, erneut ausführen.",
+        "Am eigenen Musterband erklärt jede Person einen Zustand mit Position, Richtung und Stift. Bei passendem Erstcode eine Motivlänge durch einen ergänzten oder weggelassenen vor-Befehl verändern und die Wirkung vorhersagen. Bei Lücke nur den ersten abweichenden Befehl untersuchen, erneut ausführen.",
         "Der Prüfpunkt liegt im Lernschritt „Dein eigenes Musterband“. Er ersetzt eine allgemeine Rückblickfrage innerhalb der vorgesehenen Phase. Beobachten Sie zunächst eigenständiges Handeln; die Hilfe wird nach Bedarf geöffnet. Der erneute Versuch prüft dieselbe Hürde, er eröffnet keine zusätzliche Pflichtphase.",
         "Sicherung: Grafik, Code und Zustand beschreiben denselben Ablauf auf unterschiedliche Weise. Beispiel: Nach einer Drehung ändert sich die Richtung, nicht die Position; hoch verändert den Stiftzustand. Grenze: Eine fertige Zeichnung verrät nicht sicher den verwendeten Code."
       ]
@@ -691,12 +691,12 @@
     "Planen Sie drei Unterrichtsstunden. Sieben Minuten Wiederaufnahme der Codierungen liegen davor und stammen aus dem Jahreskonto. Die Einstiegsfrage zeigt, ob Anweisung, Drehung und Wiederholung verstanden sind. Lassen Sie bei Bedarf eine Drehung mit einem Pfeil nachstellen.",
     "Die erste Stunde führt vom Anlass zu einer vollständig erklärten L-Form. Danach prüfen die Lernenden ein Quadrat, dessen Code läuft, aber die falsche Seitenlänge erzeugt. Die Fehlerhypothese muss an einer konkreten Anweisung hängen.",
     "In der zweiten Stunde wird die Quadratprüfung abgeschlossen. Danach entstehen eigene Motivgrafik, Code und Versuchsspur für drei gleiche Motive. Befehle lassen sich über Schaltflächen einsetzen. Achten Sie nach spätestens zehn Minuten auf einen ersten Entwurf oder Lauf.",
-    "Die dritte Stunde nutzt Rückmeldung und eine gezielte Änderung. Der erste Versuch bleibt erhalten. Die erwartete Wirkung wird vor dem neuen Lauf festgehalten und danach verglichen. Bereits richtige Programme erhalten eine begründete Variation. Ein neuer Fall mit einer Lücke und die gemeinsame fachliche Sicherung schließen die Reihe ab.",
+    "Die dritte Stunde nutzt Rückmeldung und genau eine gezielte Änderung. Der erste Versuch bleibt einmal im Protokoll erhalten. Bei einer Abweichung wird deren Ursache korrigiert; bei bereits passendem Band wird stattdessen eine Motivlänge bewusst verändert. Die erwartete Wirkung wird vor dem zweiten Lauf festgehalten und danach verglichen. Ein neuer Fall mit einer Lücke und die gemeinsame fachliche Sicherung schließen die Reihe ab.",
     "Beobachten Sie die Verwechslung von Drehen und Bewegen, den Umfang der Klammergruppe und die Annahme, beendet bedeute richtig. Machen Sie bei Bedarf einen Schritt vor und lassen Sie den nächsten selbst erklären.",
     "Code und aufgenommene Spuren werden in einer Arbeitsdatei gesichert. Heftgrafiken bleiben getrennt. Papier ermöglicht Ablaufanalyse; eigene praktische Programmierung muss am Gerät stattfinden. Zeit und Schulgeräte sind noch nicht erprobt.",
     "Vor den Reihen sechs und sieben folgen jeweils sieben Minuten Wiederaufnahme. Alte Lösungen bleiben zuerst geschlossen. Prüfen Sie an einem kleinen neuen Fall, was noch selbst erklärt werden kann, und unterstützen Sie gezielt.",
     "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben.",
-    "Individueller Prüfpunkt: Am eigenen Musterband erklärt jede Person einen Zustand mit Position, Richtung und Stift. Bei passendem Erstcode eine Schrittweite verändern und Wirkung vorhersagen. Bei Lücke nur den ersten abweichenden Befehl untersuchen, erneut ausführen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
+    "Individueller Prüfpunkt: Am eigenen Musterband erklärt jede Person einen Zustand mit Position, Richtung und Stift. Bei passendem Erstcode eine Motivlänge durch einen ergänzten oder weggelassenen vor-Befehl verändern und die Wirkung vorhersagen. Bei Lücke nur den ersten abweichenden Befehl untersuchen, erneut ausführen. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
   ],
   "sequence": {
     "form": "Gestalten",
@@ -705,6 +705,6 @@
     "core": "Grafik, Code und Zustand beschreiben denselben Ablauf auf unterschiedliche Weise.",
     "example": "Nach einer Drehung ändert sich die Richtung, nicht die Position; hoch verändert den Stiftzustand.",
     "boundary": "Eine fertige Zeichnung verrät nicht sicher den verwendeten Code.",
-    "diagnosis": "Am eigenen Musterband erklärt jede Person einen Zustand mit Position, Richtung und Stift. Bei passendem Erstcode eine Schrittweite verändern und Wirkung vorhersagen. Bei Lücke nur den ersten abweichenden Befehl untersuchen, erneut ausführen."
+    "diagnosis": "Am eigenen Musterband erklärt jede Person einen Zustand mit Position, Richtung und Stift. Bei passendem Erstcode eine Motivlänge durch einen ergänzten oder weggelassenen vor-Befehl verändern und die Wirkung vorhersagen. Bei Lücke nur den ersten abweichenden Befehl untersuchen, erneut ausführen."
   }
 }
