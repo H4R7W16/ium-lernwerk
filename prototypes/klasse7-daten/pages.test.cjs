@@ -11,7 +11,7 @@ test('Datenbogen ist vollständig mit fünf Aufgaben, sechs Briefings, Sicherung
  for(let i=1;i<=5;i++){assert.ok(published.has(ROOT+'dat-'+i+'-briefing.html'));assert.ok(published.has(ROOT+'projektion-'+i+'.html'));}
 });
 test('Geprüfte Quellen, Lernaufträge, Briefings und alle Bilder bleiben gebunden',()=>{
- const manifest=require('./quelle-sha256.json'),dir=path.join(__dirname,'inhalt');assert.equal(Object.keys(manifest.files).length,38);
+ const manifest=require('./quelle-sha256.json'),dir=path.join(__dirname,'inhalt');assert.equal(Object.keys(manifest.files).length,42);
  for(const [file,hash]of Object.entries(manifest.files)){
   const source=fs.readFileSync(path.join(dir,file));assert.equal(sha(source),hash,file);
   if(file.endsWith('.html')&&!['datenbogen-produktionsbrief-und-reihenkommentar.html','datenbogen-durchfuhrung-und-auswertung.html','datenbogen-quellen-und-nutzungsrechte.html'].includes(file))assertReadingContent(main(published.get(ROOT+file)),main(source.toString()),file);
@@ -65,4 +65,22 @@ test('Datenmenge und Auflösung bleiben in tatsächlicher Ausgabe konsistent',()
  const plan=published.get(ROOT+'datenbogen-durchfuhrung-und-auswertung.html');
  for(let i=1;i<=12;i++)assert.ok(plan.includes('D'+String(i).padStart(2,'0')));
  for(const term of ['48 Bit','26 Byte'])assert.ok(plan.includes(term),term);
+});
+
+
+test('DAT-5 erhält den Zweckwechsel: eigenes Urteil vor feiner Ansicht und Gegenprüfung',()=>{
+ const html=published.get(ROOT+'dat-5-welche-datenmenge-passt-zum-zweck.html');
+ const first=html.indexOf('id="zweckwechsel"'),fine=html.indexOf('id="vergleich-8"'),check=html.indexOf('id="gegenpruefung"');
+ assert.ok(first<fine&&fine<check);assert.ok(first>html.indexOf('Eine andere Person prüft'));
+ for(const id of ['vergleich-8','gegenpruefung'])assert.match(html,new RegExp('<details id="'+id+'">'));
+ assert.ok(html.indexOf('schluesselpaar-vorlagen.svg')>check);assert.ok(html.indexOf('Zeile 6, Spalte 8')>check);
+ assert.equal((html.match(/id="zweckwechsel"/g)||[]).length,1);
+});
+test('Schlüsselpaar zeigt einen verlorenen Unterschied bei gleicher Auflösung und Datenmenge',()=>{
+ const model=JSON.parse(published.get(ROOT+'material/schluesselpaar-modell.json')).rasters;
+ const old=JSON.parse(published.get(ROOT+'material/modell-daten.json')).rasters;
+ assert.deepEqual(model.I4,model.II4);assert.deepEqual(model.I4,old['schluessel-4']);assert.deepEqual(model.I8,old['schluessel-8']);
+ const differences=[];for(let y=0;y<8;y++)for(let x=0;x<8;x++)if(model.I8[y][x]!==model.II8[y][x])differences.push([y+1,x+1]);
+ assert.deepEqual(differences,[[6,8]]);assert.equal(model.I8[5][7],'0');assert.equal(model.II8[5][7],'1');
+ for(const [n,rows]of Object.entries(model)){const size=n.endsWith('4')?4:8;assert.equal(rows.length,size);assert.ok(rows.every(row=>row.length===size&&/^[01]+$/.test(row)));}
 });

@@ -1329,19 +1329,19 @@
     },
     "klasse6/suche/schritt-recherche.html": {
       "before": "44e304c0c7409bf46ce7d6b185bc2d36f894ac18ac7026caeb1bdfc2622c13dd",
-      "after": "d59d960ba9ee70b06b5c95d0eff25dd7a0ba6f405174476727bbfe62ee182440"
+      "after": "b28a94bea54943f640277d0b530b3d9083092802a9ce97b9ffcb9fffc74b7041"
     },
     "klasse6/suche/baustein-recherche.html": {
       "before": "a6af6c700556dfc2809673741a3d32bfc7d7f902706b8345955d447b9d835e82",
-      "after": "42fadca1ad62c9049ccabcde9d444d4c7943380e07415740821917d6f7ae2dc5"
+      "after": "67df7070ac7ed22a410ea65fdac2cfaa0bf47dc6c8a5e1f136a8911205eea834"
     },
     "klasse6/suche/baustein-recherche-ipad.html": {
       "before": "88aba209343e9491043682412e82be35ce4af5cb7e858da391504719c334e20e",
-      "after": "de9966bc6ed367c2bdc431cc69e1efd5991b7e570ac89a54f4391183bbbb2936"
+      "after": "bac1ff32564047f1f80e3a62f8f09037ff13a067bcff6ab58100b65e10d4aa68"
     },
     "klasse6/suche/baustein-recherche-windows.html": {
       "before": "a7e69bdbac59ed8239bc89eb21b8bbb8e25a1498e8834a97a1c9b7b0c6ca095f",
-      "after": "ee9b5c94a8e09229a3f31c5ea78940f93a7bf3ba006f0bba8513c805cb44bcf4"
+      "after": "e7921381f1ab5e5636d583c6e3d719825a2c207d09fc9a08752b772a14e0f296"
     },
     "klasse6/suche/schritt-transfer.html": {
       "before": "68491473d8d8a923bf4eab1f800616398cb67a33f104d9a9a09bbca5e65d6cab",
@@ -1461,7 +1461,7 @@
     },
     "klasse6/mantel-sw.js": {
       "before": "5675f7cebbfb2d9cc9269b1b35195bf433f5694e4534241f2eb7e90232cdf9b0",
-      "after": "7e18a442560bc0646160955c64f5546539b4c5387cabc2886473da0730129ab4"
+      "after": "1efecf28a1945ef01c250ca130cd580c456acbdbe0f5dd64d6d7edeccc595346"
     }
   }
 }

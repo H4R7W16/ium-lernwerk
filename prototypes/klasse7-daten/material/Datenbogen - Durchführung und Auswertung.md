@@ -10,7 +10,7 @@ klassenstufe: 7
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - output/durchfuehrung
 ---
@@ -115,7 +115,7 @@ Budget: 6 + 8 = **14 Byte**, also **6 Byte Rest**. Mit 16×16-Raster: 256 Bit = 
 
 ## DAT-5 · Zweckbezogen entscheiden · 30 Minuten
 
-**Material:** [[DAT-5 - Welche Datenmenge passt zum Zweck]], B5/B6, P5. Ziel: Datenmenge und Ressourcenbezug mit der benötigten Bildinformation abwägen.
+**Material:** [[DAT-5 - Welche Datenmenge passt zum Zweck]], B5/B6/B7, P5. Ziel: Datenmenge und Ressourcenbezug mit der benötigten Bildinformation abwägen.
 
 - **0–5:** Zweck Schlüsselausleihe benennen. Lernende wählen Bild oder Tabellen direkt darunter. Ein Beispiel für eine prüfbare Stelle in B sind die weißen Felder in Zeile 2, Spalten 2 und 3, zwischen zwei schwarzen Feldern. Zusammen mit den Nachbarzeilen können sie die Form unabhängig deuten. Der Motivname allein genügt nicht.
 - **5–10:** Qualitatives Datenwegmodell erklären. A gemeinsam berechnen; B nicht zusätzlich vorrechnen. Mehr Bits beanspruchen unter gleichen Bedingungen mehr Datenübertragung und Speicher, daraus folgt kein fester Stromfaktor.
@@ -124,7 +124,7 @@ Budget: 6 + 8 = **14 Byte**, also **6 Byte Rest**. Mit 16×16-Raster: 256 Bit = 
 
 **Erwartung:** A = 16 Bit = 2 Byte; B = 64 Bit = 8 Byte; B enthält viermal so viele Nutzdaten. B kann durch besser unterscheidbare Formteile als geeigneteres Leihplansymbol begründet werden. A nur akzeptieren, wenn der Lernende seine ausreichende Erkennbarkeit für den festgelegten Kontext plausibel belegt; „kleiner ist immer besser“ genügt nicht. Auch beide abzulehnen und ein klarer gestaltetes Zeichen zu fordern, kann begründet sein. Nicht die Variantenwahl bewerten, sondern die Belegkette.
 
-Neuer Zweck: Kleine Zahnunterschiede müssen erkennbar bleiben. Die bisherige Symbolentscheidung genügt dafür nicht. B ist nicht automatisch ausreichend; eine detailliertere Vorlage, passende Aufnahme oder unmittelbarer Vergleich der relevanten Stellen wäre zu prüfen. Die Modellbilder liefern keine Aussage darüber, ob ein realer Schlüssel passt. Keine sicherheitskritische Identifikation durchführen.
+Neuer Zweck: B7 ersetzt den rein gedachten Unterschied durch ein konstruiertes Paar. Zuerst 4×4 zeigen und ein eigenes Urteil in derselben Notiz verlangen, danach 8×8 öffnen. Vorlagen/Gegenprüfung erst nach Beleg und Entscheidung, bei Bedarf in den drei Sicherungsminuten. Die 4×4-Raster sind identisch; bei 8×8 ist Zeile 6, Spalte 8 bei I weiß und II schwarz. Das belegt den längeren rechten Zahn der zweiten Vorlage. 8×8 genügt für diesen Modellunterschied, ist keine Garantie für echte Schlüssel. Nur Anzeigen vergrößern ergänzt keine verlorenen Details. Je Bild 16/64 Bit, für das Paar 32/128 Bit; echte SVG-Dateigröße getrennt halten. Für Papier 4×4 vorab, 8×8 danach und Vorlagen zuletzt ausgeben; die Abschnitte zum Ausdruck gezielt öffnen.
 
 **Beobachtung → Hilfe:** Nur „weniger CO₂“ → nach dem belegten Datenfaktor und den unbekannten Größen fragen. Nur Umweltmeinung → ein sichtbares Bilddetail und beide Rechnungen ergänzen. Strom proportional zur Bitzahl → Unterschied Datenmenge/Technikbetrieb an B6 erklären. Ohne Partnerperson prüft die Lehrperson mit einer konkreten Rückfrage. Individueller neuer Zweck bleibt erforderlich.
 

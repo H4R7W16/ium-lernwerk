@@ -49,6 +49,8 @@ Abweichung an Zeile …, Spalte … / zwei kontrollierte Felder:
 Änderung oder begründete Abnahme:
 ```
 
+Für DAT-5s neuen Zweck ergänze an deiner Empfehlung nur: erstes Urteil → Rasterbeleg → erneute Entscheidung mit Grenze. Der Vergleich steht [direkt am Auftrag](dat-5-welche-datenmenge-passt-zum-zweck.html#zweckwechsel).
+
 Für DAT-4: `Anzahl × Bits je Element = … Bit; … Bit ÷ 8 = … Byte`. Beim Vergleich großer Mengen zuerst dieselbe Einheit herstellen.
 
 Eine Skizze, kurze Stichpunkte oder eine gleichwertige mündliche Erklärung können langes Schreiben ersetzen, wenn die Lehrperson das mit dir vereinbart. Codierung und Rechnung müssen dabei weiterhin von dir stammen. Die gemeinsame [[Datenbogen - Sicherung|Sicherung]] ergänzt deine Produkte; sie ersetzt sie nicht.

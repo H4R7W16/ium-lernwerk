@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - output/material
 ---
@@ -24,6 +24,7 @@ Alle Aufgaben sind eigene Konstruktionen. Die Bilder bilden vereinfachte Formen 
 | B3a–d | [Pfeil 4×4](../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/pfeil-raster-4.svg), [Pfeil 8×8](../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/pfeil-raster-8.svg), [Schlüssel 4×4](../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/schluessel-raster-4.svg), [Schlüssel 8×8](../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/schluessel-raster-8.svg) | DAT-3: eigene Diskretisierung; Mittelpunkte sind Hilfszeichen |
 | B4 | [Leere Raster](../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/leere-raster.svg) | Eigene Zeichnung oder Rekonstruktion |
 | B5 | [Schlüsselvergleich](../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/schluessel-vergleich.svg) | DAT-3 und DAT-5: gleiche Anzeigegröße, andere Pixelzahl |
+| B7 | [Zwei Schlüssel · 4×4](material/schluesselpaar-4.svg), [8×8](material/schluesselpaar-8.svg), [Vorlagen](material/schluesselpaar-vorlagen.svg) | DAT-5: zuerst 4×4, dann 8×8, Vorlagen erst nach eigenem Urteil; Zelltabellen direkt am Vergleich |
 | B6 | [Datenweg](../../../../../Assets/IuM-Lernwerk/Daten/2026-10-28-Fassung-1.0/material/datenweg.svg) | DAT-5: Speichern, Übertragen, Anzeigen und Grenzen des Ressourcenmodells |
 
 **Zeichnen:** Ein eigenes 4×4- oder 8×8-Raster kann im bekannten Dokument aus gleich breiten `□`/`■`-Zeilen oder im Heft entstehen. Ein Strich unter jeder fertigen Zeile hilft beim Wechsel zwischen Vorlage, Raster und Bits. Dateien lassen sich im Browser größer öffnen. Es ist kein unbekannter Bildeditor nötig.
@@ -32,7 +33,7 @@ Alle Aufgaben sind eigene Konstruktionen. Die Bilder bilden vereinfachte Formen 
 
 Der Pfeil zeigt nach rechts. Ein waagrechter rechteckiger Schaft geht in eine dreieckige Spitze über. Der Schlüssel hat links eine runde Öffnung, nach rechts einen waagrechten Schaft und unten zwei verschieden lange Zähne. Beim Dreieck sind beide Seiten schräg, die Unterkante ist waagrecht.
 
-Für den **Vergleich fertiger Raster in DAT-5** enthält [[DAT-5 - Welche Datenmenge passt zum Zweck#schluesselraster|die Lernaufgabe]] beide Varianten feldweise als aufklappbare Tabellen. Zeilen beginnen oben, Spalten links; der Wert jeder Zelle ist als 0 oder 1 lesbar. So kann eine Person dieselbe Formstelle selbst vergleichen und mit ihren Koordinaten begründen.
+Für den **Vergleich fertiger Raster in DAT-5** enthält [[DAT-5 - Welche Datenmenge passt zum Zweck#schluesselraster|die Lernaufgabe]] beide Varianten feldweise als aufklappbare Tabellen. Zeilen beginnen oben, Spalten links; der Wert jeder Zelle ist als 0 oder 1 lesbar. So kann eine Person dieselbe Formstelle selbst vergleichen und mit ihren Koordinaten begründen. Der neue Zweckvergleich [B7](dat-5-welche-datenmenge-passt-zum-zweck.html#zweckwechsel) enthält dieselben Zelltabellen je Stufe. Erst 4×4 untersuchen, dann 8×8 öffnen; Vorlagen/Gegenprüfung folgen nach dem eigenen Urteil.
 
 Für das **eigene Rastern in DAT-3** helfen die Beschreibungen beim Orientieren. Sie ersetzen die räumliche Entscheidung über einzelne Felder noch nicht. Bei Sehbeeinträchtigung stellt die Lehrperson eine ausreichend vergrößerte oder taktile Form mit ertastbaren Rastergrenzen und Mittelpunkten bereit. Möglich ist auch das positionsweise Beschreiben der **Vorlage** durch eine Assistenz; die lernende Person entscheidet selbst über das Rasterfeld und die Codierung. Ein vorgelesener fertiger Bitcode belegt keine eigene Diskretisierung. Konkretes assistives Material und dessen Nutzbarkeit müssen für die Lerngruppe vor Ort geprüft werden.
 

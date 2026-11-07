@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - output/briefing
 ---
@@ -23,6 +23,6 @@ Der Ressourcenbezug bleibt qualitativ. Bei gleichen weiteren Bedingungen müssen
 
 Prüfen Sie die Belegkette aus Zweck, Bilddetail, Rechnung und Ressourcenbezug. Es geht nicht um die moralisch gewünschte Wahl der kleinsten Datei. Eine größere Variante oder die begründete Ablehnung beider kann passend sein. Jede Person erhält eine konkrete Rückfrage und überarbeitet ihre Empfehlung oder begründet deren Bestand.
 
-Der neue Zweck verlangt, ähnliche Schlüssel an feinen Zahnunterschieden auseinanderzuhalten. Eine vorher ausreichende Symbolentscheidung genügt dafür nicht automatisch. Auch die größere Modellvariante darf als unzureichend beurteilt werden. Der Fall ist keine reale sicherheitskritische Schlüsselprüfung.
+Beim neuen Zweck untersuchen Lernende zuerst zwei 4×4-Bilder und halten ein erstes Urteil in derselben Notiz fest. Erst danach öffnen sie das 8×8-Paar. Beide Ansichten bleiben gleich groß. Eine kurze eigene Begründung mit einem Rasterfeld genügt; die Tabellen sind ein alternativer Zugang. Vorlagen und Gegenprüfung bleiben bis nach dem Urteil geschlossen. In Zeile 6, Spalte 8 wird erst bei 8×8 der verlängerte rechte Zahn von II sichtbar. 4×4 kann diesen Fall nicht unterscheiden; Vergrößern derselben Pixel hilft nicht. 8×8 reicht für diesen konstruierten Unterschied, garantiert jedoch keine Unterscheidbarkeit realer Schlüssel. Die bestehenden drei Transferminuten bleiben; die Gegenprüfung kann in der anschließenden Sicherung geöffnet werden.
 
 Sichern Sie abschließend die Regel, Daten nur soweit zu reduzieren, dass die benötigte Information erhalten bleibt. Die spätere Wiederaufnahme folgt mit Abstand im eigenen Jahreskonto. Unterrichtsdauer und tatsächliche Nachweise werden erst nach Durchführung festgehalten.
