@@ -1,0 +1,38 @@
+{
+  "base": "1b5d6f1187cbc49c0c989eb3560c790fbac8e5e5c871257d2a8e7f752e0e7c55",
+  "reason": "Papierturm-Abschluss: Altersregel als unabhängiger Regelfall, öffentlicher betreuter Schulprojektfeed, gemeinsames Reflexionskriterium.",
+  "changes": {
+    "klasse6/kommunikation/schritt-vergleichen.html": {
+      "before": "88d86559e2ec6fc79a4255408f236ed16dc61cd9501e92218b00210bb5efbf44",
+      "after": "d38894bb4b6f594d8aa827c0c0db813d4d47b45f6005a832513f14110f0d3de9"
+    },
+    "klasse6/kommunikation/baustein-vergleichen.html": {
+      "before": "ff7ea075aa2c92e17c410fe09e5ba55c7fecd35d2f634a1480140eb8f9215f95",
+      "after": "9a184bd0901096311f1bd76992be40c06b247320deb078d06b40697600d0673d"
+    },
+    "klasse6/kommunikation/lehrkraft.html": {
+      "before": "4da1204af991c1da8736781feeaf9aa333efdfb13763869775add7a22fdb6d96",
+      "after": "dffafaf7c017b3117f526efd84bcd43799ba5008c39e34de5c754bd2d3fb3f72"
+    },
+    "klasse6/kommunikation/briefing.html": {
+      "before": "4d8d8deaf215fcda17115f8dacc2d7ffdc28c1d92f7d829bf96fe5599798a5e0",
+      "after": "98685d0a50b23aa78c8deb54206bfa60762e26e9abd789a431f353b880dbff32"
+    },
+    "klasse6/kommunikation/papierturm.html": {
+      "before": "88908789b44585301c1a458558553defd0fb6bb316bcbef0c359aa18baa6d93e",
+      "after": "2d84f51584e0d38a7d7cf980f2bc64639a8556f26f065af86d1a86dd0c6168b3"
+    },
+    "klasse6/kommunikation/papierturm-text.html": {
+      "before": "a63106302dcd31d6a7331cccd41565dd17efcb027ec25dad63ed7b59c680c3e5",
+      "after": "f8bcb2e1f4a0e461215ec700ea6164fe1be0226d679f50384406832baf49ba6f"
+    },
+    "klasse6/reihe-m06.html": {
+      "before": "572b0eec7491e7464ec83fda780cb5dccf26fe7652719c39f5f886f3cad3e079",
+      "after": "34807c4c96c391a2ad44dcba67f5b869a996bf7ddff9168a1203bf1155e68965"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "bef1c8d6c31834d20ef4a6592e89740f32e9ded0ba3988b2b60fe0071d7348b3",
+      "after": "8da25da5822ee8b3b6f9d0d52fbcf45c0c61313a8a929c76e83d443a0ce0b99e"
+    }
+  }
+}

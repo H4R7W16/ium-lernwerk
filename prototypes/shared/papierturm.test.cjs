@@ -18,6 +18,9 @@ test('Lernweg führt Erstdeutung, Kontext und Rückbezug; Rollenprüfung ist ein
  assert.ok(h.indexOf('3 · Deine Deutung prüfen')<h.indexOf('Zwei weitere Prüfanlässe'));
  assert.match(P.context(pack),/<details><summary>/);assert.doesNotMatch(P.context(pack),/<details open/);
  assert.match(h,/Greife deinen ersten Satz wieder auf/);assert.match(h,/schulischen Nachrichtendienst/);
+ assert.match(h,/Ein anderer erfundener Dienst/);
+ assert.ok(h.includes(A.esc(pack.papertower.reflectionCriterion)));
+ for(const file of ['papierturm.html','papierturm-text.html','baustein-vergleichen.html'])assert.ok(pages.get(file).includes(A.esc(pack.papertower.reflectionCriterion)),file);
  const w=pack.knowledge.find(k=>k.id==='wirkung');assert.doesNotMatch(w.example,/Turm|drei eingestürzte|vier/);assert.match(w.example,/Kuchen/);
 });
 test('Textzugang und Printtexte sind an dieselben vollständigen Falldaten gebunden',()=>{
@@ -25,7 +28,8 @@ test('Textzugang und Printtexte sind an dieselben vollständigen Falldaten gebun
  for(const v of pack.papertower.views){for(const r of v.reactions){assert.ok(h.includes(A.esc(r.text)));assert.ok(h.includes(A.esc(r.time)));}for(const [,text]of v.conditions)assert.ok(h.includes(A.esc(text)));}
  assert.match(h,/schritt-vergleichen.html#papierturm/);assert.match(h,/Bildbeschreibung/);assert.match(h,/mit KI erzeugt/);
  assert.equal((g.match(/class="pt-print-post"/g)||[]).length,3);
- assert.match(g,/class="pt-print-rules"/);assert.match(g,/Mindestalter von 16/);
+ assert.match(g,/class="pt-print-rules"/);assert.doesNotMatch(g,/Mindestalter|16 Jahren/);
+ assert.match(g,/Schulprojektfeed/);
  assert.match(P.context(pack),/class="pt-print-context"/);
 });
 test('V2-Medienzugang ist vollständig und bleibt auf das Kommunikationspaket begrenzt',()=>{

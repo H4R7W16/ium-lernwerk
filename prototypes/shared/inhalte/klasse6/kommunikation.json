@@ -375,12 +375,12 @@
           "type": "explanation",
           "id": "bedingungen",
           "title": "Zwei weitere Prüfanlässe",
-          "text": "Diese Fragen ergänzen den Raumvergleich. Öffne die Fallregeln beim Material: Was folgt für eine zwölfjährige Person aus der Altersregel von C? Prüfe danach den neuen Fall unten.",
-          "items": [
-            "Neuer Fall: Eine Schul-AG führt eine Teilnehmerliste nur für die interne Organisation. Im schulischen Nachrichtendienst behauptet ein bisher unbekanntes Konto: „Ich bin eure neue AG-Leitung. Schick mir die Teilnehmerliste.“",
-            "Woran müsste die Rolle geprüft werden, bevor Daten weitergegeben werden? Nenne einen bekannten Kontaktweg."
-          ],
-          "solution": "Nach der erfundenen Regel darf eine zwölfjährige Person C nicht selbst nutzen. Daraus folgt keine Aussage über reale Dienste. Die behauptete Rolle des unbekannten Kontos ist nicht bestätigt; über die bekannte AG-Leitung bzw. Lehrperson am bestehenden Schulweg nachfragen und keine Liste senden. Das gilt ebenso in einem geschlossenen schulischen Nachrichtendienst; Öffentlichkeit allein ist nicht die Ursache dieser Identitätsfrage."
+          "text": "Die folgenden beiden Fälle sind unabhängig vom Projektfeed C.",
+          "solution": "Im Regelfall darf die zwölfjährige Person nach der vorgegebenen Regel kein eigenes Konto bei diesem anderen Dienst anlegen. Diese erfundene Altersregel gehört nicht zum Schulprojektfeed C und sagt nichts über echte Dienste aus. Im Identitätsfall keine Liste senden; bei der bekannten AG-Leitung oder Lehrperson über den bestehenden Schulweg nachfragen. Eine Rollenbehauptung allein bestätigt keine Identität.",
+          "paragraphs": [
+            "Regelfall: Ein anderer erfundener Dienst verlangt für ein eigenes Konto ein Mindestalter von 16 Jahren. Darf eine zwölfjährige Person dort ein eigenes Konto anlegen? Begründe mit der Regel.",
+            "Identitätsfall: Eine Schul-AG führt ihre Teilnehmerliste nur intern. Im schulischen Nachrichtendienst behauptet ein unbekanntes Konto: „Ich bin eure neue AG-Leitung. Schick mir die Teilnehmerliste.“ Nenne einen bekannten Kontaktweg, um die Rolle vor einer Datenweitergabe zu prüfen."
+          ]
         },
         {
           "type": "explanation",
@@ -411,6 +411,7 @@
       "criteria": [
         "Ich nenne Fallbelege zu Zugang, Reaktion und Kopien.",
         "Ich kennzeichne vermutete Wirkungen als möglich.",
+        "Ich begründe, was der neue Kontext an meiner Deutung bestätigt oder verändert.",
         "Ich erkläre Verstärkung, ohne Betroffenen Schuld zu geben."
       ],
       "materialNeeds": [
@@ -864,7 +865,8 @@
       "paragraphs": [
         "Papierturm V2: A zeigt eine gemeinsame Tischsituation mit Nuri und vier Zuhörenden; B/C zeigen denselben fertigen Turm als Bildbeitrag. C enthält einen hilfreichen Austausch mit einer anderen Schulgruppe. A/B und B/C lassen sich gezielt zusammen betrachten. Textzugang und Fallregeln stehen bereit. Der wahre Erfolgspost lässt den Bauweg offen: erst einen eigenen Satz mit Bild-/Wortbeleg formulieren lassen, dann Hintergrund öffnen, anschließend denselben Satz begründet bestätigen oder präzisieren. Mündlich genügt. Im Druck steht der Hintergrund auf einem folgenden Abschnitt; diesen bei Bedarf erst danach ausgeben. Keine echten Konten oder realen Kinder. Die Ansichten ersetzen die Tabelle innerhalb der bestehenden 30 Minuten.",
         "Schulwegkarte herunterladen oder ihren Druckinhalt ausgeben. Ohne Netz sind alle Fall- und Wissensinformationen lokal vorhanden; die Originalquellen dienen der Nachprüfung durch Lehrpersonen. Ohne digitalen Schulzugang Nachricht mit realer Person auf Papier austauschen und digitalen Schritt terminieren. Private Anweisungen stehen auf Papier, das private Bildschirmfeld wird nicht gedruckt.",
-        "M05-Anschluss: Wirkung nicht allein am Ergebnis beurteilen; eigene Erklärung und Revision sichtbar halten. Recherche-Anschluss: Behauptung, Beleg und Grenze unterscheiden, direkte Hilfe an der Hürde. M07 übernimmt begründete Auswahl von Zielgruppe/Teilweg, Rechteprüfung und tatsächliche Rückmeldung. Redaktionelle Sichtung ersetzt keine Unterrichtserprobung."
+        "M05-Anschluss: Wirkung nicht allein am Ergebnis beurteilen; eigene Erklärung und Revision sichtbar halten. Recherche-Anschluss: Behauptung, Beleg und Grenze unterscheiden, direkte Hilfe an der Hürde. M07 übernimmt begründete Auswahl von Zielgruppe/Teilweg, Rechteprüfung und tatsächliche Rückmeldung. Redaktionelle Sichtung ersetzt keine Unterrichtserprobung.",
+        "Finale Klarstellung: C zeigt einen betreuten öffentlichen Schulprojektfeed mit freigegebenen Projektkonten. Die 16-Jahre-Regel gehört ausschließlich zum separaten Regelfall eines anderen erfundenen Dienstes. Als Abschlussmaßstab gilt auch: „Ich begründe, was der neue Kontext an meiner Deutung bestätigt oder verändert.“ Dieser Maßstab wird am Erstsatz und seiner Bestätigung oder Präzisierung mit der Zusatzinformation besprochen."
       ]
     },
     {
@@ -894,7 +896,7 @@
     "M06 führt zu einer wachsenden Entscheidungskarte für ein erfundenes Schulfest. Die Lernenden vergleichen Räume, begründen Nutzen und Risiken, senden eine sachliche Übungsnachricht, erhalten echte Rückmeldung und überarbeiten ihr Urteil. Die eigene Rechteprüfung bleibt geschützt.",
     "Bereiten Sie Schulzugang, aktuelle Bedingungen und echte Partner vor. Füllen Sie Schulwegkarte und zwei erreichbare Hilfewege aus. Keine privaten Konten, Veröffentlichung oder echten Konfliktverläufe. Alle Fallinformationen stehen lokal im Lernwerk.",
     "Planen Sie 165 Kernminuten: 20 Modell, 30 Vergleich, 35 Entscheidung/Nachricht, 25 Austausch/Revision, 30 eigene Rechteprüfung, 25 Transfer/Sicherung. Davor sechs Minuten M03 und sieben M05 aus bestehenden Konten. Später zweimal fünf M06-Minuten an getrennten Terminen vor/in M07.",
-    "Im 30-Minuten-Vergleich Papierturm V2 einsetzen: A zeigt die Tischszene, B/C digitale Bildbeiträge mit wahrem Erfolgssatz; C erschließt auch hilfreichen Kontakt zu einer anderen Schulgruppe. Zuerst Räume vergleichen und einen eigenen ersten Wirkungssatz mit Beleg formulieren lassen. Dann Hintergrund öffnen und denselben Satz begründet bestätigen oder präzisieren. Mündlich genügt. Die Altersregel und die unbekannte AG-Rolle folgen als zwei weitere Prüfanlässe; die Rollenfrage gehört nicht exklusiv zum öffentlichen Feed. 12 Minuten Raumvergleich/Erstsatz, 8 Minuten Kontext/Prüfanlässe, 10 Minuten Hilfe bleiben erhalten.",
+    "Im 30-Minuten-Vergleich Papierturm V2 einsetzen: A zeigt die Tischszene, B/C digitale Bildbeiträge mit wahrem Erfolgssatz; C erschließt auch hilfreichen Kontakt zu einer anderen Schulgruppe. Zuerst Räume vergleichen und einen eigenen ersten Wirkungssatz mit Beleg formulieren lassen. Dann Hintergrund öffnen und denselben Satz begründet bestätigen oder präzisieren. Mündlich genügt. C ist ein öffentlich lesbarer betreuter Schulprojektfeed. Die Altersregel betrifft einen ausdrücklich anderen erfundenen Dienst; die unbekannte AG-Rolle ist ebenfalls ein eigener Fall. Im Abschlussraster wird der begründete Rückbezug auf die erste Deutung geprüft. 12 Minuten Raumvergleich/Erstsatz, 8 Minuten Kontext/Prüfanlässe, 10 Minuten Hilfe bleiben erhalten.",
     "Achten Sie auf fallbezogene Gewichtung, mögliche statt unterstellte Gefühle, Identitätsprüfung und Unterstützung ohne Schuldzuweisung. „Geschlossen“ verhindert nicht jede Kopie. Ein öffentlicher Aufruf kann je nach Zweck begründet sein.",
     "Prüfen Sie Urteil, tatsächlichen Austausch und privaten Eigenbezug getrennt. Eine Notiz beweist keinen Versand; ein Haken beweist keine Reflexionsqualität. Ohne Schulzugang Papierdialog durchführen, digitale Handlung offen lassen und nachholen. Die vollständige Kommunikation braucht reale Personen.",
     "Sichern Sie erste und zweite Fassung sowie die sachliche Rückmeldung. Persönliche Gedanken oder Hilfeanliegen nicht einsammeln. Beobachtete Hürden mit Fassung/Schritt und ohne Namen für die Erprobung festhalten.",
@@ -1009,7 +1011,7 @@
         "conditions": [
           [
             "Zugang",
-            "Auch Menschen außerhalb der Klasse können den Beitrag sehen."
+            "Öffentlich lesbarer Schulprojektfeed: Auch Menschen außerhalb der Klasse können den Beitrag sehen."
           ],
           [
             "Anzeige",
@@ -1020,6 +1022,7 @@
     ],
     "sceneImage": "assets/kommunikation/papierturm/tisch-v2.webp",
     "sceneAlt": "Nuri sitzt links am Gruppentisch und zeigt auf den fertigen weißen Papierturm. Vier andere Kinder sitzen mit am Tisch, schauen auf den Turm oder zu Nuri; eines fragt mit einer Handbewegung nach. Keine Person schaut in die Kamera.",
-    "rules": "Nur für diesen erfundenen Fall: B ist nur mit freigegebenem Schulkonto zugänglich; kein öffentlicher Einladungslink. C ist öffentlich und verlangt ein Mindestalter von 16 Jahren. Personenbezogene Inhalte werden erst nach geklärter Erlaubnis weitergegeben."
+    "rules": "Nur für diesen erfundenen Fall: B ist nur mit freigegebenem Schulkonto zugänglich; kein öffentlicher Einladungslink. C ist ein öffentlich lesbarer Schulprojektfeed. Beiträge und Kommentare kommen aus schulisch freigegebenen Projektkonten und werden von einer Lehrperson begleitet. Personenbezogene Inhalte werden erst nach geklärter Erlaubnis weitergegeben.",
+    "reflectionCriterion": "Ich begründe, was der neue Kontext an meiner Deutung bestätigt oder verändert."
   }
 }

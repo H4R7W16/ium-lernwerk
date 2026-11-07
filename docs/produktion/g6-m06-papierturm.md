@@ -29,3 +29,6 @@ Druckkopf pro Karte und Druckhintergrund aus denselben Daten erzeugen. Beitragsk
 Bestehender kritischer Prüflauf führt PT-K01–05 fort. Neue tatsächliche Bildschirm-/Tastatur-/No-JS-/Mobil- und paginierte PDF-Ausgaben sichten, technische Tests und Fassungsbindung erneuern.
 Eine redaktionelle Prüfung ist kein Nachweis von Lernwirkung oder tatsächlich passender Schulbrowser-/Screenreader-Konfiguration.
 
+
+## Abschließende Klarstellungen und Integration
+C ist als öffentlich lesbarer betreuter Schulprojektfeed mit freigegebenen Projektkonten beschrieben. Die 16-Jahre-Regel steht in einem eigenständigen Regelfall eines anderen erfundenen Dienstes. Lernbogen, Einzelmaterial sowie Material-/Textzugang führen das Reflexionskriterium aus derselben Datenquelle: „Ich begründe, was der neue Kontext an meiner Deutung bestätigt oder verändert.“ Bestehende Arbeitsdatenversion und Antwortfelder bleiben erhalten. Die reguläre Veröffentlichung erfolgt nach erneutem Endfassungsreview und vollständiger Prüfung über PR/Pages.
