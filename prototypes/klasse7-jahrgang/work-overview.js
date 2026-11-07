@@ -12,6 +12,7 @@
   let dirty = false;
   
   let pendingImport = null;
+  const projects = window.LernwerkWorkProjects?.createUI({model:M, catalog, getStore:()=>store, commit:save, feedback, download, exportOverview});
   const kinds = {heft: 'Heft / Papier', dokument: 'Dokument', bild: 'Bild', snap: 'Snap-Datei (.xml)', anderes: 'Anderer Ort'};
   const uuid = () => typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, c => (Number(c) ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> Number(c) / 4).toString(16));
   function el(tag, text, attrs = {}) {
@@ -38,18 +39,19 @@
     $('work-feedback').classList.toggle('work-error', error);
     $('work-feedback').setAttribute('role', error ? 'alert' : 'status');
   }
-  function download(text, filename) {
-    const url = URL.createObjectURL(new Blob([text], {type: 'application/json;charset=utf-8'}));
+  function download(text, filename, mime = 'application/json;charset=utf-8') {
+    const url = URL.createObjectURL(new Blob([text], {type: mime}));
     const a = el('a', '', {href: url, download: filename});
     document.body.append(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 30000);
   }
   function save(next) {
     state = storage.save(next); store = state.store;
-    render();
+    render(); return state;
   }
-  function needsLeaveWarning() { return dirty || (state.volatile && store.cards.length > 0); }
+  function needsLeaveWarning() { return dirty || Boolean(projects?.hasChanges()) || (state.volatile && store.cards.length > 0); }
   function leavePrompt() {
+    if (projects?.hasChanges()) return 'Dein Projektstand ist noch nicht in die Übersicht übernommen. Trotzdem verlassen und diese Änderungen verwerfen?';
     return dirty ? 'Deine Änderungen sind noch nicht gemerkt. Trotzdem verwerfen?'
       : 'Deine Übersicht ist nur auf dieser Seite verfügbar. Lade sie zuerst herunter, wenn du sie behalten möchtest. Trotzdem verlassen?';
   }
@@ -113,11 +115,12 @@
       if (resolved.missingTask || resolved.missingPlace) article.append(el('p', resolved.missingTask ? 'Diese Aufgabe ist nicht mehr im aktuellen Lernwerk. Deine Hinweise bleiben hier; der Link führt zur Themenübersicht.' : 'Diese Arbeitsstelle ist nicht mehr vorhanden. Deine Hinweise bleiben hier; der Link führt zum Anfang der Aufgabe.', {class: 'work-context'}));
       const actions = el('div', null, {class: 'work-actions'});
       actions.append(link(resolved.missingTask ? 'Zum Thema' : 'Zur Aufgabe', resolved.target));
-      if (resolved.task?.snapPath) actions.append(button('Eigenes Projekt öffnen – Anleitung', () => openSnap(resolved.task)));
+      projects?.decorateCard(card, article, actions);
+      if (resolved.task?.snapPath && card.taskId !== 'alg-5') actions.append(button('Eigenes Projekt öffnen – Anleitung', () => openSnap(resolved.task)));
       if (resolved.task) actions.append(button('Angaben ändern', () => openEditor(card.taskId, card)));
       actions.append(button('Eintrag entfernen', () => {
-        if (!window.confirm('Diesen Merkeintrag entfernen? Dein Heft und deine Dateien bleiben bestehen.')) return;
-        save(M.remove(store, card.id)); feedback('Merkeintrag entfernt. Deine Ergebnisse bleiben an ihrem bisherigen Ort.'); $('work-add').focus();
+        if (!window.confirm(card.project ? 'Diese Karte einschließlich ihrer enthaltenen Projektkopie entfernen? Lade die Übersicht vorher herunter, wenn du sie behalten möchtest.' : 'Diesen Merkeintrag entfernen? Dein Heft und deine Dateien bleiben bestehen.')) return;
+        save(M.remove(store, card.id)); feedback('Merkeintrag entfernt. Deine externen Dateien und dein Heft bleiben bestehen.'); $('work-add').focus();
       }));
       article.append(actions); container.append(article);
     }
@@ -235,6 +238,7 @@
       const check = el('input', null, {type: 'checkbox'}); check.checked = true;
       const label = el('label', null, {class: 'work-check'}); label.append(check, el('strong', card.taskId.toUpperCase() + ' · ' + card.title));
       block.append(label, el('p', 'Arbeitsstelle: ' + (card.placeTitle || 'Ganze Aufgabe') + '\n' + locationText(card.locations) + (card.next ? '\nNächster Schritt: ' + card.next : '')));
+      if (card.project) block.append(el('p', 'Enthält Projektkopie: ' + card.project.filename + ' · übernommen ' + dateText(card.project.savedAt), {class:'work-project-meta'}));
       const resolved = M.resolve(card, catalog);
       if (resolved.missingTask || resolved.missingPlace) block.append(el('p', 'Das frühere Ziel hat sich verändert. Die Hinweise bleiben erhalten; du erreichst die aktuelle Aufgabe oder das Thema.', {class: 'work-context'}));
       const mode = el('select'); mode.append(option('Als zusätzlichen Eintrag übernehmen', 'add'));
@@ -249,21 +253,22 @@
       if (!choices.length) { error.textContent = 'Wähle mindestens einen Eintrag oder brich ab.'; return; }
       const result = M.applyImport(store, pendingImport, choices, catalog, new Date().toISOString());
       if (!result.ok) { error.textContent = result.error; return; }
-      showOverview(); save(result.store); dialog.close(); pendingImport = null; feedback(choices.length + (choices.length === 1 ? ' Eintrag übernommen.' : ' Einträge übernommen.') + ' Deine Dateien benötigst du zusätzlich.'); $('work-list-heading').tabIndex = -1; $('work-list-heading').focus();
+      showOverview(); save(result.store); dialog.close(); pendingImport = null; feedback(choices.length + (choices.length === 1 ? ' Eintrag übernommen.' : ' Einträge übernommen.') + ' Weitere Dateien benötigst du zusätzlich; enthaltene ALG-5-Projektkopien sind übernommen.'); $('work-list-heading').tabIndex = -1; $('work-list-heading').focus();
     }, true), button('Abbrechen', () => { pendingImport = null; dialog.close(); })); dialog.append(actions); dialog.showModal();
   }
   $('work-add').addEventListener('click', () => openEditor());
-  $('work-export').addEventListener('click', () => {
-    if (dirty) { feedback('Merke zuerst deine Änderungen oder brich die Bearbeitung ab. Danach enthält der Export den angezeigten Stand.', true); return; }
+  function exportOverview() {
+    if (dirty || projects?.hasChanges()) { feedback('Übernimm zuerst deine Änderungen oder brich die Bearbeitung ab. Danach enthält der Export den angezeigten Stand.', true); return false; }
     try {
       download(M.exportFile(store, catalog, new Date().toISOString()), 'ium7-deine-arbeit-' + new Date().toISOString().slice(0, 10) + '.json');
-      feedback('Download angeboten. Prüfe, ob die Übersichtsdatei an deinem gewünschten Ort angekommen ist. Nimm deine Ergebnisdateien separat mit.');
-    } catch (error) { feedback('Die Übersicht konnte nicht heruntergeladen werden: ' + error.message, true); }
-  });
+      feedback('Download angeboten. Prüfe, ob die Übersichtsdatei an deinem gewünschten Ort angekommen ist. Enthaltene ALG-5-Projektkopien sind dabei; andere Ergebnisdateien nimmst du separat mit.'); return true;
+    } catch (error) { feedback('Die Übersicht konnte nicht heruntergeladen werden: ' + error.message, true); return false; }
+  }
+  $('work-export').addEventListener('click', exportOverview);
   $('work-import-file').addEventListener('change', async event => {
     const file = event.target.files[0]; event.target.value = ''; if (!file) return;
     if (dirty) { feedback('Merke zuerst deine Änderungen oder brich die Bearbeitung ab. Wähle danach die Übersichtsdatei erneut.', true); return; }
-    if (file.size > 524288) { feedback('Diese Datei ist zu groß. Wähle eine Übersichtsdatei von höchstens 512 KB.', true); return; }
+    if (file.size > M.MAX_BYTES) { feedback('Diese Datei ist zu groß. Wähle eine Übersichtsdatei von höchstens 32 MiB.', true); return; }
     try {
       const result = M.parseFile(await file.text(), catalog);
       if (!result.ok) { feedback('Diese Datei wurde nicht übernommen. ' + result.error, true); return; }

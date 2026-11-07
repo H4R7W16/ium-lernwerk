@@ -22,3 +22,20 @@ test('a second save still preserves a conflicting device copy until explicit rep
 test('tab data corrupted after load is also preserved instead of overwritten',()=>{const {api,session}=setup();api.load();api.save(store());session.setItem(KEY,'broken after load');const r=api.save(store('Neuer Stand'));assert.equal(r.tabSaved,false);assert.equal(session.getItem(KEY),'broken after load');assert.equal(r.recoveries[0].raw,'broken after load');});
 test('storage becoming available again can be retried without discarding RAM',()=>{const session=memory();let denied=true;const api=S.create({session:()=>{if(denied)throw Error('blocked');return session;},local:memory(),catalog});api.load();api.save(store());denied=false;const r=api.save(api.snapshot().store);assert.equal(r.tabSaved,true);assert.equal(r.volatile,false);});
 test('disabling device storage in another tab is respected by later saves',()=>{const local=memory();const one=S.create({session:memory(),local,catalog});one.load();one.save(store('A'));one.setPersistent(true);const two=S.create({session:memory(),local,catalog});two.load();two.setPersistent(false);const retained=local.getItem(KEY);const saved=one.save(store('B'));assert.equal(saved.persistent,false);assert.equal(saved.deviceSaved,false);assert.equal(saved.tabSaved,true);assert.equal(local.getItem(KEY),retained);});
+
+const projectCatalog={...catalog,tasks:[...catalog.tasks,{id:'alg-5',title:'Rover',area:'programmieren',path:'alg/alg-5.html',places:[{id:'',title:'Ganze Aufgabe'}]}]};
+function projectStore(mark='Version A') {const time='2026-11-06T10:00:00.000Z',id='00000000-0000-4000-8000-000000000002';const saved=M.save(M.empty(),{taskId:'alg-5',place:'',locations:[],next:'Testen',inheritAreaHint:false},projectCatalog,{id,now:time});return M.setProject(saved.store,id,{format:'snap-project',version:1,filename:'Rover.xml',savedAt:time,xml:'<project><notes>'+mark+'</notes><stage/></project>'},projectCatalog).store;}
+test('v1 cache migrates without deleting existing bytes until an explicit later save',()=>{
+ const session=memory(),legacy=store();legacy.version=1;const raw=JSON.stringify({format:'ium-work-overview-cache',version:1,grade:7,stamp:1,store:legacy});session.setItem(KEY,raw);
+ const api=S.create({session,local:memory(),catalog});const r=api.load();assert.equal(r.store.version,2);assert.equal(session.getItem(KEY),raw);assert.equal(r.tabSaved,true);
+});
+test('quota failure retains newest project in RAM and export while preserving previous cache',()=>{
+ const session=memory(),api=S.create({session,local:memory(),catalog:projectCatalog});api.load();api.save(projectStore());const old=session.getItem(KEY);session.setItem=()=>{throw Error('QuotaExceededError');};
+ const result=api.save(projectStore('Version B'));assert.equal(result.tabSaved,false);assert.equal(result.volatile,true);assert.equal(session.getItem(KEY),old);assert.match(result.store.cards[0].project.xml,/Version B/);
+ assert.match(M.parseFile(M.exportFile(result.store,projectCatalog,'2026-11-06T10:00:00.000Z'),projectCatalog).cards[0].project.xml,/Version B/);
+});
+test('corrupt project cache and project changed by another tab are protected',()=>{
+ const session=memory(),local=memory(),one=S.create({session,local,catalog:projectCatalog});one.load();one.save(projectStore('A'));one.setPersistent(true);
+ const two=S.create({session:memory(),local,catalog:projectCatalog});two.load();two.save(projectStore('B'));const newer=local.getItem(KEY);const r=one.save(projectStore('C'));assert.equal(r.needsDeviceConfirmation,true);assert.equal(local.getItem(KEY),newer);
+ const broken=JSON.parse(session.getItem(KEY));broken.store.cards[0].project.xml='<project><stage></project>';const raw=JSON.stringify(broken);session.setItem(KEY,raw);const fresh=S.create({session,local:memory(),catalog:projectCatalog});assert.equal(fresh.load().recoveries.length,1);fresh.save(projectStore('D'));assert.equal(session.getItem(KEY),raw);
+});
