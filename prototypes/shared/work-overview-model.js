@@ -1,10 +1,10 @@
 (function (root, factory) {
   'use strict';
-  if (typeof module === 'object' && module.exports) module.exports = factory();
-  else root.LernwerkWorkOverviewModel = factory();
-}(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  if (typeof module === 'object' && module.exports) module.exports = factory(require('./snap-project-model.js'));
+  else root.LernwerkWorkOverviewModel = factory(root.LernwerkSnapProjectModel);
+}(typeof globalThis !== 'undefined' ? globalThis : this, function (Projects) {
   'use strict';
-  var MAX_BYTES = 524288, MAX_CARDS = 200, MAX_LOCATIONS = 5;
+  var MAX_BYTES = 32 * 1024 * 1024, LEGACY_MAX_BYTES = 524288, MAX_CARDS = 200, MAX_LOCATIONS = 5;
   var AREA_BY_PREFIX = {med: 'medien', dat: 'daten', alg: 'programmieren', gam: 'gaming'};
   var AREAS = Object.keys(AREA_BY_PREFIX).map(function (key) { return AREA_BY_PREFIX[key]; });
   var KINDS = ['heft', 'dokument', 'bild', 'snap', 'anderes'];
@@ -30,7 +30,7 @@
     });
   }
   function card(value, imported) {
-    var keys = ['id', 'taskId', 'area', 'title', 'place', 'placeTitle', 'locations', 'next', 'updatedAt', 'inheritAreaHint', 'importedAt'];
+    var keys = ['id', 'taskId', 'area', 'title', 'place', 'placeTitle', 'locations', 'next', 'updatedAt', 'inheritAreaHint', 'importedAt', 'project'];
     object(value, keys, keys.slice(0, 10), 'Merkkarte'); uuid(value.id);
     if (typeof value.taskId !== 'string' || !/^(med|dat|alg|gam)-[1-9]\d?$/.test(value.taskId)) fail('Die Aufgabenkennung ist ungültig.');
     if (value.area !== AREA_BY_PREFIX[value.taskId.split('-')[0]]) fail('Aufgabe und Themenbereich passen nicht zusammen.');
@@ -39,6 +39,10 @@
     locations(value.locations); text(value.next, 500, 'Nächster Schritt'); date(value.updatedAt, 'Änderungszeitpunkt');
     if (typeof value.inheritAreaHint !== 'boolean' || (imported && value.inheritAreaHint)) fail('Importierte Ablagehinweise müssen zur einzelnen Karte gehören.');
     if (Object.prototype.hasOwnProperty.call(value, 'importedAt')) date(value.importedAt, 'Importzeitpunkt');
+    if (Object.prototype.hasOwnProperty.call(value, 'project')) {
+      if (value.taskId !== 'alg-5') fail('Ein Projektstand kann zunächst nur zu ALG-5 gehören.');
+      var checkedProject = Projects.validateProject(value.project); if (!checkedProject.ok) fail(checkedProject.error);
+    }
   }
   function cards(value, imported) {
     if (!Array.isArray(value) || value.length > MAX_CARDS) fail('Die Übersicht darf höchstens 200 Merkkarten enthalten.');
@@ -49,7 +53,9 @@
   function checkStore(store, catalog) {
     checkCatalog(catalog);
     object(store, ['format', 'version', 'grade', 'cards', 'areaHints'], ['format', 'version', 'grade', 'cards', 'areaHints'], 'Übersicht');
-    if (store.format !== 'ium-work-overview-store' || store.version !== 1 || store.grade !== 7) fail('Diese Übersicht gehört nicht zum unterstützten Format für Klasse 7.');
+    if (store.format !== 'ium-work-overview-store' || (store.version !== 1 && store.version !== 2) || store.grade !== 7) fail('Diese Übersicht gehört nicht zum unterstützten Format für Klasse 7.');
+    if (store.version === 1 && Array.isArray(store.cards) && store.cards.some(function (entry) { return entry && Object.prototype.hasOwnProperty.call(entry, 'project'); })) fail('Projektstände benötigen die neue Dateifassung 2.');
+    if (byteLength(JSON.stringify(store)) > MAX_BYTES) fail('Die Übersicht ist größer als 32 MiB. Teile sie auf, bevor du weitere Projekte übernimmst.');
     cards(store.cards, false); object(store.areaHints, AREAS, [], 'Reihenhinweise');
     Object.keys(store.areaHints).forEach(function (area) { locations(store.areaHints[area]); });
     store.cards.forEach(function (entry) { if (entry.inheritAreaHint && !Object.prototype.hasOwnProperty.call(store.areaHints, entry.area)) fail('Der gemeinsame Reihenhinweis einer Karte fehlt.'); });
@@ -60,11 +66,11 @@
     return unescape(encodeURIComponent(value)).length;
   }
   function parse(textValue) {
-    if (typeof textValue !== 'string' || byteLength(textValue) > MAX_BYTES) fail('Die Datei ist zu groß. Erlaubt sind höchstens 512 KiB.');
+    if (typeof textValue !== 'string' || byteLength(textValue) > MAX_BYTES) fail('Die Datei ist zu groß. Erlaubt sind höchstens 32 MiB.');
     try { return JSON.parse(textValue); } catch (_) { fail('Die Datei enthält keine lesbare JSON-Übersicht.'); }
   }
   function result(fn) { try { return fn(); } catch (error) { return {ok: false, error: error.message || 'Die Übersicht konnte nicht verarbeitet werden.'}; } }
-  function empty() { return {format: 'ium-work-overview-store', version: 1, grade: 7, cards: [], areaHints: {}}; }
+  function empty() { return {format: 'ium-work-overview-store', version: 2, grade: 7, cards: [], areaHints: {}}; }
   function effectiveLocations(store, entry) { return clone(entry.inheritAreaHint && Object.prototype.hasOwnProperty.call(store.areaHints, entry.area) ? store.areaHints[entry.area] : entry.locations); }
   function safePath(value) { return typeof value === 'string' && /^(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+\.html$/.test(value); }
   function resolve(entry, catalog) {
@@ -78,11 +84,11 @@
   }
   function exportObject(store, catalog, now) {
     checkStore(store, catalog); date(now, 'Exportzeitpunkt');
-    return {format: 'ium-work-overview', version: 1, grade: 7, exportedAt: now, cards: store.cards.map(function (entry) { var copy = clone(entry); copy.locations = effectiveLocations(store, entry); copy.inheritAreaHint = false; return copy; })};
+    return {format: 'ium-work-overview', version: 2, grade: 7, exportedAt: now, cards: store.cards.map(function (entry) { var copy = clone(entry); copy.locations = effectiveLocations(store, entry); copy.inheritAreaHint = false; return copy; })};
   }
   function exportFile(store, catalog, now) {
     var output = JSON.stringify(exportObject(store, catalog, now), null, 2);
-    if (byteLength(output) > MAX_BYTES) fail('Die Übersicht ist für eine einzelne Datei zu groß (höchstens 512 KiB). Bitte einige Karten entfernen.');
+    if (byteLength(output) > MAX_BYTES) fail('Die Übersicht ist für eine einzelne Datei zu groß (höchstens 32 MiB). Bitte einige Karten entfernen.');
     return output;
   }
   function save(store, draft, catalog, options) {
@@ -98,8 +104,9 @@
       if (existing && existing.taskId !== task.id) fail('Eine bestehende Karte kann keiner anderen Aufgabe zugeordnet werden.');
       var entry = {id: existing ? existing.id : options.id, taskId: task.id, area: task.area, title: task.title, place: place.id, placeTitle: place.title, locations: clone(draft.locations), next: draft.next, updatedAt: options.now, inheritAreaHint: draft.inheritAreaHint};
       if (existing && existing.importedAt) entry.importedAt = existing.importedAt;
+      if (existing && existing.project) entry.project = clone(existing.project);
       card(entry, false);
-      var nextStore = clone(store);
+      var nextStore = clone(store); nextStore.version = 2;
       if (existing) nextStore.cards[nextStore.cards.findIndex(function (value) { return value.id === existing.id; })] = entry;
       else nextStore.cards.push(entry);
       if (entry.inheritAreaHint) nextStore.areaHints[entry.area] = clone(entry.locations);
@@ -108,12 +115,13 @@
     });
   }
   function remove(store, id) { var copy = clone(store); copy.cards = copy.cards.filter(function (entry) { return entry.id !== id; }); return copy; }
-  function parseStore(value, catalog) { return result(function () { return {ok: true, store: clone(checkStore(parse(value), catalog))}; }); }
+  function parseStore(value, catalog) { return result(function () { var checked = clone(checkStore(parse(value), catalog)); if (checked.version === 1 && byteLength(value) > LEGACY_MAX_BYTES) fail('Die bisherige Übersicht ist größer als 512 KiB.'); checked.version = 2; return {ok: true, store: checked}; }); }
   function parseFile(value, catalog) {
     return result(function () {
       checkCatalog(catalog); var file = parse(value);
       object(file, ['format', 'version', 'grade', 'exportedAt', 'cards'], ['format', 'version', 'grade', 'exportedAt', 'cards'], 'Datei');
-      if (file.format !== 'ium-work-overview' || file.version !== 1 || file.grade !== 7) fail('Diese Datei ist keine unterstützte Arbeitsübersicht für Klasse 7.');
+      if (file.format !== 'ium-work-overview' || (file.version !== 1 && file.version !== 2) || file.grade !== 7) fail('Diese Datei ist keine unterstützte Arbeitsübersicht für Klasse 7.');
+      if (file.version === 1 && (byteLength(value) > LEGACY_MAX_BYTES || (Array.isArray(file.cards) && file.cards.some(function (entry) { return entry && Object.prototype.hasOwnProperty.call(entry, 'project'); })))) fail('Projektstände benötigen die neue Dateifassung 2; bisherige Übersichten sind auf 512 KiB begrenzt.');
       date(file.exportedAt, 'Exportzeitpunkt'); cards(file.cards, true);
       return {ok: true, cards: clone(file.cards)};
     });
@@ -123,6 +131,7 @@
       checkStore(store, catalog); cards(importedCards, true); date(now, 'Importzeitpunkt');
       if (!Array.isArray(choices)) fail('Die Kartenauswahl ist ungültig.');
       var nextStore = clone(store), sources = new Set(), targets = new Set();
+      nextStore.version = 2;
       choices.forEach(function (choice) {
         object(choice, ['sourceId', 'mode', 'newId', 'targetId'], ['sourceId', 'mode'], 'Importauswahl');
         if (sources.has(choice.sourceId)) fail('Eine Importkarte wurde mehrfach ausgewählt.'); sources.add(choice.sourceId);
@@ -145,5 +154,29 @@
       return {ok: true, store: nextStore};
     });
   }
-  return Object.freeze({MAX_BYTES: MAX_BYTES, MAX_CARDS: MAX_CARDS, MAX_LOCATIONS: MAX_LOCATIONS, empty: empty, save: save, remove: remove, effectiveLocations: effectiveLocations, resolve: resolve, parseStore: parseStore, exportFile: exportFile, parseFile: parseFile, applyImport: applyImport});
+
+  function setProject(store, id, project, catalog) {
+    return result(function () {
+      checkStore(store, catalog);
+      var entry = store.cards.find(function (value) { return value.id === id; });
+      if (!entry || entry.taskId !== 'alg-5') fail('Wähle zuerst eine Arbeitskarte für ALG-5.');
+      var checked = Projects.validateProject(project); if (!checked.ok) fail(checked.error);
+      var copy = clone(store); copy.version = 2;
+      var updated = copy.cards.find(function (value) { return value.id === id; });
+      updated.project = checked.project; updated.updatedAt = project.savedAt;
+      checkStore(copy, catalog); exportFile(copy, catalog, project.savedAt);
+      return {ok: true, store: copy, card: clone(updated)};
+    });
+  }
+  function removeProject(store, id, catalog, now) {
+    return result(function () {
+      checkStore(store, catalog); date(now, 'Änderungszeitpunkt');
+      var copy = clone(store), entry = copy.cards.find(function (value) { return value.id === id; });
+      if (!entry || entry.taskId !== 'alg-5') fail('Wähle zuerst eine Arbeitskarte für ALG-5.');
+      delete entry.project; entry.updatedAt = now; copy.version = 2;
+      checkStore(copy, catalog); exportFile(copy, catalog, now);
+      return {ok: true, store: copy, card: clone(entry)};
+    });
+  }
+  return Object.freeze({MAX_PROJECT_BYTES: Projects.MAX_PROJECT_BYTES, validateProject: Projects.validateProject, setProject: setProject, removeProject: removeProject, MAX_BYTES: MAX_BYTES, MAX_CARDS: MAX_CARDS, MAX_LOCATIONS: MAX_LOCATIONS, empty: empty, save: save, remove: remove, effectiveLocations: effectiveLocations, resolve: resolve, parseStore: parseStore, exportFile: exportFile, parseFile: parseFile, applyImport: applyImport});
 }));

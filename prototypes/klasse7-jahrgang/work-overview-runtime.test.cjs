@@ -178,7 +178,7 @@ function boot({seed, query = '', blocked = false} = {}) {
   context.history = {replaceState: (_state, _title, target) => { const url = new URL(target, 'https://lernw.test'); context.location = {search: url.search, pathname: url.pathname, hash: url.hash}; }};
   context.window = context;
   vm.createContext(context);
-  for (const file of ['../shared/work-overview-model.js', '../shared/work-overview-storage.js', './work-overview.js']) {
+  for (const file of ['../shared/snap-project-model.js', '../shared/work-overview-model.js', '../shared/work-overview-storage.js', './work-overview-projects.js', './work-overview.js']) {
     const filename = path.resolve(__dirname, file);
     vm.runInContext(fs.readFileSync(filename, 'utf8'), context, {filename});
   }
