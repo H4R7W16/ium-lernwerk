@@ -1,0 +1,58 @@
+{
+  "base": "b826af2f0d7715e8f12717f638b2c17ffb51b9235d719631f404889620ca96f4",
+  "reason": "Papierturm V2: Tischszene, hilfreicher öffentlicher Austausch, wahrer Erfolgspost und Erstdeutung–Kontext–Präzisierung.",
+  "changes": {
+    "klasse6/kommunikation/schritt-vergleichen.html": {
+      "before": "9d57326019d3801eec904ba3b1dc4c44d322ddbd0c67fd592a6234001de5b334",
+      "after": "88d86559e2ec6fc79a4255408f236ed16dc61cd9501e92218b00210bb5efbf44"
+    },
+    "klasse6/kommunikation/baustein-vergleichen.html": {
+      "before": "6e917612d7f485938e2a05e518aac2f9f03faa1508c4db36cabc5a945462c726",
+      "after": "ff7ea075aa2c92e17c410fe09e5ba55c7fecd35d2f634a1480140eb8f9215f95"
+    },
+    "klasse6/kommunikation/wissen.html": {
+      "before": "4dac0c84df96bc22fe38b0d08f940196ca3ad743231606d93cbd04c2bce22827",
+      "after": "0ab42d2686568c275e5dbd723766f2f5c224e787a02f1d1ed485806c24d23f5c"
+    },
+    "klasse6/kommunikation/lehrkraft.html": {
+      "before": "bf3bd2eaf06ff2954e13a36685c27ee7842eb08598b4dc75255ebb37fded3b95",
+      "after": "4da1204af991c1da8736781feeaf9aa333efdfb13763869775add7a22fdb6d96"
+    },
+    "klasse6/kommunikation/briefing.html": {
+      "before": "cc8bba65461908972e93ed532aeed4064faa37ab1b20eb1c81162d9054977cfc",
+      "after": "4d8d8deaf215fcda17115f8dacc2d7ffdc28c1d92f7d829bf96fe5599798a5e0"
+    },
+    "klasse6/kommunikation/papierturm.html": {
+      "before": "16c78060d1ebb6aa56f61f2c4d0616525a7c69c11692adeb38d4c45e08cb4f54",
+      "after": "88908789b44585301c1a458558553defd0fb6bb316bcbef0c359aa18baa6d93e"
+    },
+    "klasse6/kommunikation/papierturm-text.html": {
+      "before": "33c815475a6383dd7506f868384bd384a90a691cc5bd6eadd6bfa52c95922283",
+      "after": "a63106302dcd31d6a7331cccd41565dd17efcb027ec25dad63ed7b59c680c3e5"
+    },
+    "klasse6/kommunikation/papierturm-quellen.html": {
+      "before": "be6f78bd37042075076fd2a0d7e38494638c8942f5f012a9a16e5e5eb1f431b1",
+      "after": "9d4b6525f75f2b69c46457721b72bdc050017c28db1f768e0c6937767e5a1cad"
+    },
+    "klasse6/kommunikation/papierturm.css": {
+      "before": "a157a5598cd8003f901913721b18a95fd7489366da1f542d55d1b7c8f1b5054c",
+      "after": "16935d09bc8894ce9319d58957e1cebad49abeaffcc41ad9ea7d837cf7b35274"
+    },
+    "klasse6/kommunikation/papierturm.js": {
+      "before": "db86e34180ce8b6a48662070a0324237ed6a42dbd6276b819abffd1d769c0a61",
+      "after": "694d0c91bbae3412c85a78a1fc0411f408ec8bc7fa383051bac84149202f737b"
+    },
+    "klasse6/kommunikation/assets/kommunikation/papierturm/tisch-v2.webp": {
+      "before": null,
+      "after": "9ea7bd23538e26e34f34fd450c23df6230323fb293bbf42d22a3c534805d8aaa"
+    },
+    "klasse6/reihe-m06.html": {
+      "before": "d19d59299ce1b2d92d9765342c6be01add3885301c5d8450336e110617f81884",
+      "after": "572b0eec7491e7464ec83fda780cb5dccf26fe7652719c39f5f886f3cad3e079"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "4d082d7048a0a1b8228c1a2ab9ea157ff5e2d159041cded65f00e7941d1f5315",
+      "after": "bef1c8d6c31834d20ef4a6592e89740f32e9ded0ba3988b2b60fe0071d7348b3"
+    }
+  }
+}

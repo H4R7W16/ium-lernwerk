@@ -2,3 +2,7 @@
 
 # Preserve the reviewed media bundle byte-for-byte.
 prototypes/shared/inhalte/assets/medienwirkung/papierbruecke/** -text
+
+# Preserve byte-bound Papierturm stylesheet and interaction source.
+prototypes/shared/papierturm.css -text
+prototypes/shared/papierturm.js -text

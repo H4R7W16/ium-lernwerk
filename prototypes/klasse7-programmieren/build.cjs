@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const baseline=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'),require('./revision-20261105-lernaufgaben.json'),require('./revision-20261106-papierbruecke.json'),require('./revision-20261106-papierbruecke-v2.json'),require('./revision-20261107-lernbogen-pilot.json'));
+const baseline=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'),require('./revision-20261105-lernaufgaben.json'),require('./revision-20261106-papierbruecke.json'),require('./revision-20261106-papierbruecke-v2.json'),require('./revision-20261107-papierturm.json'),require('./revision-20261107-papierturm-v2.json'),require('./revision-20261107-papierturm-final.json'),require('./revision-20261107-pilot-main-integration.json'));
 const hash=data=>crypto.createHash('sha256').update(data).digest('hex');
 function addClass7(existing){
  for(const [name,h]of Object.entries(baseline.files))if(!existing.has(name)||hash(existing.get(name))!==h)throw Error('Veröffentlichter Bestand verändert: '+name);
