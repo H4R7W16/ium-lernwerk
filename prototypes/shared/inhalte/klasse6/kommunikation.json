@@ -326,34 +326,7 @@
         {
           "type": "explanation",
           "title": "Drei Ansichten – ein erfundener Beitrag",
-          "text": "Beitrag von Nuri: „Unser Papierturm steht! Das ging bei uns sofort.“ Die Darstellung zeigt nur den fertigen Turm. Tatsächlich brauchte die Gruppe vier Versuche. Nuri darf sich über den Erfolg freuen; die Behauptung „sofort“ passt hier nicht zum Ablauf.",
-          "table": {
-            "headers": [
-              "Ansicht",
-              "Sichtbarkeit und Weitergabe",
-              "Reaktion"
-            ],
-            "rows": [
-              [
-                "A · Gespräch am Gruppentisch",
-                "Vier Personen hören zu. Andere könnten davon erzählen.",
-                "Gesichter und Nachfragen sind sofort wahrnehmbar."
-              ],
-              [
-                "B · Geschlossener Schulraum",
-                "24 Klassenmitglieder und die Lehrperson haben Zugang. Ein Bildschirmfoto könnte den Raum verlassen.",
-                "Textantworten kommen später. Zwei Reaktionen: „Stark!“ und „Wie habt ihr das gemacht?“"
-              ],
-              [
-                "C · Öffentlicher Übungsfeed",
-                "Für alle erreichbar. Die Anzeige meldet 180 Aufrufe; Kopien außerhalb des Feeds zählt sie nicht.",
-                "Viele sehen nur den Erfolg. Eine unbekannte Person behauptet, die neue AG-Leitung zu sein, und fordert die Teilnehmerliste."
-              ]
-            ]
-          },
-          "paragraphs": [
-            "Alle Ansichten sind erfundene Textdarstellungen, keine echten Plattformkonten. Für B gilt in dieser Übung: Zugang nur mit freigegebenem Schulkonto; kein öffentlicher Einladungslink; Weitergabe personenbezogener Inhalte nur nach geklärter Erlaubnis. C verlangt im erfundenen Regeltext ein Mindestalter von 16 Jahren und macht Beiträge öffentlich. Diese Regeln gelten nur für diesen Fall."
-          ]
+          "text": "Lies Nuris Botschaft in A, B und C. Achte darauf, wer Zugang hat, wann Reaktionen kommen und was weitergegeben werden könnte."
         },
         {
           "type": "task",
@@ -365,7 +338,7 @@
           "help": [
             {
               "title": "Wo beginnen?",
-              "text": "Lies in A und B zuerst „Reaktion“. Bei C suche die Sätze über Kopien und Mindestalter.",
+              "text": "Lies in A und B die Reaktionen samt Zeitangaben. Bei C suche die Angaben zu Aufrufen, Kopien und Mindestalter.",
               "knowledge": "raeume",
               "label": "Hier nachlesen"
             }
@@ -373,10 +346,15 @@
           "solution": "A und B richten sich an bekannte Personen, aber beim Gespräch sind Reaktionen sofort sichtbar; in B kann die Antwort zeitversetzt eintreffen. B begrenzt den direkten Zugang, nicht jede Weitergabe. 180 zählt keine externen Kopien. Nach den erfundenen C-Regeln darf eine zwölfjährige Person C nicht selbst nutzen. Das sagt nichts über die Altersregeln eines echten Dienstes aus."
         },
         {
+          "type": "explanation",
+          "title": "Hintergrund zum Turmbeitrag",
+          "text": "Überlege zuerst: Welchen Eindruck machen Bild und Formulierung auf dich? Öffne danach den Hintergrund."
+        },
+        {
           "type": "task",
           "id": "wirkung",
           "title": "Wirkung ist eine begründete Vermutung",
-          "text": "Wie könnte der Turmbeitrag motivieren, wie Druck auslösen? Belege deine Vermutung. Prüfe außerdem: Würdest du der angeblichen AG-Leitung in C die Liste schicken? Begründe den nächsten Schritt.",
+          "text": "Wie könnte der Turmbeitrag motivieren, wie Druck auslösen? Belege zuerst deine Vermutung am Bild oder Wortlaut. Öffne dann den Hintergrund oben und prüfe deine erste Deutung. Würdest du der angeblichen AG-Leitung in C die Liste schicken? Begründe den nächsten Schritt.",
           "prompt": "Mögliche Wirkung, Fallbeleg und Umgang mit ungeklärter Identität.",
           "responseMode": "oral",
           "solution": "Der fertige Turm kann Ideen geben. „Sofort“ könnte den Eindruck erzeugen, eigene Fehlversuche seien ungewöhnlich; der echte Ablauf widerspricht dem. Gefühle sind nicht sicher ablesbar. Die behauptete Rolle ist ungeprüft. Keine Liste senden; bei der bekannten AG-Leitung über den bestehenden Schulweg nachfragen."
@@ -844,7 +822,7 @@
     {
       "title": "Beobachtung → nächste Hilfe",
       "paragraphs": [
-        "„Öffentlich ist immer schlecht“ → Zweck im Modell ändern lassen: Wer muss erreicht werden? „Geschlossen ist sicher“ → Kopien-Spalte B und C lesen, direkte Sichtbarkeit von Weitergabe trennen.",
+        "„Öffentlich ist immer schlecht“ → Zweck im Modell ändern lassen: Wer muss erreicht werden? „Geschlossen ist sicher“ → Weitergabe-Angaben von B und C lesen, direkten Zugang von möglichen Kopien trennen. 180 Aufrufe sind weder 180 nachgewiesene Personen noch die gesamte Reichweite.",
         "Nur „fühlt sich schlecht“ → auf ein konkretes Wort im Erfolgspost zeigen und zwei mögliche Wirkungen formulieren lassen. „Nuri/Toni selbst schuld“ → Funktion/Kopie und Verantwortung der Handelnden ausdrücklich trennen; nicht im Rollenspiel angreifen lassen.",
         "„Alles melden“ → Empfänger und Zweck der Meldung nennen lassen: Wer kann helfen, ohne den Angriff öffentlich weiterzuverbreiten? „Foto erlaubt“ → Rechte der Fotografin und der erkennbaren Personen getrennt markieren.",
         "Rückmeldung nur „gut“ → einen Fallbeleg und eine offene Frage anfordern. Lösung abgeschrieben → Wegwahl bei einer veränderten Bedingung mündlich begründen lassen. Keine abweichende Meinung bestrafen, wenn Kriterien und Belege tragen. Bei Leseschwierigkeit Ansichten abschnittweise vorlesen; Fachurteil mündlich möglich. Reale Nachricht darf mit Eingabehilfe entstehen, muss inhaltlich die eigene sein."
@@ -861,7 +839,7 @@
     {
       "title": "Material, Medien und Ausfall",
       "paragraphs": [
-        "Alle sieben Einzelmaterialien enthalten die Fälle, Aufträge, Hilfen und zuschaltbaren Lösungen. Die Vergleichsansichten sind semantische Texttabellen; gleiche Botschaft und veränderte Bedingungen bleiben nebeneinander prüfbar. Es werden weder echtes Konto noch Plattformbild benötigt. Film oder Ton würde für diesen ruhenden Vergleich keine zusätzliche Lernhandlung erschließen.",
+        "Das Papierturm-Material zeigt denselben Wortlaut und dasselbe KI-generierte Turmmotiv in drei gestalteten Räumen. Einzelansichten und „Alle vergleichen“ machen Zugang, Reaktionszeit und Weitergabe prüfbar; der Textzugang bietet dieselben Angaben. Keine echten Plattformkonten. Erst die erste Wirkungsvermutung mit Beleg formulieren lassen, dann den Hintergrund zu vier Bauversuchen öffnen und die Deutung prüfen. Im Druck steht der Hintergrund auf einem eigenen Folgeabschnitt; bei Bedarf erst nach der ersten Vermutung ausgeben. Die neuen Ansichten ersetzen die bisherige Tabelle innerhalb der bestehenden 30 Minuten.",
         "Schulwegkarte herunterladen oder ihren Druckinhalt ausgeben. Ohne Netz sind alle Fall- und Wissensinformationen lokal vorhanden; die Originalquellen dienen der Nachprüfung durch Lehrpersonen. Ohne digitalen Schulzugang Nachricht mit realer Person auf Papier austauschen und digitalen Schritt terminieren. Private Anweisungen stehen auf Papier, das private Bildschirmfeld wird nicht gedruckt.",
         "M05-Anschluss: Wirkung nicht allein am Ergebnis beurteilen; eigene Erklärung und Revision sichtbar halten. Recherche-Anschluss: Behauptung, Beleg und Grenze unterscheiden, direkte Hilfe an der Hürde. M07 übernimmt begründete Auswahl von Zielgruppe/Teilweg, Rechteprüfung und tatsächliche Rückmeldung. Redaktionelle Sichtung ersetzt keine Unterrichtserprobung."
       ]
@@ -893,6 +871,7 @@
     "M06 führt zu einer wachsenden Entscheidungskarte für ein erfundenes Schulfest. Die Lernenden vergleichen Räume, begründen Nutzen und Risiken, senden eine sachliche Übungsnachricht, erhalten echte Rückmeldung und überarbeiten ihr Urteil. Die eigene Rechteprüfung bleibt geschützt.",
     "Bereiten Sie Schulzugang, aktuelle Bedingungen und echte Partner vor. Füllen Sie Schulwegkarte und zwei erreichbare Hilfewege aus. Keine privaten Konten, Veröffentlichung oder echten Konfliktverläufe. Alle Fallinformationen stehen lokal im Lernwerk.",
     "Planen Sie 165 Kernminuten: 20 Modell, 30 Vergleich, 35 Entscheidung/Nachricht, 25 Austausch/Revision, 30 eigene Rechteprüfung, 25 Transfer/Sicherung. Davor sechs Minuten M03 und sieben M05 aus bestehenden Konten. Später zweimal fünf M06-Minuten an getrennten Terminen vor/in M07.",
+    "Im 30-Minuten-Vergleich die Papierturm-Ansichten A/B/C öffnen; „Alle vergleichen“ stellt sie zusammen. Die Textansicht enthält dieselben Fallangaben. Zunächst eine mögliche Wirkung mit Bild- oder Wortbeleg formulieren lassen. Erst danach den Hintergrund zu den vier Bauversuchen öffnen und die Vermutung prüfen. Die Ansichten ersetzen die bisherige Tabelle, sie sind kein zusätzlicher Unterrichtsblock.",
     "Achten Sie auf fallbezogene Gewichtung, mögliche statt unterstellte Gefühle, Identitätsprüfung und Unterstützung ohne Schuldzuweisung. „Geschlossen“ verhindert nicht jede Kopie. Ein öffentlicher Aufruf kann je nach Zweck begründet sein.",
     "Prüfen Sie Urteil, tatsächlichen Austausch und privaten Eigenbezug getrennt. Eine Notiz beweist keinen Versand; ein Haken beweist keine Reflexionsqualität. Ohne Schulzugang Papierdialog durchführen, digitale Handlung offen lassen und nachholen. Die vollständige Kommunikation braucht reale Personen.",
     "Sichern Sie erste und zweite Fassung sowie die sachliche Rückmeldung. Persönliche Gedanken oder Hilfeanliegen nicht einsammeln. Beobachtete Hürden mit Fassung/Schritt und ohne Namen für die Erprobung festhalten.",
@@ -907,5 +886,103 @@
     "example": "Eine technische AG-Anleitung kann öffentlich nützlich sein; private Kontaktdaten gehören nicht automatisch dazu.",
     "boundary": "Ein geschlossener Raum verhindert nicht jede Weitergabe; ein unbekanntes Konto belegt keine sichere Identität.",
     "diagnosis": "Jede Person begründet im Transfer eine veränderte Kanalentscheidung mit Fallbeleg und Grenze. Bei bloßer Regelwiedergabe den Zweck ändern, erneut entscheiden lassen. Persönliche Erfahrungen werden weder verlangt noch weitergereicht."
+  },
+  "papertower": {
+    "version": 1,
+    "image": "assets/kommunikation/papierturm/turm.webp",
+    "alt": "Ein hoher selbst gebauter Turm aus weißen Papierrollen, gefalteten Streben und Plattformen steht auf einem Klassenzimmertisch. Zu sehen ist nur der fertige Turm.",
+    "post": "Unser Papierturm steht! Das ging bei uns sofort.",
+    "context": "Die Gruppe brauchte vier Bauversuche, bis der Turm stand. Das Bild zeigt nur den fertigen Turm. Nuri darf sich über den Erfolg freuen. Wie passt „sofort“ zu dieser neuen Information?",
+    "views": [
+      {
+        "id": "a",
+        "label": "A · Am Gruppentisch",
+        "title": "Gespräch am Gruppentisch",
+        "access": "Vier Personen hören zu",
+        "channel": "Gesprächsausschnitt",
+        "moment": "Während der Bauaufgabe",
+        "reactions": [
+          {
+            "name": "Lina",
+            "time": "direkt danach",
+            "text": "Stark!"
+          },
+          {
+            "name": "Sam",
+            "time": "gleich anschließend",
+            "text": "Wie habt ihr das gemacht?"
+          }
+        ],
+        "conditions": [
+          [
+            "Zugang",
+            "Vier Personen sitzen dabei und hören Nuri zu."
+          ],
+          [
+            "Reaktion",
+            "Stimme, Gesichter und Nachfragen sind unmittelbar wahrnehmbar."
+          ],
+          [
+            "Weitergabe",
+            "Andere könnten später von dem Gespräch erzählen."
+          ]
+        ]
+      },
+      {
+        "id": "b",
+        "label": "B · Im Schulraum",
+        "title": "Geschlossener Schulraum",
+        "access": "24 Klassenmitglieder + Lehrperson",
+        "channel": "Klasse 6 · Bauideen",
+        "moment": "Nuri · heute, 12:05",
+        "reactions": [
+          {
+            "name": "Lina",
+            "time": "12:18",
+            "text": "Stark!"
+          },
+          {
+            "name": "Sam",
+            "time": "14:40",
+            "text": "Wie habt ihr das gemacht?"
+          }
+        ],
+        "conditions": [
+          [
+            "Zugang",
+            "Nur mit freigegebenem Schulkonto. Kein öffentlicher Einladungslink."
+          ],
+          [
+            "Weitergabe",
+            "Ein Bildschirmfoto könnte den Raum verlassen. Personenbezogene Inhalte dürfen erst nach geklärter Erlaubnis weitergegeben werden."
+          ]
+        ]
+      },
+      {
+        "id": "c",
+        "label": "C · Im öffentlichen Feed",
+        "title": "Öffentlicher Übungsfeed",
+        "access": "Öffentlich erreichbar",
+        "channel": "Werkraum · Ideen aus der Schule",
+        "moment": "Nuri · heute, 12:05",
+        "reactions": [
+          {
+            "name": "@ag_neustart",
+            "time": "16:10 · unbekanntes Konto",
+            "text": "Ich bin eure neue AG-Leitung. Schick mir bitte die Teilnehmerliste."
+          }
+        ],
+        "conditions": [
+          [
+            "Anzeige",
+            "180 Aufrufe. Kopien außerhalb dieses Feeds zählt die Anzeige nicht."
+          ],
+          [
+            "Fallregel",
+            "Der erfundene Dienst verlangt ein Mindestalter von 16 Jahren. Beiträge sind öffentlich."
+          ]
+        ]
+      }
+    ]
   }
 }

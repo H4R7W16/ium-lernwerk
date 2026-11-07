@@ -1,0 +1,114 @@
+{
+  "base": "447f484e22ec9515c56ae4b6158f44c3119b9c12ddc2fb8183dfe85b1dd19765",
+  "reason": "Klasse 6 M06: Papierturm-Ansichten mit Textzugang, Kontextöffnung und integrierter Lernführung; bestehende Zeit und Aufgaben erhalten.",
+  "changes": {
+    "klasse6/kommunikation/index.html": {
+      "before": "d6f7ae06a8b2df331c78973e8999eb40358e658ab2d210f71f9c3c6ba7fb8f9b",
+      "after": "966c01431432794994fe708878ce4294e3aa5b9bd8b0522921509c79edfc589d"
+    },
+    "klasse6/kommunikation/schritt-modell.html": {
+      "before": "ca2dfd4316f9ef6b027c399b631149d171a00ebe581d8bf62c022c4d273c2451",
+      "after": "2ba051ee3f2fe144f0c97b5dd2bb9cb0467a6e91d6198731cb545f1cb04ac782"
+    },
+    "klasse6/kommunikation/baustein-modell.html": {
+      "before": "59652947aeca67425b095aef27348026f7e3fde943b7eb5ff6857917082f8cf8",
+      "after": "cf99623ddc198678ed7cfc698937a7522580e7698219177c0fad306449f592ae"
+    },
+    "klasse6/kommunikation/schritt-vergleichen.html": {
+      "before": "1088222bde6c1eaca0edd45184c92f95af72d90a86a7688fb6df59c570302b30",
+      "after": "9d57326019d3801eec904ba3b1dc4c44d322ddbd0c67fd592a6234001de5b334"
+    },
+    "klasse6/kommunikation/baustein-vergleichen.html": {
+      "before": "84d4683fdb8cd4993ab438107f750856bbda7327f3040e693da7f9a65e2cb5c3",
+      "after": "6e917612d7f485938e2a05e518aac2f9f03faa1508c4db36cabc5a945462c726"
+    },
+    "klasse6/kommunikation/schritt-entscheidung.html": {
+      "before": "e2c56c5729ec0c2a94c67f7d8e7447b9212fd77fe5545a68fc93719d2b424ada",
+      "after": "bcba8ad46f9180b20067d8e476e6d2472fd24932ec063673f8a4d119cc2f049f"
+    },
+    "klasse6/kommunikation/baustein-entscheidung.html": {
+      "before": "1c42cf93b7a1652f38b0c48e0cafcef3dab9462ec6059fa4a47986e35495ab2d",
+      "after": "10a92a5c82dd13e2a962e7f4f2f86b45ffcc1134c8f4e69314b029f7ba986669"
+    },
+    "klasse6/kommunikation/schritt-revision.html": {
+      "before": "d6b39cafb2d2b27cbd2c9e82fea64a6d7e6b16b0ecb6cd7a95e5af8aa43f7faa",
+      "after": "cb9b166f1df51f57eb4acb3d307879192e34627ff61bd6a48bc2e03353628dbd"
+    },
+    "klasse6/kommunikation/baustein-revision.html": {
+      "before": "ef0a94db11bd02773c19412c8a854bd80d14dde46dd160ce38d4ffaf056574e5",
+      "after": "637e9f3c0623948117b0aa3d1c7dc939046517ef51b42f9237a43ba8674ddeae"
+    },
+    "klasse6/kommunikation/schritt-rechte.html": {
+      "before": "0291148c8c334383d5df887ca491c38f3d7745ac18dd953f9b77984b13b4d7e6",
+      "after": "6d6af91d591f6af862e7f29264cdd20a6f6f1b3d45ac2f920bbbf96274ae448d"
+    },
+    "klasse6/kommunikation/baustein-rechte.html": {
+      "before": "21640cdec8ce9898e65fefc3365e6187eb0e26160333528260f9dc5fecf1f184",
+      "after": "ee1f73e4ec03874854098bc166c922e9e95709a873f19627a0d47d51eacc4d60"
+    },
+    "klasse6/kommunikation/schritt-transfer.html": {
+      "before": "281e480df6f174fdec3a3d6a6fdefd9893ce22c883e5a7652fa5017bd4c44e2b",
+      "after": "cb98b53e32453ce7402d44d87b18299c6cbe94f7f77987c7f6f2a66ed6a8fe58"
+    },
+    "klasse6/kommunikation/baustein-transfer.html": {
+      "before": "d8e7083b98507412ed08ecd3cac1e5242f65651caf62910a5c3c6acce171cce4",
+      "after": "87871231bf53a9c466f412ca7bb47ef4fd3cd0f8412922c6cb49ea3558e18504"
+    },
+    "klasse6/kommunikation/schritt-abruf.html": {
+      "before": "b7aa006cb1999463f1da0f5ccd4bb0ac99187be6f6bc1e6ce154d535171df567",
+      "after": "9e3b0426679f9b511aea8ab56faabffccbb9e0bc45e32ee96cd7c5b19372f838"
+    },
+    "klasse6/kommunikation/baustein-abruf.html": {
+      "before": "418b4fbb2b1f7355cfee8a448acb22dc912cfc48041c0bf2c5a1ad685d4a7c90",
+      "after": "ca0350def02f37e4cc33216efacf36b52cacb7f94af7413840cb0299325eff58"
+    },
+    "klasse6/kommunikation/wissen.html": {
+      "before": "e107899975f1ea8716c490515d5b318bd457f09cb70f960d2fe311ed2ce13402",
+      "after": "4dac0c84df96bc22fe38b0d08f940196ca3ad743231606d93cbd04c2bce22827"
+    },
+    "klasse6/kommunikation/material.html": {
+      "before": "54a1a3bc167d56731bc045678befa4f99e69a2d015a32fb3132e41607741704f",
+      "after": "dea480e5fc0084669034fa6c40081fa7f86aa45617f02eff4949f75d1da1aac2"
+    },
+    "klasse6/kommunikation/lehrkraft.html": {
+      "before": "ccbd060734e3d5bdc4fad1d45dd3cc332461c11092e95f2aef368fa9e2705c29",
+      "after": "bf3bd2eaf06ff2954e13a36685c27ee7842eb08598b4dc75255ebb37fded3b95"
+    },
+    "klasse6/kommunikation/briefing.html": {
+      "before": "f5742eee0bc302c2aeb3d5702232d901d0ffb97061da054e535cb8bbb83c4721",
+      "after": "cc8bba65461908972e93ed532aeed4064faa37ab1b20eb1c81162d9054977cfc"
+    },
+    "klasse6/kommunikation/papierturm.html": {
+      "before": null,
+      "after": "16c78060d1ebb6aa56f61f2c4d0616525a7c69c11692adeb38d4c45e08cb4f54"
+    },
+    "klasse6/kommunikation/papierturm-text.html": {
+      "before": null,
+      "after": "33c815475a6383dd7506f868384bd384a90a691cc5bd6eadd6bfa52c95922283"
+    },
+    "klasse6/kommunikation/papierturm-quellen.html": {
+      "before": null,
+      "after": "be6f78bd37042075076fd2a0d7e38494638c8942f5f012a9a16e5e5eb1f431b1"
+    },
+    "klasse6/kommunikation/papierturm.css": {
+      "before": null,
+      "after": "a157a5598cd8003f901913721b18a95fd7489366da1f542d55d1b7c8f1b5054c"
+    },
+    "klasse6/kommunikation/papierturm.js": {
+      "before": null,
+      "after": "db86e34180ce8b6a48662070a0324237ed6a42dbd6276b819abffd1d769c0a61"
+    },
+    "klasse6/kommunikation/assets/kommunikation/papierturm/turm.webp": {
+      "before": null,
+      "after": "82323de56b852f4c61bb10f464e1b6d1999b98a7e649d1f054d11917006aa394"
+    },
+    "klasse6/reihe-m06.html": {
+      "before": "a4fe677db39fa0f3387b01c3e8b1ca2aa07e5e27e243d7c3c04a0ffaaff5d45a",
+      "after": "d19d59299ce1b2d92d9765342c6be01add3885301c5d8450336e110617f81884"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "edff595dc62bb52ee02cee500df556f8649369e065e803715b3e34028be4aa54",
+      "after": "4d082d7048a0a1b8228c1a2ab9ea157ff5e2d159041cded65f00e7941d1f5315"
+    }
+  }
+}
