@@ -1,0 +1,42 @@
+{
+  "base": "7bce59ebe25ff6751bc2ece6ca955d254609b910a9499a9418e3f36f65b33356",
+  "reason": "MP-M07-01 einschließlich nachgeprüfter gleicher A/B-Typografie und identischer B/C-Fakten",
+  "changes": {
+    "klasse6/medienprodukt/schritt-auftrag.html": {
+      "before": "8e3666debaf5eee07afe2b0aa4a1a7db09bebba1f81a2ef01fd5c143a2c1e10e",
+      "after": "cd25703fb7e5f6d8988f94c0ce2b1c1f077dbdd6d03a5ef7be028e6534704bf7"
+    },
+    "klasse6/medienprodukt/baustein-auftrag.html": {
+      "before": "d94d92e81d39d8d611c31a53ea38712471570a4b7d675c95bafae013628eb0ad",
+      "after": "8d37166732eb329fe188f13779de44e9b2f9539a885f75aaeb85f3e542eeb20e"
+    },
+    "klasse6/medienprodukt/lehrkraft.html": {
+      "before": "5585fba5b5f456115b8138083ccc2be106f758b4938fc14a5d6b8a4afe173770",
+      "after": "c79ddc2516b96e160527aaeecfae6a0f2f12f0268fc7482ae1f23073157ed493"
+    },
+    "klasse6/medienprodukt/briefing.html": {
+      "before": "836cd57892f9a275439710f44109be6109a7745a76a43c94ca610ba6007dd430",
+      "after": "279a28ddf45276777ba034bb0d1e381d3638eab7a228aeb7a8ecc38aea39d27c"
+    },
+    "klasse6/medienprodukt/bild-vergleich.html": {
+      "before": "ffa56716992e09689745610885b07168bbcb1bd9bebff117e613ea22c204bb6e",
+      "after": "7bc3d0122977572d8dea13e0ef9945a7801c3a249b9b868961079e4ba3fa6879"
+    },
+    "klasse6/medienprodukt/medienprodukt.css": {
+      "before": "26c3eb4ed2f75a36a23e4e6ae59c86e6d65ba96d95bb69d5385c80becc566249",
+      "after": "c1ffe73c8879ba87c39d2140ca8d5738523cd10b528e31ed19f059ffe5e54eb0"
+    },
+    "klasse6/medienprodukt/projektion.html": {
+      "before": "56f2110c87b52ce0faee4afc5e838274e494418e3eac8b4f4da332adb0f6407b",
+      "after": "3cc903ef47e16132823001cfcff65224548e8d4ad5d98a2308864d8f963c1efa"
+    },
+    "klasse6/reihe-m07.html": {
+      "before": "dc7a5af6da50ce5f8fe8bf44434900d39aa701d3976679a56d6d079fabb4ff6b",
+      "after": "9f8ac511a47e247b08a1f6a13f16df6d1f05ecbfc59fa9c3ee92b21c5ddb9eca"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "d484717054e4a9537a06cb78bea5f17e002f65d0ed4b4d9304209f6b9fd6a88e",
+      "after": "32045f0bfc0ba5e7f11ab4c69c3448c75d651e4ec588ef372b28504ea20ed404"
+    }
+  }
+}

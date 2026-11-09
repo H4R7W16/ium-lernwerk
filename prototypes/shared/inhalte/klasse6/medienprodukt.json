@@ -387,23 +387,40 @@
           "type": "example",
           "title": "Anderes Thema: eine Bibliothekskarte wird besser",
           "text": "Die folgende Bibliothek ist erfunden. Ihre Ordnung ab Juni sagt: Romane dürfen 14 Tage, Sachbücher 7 Tage ausgeliehen werden. Ein alter Aushang vom Mai nannte für alle Bücher 14 Tage.",
-          "media": [
-            "vergleich"
-          ],
           "paragraphs": [
-            "Erster Entwurf: „ALLE BÜCHER 14 TAGE!“ Dazu ein großer Stern ohne Erklärung. Der Text ist auffällig, aber für die neue Ordnung falsch.",
-            "Vollständiger verbesserter Text: „Wie lange darf ich Bücher ausleihen? Ab Juni: Romane 14 Tage, Sachbücher 7 Tage. Prüfe zuerst die Buchgruppe. Der alte Mai-Aushang gilt nicht mehr. Quelle: erfundene Bibliotheksordnung, Abschnitt Leihfristen, gültig ab Juni. Text und Buchformen selbst gestaltet.“",
-            "Der Denkweg: Frage eingrenzen → aktuelle zuständige Regel lesen → falsche Verallgemeinerung streichen → zwei Buchgruppen als beschriftete Formen zeigen → Quelle ergänzen → zweite Person beide Fristen erklären lassen. Der Stern wird durch eine erklärende Darstellung ersetzt."
-          ]
+            "Der Weg: Frage eingrenzen → aktuelle Regel lesen → falsche Verallgemeinerung korrigieren → Buchgruppen verständlich zeigen → Quelle nennen → eine zweite Person beide Fristen erklären lassen."
+          ],
+          "id": "bibliotheksvergleich",
+          "libraryComparison": {
+            "badClaim": "ALLE BÜCHER 14 TAGE!",
+            "facts": {
+              "question": "Wie lange darf ich Bücher ausleihen?",
+              "validity": "Ab Juni gilt:",
+              "loans": [
+                [
+                  "Romane",
+                  "14 Tage"
+                ],
+                [
+                  "Sachbücher",
+                  "7 Tage"
+                ]
+              ],
+              "instruction": "Prüfe zuerst die Buchgruppe.",
+              "oldNotice": "Der alte Mai-Aushang gilt nicht mehr.",
+              "source": "Quelle: erfundene Bibliotheksordnung, Abschnitt Leihfristen, gültig ab Juni.",
+              "credit": "Text und Formen: IuM-Lernwerk, selbst gestaltet."
+            }
+          }
         },
         {
           "type": "task",
           "id": "wirkung",
           "title": "Was bewirkt die Änderung?",
-          "text": "Erkläre an einer Stelle, was die zweite Karte verständlicher macht. Nenne außerdem etwas, das schönes Aussehen allein nicht beweisen kann.",
+          "text": "Erkläre an einer Stelle, was C verständlicher macht. Nenne außerdem etwas, das schönes Aussehen allein nicht beweisen kann.",
           "prompt": "Eine Änderung, ihre Wirkung und eine Grenze.",
           "responseMode": "oral",
-          "solution": "Die zwei benannten Buchgruppen zeigen, für wen welche Frist gilt; der Gültigkeitsbeginn erklärt den Widerspruch. Die Gestaltung allein beweist nicht, dass die Regel wirklich gilt. Dafür braucht es einen passenden Beleg."
+          "solution": "A übernimmt eine zu allgemeine Aussage. B korrigiert den Inhalt und ergänzt die aktuelle Regel und Quelle; die einfache Gestaltung bleibt. C enthält dieselben Informationen wie B. Die zwei beschrifteten Buchgruppen machen die Zuordnung von Buch und Frist sichtbar. Gestaltung allein beweist nicht, dass die Regel gilt; dafür braucht es den passenden Beleg."
         }
       ],
       "criteria": [
@@ -976,7 +993,8 @@
       "title": "Vorbereitung: erst Werkzeug und Empfänger prüfen",
       "paragraphs": [
         "Füllen Sie die Werkzeugkarte aus und testen Sie die komplette Datei-/Empfängerfolge mit schulischem Testzugang: neue Datei, Zeichen/Absatz/Objekt, Zwischenablage, Speicherort, PDF, Präsentationsansicht, Schulkanal und ein anderer zugelassener digitaler Übertragungsweg. Menünamen sind absichtlich nicht für unbekannte Schulkonfigurationen erfunden. Karte sichtbar oder ausgedruckt bereitstellen; digitale Phasen erst beginnen, wenn Zugang und Hilfe geklärt sind.",
-        "Zweierteams, Rollenwechsel, reale Rückmeldegruppe und erreichbare Ersatzperson festlegen. Nur zugewiesene Schulzugänge, keine privaten Konten, Passwörter oder echten Konfliktverläufe anfordern. Aktuelle Schulregeln, Rechte und Aufbewahrung prüfen. Quellen-/Rechteleiste vor erstem Teilen kontrollieren. Bei zu kleinem Geräteangebot Stationen und Nachholzeit festlegen; digitale Handlung nicht durch Papier als bewiesen erklären."
+        "Zweierteams, Rollenwechsel, reale Rückmeldegruppe und erreichbare Ersatzperson festlegen. Nur zugewiesene Schulzugänge, keine privaten Konten, Passwörter oder echten Konfliktverläufe anfordern. Aktuelle Schulregeln, Rechte und Aufbewahrung prüfen. Quellen-/Rechteleiste vor erstem Teilen kontrollieren. Bei zu kleinem Geräteangebot Stationen und Nachholzeit festlegen; digitale Handlung nicht durch Papier als bewiesen erklären.",
+        "Bibliotheksvergleich: zuerst A/C betrachten und die vorhandene Wirkungsfrage bearbeiten. Bei vermischter Begründung B statt A einblenden: A/B trennt die sachliche Korrektur, B/C die Gestaltung bei gleichem Inhalt. B bleibt eine freiwillige Hilfe, keine dritte Pflichtaufgabe. Projektion und Einzelansicht verwenden denselben Vergleich; im Einzelmaterial gehört B zu „Mit Hilfen“. Kein vorgegebenes Pluto-Layout daraus machen."
       ]
     },
     {
@@ -1035,7 +1053,7 @@
     }
   ],
   "briefing": [
-    "M07 führt zu einer kleinen gemeinsamen Informationskarte für Klasse fünf. Zwei Lernende verarbeiten die Pluto-Frage aus M02, gestalten selbst und überarbeiten nach echter Rückmeldung. Die Bibliothekskarte erklärt den Weg an einem anderen Thema.",
+    "M07 führt zu einer kleinen gemeinsamen Informationskarte für Klasse fünf. Zwei Lernende verarbeiten die Pluto-Frage aus M02, gestalten selbst und überarbeiten nach echter Rückmeldung. Die Bibliothekskarte erklärt den Weg an einem anderen Thema. Im Bibliotheksvergleich bleiben A und C der Grundweg. Bei Bedarf B statt A zeigen: gleicher einfacher Stil, sachlich berichtigt; B und C haben dieselben Informationen und Quellen. Das ersetzt die bisherige Grafik und wiederholenden Volltext innerhalb der bestehenden Modellzeit.",
     "Bereiten Sie eine ausgefüllte Werkzeugkarte vor. Prüfen Sie Schulkanal, zweiten digitalen Teilweg, Empfängergerät und Speicherort tatsächlich. Jede Person braucht eine eigene Bedienphase. Eine reale Ersatzperson sichert Rückmeldung bei Ausfall. Es werden keine privaten Konten oder Passwörter gebraucht.",
     "Planen Sie 210 Kernminuten: 20 Auftrag, 30 Werkstatt, 55 Entwurf, 25 Austausch, 30 Revision, 20 Teilen und 30 Sicherung. Die zusätzlichen 30 Minuten für Aushandlung, Revision und zweiten Teilweg sind darin enthalten. Vier volle Schulstunden reichen für 210 Minuten nicht.",
     "Vor dem Projekt sind 39 Minuten Wiederaufnahme aus früheren Reihen vorgesehen, verteilt auf zwei Termine. Für R12 unterbrechen die Teams ihren Entwurf zu Beginn der UE 34 für fünf Minuten und kehren danach zur gemerkten Stelle zurück. Vom Projektabschluss führen Links direkt zu R13 und R14 an zwei verschiedenen späteren Tagen, je sechs Minuten. Diese Zeiten stammen aus dem vorhandenen Jahresabrufkonto.",
