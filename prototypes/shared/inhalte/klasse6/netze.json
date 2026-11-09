@@ -328,7 +328,7 @@
       "paragraphs": [
         "Stunde 1: Anlass 5 und vollständiges Beispiel aus Vorhersage, Beobachtung, Erklärung und Grenze 10 (Eine Datei, mehrere Fragen), V0 10 (Dein erster Netzversuch), V1 15 und Sicherung 5 (Eine Verbindung fällt aus).",
         "Stunde 2: Abruf 5 und eigener V2 15, V3 10, Dienst/Rollen 10 und Revision/Modellgrenze 5. V2 verlangt einen ursprünglich möglichen Weg und eine begründete Unterbrechung darauf. Ein unbeteiligter Nebenast reicht nicht. Der eigene Test darf einen erfolgreichen Umweg oder eine begründete Abtrennung ergeben.",
-        "Stunde 3: Zwei Speicherwege wirklich prüfen – Kriterienvergleich 10, Geräteprobe 25, direkte Rückmeldung 10. Technische Wartezeit ist kein Lernnachweis; bei Problemen die offene Handlung konkret terminieren.",
+        "Stunde 3: Zwei Speicherwege wirklich prüfen – Kriterienvergleich 10, Geräteprobe 25, direkte Rückmeldung 10. In der Geräteprobe vier Phasen führen: Kopien anlegen, aus den Zielordnern öffnen, Kennungsprobe, begrenzt erklären. Gerätewege sind Bedienhilfen für dieselben Handlungen, keine zweite Probe. Technische Wartezeit ist kein Lernnachweis; bei Problemen die offene Handlung konkret terminieren.",
         "Stunde 4: Neues Netz 20, Speicherentscheidung/Schutzhandlung 10, gezielte Nachprüfung 10 (davon 2 Minuten neue Rückfrage am Transfernetz und 8 Minuten gezielte Revision) sowie Sicherung 5. Zwei spätere Abrufe von jeweils 6 Minuten liegen im getrennten Jahreskonto vor M02 bzw. M07. Die neuen Hilfen ersetzen bisher allgemeine Aufträge und erhöhen das Zeitkonto nicht."
       ]
     },
@@ -377,7 +377,7 @@
     "In M01 prüfen die Lernenden, was einen Dateizugriff ermöglicht. Starten Sie mit Miras vorschneller Erklärung und dem kleinen Beispiel P–R–S. Es zeigt vollständig, wie Vorhersage, Beobachtung, Erklärung und Grenze zusammenhängen.",
     "Im Netzversuch sagen die Lernenden das Ergebnis vor dem Start voraus. Eine Spur bleibt als Beobachtung erhalten; die Erklärung müssen sie selbst leisten. Achten Sie besonders auf den Sprung von „mein Weg scheitert“ zu „kein Weg existiert“.",
     "Im eigenen V2 wählen die Lernenden einen möglichen Weg und unterbrechen begründet eine Verbindung darauf. Sie belegen einen Umweg oder eine Abtrennung. Das Transfernetz verändert die Lage des lokalen Servers. Eine abschließende kleine Änderung mit geschlossener Lösung hilft, selbstständiges Erklären von Übernehmen zu unterscheiden.",
-    "In Stunde drei folgt der echte Speichervergleich. Bereiten Sie zwei erlaubte Orte und eine Schreib-App vor. Lassen Sie die Datei schließen und aus dem Zielordner wieder öffnen. Ist nur eine Offlinekopie sichtbar, bleibt der aktuelle Netzabruf offen. Ein Modellversuch ersetzt diese Handlung nicht.",
+    "In Stunde drei folgt der echte Speichervergleich in vier Phasen: Kopien anlegen, aus beiden Zielordnern wieder öffnen, Kennungsprobe durchführen und den Befund begrenzt erklären. Bereiten Sie zwei erlaubte Orte und eine Schreib-App vor. Der Vergleich wird einmal geführt; Bedienhilfen lösen keine zweite Probe aus. Ist nur eine Offlinekopie sichtbar, bleibt der aktuelle Netzabruf offen. Ein Modellversuch ersetzt diese Handlung nicht.",
     "Planen Sie vier Stunden und später zweimal sechs Minuten Abruf. Prüfen Sie Erklärungen, Gerätehandlungen und begründete Entscheidungen getrennt. Arbeitsdateien enthalten die Lernwerkantworten und Modellprotokolle; die echte Übungsdatei braucht einen eigenen Sicherungsweg.",
     "In Schritt 7 die Kennungsprobe vorbereiten: gemeinsame Testdatei von Plan A auf Plan B ändern, nachdem die erste Fassung gelesen wurde; die lokale Kopie bleibt unverändert. Lernende öffnen erneut aus dem Netzordner. Ein neuer Inhalt belegt eine Übertragung seit der Änderung, auch durch Synchronisation. Dies konkretisiert den vorhandenen Vergleich innerhalb seiner 25 Minuten.",
     "Für den zusammenhängenden Jahrgang gilt der gemeinsame 38-UE-Beispielplan. Die hier genannten Stunden sind Kernblöcke; vorgeschaltete Abrufe brauchen eigene Minuten. Das Abrufregister nennt genau den Teilauftrag und den Rückweg. Zeit und verfügbare Jahreskapazität bleiben zu erproben.",
@@ -760,11 +760,11 @@
           "context": "device",
           "id": "probe",
           "title": "Jetzt am Gerät · 25 Minuten",
-          "text": "Die Lehrperson nennt Ort A (lokal) und Ort B (möglichst Schulnetz oder Schulcloud). Sie bereitet mit euch die Kennungsprobe vor. Fehlt ein Weg, prüfe nur den erlaubten Teil und notiere, was offen bleibt.",
-          "preparation": "Erstelle in der erlaubten Schreib-App die Datei netzprobe mit dem Inhalt „Unser Test: Plan A“. Nutze nur diese harmlose Übungsdatei. Kläre die beiden Ordner und wer für die Kennungsprobe den gemeinsamen Teststand ändern darf.",
-          "action": "Speichere je eine Kopie an Ort A und Ort B. Schließe die Datei. Öffne beide Kopien erneut aus ihrem jeweiligen Zielordner und vergleiche den Inhalt. Prüfe danach den Netzort mit der Kennungsprobe unten. Bleibe in den erlaubten Ordnern; ändere keine Konten oder Geräteeinstellungen.",
-          "return": "Zeige beide Orte und das Wiederöffnen. Halte deine Beobachtungen im Vergleich fest. Ungeprüfte Wege bleiben offen; keine Zugangsdaten oder Bildschirmfotos abgeben.",
-          "prompt": "Vergleiche Ort A und Ort B mit dem Gerüst. Notiere oder zeige, welche Beobachtung deinen Netzbeleg trägt und was offen bleibt.",
+          "text": "Die Lehrperson nennt Ort A (lokal) und Ort B (möglichst Schulnetz oder Schulcloud) und bereitet die Kennungsprobe mit euch vor. Arbeite die vier Phasen nacheinander ab. Fehlt ein Weg, prüfe nur den erlaubten Teil und notiere, was offen bleibt.",
+          "preparation": "1 · Kopien anlegen: Kläre die beiden Ordner und wer den gemeinsamen Teststand ändern darf. Erstelle in der erlaubten Schreib-App die harmlose Datei netzprobe mit „Unser Test: Plan A“. Speichere je eine Kopie an Ort A und Ort B.",
+          "action": "2 · Aus den Ordnern öffnen: Schließe die Datei. Öffne jede Kopie aus ihrem jeweiligen Zielordner und vergleiche den Inhalt. Zeige beide Orte und das Wiederöffnen. Die Bedienhilfen unten erklären diese beiden Phasen für dein Gerät. Bleibe in den erlaubten Ordnern; ändere keine Konten oder Geräteeinstellungen.",
+          "return": "4 · Erklären: Ergänze den Vergleich unten mit deinen Beobachtungen. Was belegt die neue Kennung, was bleibt offen? Stichwörter oder Zeigen und Erklären am Gerät reichen. Keine Zugangsdaten oder Bildschirmfotos abgeben.",
+          "prompt": "Mein Vergleich von Ort A und Ort B: Beobachtung, Netzbeleg und offene Frage.",
           "storageNotice": "Die Lernwerk-Arbeitsdatei enthält dein Protokoll, aber nicht netzprobe. Sichere die echte Übungsdatei gesondert am vereinbarten Ort.",
           "routes": [
             {
@@ -794,7 +794,7 @@
               ]
             }
           ],
-          "responseHint": "Stichwörter im Vergleich oder eine mündliche Erklärung direkt am Gerät reichen.",
+          "responseHint": "Nutze den Vergleich einmal für alle vier Phasen. Du musst deine Gerätehandlung nicht zusätzlich abschreiben.",
           "responseTable": {
             "headers": [
               "Dein Vergleich",
@@ -825,7 +825,7 @@
             ]
           },
           "deviceFollowup": {
-            "title": "Kennungsprobe am Netzort",
+            "title": "3 · Kennungsprobe am Netzort",
             "text": "Die Lehrperson oder eine Partnerperson nutzt ihren eigenen erlaubten Zugang. Verändert nur die vorbereitete harmlose Testdatei.",
             "items": [
               "Lies am vereinbarten Netzort „Unser Test: Plan A“. Schließe die Datei.",

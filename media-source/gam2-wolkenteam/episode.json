@@ -1,0 +1,25 @@
+{
+  "id": "gam2-wolkenteam",
+  "version": "1.0.0",
+  "duration": 24,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "silent": true,
+  "prices": {"outfitStars":450,"packageStars":500,"packageEuro":5},
+  "offer": {
+    "name":"Wolkenteam",
+    "start":"Start ohne Geldzahlung",
+    "access":"Alle Aufgaben ohne Käufe lösbar.",
+    "cosmetic":"Nur das Aussehen.",
+    "abilities":"Keine neuen Fähigkeiten.",
+    "prompt":"Nur heute!"
+  },
+  "states":[
+    {"id":"start","start":0,"duration":8,"title":"Einstieg"},
+    {"id":"outfit","start":8,"duration":8,"title":"Outfit"},
+    {"id":"sterne","start":16,"duration":8,"title":"Sternepaket"}
+  ],
+  "source":"Eigene Konstruktion aus dem unveränderten Angebot C in GAM-2; keine Marktdaten.",
+  "license":"CC BY-SA 4.0; IuM-Lernwerk, mit KI-Unterstützung, 2026"
+}

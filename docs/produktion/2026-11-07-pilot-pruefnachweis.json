@@ -1,0 +1,1037 @@
+{
+  "version": 1,
+  "description": "Historischer Nachweis des isolierten Piloten auf2c3b556; keine integrierte Main-Fassung.",
+  "qualityRun": {
+    "version": 1,
+    "id": "ium-lernbogen-pilot-20261107",
+    "scopes": [
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/recherche.json",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/assets/recherche/recherche-notiz.txt",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/planung/klasse5.json",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/klasse6/medienprodukt.json",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/assets/medienprodukt6/projektspur.txt",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class6-media-project.cjs",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class5-content.cjs",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class5-author-render.cjs",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/recherche-reference.cjs",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/learning-ui.css",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/klasse6.css",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/render_material.py",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/layout.cjs",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/reihenlayout.css",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt",
+      "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren"
+    ],
+    "brief": {
+      "purpose": "Gezielte Revision dreier kontrastierender Lernbögen mit Vergleich von Gewinnen und Verlusten; vollständige Lernbewegungen als Bezugsgröße, keine Neuvalidierung aller unveränderten Medien und Schulumgebungen.",
+      "audience": "Klasse5 etwa10–11, Klasse6 etwa11–12, Klasse7 etwa12–13; hypothetische Lernendenperspektiven im lehrpersonenbegleiteten Unterricht.",
+      "objectives": "Recherche: gleiche eigene Aussage an Quellen prüfen; Medienprodukt: echte Verständlichkeitsrevision und verlässliche Dateifolge; ALG6: eigenständig vorhersagen, Fehler prüfen/reparieren, Begriffe am eigenen Ablauf sichern.",
+      "learningAction": "Eigene Frage/Notiz→Quellenvergleich→Herkunft→begründeter Stand; Entwurf→fremdes Lesen→Revision→Empfang; Vorhersage→Fehlersuche→Reparatur→Variante→Sicherung→neuer Fall.",
+      "evidenceOfLearning": "Unveränderte fachliche Ergebnisse: wachsender Recherchebogen mit Belegen; eigenes Medienprodukt mit realem Leser-/Empfängertest und individuellem Beitrag; eine Codekarte, geprüfte Reparatur und neuer Fall. Kein Klick oder ausgefülltes Feld allein als Können.",
+      "context": "Eigener Branch feat/ium-lernbogen-pilot-20261107 ab2c3b556. Baseline233Tests,1391Ausgaben. Endfassung233Tests und1391Ausgaben;27geänderte,1364bytegleicheDateien. Zeiten225+5,210Kernminuten plus bestehendeAbrufe,60ALG6/405Reihe erhalten.",
+      "boundaries": "Redaktionelle Änderungsprüfung und fachlicher Wegvergleich; reale Lernenden-/Zeit-/Partner-/Schulgeräteerprobung offen. Keine empirische Wirksamkeit, Veröffentlichung, Lehrfilm-Hörabnahme oder neue amtliche Curriculumfreigabe."
+    },
+    "profiles": {
+      "praxis": {
+        "applies": true,
+        "reason": "Reale Suche, Gerätevorführung, Dateifolge und Empfangsprobe als ausführbare Anforderungen prüfen; Schulumgebung bleibt reale Erprobungsgrenze."
+      },
+      "quellen": {
+        "applies": true,
+        "reason": "Eigene Aussagen an tatsächlichen Belegstellen; zentrale Originalstellen erneut geöffnet, unveränderte Herkunft/Quellenauswahl abgeglichen."
+      },
+      "urteilen": {
+        "applies": true,
+        "reason": "Begründeter Prüfstand und Rechte-/Rückmeldungsentscheidung; bereits richtige Angaben dürfen begründet bestehen."
+      },
+      "kooperation": {
+        "applies": true,
+        "reason": "Echte Leserprobe, individuelle Beiträge und Empfang bleiben erforderlich; keine erfundenen Partnerreaktionen."
+      },
+      "gestaltung": {
+        "applies": true,
+        "reason": "Eigenes Medienprodukt und begründete Revision; Code-Reparatur und Variante nicht vorlösen."
+      },
+      "modell": {
+        "applies": true,
+        "reason": "ALG6-Vorhersage, erste Fehlentscheidung, Grenz- und Variantenfälle selbst fachlich durchgegangen."
+      },
+      "medien": {
+        "applies": true,
+        "reason": "Geänderte Text-/Bildanordnung, Codekarte und Hilfezugänge im ausgegebenen HTML geprüft. Unveränderte Filme/Audio werden nicht erneut abgenommen."
+      },
+      "persoenlich": {
+        "applies": false,
+        "reason": "Keine persönliche Reflexionsaufgabe geändert; geschützter M06-Zwischenabruf bleibt unverändert."
+      },
+      "transfer": {
+        "applies": true,
+        "reason": "Bestehender Bibliotheksfall, veränderte Zielgruppe/Offlinefall und ALG6-Dreierfall im ganzen Weg erhalten."
+      },
+      "abruf": {
+        "applies": true,
+        "reason": "Spätere Wiederaufnahmen samt Zeitkonten und Rückwegen erhalten; keine neuen Abrufpflichten."
+      },
+      "leistungspruefung": {
+        "applies": false,
+        "reason": "Keine benotete Prüfung oder neue automatische Kompetenzdiagnose; formative Kriterien auf Zielhandlung geprüft."
+      }
+    },
+    "customCriteria": [
+      {
+        "id": "lernbewegung",
+        "question": "Erhält die gezielte Revision die tragende fachliche Lernbewegung, Eigenleistung und Vor-/Nachanschlüsse im vollständigen Weg?"
+      },
+      {
+        "id": "aenderungsbilanz",
+        "question": "Sind konkrete Gewinne, Verluste und Aufwand ohne unbelegte Zeit- oder Wirkungsversprechen dokumentiert?"
+      },
+      {
+        "id": "umfangsschutz",
+        "question": "Bleiben Ziele, Zeitkonten, bestehende Ergebnisorte und unveränderte Bereiche erhalten; sind Änderungen eng gebunden?"
+      }
+    ],
+    "reviews": [
+      {
+        "round": 1,
+        "createdAt": "2026-11-07T16:31:22.134Z",
+        "revision": "a5b9cc297a4c64cf6095346aca62ddc5fd849da6f1d224d766e5c8e5407c0741",
+        "plan": {
+          "id": "ium-lernbogen-pilot-20261107",
+          "scopes": [
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/recherche.json",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/assets/recherche/recherche-notiz.txt",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/planung/klasse5.json",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/klasse6/medienprodukt.json",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/assets/medienprodukt6/projektspur.txt",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class6-media-project.cjs",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class5-content.cjs",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class5-author-render.cjs",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/recherche-reference.cjs",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/learning-ui.css",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/klasse6.css",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/render_material.py",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/layout.cjs",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/reihenlayout.css",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt",
+            "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren"
+          ],
+          "brief": {
+            "purpose": "Gezielte Revision dreier kontrastierender Lernbögen mit Vergleich von Gewinnen und Verlusten; vollständige Lernbewegungen als Bezugsgröße, keine Neuvalidierung aller unveränderten Medien und Schulumgebungen.",
+            "audience": "Klasse5 etwa10–11, Klasse6 etwa11–12, Klasse7 etwa12–13; hypothetische Lernendenperspektiven im lehrpersonenbegleiteten Unterricht.",
+            "objectives": "Recherche: gleiche eigene Aussage an Quellen prüfen; Medienprodukt: echte Verständlichkeitsrevision und verlässliche Dateifolge; ALG6: eigenständig vorhersagen, Fehler prüfen/reparieren, Begriffe am eigenen Ablauf sichern.",
+            "learningAction": "Eigene Frage/Notiz→Quellenvergleich→Herkunft→begründeter Stand; Entwurf→fremdes Lesen→Revision→Empfang; Vorhersage→Fehlersuche→Reparatur→Variante→Sicherung→neuer Fall.",
+            "evidenceOfLearning": "Unveränderte fachliche Ergebnisse: wachsender Recherchebogen mit Belegen; eigenes Medienprodukt mit realem Leser-/Empfängertest und individuellem Beitrag; eine Codekarte, geprüfte Reparatur und neuer Fall. Kein Klick oder ausgefülltes Feld allein als Können.",
+            "context": "Eigener Branch feat/ium-lernbogen-pilot-20261107 ab2c3b556. Baseline233Tests,1391Ausgaben. Endfassung233Tests und1391Ausgaben;27geänderte,1364bytegleicheDateien. Zeiten225+5,210Kernminuten plus bestehendeAbrufe,60ALG6/405Reihe erhalten.",
+            "boundaries": "Redaktionelle Änderungsprüfung und fachlicher Wegvergleich; reale Lernenden-/Zeit-/Partner-/Schulgeräteerprobung offen. Keine empirische Wirksamkeit, Veröffentlichung, Lehrfilm-Hörabnahme oder neue amtliche Curriculumfreigabe."
+          },
+          "profiles": {
+            "praxis": {
+              "applies": true,
+              "reason": "Reale Suche, Gerätevorführung, Dateifolge und Empfangsprobe als ausführbare Anforderungen prüfen; Schulumgebung bleibt reale Erprobungsgrenze."
+            },
+            "quellen": {
+              "applies": true,
+              "reason": "Eigene Aussagen an tatsächlichen Belegstellen; zentrale Originalstellen erneut geöffnet, unveränderte Herkunft/Quellenauswahl abgeglichen."
+            },
+            "urteilen": {
+              "applies": true,
+              "reason": "Begründeter Prüfstand und Rechte-/Rückmeldungsentscheidung; bereits richtige Angaben dürfen begründet bestehen."
+            },
+            "kooperation": {
+              "applies": true,
+              "reason": "Echte Leserprobe, individuelle Beiträge und Empfang bleiben erforderlich; keine erfundenen Partnerreaktionen."
+            },
+            "gestaltung": {
+              "applies": true,
+              "reason": "Eigenes Medienprodukt und begründete Revision; Code-Reparatur und Variante nicht vorlösen."
+            },
+            "modell": {
+              "applies": true,
+              "reason": "ALG6-Vorhersage, erste Fehlentscheidung, Grenz- und Variantenfälle selbst fachlich durchgegangen."
+            },
+            "medien": {
+              "applies": true,
+              "reason": "Geänderte Text-/Bildanordnung, Codekarte und Hilfezugänge im ausgegebenen HTML geprüft. Unveränderte Filme/Audio werden nicht erneut abgenommen."
+            },
+            "persoenlich": {
+              "applies": false,
+              "reason": "Keine persönliche Reflexionsaufgabe geändert; geschützter M06-Zwischenabruf bleibt unverändert."
+            },
+            "transfer": {
+              "applies": true,
+              "reason": "Bestehender Bibliotheksfall, veränderte Zielgruppe/Offlinefall und ALG6-Dreierfall im ganzen Weg erhalten."
+            },
+            "abruf": {
+              "applies": true,
+              "reason": "Spätere Wiederaufnahmen samt Zeitkonten und Rückwegen erhalten; keine neuen Abrufpflichten."
+            },
+            "leistungspruefung": {
+              "applies": false,
+              "reason": "Keine benotete Prüfung oder neue automatische Kompetenzdiagnose; formative Kriterien auf Zielhandlung geprüft."
+            }
+          },
+          "customCriteria": [
+            {
+              "id": "lernbewegung",
+              "question": "Erhält die gezielte Revision die tragende fachliche Lernbewegung, Eigenleistung und Vor-/Nachanschlüsse im vollständigen Weg?"
+            },
+            {
+              "id": "aenderungsbilanz",
+              "question": "Sind konkrete Gewinne, Verluste und Aufwand ohne unbelegte Zeit- oder Wirkungsversprechen dokumentiert?"
+            },
+            {
+              "id": "umfangsschutz",
+              "question": "Bleiben Ziele, Zeitkonten, bestehende Ergebnisorte und unveränderte Bereiche erhalten; sind Änderungen eng gebunden?"
+            }
+          ]
+        },
+        "artifacts": {
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/layout.cjs": "caba8c5dce8a70f2e596edebe4abedb4ca824c37a25c31b89a78a0012f9d2f84",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/alg-1.md": "a185b6f6b2f681447fd48d95cdcd50123bba447546ec1d7deef74d48ada65d21",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/alg-2.md": "393a7fb6325984a3ed329462b3b532718aec49c98d5e60c394fa69bbf9ba22ec",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/alg-3.md": "a87fc9dbcf0b6d1c899cc770770769e06cb378c28b651700d3f3126ecf9abb0b",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/alg-4.md": "bef24cb9c7422923905b9fb35599a5f49dfd22385d7959402b6f6c0f6c868b40",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/alg-5.md": "24b06e0d0ec03e73fcc11373648eaf894a7d68b8cface10d7cb894484e2613f4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/alg-6.md": "9809e6f78bb79e1b47502ee8fe924567fd60467214a9afe4932852aceae9b6fa",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/briefing-alg-1.md": "8773e2931eff7b746b99ba4013ef76a94af272e99ab5f5ac75dd352b582c1a7c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/briefing-alg-2.md": "be651e5e44d8e63f8a88b39c91a7958dc22a79dd9fbc4f7dbdda16f25608753b",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/briefing-alg-3.md": "7593b22d93589192a1b06d5cfa31bce6f4c54176b9a0b9b5886fa12ee675c458",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/briefing-alg-4.md": "5d3f4eaca8cc8304aab4cb6d884c0c7732d65ec501896501064c2f3d28fbe00e",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/briefing-alg-5.md": "4e59776d74555d7e3652413692316aededed53950ac0df62626777f66b8921ba",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/buehnen/alg-1.svg": "1fc42db37acd5ed0c2e36cfa24708f50600cf07c284d9ed2686490594fbd4bae",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/buehnen/alg-2.svg": "37d09ddf769cfa55a64fb978c3d4b476c7adf065e0498d42e821955621ca7429",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/buehnen/alg-3.svg": "acbc1d611616f9216d2adc0e666fb5284a28cedb6a4022eb7a867b826dbd5388",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/buehnen/alg-4.svg": "e271d3d095c4ab40fdd413a3c21a7eead5c8a5485642f2684bcea677e8dc0a78",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/buehnen/alg-5.svg": "4eb2bddd7a4e04243b4a4c538947a36fe592f2044db2dbbdcbf69fc65c7e2487",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/buehnen/alg-6.svg": "a5b1d6da1769235cf625cf2c38784f8d7344b9389c710e706b76a745bc37de82",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/durchfuehrung-134.md": "6f364eb419cfad0fe256dacd3cdc846ea577806bdf640707dcdfce65e9b3b9de",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/durchfuehrung-256.md": "dc2a95ab9f562f478392d0430b98282b841b0d6bf94eeb80c210d230b596d73c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/einsatz-alg-1.md": "87b2c2ff04d250420b58944bd98b357157f70906996fc83e89466c0d61b2a27a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/einsatz-alg-2.md": "f529592c116d47acaa91992e985c9ba424a68e47ab38531a5174eba3cedb1acb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/einsatz-alg-3.md": "334e3883eadce7f1645a25a23d3c0466dac458913364818502ad04cd985509cb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/einsatz-alg-4.md": "ac67859b8f6a1326df97e0e20d467ad85eea52123d3de3bc31de7718a73951e4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/einsatz-alg-5.md": "f0119e28ae19175d1d3faf112f98e50f2835ee4c0247168ad345af34123b458b",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/hoerbriefing.md": "15f73d983c7f496d76553282c23d84d181b2f8f5d7ce68ea601d537af4c15f9a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/jahrgang.md": "a372fe8ad20d943bbf999defca0619dd069a019835a98f6b8d09c5145a13929f",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/sicherung.md": "3d94cf366cd7922c460a7352fe0e9d20663d0309f6aec0a2ca30a4d9e28c4670",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/material/umgebung.md": "40f56b5b8654915c940c9f15bff8d2a6dc9195bd889e86878c7c38b2ee7db290",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/reihenlayout.css": "9638716081b3b33511dfefb5842ff25305331eda3e2bedf1087578022e80f56d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/klasse7-programmieren/render_material.py": "e4ba4b1b0077668796199ac5380b04fd3d95a41063310975220db87a6c463b9e",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class5-author-render.cjs": "39f615d93dad9582901e4e9881f435c231e505ca3f533304d2e18fd2a3bff7b1",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class5-content.cjs": "7f4b344ddd6e1ee6a113689afeff8b72218062d75fc1b7b335897f9582101cda",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/class6-media-project.cjs": "562d344b67bc9359a8daa88ecfc8ff8fad7aeb461cd62c94fbd291bc766b7a32",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/assets/medienprodukt6/projektspur.txt": "f3a05ac4e3d348586ecbdde544e49356d65853bbcb040989181c4d22ecaea197",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/assets/recherche/recherche-notiz.txt": "92d2378ab31e69ac8676faeae459f37b7e2a75894857a6a3cb53392b73220658",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/klasse6/medienprodukt.json": "56f0923e3ee8124e5714a7b2930e51851c561316b1ae198844a6fd44229d4589",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/inhalte/recherche.json": "d928f828462a5d9f5aa7e2c452c0dea49205e493a4e10b3a48da70bc94458ceb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/klasse6.css": "109e9651688c1d0c523ce53eb1f32c9ec23773eb9d475e4cdebd7a13d628b8cd",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/learning-ui.css": "c14300920c08d492310a4e678e75b20a1e14e8793bf929cc9ec7d01942c39486",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/planung/klasse5.json": "a3818b54b85742d63d39a0e8603a9a89f30dd3cdaeaf07238a7afd5020a8e407",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/prototypes/shared/recherche-reference.cjs": "51ac8deeebe0a55a8bf8e30d2763415696c731b4a61a16aeaa23b2ac1cdc2967",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/ersatztexte.txt": "3f758ba28f8a04785cacf54f3002f4c43f67b0e17b60f9a053bd921fd5f0393a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/fundseite.svg": "515440037e0daedea31b9018677af5c4316adc6e104d86512551fa5b689d55a2",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/recherche-notiz.txt": "92d2378ab31e69ac8676faeae459f37b7e2a75894857a6a3cb53392b73220658",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/01-suche-mond.jpg": "64d594bf549de2e31fdb0de4d6ed88a42e39922bf95c658be96f1adeded54b1f",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/01a-erster-treffer.jpg": "e24a5c9d6e5f99b80c4f9823c56822e83477bc7918c9e8fb4b982dbb39281831",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/02-suche-mond-leuchtet.jpg": "a1b5cde496e4e5be8bbe85eb9d3314a444163f2b66c23f4034e08f584517d341",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/02a-erster-treffer.jpg": "0fa4e2c9458c0cbbe8676e5d584e9bde876136674ae3e01c3e1283b3c8a0d87d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/03-treffer-sophie.jpg": "439a1bb757e2aba60f8bd37ce209e2fb6ebd3501b73a49ef3f64a30a9121cee6",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/04-original-textanfang.jpg": "d5f1ca2ff0f5fd353395fe260bdab2d2ec34e5a93d0c41170208ab5d3b603345",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/04a-quellenseite-titel.jpg": "2920ab49d68ff2721d856596daecd51308e04ecd1c94bf9abf476a7555b465f1",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/05-buecherei-pfleghof.jpg": "021e2874095c8f543c4fb2506537159230a0328cb2ae34dbc98eac84380f4f91",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/ersatztexte.txt": "107d8fbebe57ec63caee3bf01b60124d136a014fc1d775dfbeeda8ef096b4fbf",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/mond-rund.jpg": "c3f0885afd4d7a1f001e11eb7a21d96a26ba2e20e27d105f80be51a3f7ff45df",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq02/mond-sichel.jpg": "5c0d3fb7f20f34d8c6114db5fa0aeb91255692b17078ee9f13e660f8d58950bc",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a01.jpg": "1b449da92e82d0e1e65484f2633dcca91cc663bc995615ea300cc7691cbb0aa2",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a02.jpg": "d5be5a5271e2f53c8fab895c5ce4bd4dbc50b7dfab5200523b1f7940e7e1d6d6",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a03.jpg": "a194c5c21baf61d5f870ae487f78ce3c03debcdd175bdfe74ff2a646b6f3eaa9",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a04.jpg": "743db7242fa2c7f347b1188c59f7309de7ac64e6963c370ff6776736ce9c303f",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a05.jpg": "49ad127bf7656306f985078c951d487c6770f3353a98733df7eb4e1795e4f72d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a06.jpg": "04582ead55548685288d5ecf74ee4af0b070b7e51b4f02da9fe5292ae995b524",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a07.jpg": "c5434a870f30d42b3b76838d100d2596650b898bae69e2eddfe27098796631bc",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a08.jpg": "e56c9aaf456b25b3b5f1ea21a3dfac2ef3e7fdb865e5dff9b6dfc49dcad636da",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a09.jpg": "683b8325432838998af88e51243e01906e4756ed34e42815bfac38624abc2014",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a10.jpg": "f75362ba8542ef870b05b8a4a423d3d5edb4b388f43da27485df7560cd50ebda",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a11.jpg": "6f479fce392ffded15c320c5f813c4dae637e0c55ee81cd43019cdb2a8b4ceed",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a12.jpg": "104a4c0b3ac4857a356d6c3f6f86825c3a053b779ce22acb76c549c6dad53ea0",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a13.jpg": "8571e3c19abd1284344c134f9a1d4c68808d600e81a09a72f7a1314c1484eb49",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a14.jpg": "623dfa920894a95f61078661699f0fcbfbc8c9ce3c6f2b9ec25227dc60ff434b",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/a15.jpg": "aad2027cf6c0105540fba3030fae5c3a5c0d3469469da6640f63fa13c2a10cc8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/film-ablauf.json": "384ea4889c9d72d43ecfb935eb25b33db238dc502521d74ed197e58f7f487c5d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/leas-rechercheweg-1.0.mp4": "3ec7868b2c726ac24801934b2a037a3b434df532a4560fe0489d201212f5716f",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/leas-rechercheweg-1.1.mp4": "fe4cadfecd01193ed418127f5fda341f21309a05a61cf30413ad0306f50c0e56",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/leas-rechercheweg.srt": "c734e79f4462768b203fda502e81c0519d93502e15f684045a4fe6699dc72f9e",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/leas-rechercheweg.vtt": "17f93c306b4e5ac6c0abba490586e4e15bbe9a8e6c5029507eb98b427892534c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05-film/poster.jpg": "1b449da92e82d0e1e65484f2633dcca91cc663bc995615ea300cc7691cbb0aa2",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/rq05/leas-weg-lesetext.txt": "c076f5b4cad0f878512438420f17ca4599b4b181a0eca59e77ee828101857eb1",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/assets/recherche/suchweg.svg": "554d115818c25faf73e29d08f8d7e7303921cb2ebedb269cf49d6f474b4e4a50",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-frage.html": "82f3900af4c0bd6817a1923f8eb87d0bb6b7faffc6208015ebf3dfbd20d9937a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-lesen.html": "f3b28b5dbd949fcc7b93a0cf305ba10ae042025f575e38c3fdef34b61a81533c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-ordnen.html": "6fc556c3fe7ed756ede6041ccab812ae9c59b61eebc408427143d5d0e19a83e7",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-pruefen.html": "85c7e60b900d2694b4ce2a9a1ba1b7d883e263826fbc4e8d095cfccbf9ec4d76",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-sichern.html": "8532126120049ea95882b4ccc3e95af7386834d9e24c2a125a90fcfef1469f30",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-suchen-ipad.html": "6fbc2b2a549a9625a1ac7bcd08a77c49cc1ad3063fb5fcfef121126fb1684c1e",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-suchen-windows.html": "6654d32ecbf72002c8d449038fc3b0520a9df7cb4179efccbdfc0e8afeef7c43",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-suchen.html": "31b33c701be73af0cf7194d9a4d4758912ea859eb2cc315ef4fcf2d3f3a0905c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-suchplan.html": "a0c4a10c4430eda867657e1226a157b6bfae4e94ccaa6c773b29b4cddc000557",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-transfer.html": "b8e08027748b1d04c189724d76eef52d8dfa2ad4e50d1f018eeb10e1c9290e1a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-ueberarbeiten.html": "815f55e6fb905a951f457c55120106ae34d28a80a9e583195cf8fc45029848d8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/baustein-wiederaufnahme.html": "ffe702655f81afd05847d15b143372a614f6453a19201d3eb5ac97a9215f366e",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-buecherei-zeiten.html": "2facaefe779c73416cc5d4faeac013c2861da26c412f25639917788e606c00d6",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-fundseite.html": "aae3f46582ee3e24cca91c37e32a8b1f99ce56242eeb9e56c269ac035c0fa56a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-lea-sophie.html": "1cb1292ba3db1b7a294ea7dba4824b1cd9e0af1a9530dc2eaa3130828229e316",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-lea-suche1.html": "199037841d051581d2aab54900836f57d2878304e6aeb85edea7c3a426dd12c4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-lea-suche2.html": "5c2de3552940cd46f2f8d9bba2b47fa8e4c3536ee3af82e7aabdce2e2f5816ab",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-lea-text-pruefen.html": "5a2dec89cae5f7425b5e0d7c87d95b95d2b402252f6f2774c996c408366af666",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-lea-text.html": "fef585b4ca6ecbf6321b60c0a23c8705ba549dc3ee8d6d76ebc4f716ec48bd59",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-lea-titel.html": "73833af8f336e3c311fed245da598d325bbc246d283b88bfd6e1deca0a3cdbf0",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-lea-treffer1.html": "73c7eceeb7f5a5d2c3ea19aebedde3a3dabf3931e3d7cd33c7a61a53f637ad87",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-lea-treffer2.html": "2df70498a34d47f01c0abe0925f4d0fbb848f116f96bc9e21276a5dece34761a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-mond-rund.html": "5a69a57f333d4ee9a5d0e861ca376b5195b8ef3a62a89d051013365c6245f9aa",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-mond-sichel.html": "b32ca81f9b41a9c4afc4b55d334db1c7c3d8023fa43a897f851beab16189e0f8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/bild-suchweg.html": "07e3e475997ebd759dc53f0be5ad444f3b2e70890b98476242253c9a4c259fbd",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/briefing.html": "fd1916667a60c6d2e0ccbb17db68b76300f2618e38a2998c73a4954ec70dc83d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/index.html": "9d450a9ea5e96633a07430b5e5a6f0847d8c8981aa0adcbd026f5fd3a58227c8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/leas-weg-bildfolge.html": "0b78fca737d0aebf9ac3c588528961ad60f9b1a80dc7a59ec869c0b74e8a3172",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/leas-weg-lesetext.html": "ecd76b376688beb22c04da977ab4da3521c3051e823ba2e300f51a31fdb1ea57",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/lehrkraft.html": "e1cf05c58a8cdca2cd53a853d995e5f5ed66b8cefbb3314cb5efe6d2929c2f1a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/material.html": "63dc0f6f59bf9786790e6e8cf2f9e1e0f8358a646356606cef1f8f53fcb3c46a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/quellen-rq02.html": "83900b2fda94ab13c08cdec6138159a92a199e180c5b1fa04aa289167a5616cb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/quellen-rq05.html": "ef2f9fd16445be5505bd9b7c73c9a589d8213a8b59abc2f2ee6b8544ac64062c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/quellen.html": "5afd96aa4ba64a498f82e0607d3bc30d3c0f9b118cbcba149896ed421f4b4bd4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/referenz-ende.html": "5e4998e354f2fe0758b1e8cdc0840a7ab9d3a991bd555bf53bc242aaccefd2df",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-frage.html": "4739fc10a50afe0e8b8e377c03151e87fb3d202caa629d74b501334c7bdc0806",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-lesen.html": "0b96ca8a73b8f331f8d900374b9c66db3deeb5d33789ec70612a0c9955b1e7bd",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-ordnen.html": "eb0207a116a40151dfb5eedace8304663af88fdfd8eef84672f20b645d0c4ba6",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-pruefen.html": "65abc469d07bf9d98693ef091956069e349d980cdbad571059f96a77eb8ecfdc",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-sichern.html": "317e675f053cdadd1f256f2e43dd7e9dc160b5e5c634364e4ef716b988aea45d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-suchen.html": "21b942d9009c3e6b7866d4a87e86fc22fcaebced737ea56783f515a86cdc672a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-suchplan.html": "f7029e53ca7b9c6856110c41e995505b221fe7a4a9647ee995c50a338beebad5",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-transfer.html": "5be691121d8fed69353c865e9896a0cbc03f5ca927129803020ed0b5777dc7bd",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-ueberarbeiten.html": "d6e1e14a4c2ca517654bd8cea8eb86654fb11f78ee6ff6495a7cae8118bbeb45",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/schritt-wiederaufnahme.html": "8f983fc58f0a83a1894bebdd87cd5a130d25a72145350023c49dda9891e3c6c7",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-frage.html": "2429b83954aeca0bf96a99806591a66795a2f08e256c22c942196830c968e14f",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-lesen.html": "622cf089e8eac9ee46e392cd75e60343c592d9eddac0940e0389b099a1f5d450",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-ordnen.html": "9243c66b0278fa50ffdccc3fc2e704dbf06cad21bb55fc5cb3fccad82dcc2ae7",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-pruefen.html": "168f4964f042fdcec586753334d34b4e7198f29a57a2463bfdb1593352c622ca",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-sichern.html": "5fbdf192fc2c1605e07c76f6b12da581232b1fc627c63be471776ebe1b9a94cb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-suchen.html": "317587065ce3da683d889b3f94f55710ce1fa0fdb9a20b7722413f7c74cd6c1b",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-suchplan.html": "9ed2d2504129f86d3dcc72e0dec07f5520de181ee956ebd1be45e115156c7407",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-transfer.html": "f2d32df7cdc82a4c0b05fe8525d305262dd92cae7c49357637c0040d66a5e643",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-ueberarbeiten.html": "90c534161c34984ed22ed1d86a87f020caf1d7b9c32bf71f102c94aa34a95ebd",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen-wiederaufnahme.html": "14059c9b169673784b7f7c01c9611bef8a1e7e27688391662c6c15c8560efc5d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse5/recherche/wissen.html": "5652000770a51de23d05e5546e5f41ca07ea8397fea2f2937862b3d996a660f1",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/assets/medienprodukt6/baustein.svg": "1d45ec8c183e19cf06f84eab416207ee5540bbbafa1c5a3ff7021fe4b58dbbc4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/assets/medienprodukt6/projektspur.txt": "f3a05ac4e3d348586ecbdde544e49356d65853bbcb040989181c4d22ecaea197",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/assets/medienprodukt6/vergleich.svg": "4a62cd44f7248590864e468fde541ab38203212498025eeb7d1224a4e8e3df45",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/assets/medienprodukt6/werkzeugkarte.txt": "a2f88fe4826f3ac04c7208aee3b6af024966ee1a39528e4756f601e9628d5a85",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-abruf.html": "add4ab42a72ee3a1363e91cac28c5bb2beb81f91717c8dd2e40fa3092ff283ea",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-auftrag.html": "7d2d30afe86ef324cb82cb5a75a147878d1ba4d91dfdd11566792d89999d263a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-austausch.html": "1c72feb8e209cc5374f9ac66a4a080825db140cdc9a72a40dfd63ae418c8e122",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-bruecke.html": "24a7446547370b7b6e585aeb6e5eb5e526d1aaa08a3183e6aa66c1072782095e",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-entwurf.html": "6ed87c3fc06f76dbd749db3b690f8ab31e7a447bb5f0767cff5a663285517f89",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-revision.html": "7824d7ce7afce2e65a83969660792109406c05b4da4788e65153df07e1e6cb4c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-sichern.html": "ddac4685e3618f9694be2ce0732377b7d54df423266d0de38c290ee837d2851e",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-teilen.html": "35c967bbb972ef984c04564d89d75efbb4bacc6a9fdd09b7bbe331e5c4edd7e0",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-werkstatt.html": "fba2476f3f123715e4e94db1c9327bb51c4c12e7273e198d1270dd9ace5198e4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/baustein-zwischen.html": "c33d11921d01bfe6030c625844580cf34ec56366d993bc962ec85c59b1baacf2",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/bild-baustein.html": "ff6fbf14223762f2652ce5f55480b65baf005d2c8d733c8e3cef283432faec42",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/bild-vergleich.html": "8409d4ff373986c667dad4a0ca886dd01d72ae515a29410c5c4322a0e65d0ebb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/briefing.html": "1845b8a8040ff9ab38c95f56bbc3be79367b82182bc901af1fa2e74f430b6105",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/index.html": "7df9aa302770cce440a06c96634831c2e7892cbdfd50abfc7ba1faf8966c07fb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/lehrkraft.html": "85357a4261540b3e63658f96bae85c7a5baebccba224e18c06cdfaeb09be9828",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/material.html": "f60bab531e8606c9158a61f3e0d724ade26a4237c85689d4de182aecf488a338",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/medienprodukt.css": "26c3eb4ed2f75a36a23e4e6ae59c86e6d65ba96d95bb69d5385c80becc566249",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/projektion.html": "d3569b71bab62a6dfc8629d0283e3bf8d2eb7e7730329328203cddf0b66c52ae",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-abruf.html": "c339ce5b0c30b111088cbfb0ee74288180f8377f5f4185a786b764f5e0e4ac55",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-auftrag.html": "b9a3d94d25a34504394018628814fd5f999e68c432ffa42edcf4c61d94000ab1",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-austausch.html": "5c357e3bfeee2e586cab77ae8de5abebcebad7ac9721d29dd41162c5ee990ddf",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-bruecke.html": "0b3041b34ac1ac22a2d7d288fcce7fda4873f4d83c9b524b4bef432c91a8533c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-entwurf.html": "47f472b7c4790c063f2f3068b210423717cb1dbb560be89a7ddc4a08984e7a50",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-revision.html": "8d308cf027806e41691ec163203867bc81054899607556d810f77da9b5cb3d92",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-sichern.html": "35432df5de47f24d20edef9bf5e172ce4ab0040420760c49bde7b4576223046c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-teilen.html": "e5e2edbf7d347af49c89e89f31eeb340cc3f3d219eb013d6e500373f7cf8681d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-werkstatt.html": "e8285fc76581daeda26cde2fd3df9db86ff5968d8daa7e0c93ce720e302c750b",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/schritt-zwischen.html": "8e5a48f2fde721de43b0d825a53b6e64f0e972c7f7fea5614e268e1cb36d8915",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse6/medienprodukt/wissen.html": "32f5b99f59fe568e95b4fef01dbd7b7cef7a9899e6a7ec68f1ac21d91466a7a4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/bilder/ALG-6-bloecke.png": "ff298c13aa625586b0b7201d7bf1b2135c1dc09c8e908d7eb5de09a0c3c1c1e2",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/bilder/alg6-codekarte.svg": "1fcb16c9812808ed01c1c14c1296b26d7111db4fb08b2ae40e2d3fba52e6901a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/brand/favicon.svg": "f054a8a13e597d68728a3ccbc32ece6567b0bf1da8617fd5a74dfba0196c3c0a",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/brand/ium-lernwerk-7-compact.png": "a1924b7aaae1d6b5724913e55af50fc665d43ec54fbb4b4a013e60238e9153d9",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/brand/ium-lernwerk-7-compact.svg": "255ae7bf2297bc20fd7c3a78cbb5b420c5d1b551cd0a01ea033ab51a7d51c246",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/brand/ium-lernwerk-7.png": "447825c50ee3e060cdbc25264733efbb29aed45aa9af00e5711f99d1452858fe",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/brand/ium-lernwerk-7.svg": "f255e7774faf08aecc1071be677fd063cb40d7e7466f3ed5d3a6e8dfb406b790",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/fassung.json": "5658e1297480f5b329694f9f3e94168999435b0fd830c13a973852aec690fceb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/grade-navigation.css": "5362ca794b3b7de724cdb992d2b3fd4a30589bb8d474dcd0b7313a577949dff5",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/grade-navigation.js": "56ae20bf273eb2d56eac76efe97319df2cc084e9b2f3f9bdc5e56410fcb0b6ee",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/identity.css": "491bc61c36307afb3f1af0c93976f24d68fee473a80e3f0a8065176f2cff61f8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/index.html": "a5f974c1242c9dc11f40f9bdd9d625a51445ed79e15520e93efed0bb3db73e43",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/ALG-3-Beispielloesung.xml": "cdce09fed68346839863eabb59d1f51ae112d673aa6d404ace1a5c2849229d37",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/ALG-4-Repariert.xml": "10a29a9f799aa0c9f3e14072c666e33891ca68c38220d99d0714ef823c9b45f4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/ALG-5-Beispielloesung.xml": "fbd846794321df23b58b324600e7e96e4aa2a1f4a4e55d381dba92da40858e88",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/ALG-6-Repariert.xml": "28f76b7450949aaf154138310789b941a029c2264d6d72ce4796797b58e6a734",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-1-briefing.html": "25a16946134a1d15dc2466b9ec35331152c75788a07e61574c1ef31bb20de58f",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-1-durchfuehrung.html": "7230c912e8f256491d83a66a03bf5226d0b4879368f42d448cae2af787fb0c45",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-2-briefing.html": "90cc4f7f04d69c308769341f637b1fa1e977c77619835eb8c53d45e87bab4f45",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-2-durchfuehrung.html": "942228a0f91ae6e82eb5b8ff7acc38458b61b3272ed0b6bc76fb797715730cb0",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-3-briefing.html": "abead238eac0ad9cb75bc584006a4bb7e2c660230716851e80979a6fd70fcfd8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-3-durchfuehrung.html": "71d8e1fc5fc3eac475b01e3f2a5b5130f86fa9d2b633c6aae6e5ace1f0d08f25",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-4-briefing.html": "2e3b92d4be74cd4db232a28dacb8cd0b63e417af3ef43273293119b86f74db24",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-4-durchfuehrung.html": "277f3ab00028925a9bff34a59162780c510806b66bb6715d55aa0c36dd9b4c64",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-5-briefing.html": "7b82a19f9babbd6aae06a41ca909b9b6afd1511d28941a57e27eaa5f224843b7",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/alg-5-durchfuehrung.html": "92caeac6e75ce5d91a363ef16662568530ecad47817d0185cab09b8a0fabf965",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/durchfuehrung-134.html": "b18df22b1865c71bc94bfd14cd490571121216a51321c7b20541b933d93f9fe3",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/durchfuehrung-256.html": "e5b180804007e670610ce0236a122d284ee355a9d0a528eb7537c1bd057e2e79",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/hoerbriefing.html": "5bbf5e9fdf6f431a80642de62743bb8162072daf6c5c31efa7023bed1b93514d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/jahrgang.html": "f96c92c8f799b732f2bbea42d79af8e7229c24dfecb5028494fe817c0a9458e4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/safari-test.html": "bc739e7c0f3f933bea28ed27cc0fc57e58f733ef76428f3b587692fd3c3cd812",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/sicherung.html": "143c7f0cd12214d5b99291f57dff06e3c60ae44e21ad82cdd0be7c3256cd4473",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lehrpersonen/umgebung.html": "7a4ca7ec0ecb55e6542b76f5f347eaa7403f299095443a82790dd0c4222071b5",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lernende/alg-1.html": "02b76262e2970baf0279878a8818eff3ebabb72a534ca102ff25863e21d342c5",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lernende/alg-2.html": "e4010abe88c8040c96b36835daa9e4d44f7d3a93dacc3aaf9a60df2ca2f9c176",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lernende/alg-3.html": "54feffeed8add63d232e233496d70209b657b55d31bf73226450f26d7b8d9dc8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lernende/alg-4.html": "d5039a685017c6b5c6761f8759372f44eddb349aee647fd80cf8f195bc1700fb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lernende/alg-5.html": "09d3cbd02fff031223ebacb55607ae709bb08907e315edb2a43e58232eb15445",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/lernende/alg-6.html": "7455b89ade76bb8b2ceaf184976f07981b3b307c8b522bca88c1fbee51262275",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/mantel.css": "52f57a9961b0fa7a8f9fbbdf92760313579581a445a3699a04ccfad820b7b5da",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/projekte/ALG-1-Start.xml": "efbaf22072780b2314cb72d0583b200add2a37424f48821264e4ee343d5173f6",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/projekte/ALG-2-Start.xml": "9eaf71f193d0525ed9bf9431f148c929766163e2d1779219d5a087cd37906e38",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/projekte/ALG-3-Start.xml": "30af4133759c093fe58ed9d1c3eb42bc037d55085d3fea795476aaa6803c0bd2",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/projekte/ALG-4-Fehlersuche.xml": "919245c7a153775013360a1e53c6ed7b229b24f4fddd003994af316350cb19b6",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/projekte/ALG-5-Start.xml": "41c0367b0792de96805e84431e60d63412f442111f7c651f5372e96d729169c7",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/projekte/ALG-6-Fehlersuche.xml": "8737627d119bd65a2de5ec14e5f710367462c794d27240ed122951583680aa34",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/reihenlayout.css": "9638716081b3b33511dfefb5842ff25305331eda3e2bedf1087578022e80f56d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/AENDERUNGEN.md": "a03ddfa652c5fbdd3adc1a58b1d4339aaa27a7b5ef739f44e8b6b7c66debf113",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/LERNWERK.md": "421186a6d87e6af38ffbcb20d51d3dd46d83af776ee7f6ddaf76f851fa1af05d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/LICENSE": "02426e3445ed53344dd637cdc13e26e5977d03546e23874ffbc6ead7ef08a130",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/README.md": "eff23ae7c80ff11572aa21c3d5d6b8dd22be3a6adb8cc6e141ca8abc756dcccc",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-120.png": "820879ec3ac6362138f643f94ba434a9596bd857df7ad2630b36975b5a4eac1b",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-128.png": "4761d207dae962fd9af09a2f1b389ba3faaa0b1532019c09ca1665ab2d9d52e9",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-144.png": "05bcb96147a4c4a40a04ec045708ba4d3f22adc7b8c7c9579178dca4083e69e9",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-152.png": "0e520423406fa919f5343eba01ad58c0d0aba32aa61fe9eea2ae3572e6f7d112",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-192.png": "81d72a874a92e789b1990f093dd007cfbfb7d1c534ecdd058bd8b02cb42e043c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-256.png": "0f235726cfb7952a2dc28c6dc3468b98e5b71bb5fd56b6420d775d2368e443d5",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-384.png": "1a762007a3345683291473745dfcdec0c73add82457d394816dd34f31c75580c",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-512.png": "c7210393015b5b84dcffa63587e2c877295f824e79a91a3bd5eb5ccd6e277337",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-72.png": "cf9d39dbd63e8038073e9f9270ff26231c10979dbf892b3ee2ba31b0860357f8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/img/snap-icon-96.png": "3c10e7a18b05f89bd9084cb690e2e9c91555fd584ceb4cca35d322c6da9739c4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/index.html": "6a6d3a1c3f50e65c57d97b8f29c329bfc00a93c7a7564132e968f5b1da035aca",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/lernwerk-editor.js": "910f4dd8dc8328a0a0b1eef63ba70468f1838538e919a630c582eb8cae46d0b9",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/lernwerk-herkunft.json": "5b22b6a7cdfd15fa8c56f68202149057189526495e599dcf002c510b958feb7f",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/lernwerk-modell.js": "ebbb5b4c086380a22dd5482450f0d37b3007ed586be6a59845b8d839209c7758",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/lernwerk.css": "64d36a3c83c1c10e60cebd79aac7b3516eabb98509517c7d4ff3fcfdd9bd5742",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/lernwerk.html": "ad11489a3de5bd91174f4b512c8f0f60d816176d1456bc283d8f50a409b5928f",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/locale/lang-de.js": "f39aebeb5f2f61f4fa0b31a0c995e163fef5baa3b779f1acf9f923c7547c4574",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/provenienz.json": "4741f51db78aab4069fe491f53ff6a3601ef51099f59a025ef7c4b793f069753",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/FileSaver.min.js": "14f249b7c9c0fb12f8454ebf82cae203ca7cc4078b19ab68c938e576f40a19d1",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/api.js": "06f890bb4b7209532cc4d2de8be0a2dc60fdc129fd53992633fe1403b7d196b4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/blocks.js": "97a5b4c5fd7ab62f831b783fe6323f872a1c4f57d553c955b5de77c99af4b324",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/byob.js": "8ca97e2fd08a5c3f9583013d760be6d1bebd86a7c5209d0b215979168750e870",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/click.wav": "24ee9636222619bee7929b4c924236c7480481675dd2b503adda4af401ff13e1",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/cloud.js": "94bdb3d3153e8b709d80745cba984819fa248c9ec95bfe8444a4b597e220d0eb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/embroider.js": "73084ea3b691a5394bf19d20abd52ed2918cb23d9a74495bec2d73124bc72ee3",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/extensions.js": "187ee6744a142a8952fe5ad7973a524efa3f74d77922ad2421a57261e2ab2808",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/favicon.ico": "3a78ea6ce0d0d57286206cd60c35442d00d38f7b7fba4b83bd0b0c226ce6d395",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/gui.js": "be1d96969d63638671d85ed28d0114585786feeac8407276e9c2186f80da2b99",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/lists.js": "beae9196118e9bac9927c1d036698044d907d9c3d7f87c5878ccfd13c1af03f4",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/locale.js": "d84bb401eedb9ff82c64a9af26713db3b291320e2261129e5abeae195ff5bbed",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/maps.js": "1475eb51c16a759a920873969bb1d403c7cfab04880839f43fd5135d3b3bf308",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/morphic.js": "ebc0d40213e1333328aa7d5c7819d91e5b4006d838b0686e7569269878c45b9d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/objects.js": "f2636dadcc9ea870beae8689af6eb5da81d9b2b45a9c789793aef0acaf7fc383",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/paint.js": "1a17fa0e70096c532ab4f3c9b8cc09488b2bd3463890b7977c5d4eac2b2ce2e8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/santa.js": "f75d11c0b7b7271c4c689fb0812b85d0025111d9aca575ea759ec132f72baa60",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/scenes.js": "ed4c29eb31798fd3d4dc84df0d5b42a2b5d56309b9e6f7769cd1d1e235412619",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/sha512.js": "a5ff1bc2f3e81ee563b667746e9ea8a30b60f9a9f0f8662f7300b60ca85a0a73",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/sketch.js": "497799194741b921e4d4c9c27c488e8c0f564e34c46a00edb982c089baa6aa02",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/snap_logo_sm.png": "cac97ec79e3b851027b4ccac9b79fec6dbbcc49f14485f954ba375eece4b2666",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/store.js": "dd2775af40877db6b70680ea861ec1756ea7d2ac35775ef7b0bd13dac74246ef",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/symbols.js": "84fe4214f1420c0c1cb3887732848c19e629b4f82704c823e300df8a74c64be3",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/tables.js": "a3ec22ccb57f403183762bbbe4cc6cd955d155e9366181a4537d050749f1fdc9",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/threads.js": "64f31982e8ca0811dbbd3e2aa4f1053beec98730586e62a3c68742dc52d1228e",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/video.js": "e7e0a6dfb6b925beb376244cfc7f11a62bc3dcc8a897ddbdeff0efcef08dfff8",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/widgets.js": "d1e7138efbc2e7f72c3cb35d7ebc60ae888b9ea63ec634ad1ba1f67ea169f2bb",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/xml.js": "3fa75e3b5bd0473f6f01e7d838ca64747cc952694e63e44e0579b3671dcabc37",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/snap/src/ypr.js": "1dad6ec0ea69162caea9e2ea6c4c2b89ed856e32ace7265bf1b56d56372ed769",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-preview-20261107/klasse7/programmieren/stil.css": "5a01a70d92f5937520ab47f4d11b0d07a62eaa03743a1570974dd1dbdb2c74d0"
+        },
+        "evidenceFiles": {
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-medien.md": "7856df8e75c0ab0b37c535b413ab0adbbff8f4625c092aef85d8ef8c3ef29b13",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-programmieren.md": "418c62800aa2b64439a4d4d068cdfd05238396402bd6e7fc775c9ad2c119757d",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-recherche.md": "b16025715d569fa85d5974ae9b01ff0eb18f7be57e2aa87b9a6eb009f90d30c7",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md": "6a8e4ae804bf13a0e26b53d43d1a772df6f9bd0b371b1befac2ea3fbd2dbff63",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/browser-und-quellen.md": "c9aff5fd5141e88ded12036039b5b5bf03c7fe848d2637c8cbebcf33d5d4db38",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/output-comparison.json": "5db594499b17dd1d435967d0aeaa20b9ae8824f36a4006b6fb822ee14f28cb00",
+          "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/tests-final.txt": "2a9a4ee3b2ab1b76315d8b5148b7a69d20217827adf681bf17dae40e5298f0a5"
+        },
+        "reviewer": {
+          "mode": "self_review",
+          "identity": "Codex Root mit getrenntem Gegencheck durch pilot_gesamtpruefung",
+          "basis": "Root integrierte Quellen, technische Tests, tatsächlichen Browserdurchgang und externe Originalstellen; unabhängiger Agent prüfte mit frischem Kontext Quellen, gesamte Lernwege, Gegenfälle und Ausgaben. Formaler Abschluss ist Root-Selbstreview, keine unabhängige empirische Freigabe."
+        },
+        "checks": [
+          {
+            "id": "zielbezug",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Vollständige Wege / Gegenfälle / Bilanz",
+                "observation": "Recherche prüft eigene Aussage; M07 erklärt mit echtem Lesertest; ALG6 verlangt eigenständige Vorhersage, Reparatur und neuen Fall. Ziele und Ergebnisse bleiben erhalten."
+              }
+            ]
+          },
+          {
+            "id": "fachlichkeit",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Recherche / Medienprodukt / ALG-6 Gegenfälle",
+                "observation": "Korrekte Teilantwort darf bestehen, vollständige Formenfrage bleibt notwendig. Korrekte Rechteangaben dürfen bestehen, echte Produktrevision bleibt notwendig. Grenzwerte50/60 und Varianten12/15 fachlich selbst geprüft."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/browser-und-quellen.md",
+                "location": "Externe Originalquellen",
+                "observation": "DLR über sichtbaren Modulwechsel, timeanddate sowie IAU und NASA geöffnet; zentrale Aussagen mit Originalstellen abgeglichen."
+              }
+            ]
+          },
+          {
+            "id": "lernhandlung",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Vollständige Wege / Gegenfälle / Bilanz",
+                "observation": "Reale Suche und Auswahl, tatsächliche fremde Lesereaktion und Bedienvorführung, eigene Ablaufspur und Reparatur bleiben erforderlich. Kein ausgefülltes Feld genügt als Können."
+              }
+            ]
+          },
+          {
+            "id": "unterstuetzung",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-recherche.md",
+                "location": "Nachher / Gegenfälle",
+                "observation": "Eigene Aussage wird vor Leas Modell markiert und danach wieder aufgenommen; Vergleich geht Herkunft voraus."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-programmieren.md",
+                "location": "Begriffshilfe / Gegenfälle",
+                "observation": "Optionales fremdes Beispiel3*4 erklärt Notizformat, ohne fünf eigene Stellen oder Reparatur zu lösen; ALG2-Vorwissen bleibt Voraussetzung."
+              }
+            ]
+          },
+          {
+            "id": "rueckmeldung",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Vollständige Wege / Gegenfälle / Bilanz",
+                "observation": "Recherche verlangt Rückmeldung zur eigenen Frage, M07 erneutes fremdes Lesen nach begründeter Revision, ALG6 Gegencheck und Prüfung der Vorhersage an Ablauf/Variante."
+              }
+            ]
+          },
+          {
+            "id": "zugaenglichkeit",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/browser-und-quellen.md",
+                "location": "Browserprüfung",
+                "observation": "Ausgaben bei tatsächlich gemessenen Breiten521,800 und1280CSS-Pixeln ohne horizontalen Seitenüberlauf; Pflichtdateifolge ohne Aufklappen sichtbar, Hilfen bedienbar. Keine vollständige Barrierefreiheits- oder390-Pixel-Freigabe."
+              }
+            ]
+          },
+          {
+            "id": "zusammenhang",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Vollständige Wege / Gegenfälle / Bilanz",
+                "observation": "Alle Schritte der Recherche samt M03/M04-Anschluss, alle M07-Schritte einschließlich sechs Abrufen/R12/R13/R14, ALG1–6 und spätere Programmier-Wiederaufnahme in Bezug gesetzt."
+              }
+            ]
+          },
+          {
+            "id": "verifikation",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/tests-final.txt",
+                "location": "TAP-Abschluss",
+                "observation": "233Tests bestanden,0fehlgeschlagen."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/output-comparison.json",
+                "location": "Geänderte Pfade und SHA256",
+                "observation": "1391Dateien in beiden Builds,27geändert,1364identisch, keine neuen/entfernten Pfade."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Technischer Scope",
+                "observation": "Unabhängiger Vergleich bestätigt enge Revisionskette und57unveränderte geschützte ALG-Blöcke."
+              }
+            ]
+          },
+          {
+            "id": "praxis",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/browser-und-quellen.md",
+                "location": "M07 Browserprüfung",
+                "observation": "v1/v2/PDF/erneutesÖffnen außerhalb geschlossener Details sichtbar; Einzelmaterial mit passendem Rückweg tatsächlich geöffnet."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-medien.md",
+                "location": "Ganzer Lernweg / Nachweise",
+                "observation": "Werkzeughandlung direkt zeigen, individuelle Erklärung und echte Empfangsprobe bleiben erforderlich. Reale Schulgeräteerprobung offen."
+              }
+            ]
+          },
+          {
+            "id": "quellen",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/browser-und-quellen.md",
+                "location": "Externe Originalquellen",
+                "observation": "Zentrale Belegstellen von DLR,timeanddate,IAU,NASA geöffnet; DLR erfordert sichtbaren Modulwechsel."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Recherche Gegenfälle",
+                "observation": "Zwei Links plus Anbietername reichen nicht. Eigene Aussage wird an Textstellen verglichen; Ersatztext bleibt ausdrücklich keine unabhängige Originalquelle."
+              }
+            ]
+          },
+          {
+            "id": "urteilen",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Vollständige Wege / Gegenfälle / Bilanz",
+                "observation": "Prüfstand darf bestätigt, geändert oder offen sein; korrekte Rechteleiste darf begründet bestehen. Keine künstliche Änderung als Kompetenzersatz."
+              }
+            ]
+          },
+          {
+            "id": "kooperation",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Medienprodukt Gegenfälle",
+                "observation": "Partner liest ohne Voraberklärung, echte Verständlichkeitsreaktion führt zu begründeter Revision. Eigene Gerätehandlung und individueller Beitrag bleiben nötig; tatsächliche Beobachtung ist Voraussetzung."
+              }
+            ]
+          },
+          {
+            "id": "gestaltung",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Medienprodukt / ALG-6",
+                "observation": "Eigenes Produkt mit ausgewählten Sätzen/Objekt und begründeter Revision bleibt erhalten; ALG-Reparatur und Varianten sind nicht vorgegeben."
+              }
+            ]
+          },
+          {
+            "id": "modell",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-programmieren.md",
+                "location": "Fachliche Nachprüfung",
+                "observation": "Fehlerlauf endet60/vorbei; erste Fehlentscheidung bei50; Reparatur nicht(x<50) endet50/Ziel;12führt56/vorbei,15führt50/Ziel; festerDreierfall drei feste/zwei bedingte Bewegungen."
+              }
+            ]
+          },
+          {
+            "id": "medien",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/browser-und-quellen.md",
+                "location": "Browserprüfung / Grenzen",
+                "observation": "Tatsächlich erzeugtes HTML einschließlich Codekarte, Hilfen, offener Dateifolge und Einzelmaterial gesichtet; unveränderte Filme/Audio ausdrücklich nicht erneut abgenommen."
+              }
+            ]
+          },
+          {
+            "id": "transfer",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Vollständige Wege / Gegenfälle / Bilanz",
+                "observation": "Bibliotheksfall mit aktuellem Datum, andere Zielgruppe/Offlinefall und neuer festerDreierfall bleiben erhalten; neue ALG-Wiederaufnahme mathematisch abgeglichen."
+              }
+            ]
+          },
+          {
+            "id": "abruf",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Vollständige Wege / Gegenfälle / Bilanz",
+                "observation": "M07 frühere und spätere Abrufe einschließlich R12-Unterbrechung mit Rückkehr erhalten; spätere Programmier-Wiederaufnahme fordert eigenständige Grenz- und Wert/Wirkungskenntnis."
+              }
+            ]
+          },
+          {
+            "id": "lernbewegung",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Vollständige Wege / Gegenfälle / Bilanz",
+                "observation": "Die gesamten Wege wurden vor/nach Änderungen samt Voraussetzungen, Ergebnissen, Gegenfällen und Anschluss geprüft. Keine wesentliche Schwächung festgestellt; drei begrenzte Risiken ausdrücklich belassen."
+              }
+            ]
+          },
+          {
+            "id": "aenderungsbilanz",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-recherche.md",
+                "location": "Bilanz",
+                "observation": "Vergleichbarer offener Kerntext505auf559Wörter; klare Rückbindung kostet54Wörter, keine behauptete Zeitersparnis."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-medien.md",
+                "location": "Bilanz",
+                "observation": "Weniger doppelte Notizen und sichtbare Dateifolge; dauerhafte schriftliche Bedienliste entfällt, Beobachtung trägt Nachweis."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-programmieren.md",
+                "location": "Bilanz",
+                "observation": "Doppelte Erklärung entfällt, optionale Hilfe hinzu; frühe zusätzliche verbale Diagnose entfällt, eigene Spur und spätere Erklärung bleiben."
+              }
+            ]
+          },
+          {
+            "id": "umfangsschutz",
+            "status": "pass",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/output-comparison.json",
+                "location": "Vollständiger Dateivergleich",
+                "observation": "Nur27erwartete Ausgaben geändert;1364bytegleich."
+              },
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Technischer Scope / Bilanz",
+                "observation": "Historische Manifeste erhalten, neue Revision angehängt; kein Renderer/CSS/XML/Snap-Eingriff. Zeitkonten225+5,210plusAbrufe,60/405 bleiben Planungsgrößen."
+              }
+            ]
+          }
+        ],
+        "walkthrough": [
+          {
+            "perspective": "Hypothetisches Kind, Klasse5, etwa10–11: bestätigt einen richtigen Satz über Sonnenlicht, muss aber die Formenfrage noch beantworten.",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Recherche, Gegenfall Sonnenlicht",
+                "observation": "Prüfung desselben Satzes geht über Vergleich und Herkunft zum begründeten Stand. Ordnen verlangt weiterhin Beleuchtung, Bewegung und sichtbare Fläche; bestätigter Satz allein schließt Gesamtaufgabe nicht ab."
+              }
+            ]
+          },
+          {
+            "perspective": "Hypothetische Partnergruppe, Klasse6, etwa11–12: Karte missverständlich, Rechteleiste bereits korrekt.",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Medienprodukt, Gegenfälle",
+                "observation": "Leserreaktion ohne Voraberklärung führt zur Inhaltsrevision und erneutem Lesen. Korrekte Rechte können begründet bleiben. Dateifolge sichtbar, ein Notizort; eigenes Bedienen muss beobachtet werden."
+              }
+            ]
+          },
+          {
+            "perspective": "Hypothetisches Kind, Klasse7, etwa12–13: zeichnet Ablauf bis50 und vermutet dort fälschlich Ende.",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-programmieren.md",
+                "location": "Fachliche Nachprüfung / ganzer Weg",
+                "observation": "Eigene Spur vor Lauf verlangt letzte Bedingungsprüfung;50>50istfalsch, Fortsetzungbis60 macht Fehlentscheidung erkennbar. Reparatur, Variante12/15, Begriffe, Dreierfall und geprüfte Speicherung schließen an."
+              }
+            ]
+          }
+        ],
+        "findings": [
+          {
+            "id": "R1",
+            "severity": "minor",
+            "status": "accepted_minor",
+            "impact": "Satzfokussierung kann voreiliges Erledigt-Gefühl erzeugen, obwohl die ganze Formenfrage noch offen ist.",
+            "acceptance": "Ordnen und eigener Entwurf verlangen Beleuchtung, Bewegung und sichtbare Fläche; keine Abnahme allein aus bestätigt markiertem Satz.",
+            "resolution": "Bestehende Modellpause, Hilfe und Ordnen-Kriterien tragen den Übergang bereits. Keine zusätzliche Pflicht oder Textschicht; Übergang im Unterricht beobachten.",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Befunde R1",
+                "observation": "Gegenfall korrekter Sonnenlichtsatz löst gesamte Formenfrage nicht."
+              }
+            ],
+            "recheck": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-recherche.md",
+                "location": "Gegenfälle / Nachprüfung",
+                "observation": "Die Prüfung der vollständigen Antwort bleibt im Ordnen und im eigenen Entwurf erhalten; richtiger Teilaspekt darf bestehen."
+              }
+            ]
+          },
+          {
+            "id": "R2",
+            "severity": "minor",
+            "status": "accepted_minor",
+            "impact": "Mit entfallener schriftlicher Bedienliste entfällt eine dauerhafte Teilspur; ungenaue Partnerbeobachtung könnte Können verdecken.",
+            "acceptance": "Jede Person führt Bedienung unmittelbar vor und erklärt Unterschied sowie eigenen Beitrag am Produkt.",
+            "resolution": "Explizite Vorführung und individueller Abschluss erhalten den Nachweis bei tatsächlicher Beobachtung. Bewusster Preis für weniger redundante Schriftlichkeit, kein behaupteter empirischer Gewinn.",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Befunde R2",
+                "observation": "Geräteprobe und individueller Abschluss vorhanden; tatsächliche Beobachtung notwendig."
+              }
+            ],
+            "recheck": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-medien.md",
+                "location": "Nachprüfung / Bilanz",
+                "observation": "Mündliche Vorführung ist ausdrückliche Handlung, Notizfeld optional. Lehrhinweis fordert Beobachtung."
+              }
+            ]
+          },
+          {
+            "id": "R3",
+            "severity": "minor",
+            "status": "accepted_minor",
+            "impact": "Kurze ALG-Hilfe allein klärt Wert/Wirkung und Literal/Zustandszugriff für Neueinsteiger nicht vollständig.",
+            "acceptance": "ALG2 ist vorausgesetzt; fünf Randnotizen, eigener Gegencheck und gezielte Nachsicherung bleiben erhalten.",
+            "resolution": "ALG6 bleibt Abschluss der Reihe. Zusätzliches Vorlösen der fünf Stellen würde Eigenleistung schwächen; Hilfe begrenzt auf fremdes Formatbeispiel.",
+            "evidence": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-unabhaengiger-review.md",
+                "location": "Befunde R3",
+                "observation": "Wert/Wirkung ist in ALG2 und Sicherung vorbereitet; Hilfe an3*4 löst keinen Auftrag."
+              }
+            ],
+            "recheck": [
+              {
+                "path": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-pilot-20261107/docs/produktion/2026-11-07-pilot-programmieren.md",
+                "location": "Voraussetzungen / Hilfe / Fachliche Nachprüfung",
+                "observation": "ALG2-Anschluss und fünf echte Notizstellen geprüft; Durchführung nennt Vorwissen und beobachtbare Erwartungen."
+              }
+            ]
+          }
+        ],
+        "limits": [
+          {
+            "aspect": "Altersangemessenheit, Zeitbedarf und Wirksamkeit aus hypothetischen Durchgängen, ohne Kindererprobung.",
+            "nextStep": "Je Altersstufe reale Durchführung beobachten, insbesondere Quellenwechsel, echte Bedienvorführung und sieben Minuten Randnotizen."
+          },
+          {
+            "aspect": "Browser bei tatsächlich gemessenen521/800/1280CSS-Pixeln; keine bestätigte390-Pixel-,Touch-,Screenreader- oder Schulgeräteprüfung.",
+            "nextStep": "Vor breiter Einführung auf vorgesehenen Schulgeräten prüfen; bei Bedarf mobile Breiten gesondert messen."
+          },
+          {
+            "aspect": "Einzelmaterial im Browser gesichtet; kein neuer PDF-Drucklauf/Paginierungsnachweis und kein realer Schulprogramm-Export/Empfangstest.",
+            "nextStep": "Druck und v1→v2→PDF→Empfang auf Zielumgebung erproben."
+          },
+          {
+            "aspect": "Unveränderte Lehrfilme, Hörbriefings als Audio und alle übrigen Lernwerke nicht neu didaktisch validiert.",
+            "nextStep": "Bestehende offene Medienabnahmen getrennt weiterführen; diese Pilotrevision nicht als Gesamtabnahme verwenden."
+          },
+          {
+            "aspect": "Formales Prüfsiegel bindet Dokumentation und Dateien, beweist keine fachliche Wahrheit oder empirische Lernwirksamkeit.",
+            "nextStep": "Inhaltlichen Gegencheck zusammen mit dokumentierten Grenzen lesen; Praxiserprobung vor flächiger Übertragung."
+          }
+        ]
+      }
+    ]
+  },
+  "outputComparison": {
+    "baseCommit": "2c3b5563ae6f0a0888811df314337853dcb041f4",
+    "baseline": 1391,
+    "end": 1391,
+    "changed": [
+      "klasse5/arbeitsstellen.js",
+      "klasse5/mantel-sw.js",
+      "klasse5/reihe-recherche.html",
+      "klasse6/mantel-sw.js",
+      "klasse6/reihe-m07.html",
+      "klasse5/recherche/baustein-pruefen.html",
+      "klasse5/recherche/briefing.html",
+      "klasse5/recherche/index.html",
+      "klasse5/recherche/lehrkraft.html",
+      "klasse5/recherche/schritt-pruefen.html",
+      "klasse5/recherche/wissen-pruefen.html",
+      "klasse5/recherche/assets/recherche/recherche-notiz.txt",
+      "klasse6/medienprodukt/baustein-entwurf.html",
+      "klasse6/medienprodukt/baustein-revision.html",
+      "klasse6/medienprodukt/baustein-teilen.html",
+      "klasse6/medienprodukt/baustein-werkstatt.html",
+      "klasse6/medienprodukt/briefing.html",
+      "klasse6/medienprodukt/lehrkraft.html",
+      "klasse6/medienprodukt/material.html",
+      "klasse6/medienprodukt/schritt-entwurf.html",
+      "klasse6/medienprodukt/schritt-revision.html",
+      "klasse6/medienprodukt/schritt-teilen.html",
+      "klasse6/medienprodukt/schritt-werkstatt.html",
+      "klasse6/medienprodukt/assets/medienprodukt6/projektspur.txt",
+      "klasse7/programmieren/lehrpersonen/durchfuehrung-256.html",
+      "klasse7/programmieren/lehrpersonen/hoerbriefing.html",
+      "klasse7/programmieren/lernende/alg-6.html"
+    ],
+    "added": [],
+    "removed": [],
+    "hashes": {
+      "klasse5/arbeitsstellen.js": {
+        "before": "cf33d707e2da1327289facee9b6dabc95a0ff3777248f4b69f584520f8b0ec17",
+        "after": "33ba8e61cb82e3d8eb31db3c01987c5a2014b2c34823b297b430e33d5553c87f"
+      },
+      "klasse5/mantel-sw.js": {
+        "before": "f296dd7301cf76bb2e55db5f1f2e42945fcf1329d15d7f380acc591814010a56",
+        "after": "e8baa0bc3ccdb38296f1f17fd41881f6d3ec0ef443b0180239d1deea8558ca56"
+      },
+      "klasse5/reihe-recherche.html": {
+        "before": "be8b8d2c745032b7bbf4d04a1ce28d81f79d0f40d16f2d93f96fdc4dbab36c43",
+        "after": "1cea972ab5880cefc2a83134c248145e326752d03202e6175fe75f1a46dff375"
+      },
+      "klasse6/mantel-sw.js": {
+        "before": "8443ebb58d2510df03cd7130023ca9f75360bcfc64edc502e2a1ead231d6de51",
+        "after": "29e9963d6796d80b261cf8757d88ce27bdd17a0d8b9dee18610b497bdcada8f6"
+      },
+      "klasse6/reihe-m07.html": {
+        "before": "f506642d5dea0eb9788045027eb7c290ca5975daa93c18bf7f173dc83c98a53f",
+        "after": "ed15cc08645441547d964806bcacb8fb17a84349d03f2c9f36183613212bdb25"
+      },
+      "klasse5/recherche/baustein-pruefen.html": {
+        "before": "e7115c611253b4f3335c629c28b6e5a82d18b94a1f3fe54cc3752c4934bb4dcf",
+        "after": "85c7e60b900d2694b4ce2a9a1ba1b7d883e263826fbc4e8d095cfccbf9ec4d76"
+      },
+      "klasse5/recherche/briefing.html": {
+        "before": "9f97ba13c77eec20f2771eb4cba90e74bee14b58e8a7f1985157ae0e152eeb4a",
+        "after": "fd1916667a60c6d2e0ccbb17db68b76300f2618e38a2998c73a4954ec70dc83d"
+      },
+      "klasse5/recherche/index.html": {
+        "before": "f185a68ff878b92e457c9f9ab17bd536a0155a7e771f14f8bfea62231aa957ad",
+        "after": "9d450a9ea5e96633a07430b5e5a6f0847d8c8981aa0adcbd026f5fd3a58227c8"
+      },
+      "klasse5/recherche/lehrkraft.html": {
+        "before": "b331265548d07dba368b8bfd7acc3dd2eb227a1f6bf9bd2f40b9d65a1826d551",
+        "after": "e1cf05c58a8cdca2cd53a853d995e5f5ed66b8cefbb3314cb5efe6d2929c2f1a"
+      },
+      "klasse5/recherche/schritt-pruefen.html": {
+        "before": "bf04898c8d6acf885090bd7605bb8caccc0a08970ef20ec3ba1e0d7cf49c01f9",
+        "after": "65abc469d07bf9d98693ef091956069e349d980cdbad571059f96a77eb8ecfdc"
+      },
+      "klasse5/recherche/wissen-pruefen.html": {
+        "before": "954644cb1ff305a85d2e856f4162ee90e57f51b73fbd2ede3a56881e0f667a03",
+        "after": "168f4964f042fdcec586753334d34b4e7198f29a57a2463bfdb1593352c622ca"
+      },
+      "klasse5/recherche/assets/recherche/recherche-notiz.txt": {
+        "before": "e79972bab1851912e0446a2e7eb75e6f2a00f8861b6d1e3a5a73be4fa8269b0e",
+        "after": "92d2378ab31e69ac8676faeae459f37b7e2a75894857a6a3cb53392b73220658"
+      },
+      "klasse6/medienprodukt/baustein-entwurf.html": {
+        "before": "d43c1a47ab6398e8fb8df79da632e9be8b8c6cdd12cfe00b6289bf1fdb714271",
+        "after": "6ed87c3fc06f76dbd749db3b690f8ab31e7a447bb5f0767cff5a663285517f89"
+      },
+      "klasse6/medienprodukt/baustein-revision.html": {
+        "before": "4f5edcd7ca7b0f12d60022a5d1eea6df6c6140f4f70351e9b4c3ad1098173daf",
+        "after": "7824d7ce7afce2e65a83969660792109406c05b4da4788e65153df07e1e6cb4c"
+      },
+      "klasse6/medienprodukt/baustein-teilen.html": {
+        "before": "656c20ee32a23e8397fdd96080736c3411ee2d973e5ab7a990511dedec0e16c8",
+        "after": "35c967bbb972ef984c04564d89d75efbb4bacc6a9fdd09b7bbe331e5c4edd7e0"
+      },
+      "klasse6/medienprodukt/baustein-werkstatt.html": {
+        "before": "da0840384f007c91f9996730521f6ab6b09346e29e2e26827225d894ce4734ff",
+        "after": "fba2476f3f123715e4e94db1c9327bb51c4c12e7273e198d1270dd9ace5198e4"
+      },
+      "klasse6/medienprodukt/briefing.html": {
+        "before": "d9aae0c7c1d5c19a3dd550b0672f66b3abf6879ce784ccfaa9d4bc6f22d90945",
+        "after": "1845b8a8040ff9ab38c95f56bbc3be79367b82182bc901af1fa2e74f430b6105"
+      },
+      "klasse6/medienprodukt/lehrkraft.html": {
+        "before": "b93c6c523189897949d75c7021dac7f799a110824a441cbbfa1e336798e6a307",
+        "after": "85357a4261540b3e63658f96bae85c7a5baebccba224e18c06cdfaeb09be9828"
+      },
+      "klasse6/medienprodukt/material.html": {
+        "before": "7e45a8897befb73d14ae30e0e1b27312a76df7b682f526b86aef5abac8f2e96d",
+        "after": "f60bab531e8606c9158a61f3e0d724ade26a4237c85689d4de182aecf488a338"
+      },
+      "klasse6/medienprodukt/schritt-entwurf.html": {
+        "before": "e3d15d80b2218fa832f5fe8fe6f6d7928bdbde77f0f8db92fed984444515dd47",
+        "after": "47f472b7c4790c063f2f3068b210423717cb1dbb560be89a7ddc4a08984e7a50"
+      },
+      "klasse6/medienprodukt/schritt-revision.html": {
+        "before": "b697845aa3580a915b758c0691bba8c006f6d3d9e027bb07dbec1004e5f439d2",
+        "after": "8d308cf027806e41691ec163203867bc81054899607556d810f77da9b5cb3d92"
+      },
+      "klasse6/medienprodukt/schritt-teilen.html": {
+        "before": "8f6b89b43e584ab280a01044d7de6727c15e0d8e87c49a15c0693b5b4185b5d1",
+        "after": "e5e2edbf7d347af49c89e89f31eeb340cc3f3d219eb013d6e500373f7cf8681d"
+      },
+      "klasse6/medienprodukt/schritt-werkstatt.html": {
+        "before": "ed0720433cfd70d32c1a376b0ba7430669765f9609f7374d2752037ff4aa8900",
+        "after": "e8285fc76581daeda26cde2fd3df9db86ff5968d8daa7e0c93ce720e302c750b"
+      },
+      "klasse6/medienprodukt/assets/medienprodukt6/projektspur.txt": {
+        "before": "2183406a01501145ff653affa8e47512955a2115dc6b8b203ddf3852a3fe17f2",
+        "after": "f3a05ac4e3d348586ecbdde544e49356d65853bbcb040989181c4d22ecaea197"
+      },
+      "klasse7/programmieren/lehrpersonen/durchfuehrung-256.html": {
+        "before": "8d5bdfae4ae829d6c57ddcf9df9ad4f5350b2485e989d13aec58fc568a460b4e",
+        "after": "e5b180804007e670610ce0236a122d284ee355a9d0a528eb7537c1bd057e2e79"
+      },
+      "klasse7/programmieren/lehrpersonen/hoerbriefing.html": {
+        "before": "58cab328505d38bdcac4221df0acdac62298f9ea52113f429c9524176cd5075a",
+        "after": "5bbf5e9fdf6f431a80642de62743bb8162072daf6c5c31efa7023bed1b93514d"
+      },
+      "klasse7/programmieren/lernende/alg-6.html": {
+        "before": "db5777d2cb74c30c692eb27dcf2faf7d6c43035203a410b220588aec5bfa968f",
+        "after": "7455b89ade76bb8b2ceaf184976f07981b3b307c8b522bca88c1fbee51262275"
+      }
+    }
+  },
+  "browserObservations": "# Browserprüfung und Quellenabgleich · 07.11.2026\r\n\r\nTatsächliche lokale Ausgabe auf http://127.0.0.1:8927 im In-App-Browser gelesen und visuell gesichtet. Kein Test mit Kindern, kein echter Schulwerkzeug-/Safari-/Touch-Test.\r\n\r\n## Tatsächlich beobachtet\r\n\r\n- Recherche schritt-pruefen: eigene Frage/Antwort als Einstieg; Lea-Modell unverändert zugänglich; Rückkehr zum eigenen Satz; zweite Quelle → Textvergleich → Herkunft → begründeter Prüfstand → Inhaltsentwurf. Hilfe für reine Sonnenlichtantwort geöffnet: fehlenden Formenbezug ausdrücklich geklärt, selbst zu ergänzender Satzanfang. Keine Lösung der eigenen vollständigen Formenfrage im Modell.\r\n- Medienprodukt schritt-werkstatt: direkte Gerätevorführung und Erklärung sichtbar; Feld trägt „Wenn du möchtest: hier notieren“. Die tatsächliche Handlung bleibt im Auftrag/Kriterium. schritt-entwurf: Wahl Projektspur oder Lernwerk ausdrücklich am individuellen Beitrag; danach denselben Ort nutzen; v1 im sichtbaren Hauptauftrag. Einzelmaterial über tatsächlichen Link geöffnet, Rückweg zur gemerkten Arbeitsstelle vorhanden.\r\n- Medienprodukt schritt-revision: bei sechs geschlossenen details stehen v2 editierbar, PDF-Export, PDF erneut öffnen und v1 erhalten im offenen Hauptauftrag. Vorher–Nachher mit Grund, reale Leserprobe, zweite Lesung und Kriterien erhalten. Keine Abschlusssimulation ausgeführt.\r\n- ALG-6: tatsächlichen Abschnitt mit Vorhersage, eigener Fehlersuche, Variante, anschließender Sicherung und fünf Notizstellen gelesen. Begriffshilfe geöffnet: fremdes Beispiel 3*4, Typen und Operator; keine Fehlerstelle/Reparatur vorgegeben. Tabelle und Karte bleiben erreichbar.\r\n- Sichtprüfung in den tatsächlich gemessenen Browserbreiten etwa 521, 800 und 1280 CSS-Pixel; gemessene Dokumentbreite jeweils ohne horizontalen Seitenüberlauf. Die gewünschte 390-Pixel-Umschaltung wurde vom Browser nicht zuverlässig übernommen; daher kein Pass für exakt 390 Pixel, iPad oder Touch. Bei 521 Pixeln waren M07 und ALG-6 umgebrochen und Hilfe/Dateiauftrag lesbar. Kein CSS geändert.\r\n- Temporäre Viewportvorgabe zurückgesetzt; lokale Recherchevorschau für Nutzer offen gelassen.\r\n\r\n## Externe Quelle tatsächlich geöffnet\r\n\r\nDLR_next: https://www.dlr.de/de/next/schule-und-ausbildung/lernmodule/erde-sonne-und-mond#wie-der-mond-die-erde-umkreist\r\nDirekter Abruf zeigte zunächst nur den Einstieg; Klick auf den sichtbaren Abschnittslink lud den Mondabschnitt. Der Text beschreibt Sonnenbeleuchtung und von der Erde sichtbare helle Fläche; die im Lernwerk zugewiesene Stelle ist vorhanden. Kein Video für diese Fundstelle nötig. Das ist eine tatsächliche Browserprüfung, kein Schluss aus dem Textcrawler.\r\n\r\nWeitere Originalseiten per Webzugriff gelesen: https://www.timeanddate.de/astronomie/mond/mondphasen (Abschnitt Eine Frage der Perspektive), https://www.iau.org/IAU/Iau/News/PR2006/iau-2006-general-assembly-resolution-votes.aspx (Definition/acht Planeten/Pluto) und https://science.nasa.gov/dwarf-planets/pluto/facts/ (Introduction). Die bestehenden Kernaussagen passen: wechselnde Sicht auf die beleuchtete Mondhälfte; bei Pluto änderte sich 2006 die Einordnung. Keine neue Quellen-, Bild- oder Lizenzübernahme.\r\n\r\n## Grenzen\r\n\r\nDruckfähige Einzelmaterialien als HTML und Downloads/printText im Build abgeglichen; kein physischer Ausdruck oder neuer PDF-Paginierungsnachweis. Unveränderte Recherchefilm-Hörsichtung bleibt der bereits dokumentierte offene Bestandsnachweis. Technische Einzelfälle von Schulkanal, gemeinsamem Gerät und Dateiaustausch sowie tatsächliche Unterrichtszeit sind weiter vor Ort zu prüfen. Screenshots wurden im Tool tatsächlich gesichtet, aber nicht als separate PNG-Dateien archiviert; dieses Protokoll dokumentiert Beobachtung und Reichweite.\r\n",
+  "testSummary": {
+    "baseline": {
+      "tests": 233,
+      "pass": 233,
+      "fail": 0
+    },
+    "pilot": {
+      "tests": 233,
+      "pass": 233,
+      "fail": 0,
+      "durationMs": 73908.9212
+    },
+    "logPath": "C:/Users/Jan/AI-Workspace-Local/Work/ium-lernbogen-qa-20261107/tests-final.txt"
+  },
+  "integration": {
+    "observedMain": "51a9fd6",
+    "base": "2c3b5563ae6f0a0888811df314337853dcb041f4",
+    "fetch": "success",
+    "pull": "aborted without changes: dirty build.cjs/pages.test.cjs overlap",
+    "push": "not attempted",
+    "required": "Rebind pilot revision to new main, regenerate common serviceworker, rerun full checks."
+  }
+}

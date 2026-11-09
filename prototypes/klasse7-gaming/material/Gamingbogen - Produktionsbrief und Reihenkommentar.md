@@ -8,7 +8,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-09
 tags:
   - output/planung
 ---
@@ -57,12 +57,16 @@ Ein reales Spiel auszuprobieren würde Accounts, Altersprüfung und zusätzliche
 
 Digitales Primärmedium mit aufklappbaren Hilfen, verbundenen Materialien und gesonderten Projektionsimpulsen. Die private kleine Papiernotiz hat eine eigene Schutzfunktion; sie ist keine parallele Printreihe. Die HTML-Seiten erfassen keine Antworten. Externe Quellen sind Hintergrund und freiwillige Vertiefung, nicht notwendiger Arbeitsweg.
 
+## Medienintegration GAM-2 · 09.11.2026
+
+Die C-Rechenfrage steht vor der optionalen Medienhilfe. Die Person hat für diesen Rechenfall noch keine Sterne und kauft die benötigten Sterne. Mit Karte C kann direkt gerechnet werden; Film und Einzelansichten unterstützen bei Bedarf. Die stille 24-Sekunden-Shopfolge zeigt dieselben Preise und Bedingungen wie die Karte: Einstieg → Outfit → Sternepaket. Drei ruhende Zustände haben vollständigen Textzugang. Die bisherigen Anker und Projektionslinks führen zuerst zum Rechenauftrag. Eigene Rechnung, Anreizbegründung, A/B/C-Vergleich und private Entscheidung bleiben erhalten. Die vorhandene Übungszeit und das Aufgabenprodukt ändern sich nicht. Mehr Aufmerksamkeit für C, Medienwahl und Scrollweg bleiben Kosten; reale Lernwirkung ist nicht gemessen.
+
 ## Prüfrahmen
 
 Maßgebliche Einheitfassung: [[Gamingbogen - Durchführung und Auswertung]]. Zwölf Teilkriterien: sechs fachlich am Fall beobachtbar, sechs mit geschützten Eigenhandlungen verbunden. Reflexionsverträge P7-03, P7-04 und P7-05 bleiben erhalten. Keine Selbsthaken als Kompetenzfreigabe.
 
 WU-Basis: lokale Pilotexzerpte der Bände 1, 3 und 6. Kurze Erklärung, belegte eigene Entscheidung, gezielte Hilfe, produktbezogene Rückmeldung und neuer Anwendungsfall. Keine zwingende Partnerarbeit: Austausch dient der Besprechung, die Zielhandlung hängt nicht von einem fremden Gruppenprodukt ab.
 
-Aktive Qualitätsprofile: praxis, quellen, urteilen, persoenlich, transfer, abruf und leistungspruefung. Die Prüfung bleibt formativ. Kooperation, Gestaltung, formales Modell und nichttextliche Medien sind keine eigenen Zielhandlungen dieses Bogens. Angebotskarten sind semantischer Text, keine Quellenbilder; Projektionen werden dennoch tatsächlich gesichtet. Zusatzkriterien: vollständige 270-Minuten-Buchung; privater zeitversetzter Weg mit tatsächlicher Dosierung und fehlender-Erprobung-Fallback.
+Aktive Qualitätsprofile: praxis, quellen, urteilen, persoenlich, transfer, abruf und leistungspruefung. Die Prüfung bleibt formativ. Kooperation, Gestaltung und formales Modell sind keine eigenen Zielhandlungen dieses Bogens. Für die Shopfolge in GAM-2 ist das Medienprofil zusätzlich aktiv: Zustandsfolge, Lesbarkeit, gleiche Angaben und alternativer Textzugang werden tatsächlich geprüft. Angebotskarten sind semantischer Text, keine Quellenbilder; Projektionen werden dennoch tatsächlich gesichtet. Zusatzkriterien: vollständige 270-Minuten-Buchung; privater zeitversetzter Weg mit tatsächlicher Dosierung und fehlender-Erprobung-Fallback.
 
 Kritische Grenzen: Kontaktpersonen müssen vor Ort benannt werden. Gerätezugang ist für die reale digitale Erprobung erforderlich. Ein selbst berichteter Nutzen beweist keine Ursache; Belastung wird nicht provoziert. Reale Dauer, Lernerfolg und Assistive-Technology-/Schulgerätezugang bleiben zu erproben. Prüfbericht: [[2026-10-28 - Gamingbogen Klasse 7 Qualitätsbericht]].

@@ -387,7 +387,7 @@
       "title": "Baue ein Suchregister",
       "goal": "Erkläre mit einem eigenen Versuch, warum eine Suche diese Treffer liefert.",
       "task": "Erkläre mit einem eigenen Versuch, warum eine Suche diese Treffer liefert.",
-      "outcome": "Mein Register ordnet Wörter den richtigen Dokumenten zu. Ich sage die Folgen meiner eigenen Änderung vor der Prüfung voraus. Ich unterscheide Dokumentänderung und Indexaktualisierung. Ich erkläre eine Grenze mit einem Beispiel.",
+      "outcome": "Dein eigener Registerversuch macht nachvollziehbar, woher eine Fundliste kommt und was sie nicht beweist.",
       "knowledge": [
         "index",
         "suchgrenze"
@@ -703,7 +703,7 @@
           "context": "device",
           "preparation": "Lass dir den erlaubten Browser und Suchdienst nennen. Du brauchst Internet. Lass das Lernwerk in seinem Tab geöffnet. Arbeite ohne privates Konto.",
           "action": "Formuliere eine eigene Suchanfrage. Führe sie aus und sichte die Fundliste. Verändere mindestens ein Suchwort begründet und führe auch diese Anfrage aus. Öffne zwei passende Originalseiten. Mindestens eine soll erklären, wer die Einteilung festgelegt hat und wann. Finde heraus, worauf jede Seite ihre Aussage über Pluto stützt.",
-          "return": "Kehre zum Lernwerk-Tab zurück. Halte deine tatsächlichen Suchschritte und Belege fest. Fehlt Internet oder ist die Suche gesperrt, schreibe „Reale Suche noch offen“; nutze vorerst die lokalen Auszüge aus dem vorigen Schritt.",
+          "return": "Kehre zum Lernwerk-Tab zurück und ergänze dein Suchprotokoll nach diesem Gerüst. Fehlt Internet oder ist die Suche gesperrt, schreibe „Reale Suche noch offen“; nutze vorerst die lokalen Auszüge aus dem vorigen Schritt.",
           "routes": [
             {
               "device": "ipad",
@@ -727,20 +727,19 @@
             }
           ],
           "deviceFollowup": {
-            "title": "Was du wirklich prüfen musst",
-            "text": "Ein Link allein ist noch kein Beleg. Suche die Stelle, die deine Frage beantwortet.",
+            "title": "Ein Suchprotokoll in drei Abschnitten",
+            "text": "Führe deine Notizen im selben Feld oder im Heft weiter. Ein Link allein ist noch kein Beleg. Stichwörter genügen; du musst keine zweite Quellenakte anlegen.",
             "items": [
-              "Notiere den Seitentitel und wer den Inhalt verantwortet. Eine Domain kann ein Hinweis sein; prüfe auch die Herkunftsangabe auf der Seite.",
-              "Halte das Datum des Textes fest, soweit erkennbar, und getrennt davon dein Suchdatum. Kein Datum auffindbar? Schreibe genau das.",
-              "Notiere eine kurze Aussage in eigenen Worten und die Fundstelle, etwa Überschrift plus Absatzanfang. Passt sie zur IAU-Frage?",
-              "Markiere auf jeder Seite, wer Pluto eingeordnet hat oder woher die Angabe stammt. Vergleiche: Gehen beide Stellen auf dieselbe Entscheidung zurück? Was erfährst du auf einer der Seiten zusätzlich? Wenn die Herkunft offenbleibt, halte das fest."
+              "Suchweg: Suchdatum und Suchdienst; erste Anfrage → geänderte Anfrage; warum hast du ein Suchwort verändert?",
+              "Quellen 1 und 2: Notiere für jede geöffnete Originalseite Titel, vollständige URL und verantwortliche Person oder Organisation, wie auf der Seite angegeben. Halte das erkennbare Textdatum getrennt vom Suchdatum fest; sonst „kein Datum auffindbar“. Ergänze die passende Fundstelle (z. B. Überschrift plus Absatzanfang) und ihre Aussage in eigenen Worten.",
+              "Vergleich: Markiere auf jeder Seite, wer Pluto eingeordnet hat oder woher die Angabe stammt. Gehen beide Stellen auf dieselbe Entscheidung zurück? Was trägt jede Seite zur IAU-Frage bei, was erfährst du zusätzlich? Bleibt die Herkunft offen, halte das fest."
             ],
             "paragraphs": [
               "Keine Werbung anklicken, nichts kaufen oder installieren. Falls eine Seite Anmeldung verlangt oder unpassend wird, kehre zur Fundliste zurück und frage deine Lehrperson. Eine automatisch erzeugte Kurzantwort ersetzt nicht die Originalseite."
             ]
           },
-          "prompt": "Suchdatum und Suchdienst · beide Anfragen und Grund der Änderung · je Seite URL, Herausgeber, Datum, Fundstelle und Aussage · Woher stammt die Angabe jeweils? Was trägt jede Seite zu deinem Urteil bei?",
-          "responseHint": "Stichwörter genügen. Für den Vergleich kannst du schreiben: „Seite 1 stützt sich auf … . Auf Seite 2 erkenne ich an …, dass … .“",
+          "prompt": "Mein Suchprotokoll: Suchweg · Quellen 1 und 2 · Vergleich",
+          "responseHint": "Drei beschriftete Abschnitte im selben Feld genügen. Beim Vergleich hilft: „Seite 1 stützt sich auf … . Auf Seite 2 erkenne ich an …, dass … .“",
           "help": [
             {
               "title": "Wenn kein brauchbarer Treffer kommt",
@@ -1207,7 +1206,7 @@
         "Registerarbeit: Lassen Sie zuerst die neun Wortzuordnungen prüfen, dann die beiden Vorhersagen vor dem Nachschlagen festhalten. Vergleichen Sie bei einer Abweichung nur die betroffene Wortliste und die gemeinsame Treffernummer. Ein vorhandener Gesamteintrag aus einer früheren Fassung kann weiterverwendet werden.",
         "Register enthält nur die Suchwörter: eine einzige Karte gemeinsam lesen und alle Wörter zuordnen; dann eine weitere Karte selbst bearbeiten lassen. Dokumentänderung wird sofort als Indexänderung behandelt: altes Register sichtbar liegen lassen und erst danach einen zweiten Stand erstellen.",
         "Eine lernende Person schreibt nur „acht“: auf die beiden unterschiedlichen Aussagen zeigen lassen und einen weil-Satz mit Fundstelle verlangen. „Neu gewinnt“: fragen, ob die neue Mitteilung für dieselbe Einrichtung und Zeit gilt. Vertrauen nicht als Eigenschaft einer ganzen Domain abhaken.",
-        "Suchprotokoll zeigt nur einen fertigen Link: eine eigene Anfrage am Gerät wiederholen lassen, Änderung begründen und Originalseite öffnen. Hilfslink oder lokale Auszüge sind Sachhilfen, kein Ersatz für die Suchhandlung. Zählt ein Kind zwei Herausgeber als zwei Bestätigungen, lassen Sie es in beiden Fundstellen die Stelle markieren, die den Urheber der Einordnung nennt. Fehlt eine Herkunftsangabe, darf es die Abhängigkeit offenlassen.",
+        "Das Suchprotokoll wächst in einem Feld oder im Heft: Suchweg, Quellen 1/2, Vergleich. Eine vollständige vorhandene Akte bleibt nutzbar; keine zweite Abschrift verlangen. Zeigt sie nur einen fertigen Link, eine eigene Anfrage am Gerät wiederholen lassen, Änderung begründen und Originalseite öffnen. Hilfslink oder lokale Auszüge sind Sachhilfen, kein Ersatz für die Suchhandlung. Zählt ein Kind zwei Herausgeber als zwei Bestätigungen, lassen Sie es in beiden Fundstellen die Stelle markieren, die den Urheber der Einordnung nennt. Fehlt eine Herkunftsangabe, darf es die Abhängigkeit offenlassen.",
         "Preis oder Automatisierung wird als Beweis für Falschheit behandelt: eine richtige automatisch versandte Terminankündigung als Gegenbeispiel nutzen. Gleichlautende Posts sind ohne weitere Angaben kein Bot-Nachweis.",
         "KI-Antwort wird vollständig abgelehnt: nützlichen Suchvorschlag von Sachbehauptung unterscheiden lassen. Bei Quellenlinks zur genauen Fundstelle zurückführen. Für sprachliche Hürden Satzgerüste oder mündliche Erklärung mit Ihrer kurzen Nachweisnotiz zulassen."
       ]
@@ -1272,7 +1271,7 @@
   ],
   "briefing": [
     "M02 beginnt mit einer Frage, die nicht durch Trefferzählen gelöst werden kann: Acht oder neun Planeten nach der IAU? Sammeln Sie zuerst Vermutungen. Der alte NASA-Bericht ist keine plumpe Fälschung. Sein zeitlicher Kontext ist die entscheidende Lerngelegenheit.",
-    "Vor der fünfstündigen Kernreihe stehen sechs Minuten M01-Abruf aus dem Jahreskonto. Im Kern bauen die Lernenden selbst ein Wortregister. Erst die neun Wörter zu Karten zuordnen, dann getrennt für altes und aktualisiertes Register vorhersagen und an den Wortlisten prüfen. Bei der Pluto-Recherche zeigt jedes Kind an zwei Fundstellen, worauf die Aussagen beruhen. IAU-Beschluss und NASA-Bericht darüber zählen für die Einordnung als ein Beschluss; der Januarbericht der NASA belegt die frühere Bezeichnung. Prüfen Sie die erlaubten Zugänge auf beiden Gerätearten. Ohne Internet bleibt diese praktische Handlung offen.",
+    "Vor der fünfstündigen Kernreihe stehen sechs Minuten M01-Abruf aus dem Jahreskonto. Im Kern bauen die Lernenden selbst ein Wortregister. Erst die neun Wörter zu Karten zuordnen, dann getrennt für altes und aktualisiertes Register vorhersagen und an den Wortlisten prüfen. Das Suchprotokoll gliedert dieselben Angaben in Suchweg, Quellen 1/2 und Vergleich; ein Feld oder Heft genügt. Bei der Pluto-Recherche zeigt jedes Kind an zwei Fundstellen, worauf die Aussagen beruhen. IAU-Beschluss und NASA-Bericht darüber zählen für die Einordnung als ein Beschluss; der Januarbericht der NASA belegt die frühere Bezeichnung. Prüfen Sie die erlaubten Zugänge auf beiden Gerätearten. Ohne Internet bleibt diese praktische Handlung offen.",
     "Die Stunde zu Interessen unterscheidet Verkaufsziel und Wahrheitsgehalt sowie Erzeugen, Veröffentlichen und Weiterverbreiten. Der vorbereitete KI-Text enthält absichtlich Fehler. Lassen Sie einzelne Aussagen an Belegen korrigieren und zugleich die brauchbare Suchanregung erkennen.",
     "Zum Schluss werden Rückmeldung und Revision sichtbar. Im neuen Bibliotheksfall zählt die passende Einrichtung und Geltungszeit; das neueste Datum genügt nicht. Verlangen Sie Begründungen, keine abgeschriebenen Muster. Lassen Sie eine mündliche Erklärung zu, wenn die Schreiblast den fachlichen Nachweis verdeckt.",
     "Die Wiederaufnahmen liegen vor M03 und M07, jeweils acht Minuten aus M02s Jahresanteil. Halten Sie Hilfen und offene Praxisnachweise fest. Die geplanten 38 Jahresstunden sind für Klasse 6 weiterhin unbestätigt.",

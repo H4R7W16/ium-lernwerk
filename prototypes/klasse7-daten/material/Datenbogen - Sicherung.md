@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-07
 tags:
   - output/sicherung
 ---
@@ -57,6 +57,8 @@ Bei den Dezimalpräfixen gilt: 1 kB = 1 000 Byte, 1 MB = 1 000 kB, 1 GB = 1 000 
 Eine passende Auflösung erhält die Informationen, die für den Zweck gebraucht werden. Bei gleicher Bits-pro-Pixel-Zahl hat ein 8×8-Bild viermal so viele Nutzdaten wie ein 4×4-Bild: 64 statt 16 Bit, also 8 statt 2 Byte. Der Faktor ergibt sich aus **beiden** Bildrichtungen.
 
 Unter sonst gleichen Bedingungen müssen damit mehr Daten übertragen und gespeichert werden. Geräte, Netze und Speicher benötigen Energie; die Herstellung benötigt Rohstoffe. Aus der Bitzahl allein folgt aber kein fester Stromverbrauch und keine CO₂-Menge. Technik, Nutzung und Betrieb beeinflussen den Bedarf.
+
+Im konstruierten Schlüsselpaar kann das gleiche 4×4-Raster zwei Vorlagen entsprechen. Vergrößern gewinnt den verlorenen Unterschied nicht zurück. Das 8×8-Raster erhält hier einen Unterschied, ist aber keine allgemeine Qualitätsgarantie.
 
 Eine begründete Wahl nennt **Zweck, sichtbares Detail, Datenmenge und Aussagegrenze**. Eine kleine Datei, die den nötigen Unterschied nicht erkennen lässt, erfüllt den Auftrag nicht. Mehr Pixel allein garantieren ebenfalls keine ausreichende Darstellung.
 

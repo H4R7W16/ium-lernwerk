@@ -1,0 +1,35 @@
+{
+  "base": "b1d65f6522997530aaa089d9cea98c58009f22b9bc74d78a4c8419c2615f65ce",
+  "date": "2026-11-09",
+  "scope": "Beauftragte B17-Führungsrevision R01–R03; frühere Schrittführung, gemeinsamer Vergleich und vorhandene Versuchsspur mit Rückwegen. Nur betroffene M03-Ausgaben und Offline-Manifest. Historische Bindungen unverändert.",
+  "changes": {
+    "klasse6/werbung/schritt-modell.html": {
+      "before": "ac3a3eb0ead4969344908ffdb4bc06b552d183b310eb6d56082c55dd2ed49033",
+      "after": "f9e5b6e1161f54ef579acbe86d165b441a08207b429629070cd2243d9f7c5f1e"
+    },
+    "klasse6/werbung/lehrkraft.html": {
+      "before": "6a2e3df526074161777b8f2e1c98d5368f2c5b4f392f611da656a63720225a7f",
+      "after": "4e45ee28c582d04995b78e22bcaf364c8428958af5f767d8bcc51e8b0c84d5a2"
+    },
+    "klasse6/werbung/briefing.html": {
+      "before": "00a3fe189665f15ddb55ab922bc04a3f2e11776f6839582df517a880f2039265",
+      "after": "23018c5d0e0f92db9529d3690f61eba591ab79471cae120869a4b7103341b1dc"
+    },
+    "klasse6/werbung/b17-model.js": {
+      "before": "a838a1812d0616d56ad5bf39495ba63545d1d78e91fc8df0488c5365a7313fc7",
+      "after": "5be2f0270f8401f85728b08d40fbdb97ec6f9120523be13c2cadbe847320f289"
+    },
+    "klasse6/werbung/b17-model.css": {
+      "before": "63e9e0f341d1189af835d07875724677ce152f145fcfd8f021ef5138ae5bb65c",
+      "after": "479dba9942adf0250c97475bf8886e2c980d88525554015ccb2e996a4b970fae"
+    },
+    "klasse6/reihe-m03.html": {
+      "before": "4efe5fe936396490fdd95b6572921f5d045ed8d7a24b7a7a831452d9ded8bb0c",
+      "after": "035d05545cf09a58884c68ef5f4b5a83874b3bf9fe832e1a2be1d1234a3384f4"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "080e6743f59e2a2a293c513e797520ebd664e06e47db1407d7558154f7380875",
+      "after": "d484717054e4a9537a06cb78bea5f17e002f65d0ed4b4d9304209f6b9fd6a88e"
+    }
+  }
+}

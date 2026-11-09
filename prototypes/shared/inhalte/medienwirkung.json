@@ -1,7 +1,7 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M05-MEDIENWIRKUNG",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "grade": 5,
   "area": "medienwirkung",
   "family": "content",
@@ -50,7 +50,7 @@
       "paragraphs": [
         "Hilfekarte mit erreichbarer Person, Alternative und schulischem Meldeweg ausfüllen. Papier für private Gedanken bereitstellen; keine Abgabe oder Kontrolle persönlicher Antworten. Keine echten Profile oder Chats verwenden. Bei Hilfebedarf getrennt vom Unterrichtsnachweis unterstützen.",
         "Bildwerkstatt auf iPad und Windows vorab öffnen; Bedienung, Speicherung und Wiederöffnung am Schulprofil prüfen. Bei geteiltem Gerät jede Person selbst gestalten lassen. Ausdrucke tragen die Analyse; digitale Bedienung bleibt bei reinem Papierweg offen. Eigenes Papier oder Denken schützt bei geteiltem Bildschirm besser als eine sichtbare Eingabe.",
-        "Bei einem Gerät: zwei eigene Browsertabs und unterscheidbare Arbeitsdateien für die Lernenden; keine gemeinsame Gerätesicherung einschalten. Jede Person bedient und erklärt selbst. Für Papierarbeit das Wegblatt mit den ausdrücklich verlinkten Bildblättern zusammen austeilen; digitales Gestalten bleibt nachzuholen.",
+        "Bei einem Gerät zwei eigene Browsertabs und unterscheidbare Arbeitsdateien verwenden, keine gemeinsame Gerätesicherung. Die zweite Person beginnt über „Deine Arbeit“ beim Bildwerkstatt-Stand mit „Neu beginnen – bisherigen Stand behalten“; ein kopierter Tab allein trennt den Stand nicht. Wechselweg vorab prüfen: neutralen Stand sichern, anderen Tab nutzen, bei Rückkehr Überschrift/Ausschnitt mit Fallspur vergleichen. Nach Neustart passende Datei als eigenen neuen Stand übernehmen. Private Gedanken auf Papier oder im Kopf; die Arbeitsdatei ist kein Schutzraum. Für Papierarbeit Wegblatt und verlinkte Bildblätter austeilen; digitale Gestaltung nachholen.",
         "Beim Erfolgsfall Beitrag und Kontextbild nebeneinander erklären lassen: Was wird gezeigt, was wurde ausgelassen? Die Bilder belegen vier Versuche und einen Falttipp, nicht den genauen Verlauf einzelner Versuche. Keine persönlichen Misserfolge als Nachweis verlangen.",
         "Für den Werbevergleich Jules’ vierseitigen Bilderbeitrag einmal öffnen. Er funktioniert ohne Konto und Ton; Pfeile, Tastatur und die Ansicht „Alle Bilder“ sind möglich. Zuerst nur B betrachten lassen; Magazin A und Analyseauftrag folgen anschließend. Bei Papierarbeit steht B im vollständigen Einzelmaterial vor A. Die Werbekennzeichnungen bleiben sichtbar. Die KI-Bilder illustrieren einen erfundenen Beitrag, sie dokumentieren keinen realen Belastungsversuch und sind keine präzise Faltanleitung."
       ]
@@ -87,7 +87,7 @@
   ],
   "briefing": [
     "Diese fünfstündige Reihe verbindet Werbung, Bildwirkung und Selbstdarstellung mit einer geschützten eigenen Reflexion. Die bestehende Bildwerkstatt ist mit neunzig Minuten integriert. Beurteilt werden nur erfundene Fälle und ein eigener neutraler Bildbeitrag.",
-    "Bereiten Sie die Hilfekarte und einen geschützten Reflexionsweg vor. Persönliche Gedanken werden nicht eingesammelt, vorgezeigt oder in normale Antwortfelder übertragen. Papier oder Denken ist gleichwertig zur freiwilligen privaten Notiz. Eine harmlose eigene Erfahrung aus dem Unterricht genügt. Ein fiktiver Fall bleibt Vorbereitung. Auf einem geteilten Gerät erhält jede Person einen eigenen Browsertab und eine unterscheidbare Arbeitsdatei. Wegblätter für das Bildlabor zusammen mit den drei verlinkten Bildblättern austeilen.",
+    "Bereiten Sie Hilfekarte und geschützten Reflexionsweg vor. Persönliche Gedanken werden nicht eingesammelt oder gezeigt. Papier oder Denken ist gleichwertig zur privaten Notiz; eine harmlose Unterrichtserfahrung genügt. Auf geteiltem Gerät: eigener Tab und unterscheidbare Arbeitsdatei je Person. Zweite Person über „Neu beginnen – bisherigen Stand behalten“ starten lassen. Wechselweg vorab prüfen: sichern, anderen Tab nutzen, bei Rückkehr eigene Überschrift/Ausschnitt kontrollieren; nach Neustart passende Datei als eigenen neuen Stand übernehmen. Keine gemeinsame Gerätesicherung. Wegblätter samt verlinkten Bildblättern austeilen.",
     "Im 25-minütigen Werbevergleich kommt zuerst Jules’ vierseitiger Bilderbeitrag B. Nach allen vier Bildern denken die Lernenden 30–60 Sekunden selbst oder sagen leise: „Was würdest du aus Jules’ Beitrag für deine Brücke übernehmen?“ Die erste Idee bleibt im Kopf, ohne Abgabe. Erst danach folgen Magazin A und der Vergleich mit Bildnummern: Werbehinweise, Einbettung, Kaufziel und Aussagegrenze. Auf Bild 2 sind Faltinformation und Papierempfehlung im selben Absatz verbunden; der Faltfix-Block gehört zum Arbeitsplatz. Bild 3 zeigt den Beginn des Münztests. In der vierten kurzen mündlichen Aussage kehren die Lernenden zur ersten Idee zurück: Was würden sie weiterhin übernehmen, was bleibt ungeklärt? Bestätigung und Präzisierung sind möglich. Textzugang und Einzelmaterial mit B vor A tragen dieselbe Belegprüfung. Die Werbemarkierungen bleiben sichtbar. Die KI-Illustrationen sind kein Experimentnachweis; die 25 Minuten bleiben unverändert.",
     "Die ersten beiden Stunden führen vom Werbevergleich über den Bildversuch zum Fallurteil. Stunde drei beginnt mit eigener Gestaltung und echtem Lesetest. Stunde vier enthält dessen Abschluss, das neutrale Reflexionsmodell und persönliche Denkzeit. Stunde fünf schließt den Optionenvergleich ab und führt über den Bibliotheksfall zu Hilfe bei Ausgrenzung.",
     "Beobachten Sie konkrete Begründungen, tatsächliche Bedienung, echte Rückmeldung und begründete Änderungen. Weder Häkchen noch freiwillige Fertigmeldungen beweisen die Qualität persönlicher Reflexion. Fünf Minuten Wiederaufnahme folgen später: drei öffentlich am neutralen Fall, zwei privat am eigenen Vorhaben.",
@@ -603,7 +603,7 @@
           "id": "entwurf",
           "prompt": "Zeige deine echte Änderung am Werkzeug: Was hast du am Ausschnitt oder an einem Textfeld verändert, und warum? Halte Absicht und erste Fassung kurz in der Fallspur fest. Sichere den Werkstattstand über „Deine Arbeit“.",
           "responseMode": "oral",
-          "responseHint": "Eigene Fallspur und eigene Arbeitsdatei pro Person. Beim zweiten Lesen öffnest du deinen Stand; überschreibe nicht den Entwurf der anderen Person.",
+          "responseHint": "Eine eigene Fallspur und eine unterscheidbare Arbeitsdatei pro Person. Darin bleiben neutrale Arbeitsergebnisse. Persönliche Gedanken werden bei der Übergabe nicht gezeigt.",
           "media": [
             "fallspur"
           ],
@@ -616,7 +616,9 @@
             }
           ],
           "paragraphs": [
-            "Ein Gerät zu zweit? Verwendet für jede Person einen eigenen Browsertab und bleibt beim Weiterarbeiten im jeweiligen Tab. Schreibt eure erste Überschrift, den Ausschnitt und die Absicht zusätzlich in eure eigene Fallspur. Vor dem Rollenwechsel sichert jede Person ihre Arbeitsdatei unter einem unterscheidbaren Namen am vereinbarten Ort. Öffnet beim nächsten Mal den passenden eigenen Stand."
+            "Ein Gerät zu zweit? Nutzt je einen Browsertab und eine eigene Fallspur. Die erste Person sichert ihren neutralen Werkstattstand. Die zweite öffnet „Deine Arbeit“ in ihrem Tab und wählt beim Bildwerkstatt-Stand „Neu beginnen – bisherigen Stand behalten“. Ein kopierter Tab allein erzeugt noch keinen eigenen neuen Stand. Keine gemeinsame Gerätesicherung einschalten.",
+            "Vor dem Rollenwechsel: Sichere deine Arbeitsdatei unter einem unterscheidbaren Namen, etwa Bildbeitrag-A oder Bildbeitrag-B, am vereinbarten Ort. Notiere nur deine Kennung und erste Überschrift in der Fallspur. Dann wechselt die andere Person in ihren eigenen Tab und prüft ihre Überschrift, bevor sie arbeitet.",
+            "Bei der Rückkehr: Vergleiche Überschrift und Ausschnitt mit deiner Fallspur. Nach einem Neustart öffnest du deine passende Arbeitsdatei unter „Deine Arbeit“ mit „Als eigenen neuen Stand übernehmen“. Prüfe den Inhalt, dann arbeite weiter. Bei Unklarheit stoppen und die Lehrperson fragen; keinen vorhandenen Stand ersetzen."
           ]
         }
       ],
@@ -652,7 +654,7 @@
         {
           "type": "cooperative",
           "title": "Erst lesen, dann erklären",
-          "text": "Arbeitet 30 Minuten. Tauscht die Rollen. Nur erfundene Fälle und den Bildbeitrag zeigen, keine private Notiz.",
+          "text": "Arbeitet 30 Minuten. Zeigt jeweils den eigenen Bildbeitrag und das Fallurteil; die andere Person liest ohne Voraberklärung. Sichert vor dem Rollenwechsel den eigenen Stand und wechselt in den passenden Tab. Private Notizen bleiben geschlossen und werden nicht weitergegeben.",
           "id": "lesetest",
           "contribution": "Zeige deinen Bildbeitrag ohne Voraberklärung. Die lesende Person sagt: „Ich verstehe …, weil hier … steht/zu sehen ist.“",
           "exchange": "Vergleicht den Eindruck mit deiner Absicht. Prüft danach am vierteiligen Fallurteil: Beleg, mögliche Folgen, Abwägung, Handlung. Jede Person erhält mindestens einen konkreten Hinweis.",

@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-03
+updated: 2026-11-09
 tags:
   - output/lernmaterial
 ---
@@ -21,7 +21,7 @@ Nutze **ein bekanntes Dokument oder dein Heft**. Lege die fünf Überschriften D
 | DAT-2 | AM TOR als Bits; neue Nachricht als Text; Fehlerstelle und Reparatur; Vergleich mit eigenem Code; neuer Kurzfall |
 | DAT-3 | Motiv, selbst gewählte Rastergröße und Regel; eigenes Pixelbild; eigenes Bitpaket mit Bildvereinbarung; von dir rekonstruiertes fremdes Bild; Vergleich, Korrektur oder begründete Abnahme; neuer Kurzfall |
 | DAT-4 | Rechnungen mit Einheiten für Text und eigenes Raster; Größenordnung; Budgetentscheidung; neuer Paketfall |
-| DAT-5 | Empfehlung mit Bilddetail, Datenvergleich und Ressourcenbezug; Rückfrage und Revision; Entscheidung zum neuen Zweck |
+| DAT-5 | Empfehlung mit Bilddetail, Datenvergleich und Ressourcenbezug; Rückfrage und Revision; zwei kurze Zeilen zum neuen Zweck. [Zum Schlüsselvergleich](dat-5-welche-datenmenge-passt-zum-zweck.html#zweckwechsel) |
 
 Deine erste Vermutung darf falsch sein. Lass sie erkennbar und ergänze die neue Fassung daneben. So kannst du erklären, **was** du geändert hast und **warum**. Ist etwas bereits richtig, begründest du die Abnahme; du erfindest keinen Fehler.
 
@@ -51,11 +51,13 @@ Abweichung an Zeile …, Spalte … / zwei kontrollierte Felder:
 
 Für DAT-4: `Anzahl × Bits je Element = … Bit; … Bit ÷ 8 = … Byte`. Beim Vergleich großer Mengen zuerst dieselbe Einheit herstellen.
 
+<section id="dat-5-zwecknotiz"><h3>DAT-5 · Den Zweckwechsel festhalten</h3><p>Ergänze deine vorhandene Empfehlung mit zwei kurzen Zeilen. Ein Feldbeleg genügt:</p><ul><li>4×4: …</li><li id="dat-5-feinnotiz">Nach 8×8 wähle ich …, weil … (Zeile …, Spalte …).</li></ul><nav aria-label="Zurück zum Schlüsselvergleich"><a href="dat-5-welche-datenmenge-passt-zum-zweck.html#zweckwechsel">Zum ersten 4×4-Urteil</a> · <a href="dat-5-welche-datenmenge-passt-zum-zweck.html#dat-5-feinauftrag">Zum 8×8-Vergleich</a></nav></section>
+
 Eine Skizze, kurze Stichpunkte oder eine gleichwertige mündliche Erklärung können langes Schreiben ersetzen, wenn die Lehrperson das mit dir vereinbart. Codierung und Rechnung müssen dabei weiterhin von dir stammen. Die gemeinsame [[Datenbogen - Sicherung|Sicherung]] ergänzt deine Produkte; sie ersetzt sie nicht.
 
 
 ## Sichern und wieder aufnehmen
 
-Deine sachlichen Werkstattnotizen liegen im vereinbarten Dokument oder Heft. Speichere das Dokument am bekannten Ort, schließe es und öffne es dort wieder; nur ein Dateiname in der Notiz ist noch kein Nachweis. Bilddateien separat als Original und Varianten sichern und wieder öffnen. Ausführbarer Snap-Code wird später als XML gespeichert, nicht als Bild. Diese Dateiprüfung gehört in die jeweils vorhandene Sicherungsphase.
+Bewahre Codetabellen, Bitfolgen, eigene und rekonstruierte Raster sowie Rechnungen im vereinbarten Dokument oder Heft auf. Arbeitest du digital, speichere das Dokument am bekannten Ort und öffne es dort wieder. Bewahre dein eigenes Raster und seine Bits aus DAT-3 so auf, dass du sie in DAT-4 wiederfindest. Das gehört in die vorhandenen Sicherungsphasen.
 
 Persönliche Reflexionen gehören in eine getrennte eigene Notiz oder bleiben Gedanken. Sie werden nicht mit sachlichen Werkstattnotizen geteilt, exportiert oder an den nächsten Jahrgang übergeben.

@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - output/lernmaterial
 ---
@@ -34,7 +34,7 @@ Eine Beschwerde oder Belastung muss nicht vorhanden sein. **Fallweg:** Jona lies
 
 ## Mein Versuch
 
-**Vor GAM-4:** „Ich wähle …, weil … Meine Bildschirmphase endet … Daran will ich den Nutzen prüfen: …“
+**In GAM-4, Abschnitt 2:** „Ich wähle …, weil … Meine Bildschirmphase endet … Daran will ich den Nutzen prüfen: …“
 
 **Nach vier Minuten Lesen und zwei Minuten Fachnotizen: drei Minuten auf diesem privaten Zettel.** „Tatsächlich getan: … Beobachtet: … Unklar bleibt: …“ Datum nur für deinen eigenen Vergleich. Kein Erfolgsdruck. Fallweg: dieselbe Struktur als Plan für Lee, Beobachtung ausdrücklich noch offen.
 

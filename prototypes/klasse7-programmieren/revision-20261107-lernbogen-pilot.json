@@ -1,0 +1,99 @@
+{
+  "base": "447f484e22ec9515c56ae4b6158f44c3119b9c12ddc2fb8183dfe85b1dd19765",
+  "date": "2026-11-07",
+  "scope": "Beauftragter Lernbogen-Pilot: reguläre Recherche Klasse 5 und Medienprodukt Klasse 6; Lernbewegung und Zeitkonten erhalten. Weitere Klasse-5-Seiten ändern nur eingebettete Inhalts-/Planungsdaten. Historische Bindungen bleiben erhalten.",
+  "changes": {
+    "klasse5/recherche/index.html": {
+      "before": "051bcac3c35526acb9ff7bf03546d9c90442eeed1d8b85f37a7c4fe67acfd6d4",
+      "after": "938e8bcdbf8be7789e1e4d900bc130e359d4131df02fccda03a9dd5d59fc794d"
+    },
+    "klasse5/recherche/schritt-pruefen.html": {
+      "before": "0d80e2d23caf01b1faf47b820d579b711ba1b35edad5709752598354de76be3f",
+      "after": "bd9bc5947bec8e288110867a970d882da3809986d5ff8306a8338837a912ad45"
+    },
+    "klasse5/recherche/baustein-pruefen.html": {
+      "before": "af0dcf884378b4af83429243013c6d1ac5f2af1370dc6ac7a88589a5f75a95c8",
+      "after": "766bc9ffb0392f00b7842b9a0335781f4a6066edc6a42d1dbf8140a95edfe47a"
+    },
+    "klasse5/recherche/lehrkraft.html": {
+      "before": "1a608ca5f794ff22153c9b7828bf810459fc4690ac2318b1193703c8e1916871",
+      "after": "af942f0bad700345265a2516828225cbb65b1867e0b179ae213c81260c355752"
+    },
+    "klasse5/recherche/briefing.html": {
+      "before": "961b8fdb92dd10e08088727831ed360597bde5b85966e62c0fb756718240bde5",
+      "after": "2d44b143a282e804eff8a14148a8e5d841ca704f196cb48a2013fcf06d3bcf26"
+    },
+    "klasse5/recherche/assets/recherche/recherche-notiz.txt": {
+      "before": "e79972bab1851912e0446a2e7eb75e6f2a00f8861b6d1e3a5a73be4fa8269b0e",
+      "after": "92d2378ab31e69ac8676faeae459f37b7e2a75894857a6a3cb53392b73220658"
+    },
+    "klasse5/reihe-recherche.html": {
+      "before": "fa4cccbf901da79e2a4d143da2b452c3655e0726ce4fc5cd20b80220089579db",
+      "after": "d0adc7ac872b0b709236c792fec4ca304dc45a00f78e751fdd8518619b3bd445"
+    },
+    "klasse5/mantel-sw.js": {
+      "before": "225e58a94240bbd4a28ac48297372dfebb329d9993f2758440481592c67259e3",
+      "after": "f1fd82625f97687b9809946be55fda9d98c0672870fb6e84811126107c68a86b"
+    },
+    "klasse6/medienprodukt/schritt-werkstatt.html": {
+      "before": "104075d0adc5107bec9cb4ffb7b620e0a795f3528acbcb21d84421f05455a59c",
+      "after": "0f6150fa4c037201509ab3d5891bbe21272b3cd2396bbfd0b238ace8cbf260b0"
+    },
+    "klasse6/medienprodukt/baustein-werkstatt.html": {
+      "before": "583fa80fb4c80a7141806144d33ba74ac7676e1169ab92217e439c4492b4916f",
+      "after": "fa550648fc6ef87dfc40df87f23d97a71e9c9eb0993b0bbe576d37a224c688df"
+    },
+    "klasse6/medienprodukt/schritt-entwurf.html": {
+      "before": "eb11779e07361397e470f53668448d312342111ef672fce3137c8187cd7c3465",
+      "after": "ad76f7688530a7d9514ba480d4fa5c5e55fd337d125681fd25aed8e8f0817010"
+    },
+    "klasse6/medienprodukt/baustein-entwurf.html": {
+      "before": "c5e30326ee5a9089a3b5711d075c908d2fe093b2d63be5c9fa75ec031c8c31aa",
+      "after": "d667bb1ecccb4422f1bb5d68fa7c69f3967125b10b1b0a7709c681f48febccbe"
+    },
+    "klasse6/medienprodukt/schritt-revision.html": {
+      "before": "7a522011d0cd7b1f8a635ebdfb8bce507055c4ee5c07d434752ed9ab269cd4df",
+      "after": "02df31398ddfd20d3c515ec34f293ed5d82cabc1062b4c47d72532497848ef2e"
+    },
+    "klasse6/medienprodukt/baustein-revision.html": {
+      "before": "7face6b44891f3ec3769a049c1e4cdeab21f399f24a381f118010673d808c04f",
+      "after": "656690a701a0cbf3aecaa010683177378ce4e138df73d04b8f167d60b2a2c213"
+    },
+    "klasse6/medienprodukt/schritt-teilen.html": {
+      "before": "14f812ab331a76fe2362fca94f9ad1aec1cbe7bf0373c1f900e19c3e1a480b97",
+      "after": "cdd4bd5df98d601461fbb3f05dae8b72159ce843fd291e42f7eaf57029655abf"
+    },
+    "klasse6/medienprodukt/baustein-teilen.html": {
+      "before": "970ecd9b6d26329ba7c9b809c5f2c0986e76516c767924fd8446f45ac7a25fb1",
+      "after": "0c5cf3d6bf58a5cdd93d30168a33e13f5b7095297cf23b311b5474e5fa333e8c"
+    },
+    "klasse6/medienprodukt/material.html": {
+      "before": "929b13fd93bfa9543e2917a84d4e2688f673515283def670fb79c2eae15ff5ab",
+      "after": "22fa733172f3f5dd883c0b6b6f04c831fd39d63ccdb01811cc98b1c3dcd32b86"
+    },
+    "klasse6/medienprodukt/lehrkraft.html": {
+      "before": "296db63f53b4ec3a120c3695fc6b973ba509b1a9e32729c3bcf9417df3d48b25",
+      "after": "5585fba5b5f456115b8138083ccc2be106f758b4938fc14a5d6b8a4afe173770"
+    },
+    "klasse6/medienprodukt/briefing.html": {
+      "before": "702c988634379ad06145eb368c59b20f8d828c91085c548235febe571137255d",
+      "after": "836cd57892f9a275439710f44109be6109a7745a76a43c94ca610ba6007dd430"
+    },
+    "klasse6/medienprodukt/assets/medienprodukt6/projektspur.txt": {
+      "before": "2183406a01501145ff653affa8e47512955a2115dc6b8b203ddf3852a3fe17f2",
+      "after": "f3a05ac4e3d348586ecbdde544e49356d65853bbcb040989181c4d22ecaea197"
+    },
+    "klasse6/reihe-m07.html": {
+      "before": "729327dde963b761f1b48387c952cd55485771f971eaff31d50b1f9b94a2d138",
+      "after": "dc7a5af6da50ce5f8fe8bf44434900d39aa701d3976679a56d6d079fabb4ff6b"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "edff595dc62bb52ee02cee500df556f8649369e065e803715b3e34028be4aa54",
+      "after": "9953e6549ff0b60f94c2816225fce1fd4f7562848c7112e52f6f8016f96fb611"
+    },
+    "klasse5/recherche/wissen-pruefen.html": {
+      "before": "5257c9f8ddb9104c269d683ac359d5d39ebb8a07a776c054f0da7f5fda9352f8",
+      "after": "f35215b2bf342bd836e6f742f765c80eeafb498d81d4f7a85140d9cdd88fc4e6"
+    }
+  }
+}

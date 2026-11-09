@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 klassenstufe: 7
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-07
 tags:
   - output/quellen
 ---
@@ -43,6 +43,7 @@ Namensnennung für die Nachnutzung: **„IuM-Lernwerk, Datenwerkstatt Klasse 7, 
 | DAT-1 bis DAT-5, Notizen, Lösungen, Sicherung, Projektion, Briefings | Eigene Formulierungen und erfundene Lernfälle | CC BY-SA 4.0 soweit schutzfähig; keine reale Kommunikation oder Nutzungsdaten |
 | B1 Dreieck, B2 Vorlagen, B3 Rasterhilfen, B4 leere Raster | Eigene geometrische SVG-Konstruktionen | CC BY-SA 4.0 soweit schutzfähig; Formen und Mittelpunktregel sind ausdrücklich Modelle |
 | B5 Schlüsselvergleich | Aus derselben eigenen Geometrie mit zwei Rastergrößen berechnet | CC BY-SA 4.0 soweit schutzfähig; kein empirischer Lesbarkeitstest, keine reale Schlüsselidentifikation |
+| B7 Schlüsselpaar und Zelltabellen · 07.11.2026 | Eigene präzise Geometrie mit verändertem rechten Zahn, Raster nach Mittelpunktregel; reproduzierbarer Erzeuger im Entwicklungsbranch | CC BY-SA 4.0 soweit schutzfähig; konstruierter Unterschied, keine reale Schlüsselprüfung. SVG-Dateigröße getrennt von Modellnutzdaten. |
 | B6 Datenweg | Eigenes beschriftetes Vektorschaubild | CC BY-SA 4.0 soweit schutzfähig; qualitative Beziehungen ohne Verbrauchsmesswerte |
 | ASCII-Ausschnitt und Einheitenangaben | Sachliche Werte aus den oben genannten Primärreferenzen, eigene Auswahl und Gestaltung | Keine fremde Illustration oder Seite übernommen; Quellenlink bleibt erhalten |
 | Wortmarke IuM Lernwerk 7 und Favicon | Vorhandene IuM-Projektassets aus der geprüften Medienfassung, unverändert | Projektgestaltung, kein fremdes Markenasset hinzugefügt; keine neuen Markenrechte zugesagt |

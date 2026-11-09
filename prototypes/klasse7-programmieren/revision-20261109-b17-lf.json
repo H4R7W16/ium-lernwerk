@@ -1,0 +1,19 @@
+{
+  "base": "d99d0ec0804909991a976e2b2dd397e7c17fd56a19c4b97cf062080cd4c28f95",
+  "date": "2026-11-09",
+  "scope": "B17 Laufzeitdateien an tatsächlich mit LF gespeicherte Gitobjekte binden; Windows-Arbeitsbaum vor Hashbildung normalisiert. Verhalten/HTML identisch, historische Bindungen bleiben erhalten.",
+  "changes": {
+    "klasse6/werbung/b17-model.js": {
+      "before": "6706b0c54503fa9ec2ada41c0d7e4965a483bf0b3833f042b8b31a8a4a0abfa9",
+      "after": "a838a1812d0616d56ad5bf39495ba63545d1d78e91fc8df0488c5365a7313fc7"
+    },
+    "klasse6/werbung/b17-model.css": {
+      "before": "7b3f69802819605667cf8f1c3a61f76cc2fe36d52a787fb99306a86049296267",
+      "after": "63e9e0f341d1189af835d07875724677ce152f145fcfd8f021ef5138ae5bb65c"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "c00dde204bc4c33278ce9fa1e8241deb2bec25612b725d394898722ef57c402f",
+      "after": "080e6743f59e2a2a293c513e797520ebd664e06e47db1407d7558154f7380875"
+    }
+  }
+}

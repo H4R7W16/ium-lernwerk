@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-09
 tags:
   - output/lernmaterial
 ---
@@ -34,11 +34,16 @@ Vereinfachte Modellangebote, keine echten Shops. Die angegebenen Beträge gelten
 
 Beispiel A: „Die Spielenden zahlen einmal. Der Anbieter hat ein Interesse daran, Käufer zu gewinnen. Die Karte belegt keine zusätzlichen Einnahmen pro Spielminute.“
 
-Übertrage den Gedankengang auf B. Rechne anschließend für C: Wie viel Geld muss jemand mindestens ausgeben, um das eine Outfit zu kaufen? Wie viele Sterne bleiben übrig? **Tatsächlich nötige Zahlung** und rechnerischer Wert sind nicht dasselbe.
+Übertrage den Gedankengang auf B.
+
+<section class="shop-task" id="wolkenteam-shopfolge">
+<p id="gam-2-rechenauftrag"><strong>Rechne für C:</strong> Die Person hat noch keine Sterne und kauft die benötigten Sterne im Shop. Wie viel muss sie für das Outfit mindestens bezahlen? Wie viele Sterne bleiben übrig? <strong>Tatsächlich nötige Zahlung</strong> und rechnerischer Wert sind nicht dasselbe.</p>
+<div class="shop-media"><h3>C · Wolkenteam als Shopfolge</h3><p>Mit Karte C kannst du direkt rechnen. Bei Bedarf helfen dir die Shopfolge oder die Einzelansichten.</p><details class="shop-video"><summary>Shopfolge ansehen · 24 Sekunden ohne Ton</summary><video controls preload="none" playsinline width="1920" height="1080" poster="material/wolkenteam-start.svg" aria-label="Wolkenteam: vom Einstieg über das Outfit zum Sternepaket" aria-describedby="shopfilm-hinweis"><source src="material/wolkenteam-shopfolge.mp4" type="video/mp4">Nutze die drei Shopansichten darunter.</video><p id="shopfilm-hinweis">Erfundene Oberfläche · Ende vor dem Kauf. Die Schaltflächen im Film sind Teil der Darstellung.</p></details><details id="wolkenteam-einzelansichten"><summary>Statt Film: drei Shopansichten einzeln lesen</summary><figure><img src="material/wolkenteam-start.svg" alt="Wolkenteam: Einstieg in das erfundene Angebot."/><figcaption><strong>1 · Einstieg.</strong> Start ohne Geldzahlung. Alle Aufgaben sind ohne Käufe lösbar. Eine Schaltfläche führt zum Shop.</figcaption></figure><figure><img src="material/wolkenteam-outfit.svg" alt="Outfitangebot mit Preis und zeitlichem Hinweis."/><figcaption><strong>2 · Outfit.</strong> Das Outfit kostet 450 Sterne. Es verändert nur das Aussehen, nicht die Fähigkeiten. Der Hinweis lautet „Nur heute!“.</figcaption></figure><figure><img src="material/wolkenteam-sterne.svg" alt="Sternepaket neben dem Outfit, noch vor dem Kauf."/><figcaption><strong>3 · Sternepaket.</strong> Neben dem Outfit für 450 Sterne steht das einzig verfügbare Paket: 500 Sterne für 5 €. Hier endet die Darstellung vor dem Kauf.</figcaption></figure></details><p><a href="#gam-2-rechenauftrag">Zum Rechenauftrag</a></p></div>
+</section>
 
 ## 3 · Vergleichen und entscheiden · 15 Minuten
 
-**Fachnotizen, etwa 11 Minuten:** Fülle je Angebot eine Zeile: Wer zahlt? Wofür? Welcher Anreiz entsteht für den Anbieter? Welches Kartenmerkmal belegt das? Formuliere dann einen Rat an die erfundene Alex: „Ich möchte gelegentlich spielen, nichts spontan kaufen und ungern Werbung sehen.“ Du darfst A, B, C oder keines empfehlen. Nenne zwei passende Kriterien und einen Nachteil deiner Wahl.
+**Fachnotizen, etwa 11 Minuten:** Fülle je Angebot eine Zeile: Wer zahlt? Wofür? Welcher Anreiz entsteht für den Anbieter? Welches Merkmal belegt das? Formuliere dann einen Rat an die erfundene Alex: „Ich möchte gelegentlich spielen, nichts spontan kaufen und ungern Werbung sehen.“ Du darfst A, B, C oder keines empfehlen. Nenne zwei passende Kriterien und einen Nachteil deiner Wahl.
 
 <details><summary>Hilfe: Interessen nicht als Gewissheit ausgeben</summary><p>Bei B können mehr ausgespielte Anzeigen mehr Einnahmemöglichkeiten schaffen. Bei C kann Zeitdruck eine schnelle Kaufentscheidung begünstigen. Daraus folgt nicht, dass jede Person kauft oder dass das Outfit nötig ist. Beginne: „Das Merkmal … kann … fördern, weil …“</p></details>
 

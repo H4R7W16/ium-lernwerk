@@ -1,7 +1,7 @@
 {
   "fassung": "1.1",
-  "datum": "2026-11-03",
-  "inhaltspruefung": "Gesamtkonzept 5–7: lokale Prüffassung 03.11.2026; Umfang, Nachweise und offene Erprobungsgrenzen im Gesamtprüfbericht.",
+  "datum": "2026-11-09",
+  "inhaltspruefung": "DAT-5: R01–R03 gezielt nachgearbeitet, Abschluss/Empfehlungsbezug und Rückwege. Vorherbindung in quelle-vor-20261109-nacharbeit-sha256.json; aktueller Ganzweg-/Qualitätsbericht docs/produktion/2026-11-09-dat5-nacharbeit-ergebnis.md.",
   "files": {
     "dat-1-briefing.html": "bd4a68dc2772e026a80dea17c7dd92bdb48b068f480e1ada4d682f1fdd728677",
     "dat-1-ein-eigener-code-muss-ruckwarts-funktionieren.html": "0398612f669f6ec73e38ac8a34da21f9d9028fee7b663170d0e03f55b0a7ca38",
@@ -11,17 +11,17 @@
     "dat-3-vom-bild-zum-pixelraster-und-zuruck.html": "14279edf5e9b4fb355b5c7dde128a97f26f471a99aea9068060f3b0c7c8717f3",
     "dat-4-briefing.html": "20f4c3e4b7d445f8a4a8a1a77b722f940ee619ff6bb15220c04cc652c8964027",
     "dat-4-wie-gro-sind-unsere-datenmengen.html": "44f764b03cd95418f8bdcfa6468da88734e83aea9a0cc570645ba522beb9a9d2",
-    "dat-5-briefing.html": "ae35b645330d05ae97b6bfa6817f66d12e7dca5b868967939c2608d27122e46b",
-    "dat-5-welche-datenmenge-passt-zum-zweck.html": "be8b79bab65b9cbe3f0b4cafb311657aeeec6f90c88d248b27574cc897b2bf22",
-    "daten.css": "0c5d30d7c22bc52c6439239bc488ee38e596ab797bbd557df0d5704f2bfbf92d",
+    "dat-5-briefing.html": "e864df3e881a5022808c25e1e6611eb195a0ed100f3066e0494994f6c806858e",
+    "dat-5-welche-datenmenge-passt-zum-zweck.html": "ff45e3313f9202c9e24220e79097b3511e475909108fa392bb293e6e5a556743",
+    "daten.css": "9bbd68c14da8121f144c1e60bcae09b1bb0fd174444a973e16302da60fd04615",
     "datenbogen-briefing.html": "4ef228f9d90ddef0b51d738b8dd2dae7c4384bca0acaaaf720c0b0b061a2bd7c",
-    "datenbogen-durchfuhrung-und-auswertung.html": "a3475a6aae12653dba2f1e9f4fa86c4e09383edde8be46f20bcccf9f26d4327d",
-    "datenbogen-material-und-alternativzugange.html": "158e2f750b41c2ca38d7c627a5d833cfcf8cfe88b458203a671eb51d6be133e4",
+    "datenbogen-durchfuhrung-und-auswertung.html": "e33e2e0b3e9f8e22422bc399b098ad7e7a749abfd89c1d18ad42878cf28ac5fd",
+    "datenbogen-material-und-alternativzugange.html": "7a54a27f7de9c74010cd1df13eea03cfc5e0e725be6020f07589501b7316b1c0",
     "datenbogen-produktionsbrief-und-reihenkommentar.html": "025401c11f447d55f7e1a721cd68fcd81d1bb2686242c1afa0ba664ad5254a7a",
     "datenbogen-projektion.html": "85372ee7370b221d9afa90d0624faa2d308f518e5cef04f3e4c9d0d0d4ead803",
-    "datenbogen-quellen-und-nutzungsrechte.html": "4948a6ded113e07ac07d85fb46fcd19b3dd5744c5cfa498d77d79c8d51a9a68a",
-    "datenbogen-sicherung.html": "3acc2d56f9a56fc8b85a4b9a1135ae7d535e5659eb2264865072e85e75bb8c00",
-    "datenbogen-werkstattnotizen.html": "50718ca428a4525d73773f65f2e746f6cfc33d2d01ae53c84d6ac56ea9ee0de7",
+    "datenbogen-quellen-und-nutzungsrechte.html": "60100bf6770559fbb052d89ef8afd15f50bf79174e4a50c3de929773ec0857c7",
+    "datenbogen-sicherung.html": "94116db098eae5d4faf09c838646d03a12252d1d916b6a8958a3676a5059fbc1",
+    "datenbogen-werkstattnotizen.html": "5a7565c18e2dd5730cb440ef2eaf0f7b756402408086721a7909da4e848d5bf6",
     "fassung.json": "9d4e15c5ffb2a1fa14762ca9f1ee850788fab6a0714a2caaa048eab2473e4bab",
     "index.html": "a9598a708a5bbdd7ebb612cf4e4c4f1c4a11d36340fce8df6bdff8bda22d123b",
     "material/datenweg.svg": "acb5fae26279da96ae3b0ef89ab40bc093fc2f91b1aa231602cc7b2b3db75c9f",
@@ -40,7 +40,11 @@
     "projektion-2.html": "093bcdecfa86e6e3a79d084b1a2f50573f50eabcbfa5b13ef446e05d801c5252",
     "projektion-3.html": "9d2c8225ed16e8588445c884b35c7941fdd6f836c04d6cf3812dedace88040f0",
     "projektion-4.html": "62670e644985481213dd0b77e269cb0b343ffeed1b0adead28f592b5e53042da",
-    "projektion-5.html": "f8fe0cb3d7e339b640de5493a1ef9a6a905744ab8020d34a1d6fd62db3d5b011"
+    "projektion-5.html": "6840e7aeaa022a3b2afe25ff30bdc1ce9707bea4f0044a8a13af3d69c6ce62ac",
+    "material/schluesselpaar-4.svg": "a590b4d4409d43e5e326f84d9dc185dc02f53b954dc26c68aff5a497504fbc84",
+    "material/schluesselpaar-8.svg": "d6c18d806fceb3fd21540608672fb2b8eca4a099c294401d5f3637a93f9ca012",
+    "material/schluesselpaar-modell.json": "33b336cc5a8fa52355392a151352aa247628faa0fdecf08833c0ac91c7211119",
+    "material/schluesselpaar-vorlagen.svg": "6f5b97f7e15fd39f3ee77de98e55c398e614c6af75b0bfcca5f25b949242aa27"
   },
   "inhaltspflege_2026_11_05": "DAT-3: gleichwertiger Einstieg und Tauschsignal. DAT-5: beide Schlüsselraster feld- und positionsgetreu als Tabellen."
 }

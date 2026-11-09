@@ -76,3 +76,7 @@ Produktionsfolge, Versionsbindung und kopierbarer Folgeauftrag: [Klasse 5](produ
 
 ## Beschrifteter Bildvergleich
 Ein Block oder Wissensartikel kann mediaLayout:"comparison" mit genau zwei verschiedenen Bildreferenzen verwenden. Beide Bilder erscheinen mit ihrem Medientitel als zusammengehöriger Vergleich: nebeneinander bei ausreichender Breite, untereinander auf schmalen Geräten und gemeinsam im Einzelmaterial. Ein einzelnes Bild, doppelte Referenzen, Downloads oder unbekannte Layoutwerte werden vor dem Build abgewiesen. Normale Medienlisten bleiben unverändert. Alternativtexte und Beschriftungen müssen den Vergleich auch sprachlich erschließen.
+
+### Optionale B17-Bildschirmhilfe (Klasse 6)
+
+Nur `grade:6`, `area:werbung`, Schritt `modell`, Aufgabe `versuch` darf `selectionModel:true` tragen. `paperText` ist Pflicht und erhält den eigenständigen Zettelauftrag für die Papierausgabe. Keine neuen Antwortfelder oder Aufgabenfolge; JS/CSS nur im Modellschritt. Der flüchtige Modellzustand gehört nicht in die Arbeitsdatei. Vorhandene Versuchsspur und Modulversion 2.0.0 bleiben kompatibel. Regel-/Zustandslogik und alle Einzeleingriffe werden in `b17-model.test.cjs` geprüft.

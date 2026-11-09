@@ -1,14 +1,14 @@
 {
   "authorVersion": 2,
   "id": "IUM-5-M03-ZUSAMMENARBEIT",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "grade": 5,
   "area": "zusammenarbeit",
   "family": "content",
   "title": "Deine Idee. Unser Plan.",
   "topic": "Zusammenarbeiten",
-  "description": "Öffnet eure belegten Inhaltsentwürfe aus der Recherche. Tauscht echte Rückfragen aus und handelt eine gemeinsame Gliederung aus. Jede Person kann zeigen, was sie beigetragen und aufgrund der Rückmeldung geändert hat.",
-  "product": "Eine gemeinsame Gliederung für eine Infokarte: mit Quellen, einem eigenen Beitrag von jeder Person und einer begründeten Überarbeitung.",
+  "description": "Öffnet eure belegten Inhaltsentwürfe aus der Recherche. Tauscht echte Rückfragen aus und handelt eine gemeinsame Gliederung aus. Jede Person zeigt ihren Beitrag und erklärt, wie sie mit der Rückmeldung weitergearbeitet hat.",
+  "product": "Eine gemeinsame Gliederung für eine Infokarte: mit Quellen, eigenen Beiträgen und begründeten Entscheidungen nach Rückmeldung. Jede Person zeigt außerdem eine konkrete Überarbeitung.",
   "prerequisites": [
     "Partnerperson, eigene Schulzugänge und ein freigegebener geschlossener Kursraum",
     "iPad oder Windows-Schulgerät; eine erlaubte Schreib- und Austauschmöglichkeit",
@@ -67,7 +67,7 @@
       "title": "Beobachten → nächste Hilfe",
       "paragraphs": [
         "Nur „passt“ als Rückmeldung? Eine konkrete Überschrift und eine noch offene Frage nennen lassen. Eine Person erledigt alles? Jede erklärt ihren Beitrag vor dem Zusammenführen; Bedienrolle wechseln. Zwei Einzelteile ohne Zusammenhang? Gemeinsam eine Leitfrage wählen und eine Dopplung streichen. Regel nur wiederholt? An der tatsächlichen Nachricht zeigen lassen, wie sie angewandt wurde.",
-        "Der eigene Beitrag, die empfangene Antwort und eine daraus entstandene Änderung bilden den Nachweis; ausgefüllte Felder oder Selbsthäkchen allein reichen nicht. Bei fehlendem Kanal/Partner fehlt dieser Teil. Im Konfliktfall keine privaten Chats zeigen lassen. Fiktiven Fall besprechen; reale Hilfeanliegen vertraulich nach schulischem Verfahren aufnehmen."
+        "Eigener Beitrag, empfangene Antwort und begründete Entscheidung bilden den Kooperationsnachweis. Jede Person zeigt außerdem eine tatsächliche Überarbeitung: am eigenen Abschnitt oder, wenn dieser nach erneuter Prüfung trägt, am vorhandenen unvollständigen Regelhinweis. Ausgefüllte Felder oder Selbsthäkchen allein reichen nicht. Bei fehlendem Kanal/Partner fehlt dieser Teil. Im Konfliktfall keine privaten Chats zeigen lassen. Fiktiven Fall besprechen; reale Hilfeanliegen vertraulich nach schulischem Verfahren aufnehmen."
       ]
     },
     {
@@ -93,10 +93,10 @@
     }
   ],
   "briefing": [
-    "Drei Stunden, ein kleines gemeinsames Ergebnis: Die Paare planen eine Infokarte für eine andere fünfte Klasse. Jede Person sendet einen eigenen Beitrag, erhält eine Antwort und nutzt eine Rückmeldung zur Überarbeitung. Ein fertiger Plan allein zeigt noch nicht, dass beide beteiligt waren.",
+    "Drei Stunden, ein kleines gemeinsames Ergebnis: Die Paare planen eine Infokarte für eine andere fünfte Klasse. Jede Person sendet einen eigenen Beitrag, erhält eine Antwort und prüft damit ihren Abschnitt. Begründetes Beibehalten braucht eine konkrete Prüffrage und Antwort; die tatsächliche Überarbeitung erfolgt dann am vorhandenen unvollständigen Regelhinweis. Ein fertiger Plan allein zeigt noch nicht, dass beide beteiligt waren.",
     "Füllen Sie vorher die Kursraumkarte aus und prüfen Sie den Austausch mit zwei schulischen Konten. Der Bogen ist schulunabhängig. Er erfindet weder Menübezeichnungen noch lokale Regeln. Auch eine kurze tatsächliche Nutzungs- oder Regelstelle gehört auf die Karte. iPad und Windows sind gleichwertig. Wer keinen Zugang oder keine Partnerperson hat, kann vorbereiten; der echte Austausch bleibt nachzuholen.",
     "In Stunde eins liegen zehn Minuten Kursraum, zehn Minuten Beispiel, fünfzehn Minuten Klärung und zehn Minuten Vereinbarung. Stunde zwei beendet die Vereinbarung in fünf Minuten, gibt fünfunddreißig Minuten für eigene Beiträge und beginnt fünf Minuten Rückmeldung. Stunde drei führt diese in zehn Minuten zu Ende, überarbeitet zehn Minuten, bearbeitet fünfzehn Minuten einen fiktiven Konflikt und sichert zehn Minuten. Sichern Sie Arbeitsstände innerhalb dieser Phasen. Die gemeinsame Nachrichtenregel wird schon vor dem Austausch angepasst; später wird der Quellen- und Lizenzhinweis vervollständigt. Vereinbaren Sie vorab, welche Paare einander die Endfassung zeigen. Ist nach der gemeinsamen Endfassung zu wenig Zeit, wird der noch offene Weg im Teamplan notiert und zum vereinbarten Termin vor M04 nachgeholt. Der Zugang wird vor jeder Geräteübergabe geschützt.",
-    "Beobachten Sie individuelle Beiträge, genaue Rückfragen und eine begründete Änderung. Unterstützen Sie gezielt, wenn nur eine Person schreibt oder Rückmeldung vage bleibt. Die lokale Startbasis hilft ohne alte Recherche-Notizen. Echte Recherche wird dadurch nicht nachgewiesen. Niemand muss private Konflikte offenlegen. Zum Schluss wird die Gliederung im Kursraum und als digitale Vorführung geteilt und für M vier gesichert. Fünf spätere Abrufminuten kommen aus dem vorhandenen Jahreskonto; die reale Erprobung bleibt offen.",
+    "Beobachten Sie individuelle Beiträge, genaue Rückfragen und begründete Entscheidungen. Bei tragfähigem Beibehalten wird das Verstehen erneut geprüft; die individuelle Revisionsleistung am Regelhinweis bleibt sichtbar. Unterstützen Sie gezielt, wenn nur eine Person schreibt oder Rückmeldung vage bleibt. Die lokale Startbasis hilft ohne alte Recherche-Notizen. Echte Recherche wird dadurch nicht nachgewiesen. Niemand muss private Konflikte offenlegen. Zum Schluss wird die Gliederung im Kursraum und als digitale Vorführung geteilt und für M vier gesichert. Fünf spätere Abrufminuten kommen aus dem vorhandenen Jahreskonto; die reale Erprobung bleibt offen.",
     "Zum Einstieg die vier Angaben am tatsächlichen Schulraum sichtbar ergänzen. Am Nachrichtenmodell nicht nur Rollen nennen lassen: Welche Überschrift änderte sich und welcher Beleg löste das aus? Der spätere eigene Austausch bleibt Pflicht; das Modell und ein ausgefülltes Protokoll ersetzen ihn nicht.",
     "Individueller Prüfpunkt: Jede Person zeigt ihren Beitrag, die erhaltene sachliche Rückmeldung und die Entscheidung dazu. Fehlt der Austausch, an einer offenen Stelle wirklich nachfragen und die Antwort in der Gliederung verwenden. Die Sicherung bleibt in der vorhandenen Aufgabenzeit."
   ],
@@ -182,7 +182,7 @@
       "creator": "IuM-Lernwerk",
       "license": "CC BY-SA 4.0 · eigene Vorlage",
       "sourceId": "bildungsplan",
-      "printText": "TEAMPLAN\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nLeitfrage:\nZielgruppe: andere Klasse 5. Geplantes Produkt: eine kleine Infokarte.\nGemeinsamer Speicherort / Dateiname:\n\nAbschnitt 1 – Überschrift:\nEigene Aussage / Fundstelle:\nBeitrag von:\nAbschnitt 2 – Überschrift:\nEigene Aussage / Fundstelle:\nBeitrag von:\nOffene Frage:\n\nUNSERE VEREINBARUNG\nWer liefert welchen Beitrag?\nWer bedient zuerst, wann wechseln wir?\nWann antworten wir im freigegebenen Kursraum?\n\nJEDE PERSON FÜLLT IHRE EIGENE SPUR AUS\nMein gesendeter Beitrag: Datum / Stelle im Schulraum (keine Zugangsdaten)\nEmpfangene Rückmeldung, sinngemäß:\nMeine Antwort:\nMeine Überarbeitung: vorher -> nachher / Grund\nEine gemeinsame Entscheidung / Begründung:\n\nUNSERE NACHRICHTENREGEL AUS DER PRÜFKARTE\nAusgewählter Satz, sinnvoll angepasst:\nUrheberschaft / Materialort / Lizenzlink / Änderung:\n\nABSCHLUSS\nQuellenangaben geprüft? Fremde Medien mit unklaren Rechten entfernt oder geklärt?\nEndfassung im Schulraum geteilt / von Partnerperson geöffnet:\nDieselbe Endfassung digital vor einem anderen Paar gezeigt:\nNoch offen (z. B. Austausch oder Vorführung):\nMit welchem Paar und wann holen wir das vor M04 nach?\nFür M04 gespeichert an:\n"
+      "printText": "TEAMPLAN\nIuM-Lernwerk · eigene Vorlage · CC BY-SA 4.0\n\nLeitfrage:\nZielgruppe: andere Klasse 5. Geplantes Produkt: eine kleine Infokarte.\nGemeinsamer Speicherort / Dateiname:\n\nAbschnitt 1 – Überschrift:\nEigene Aussage / Fundstelle:\nBeitrag von:\nAbschnitt 2 – Überschrift:\nEigene Aussage / Fundstelle:\nBeitrag von:\nOffene Frage:\n\nUNSERE VEREINBARUNG\nWer liefert welchen Beitrag?\nWer bedient zuerst, wann wechseln wir?\nWann antworten wir im freigegebenen Kursraum?\n\nJEDE PERSON FÜLLT IHRE EIGENE SPUR AUS\nMein gesendeter Beitrag: Datum / Stelle im Schulraum (keine Zugangsdaten)\nEmpfangene Rückmeldung, sinngemäß:\nMeine Antwort:\nMeine Inhaltsentscheidung: Änderung oder Prüffrage + Antwort + Grund für Beibehalten\nMeine tatsächliche Überarbeitung am Abschnitt oder Regelhinweis: vorher -> nachher / Grund\nEine gemeinsame Entscheidung / Begründung:\n\nUNSERE NACHRICHTENREGEL AUS DER PRÜFKARTE\nAusgewählter Satz, sinnvoll angepasst:\nUrheberschaft / Materialort / Lizenzlink / Änderung:\n\nABSCHLUSS\nQuellenangaben geprüft? Fremde Medien mit unklaren Rechten entfernt oder geklärt?\nEndfassung im Schulraum geteilt / von Partnerperson geöffnet:\nDieselbe Endfassung digital vor einem anderen Paar gezeigt:\nNoch offen (z. B. Austausch oder Vorführung):\nMit welchem Paar und wann holen wir das vor M04 nach?\nFür M04 gespeichert an:\n"
     },
     {
       "id": "pruefkarte",
@@ -296,7 +296,7 @@
       "title": "Wie wird aus Rückmeldung eine Verbesserung?",
       "paragraphs": [
         "Nenne zuerst eine konkrete Stelle. Beschreibe, was du dort verstehst oder noch nicht verstehst. Mache einen begründeten Vorschlag. Die andere Person gibt mit eigenen Worten wieder, wie sie deinen Hinweis verstanden hat.",
-        "Prüft den Vorschlag an eurer Leitfrage. Ihr könnt ihn übernehmen, verändern oder begründet ablehnen. Jede Person arbeitet mindestens eine hilfreiche Rückmeldung ein und erklärt vorher → nachher."
+        "Prüft den Vorschlag an eurer Leitfrage. Ihr könnt ihn übernehmen, verändern oder begründet ablehnen. Ist euer Abschnitt schon verständlich und belegt, lasst die andere Person das ohne eure Erklärung prüfen. Begründet dann das Beibehalten. Eine tatsächliche Überarbeitung zeigt ihr in diesem Fall am unvollständigen Nachrichtenregel-Hinweis im nächsten Schritt."
       ],
       "example": "„Bei ‚Der Schatten‘ weiß ich nicht, wessen Schatten gemeint ist. Nenne bitte genau den Fall.“ Antwort: „Du findest die Überschrift ungenau. Ich ändere sie zu ‚Mondphase oder Mondfinsternis?‘, damit beides unterscheidbar wird.“",
       "boundary": "Ein Lob ohne Stelle hilft wenig beim Überarbeiten. Eine bloße Änderung ohne Grund zeigt noch nicht, ob der Hinweis verstanden wurde.",
@@ -774,16 +774,16 @@
           "id": "feedbackspur",
           "title": "Prüft euren Plan für seine Leserinnen und Leser",
           "text": "Passt die Aussage zur Überschrift? Ist ein schwieriger Begriff erklärt? Lässt sich die Fundstelle wiederfinden? Wähle einen dieser Punkte für deinen Hinweis.",
-          "prompt": "Halte die erhaltene Rückmeldung sinngemäß und eure Änderungsentscheidung in deiner eigenen Spur im Teamplan fest.",
-          "contribution": "Lies den Abschnitt der Partnerperson. Nenne eine konkrete Stelle, eine offene Frage und einen begründeten Änderungsvorschlag. Sende den Hinweis im freigegebenen Kursraum.",
-          "exchange": "Lest die erhaltenen Hinweise. Jede Person antwortet mit eigenen Worten: „Du meinst, dass …“. Klärt, ob das stimmt. Einigt euch, welche Änderung zur Leitfrage passt. Einen unpassenden Vorschlag dürft ihr begründet ablehnen; sucht dann gemeinsam eine hilfreiche Verbesserung.",
-          "return": "Erkläre, welcher Hinweis dir hilft und was du damit verbessern willst.",
+          "prompt": "Halte den erhaltenen Hinweis und eure Entscheidung kurz in deiner eigenen Spur im Teamplan fest: ändern oder mit welchem Prüfergebnis beibehalten?",
+          "contribution": "Lies den Abschnitt der Partnerperson. Nenne eine konkrete Stelle und erkläre, was du dort verstehst oder noch wissen möchtest. Schlage eine begründete Verbesserung vor, wenn du eine findest. Sende deinen Hinweis oder deine Prüffrage im freigegebenen Kursraum.",
+          "exchange": "Lest die erhaltenen Hinweise. Jede Person antwortet mit eigenen Worten: „Du meinst, dass …“. Klärt, ob das stimmt. Entscheidet, welche Änderung zur Leitfrage passt. Einen unpassenden Vorschlag dürft ihr begründet ablehnen. Ist der Abschnitt schon klar, lässt die schreibende Person die Aussage und ihre Fundstelle ohne Voraberklärung wiedergeben.",
+          "return": "Erkläre, was du anhand der Rückmeldung ändern wirst oder woran ihr erkennt, dass der Abschnitt so bleiben kann. „Gefällt uns“ genügt dafür nicht.",
           "responseMode": "oral",
           "responseHint": "Die eigene Spur im Teamplan genügt.",
           "help": [
             {
               "title": "Ich finde keinen Fehler",
-              "text": "Rückmeldung muss keinen Fehler erfinden. Frage, welcher Begriff für die Zielgruppe noch erklärt werden könnte oder welche Fundstelle leichter auffindbar wäre.",
+              "text": "Erfinde keinen Fehler. Wähle einen Begriff oder eine Aussage und bitte die andere Person, sie in eigenen Worten zu erklären und die Fundstelle zu zeigen. Vergleicht die Antwort mit eurem Ziel.",
               "knowledge": "feedback",
               "label": "Wissen dazu öffnen"
             }
@@ -799,7 +799,7 @@
       "checkHelp": [
         {
           "title": "Es steht nur „gut“ da",
-          "text": "Bitte um eine konkrete Stelle und eine Frage dazu. Erkläre dann selbst, was du verändern möchtest.",
+          "text": "Bitte um eine konkrete Stelle und eine Prüffrage dazu. Entscheidet nach der Antwort, ob eine Änderung nötig ist oder das Beibehalten begründet werden kann.",
           "knowledge": "feedback",
           "label": "Wissen dazu öffnen"
         }
@@ -815,15 +815,15 @@
     {
       "id": "ueberarbeiten",
       "title": "Unsere bessere Fassung",
-      "goal": "Du setzt eine hilfreiche Rückmeldung um und prüfst die Rechtehinweise.",
-      "task": "Überarbeitet eure zwei Abschnitte. Ergänzt eure angepasste Nachrichtenregel und ihren Lizenzhinweis.",
-      "outcome": "Eine gemeinsame Endfassung mit nachvollziehbarer Änderung und geprüften Quellenhinweisen.",
+      "goal": "Du prüfst Rückmeldung, begründest eine Inhaltsentscheidung und führst eine konkrete Überarbeitung aus.",
+      "task": "Prüft eure Abschnitte anhand der Rückmeldungen. Ändert hilfreiche Stellen; begründet, was bleiben kann. Jede Person zeigt eine Überarbeitung am Abschnitt oder am unvollständigen Nachrichtenregel-Hinweis.",
+      "outcome": "Eine gemeinsame Endfassung mit geprüfter Inhaltsentscheidung, konkreter Überarbeitung jeder Person und vollständigen Quellenhinweisen.",
       "knowledge": [
         "feedback",
         "rechte"
       ],
       "criteria": [
-        "Ich zeige eine Änderung und begründe sie mit der erhaltenen Rückmeldung.",
+        "Ich erkläre meine Entscheidung nach der Rückmeldung und zeige eine konkrete Überarbeitung am Abschnitt oder am Nachrichtenregel-Hinweis.",
         "Sachinformationen haben auffindbare Fundstellen.",
         "Unsere angepasste Prüfkarte hat Urheberschaft, Materialort, Lizenzlink und Änderungshinweis."
       ],
@@ -856,11 +856,11 @@
           "type": "cooperative",
           "id": "revision",
           "title": "Ändern und noch einmal prüfen",
-          "text": "Arbeitet direkt in eurem gemeinsamen Teamplan. Jede Person setzt mindestens eine hilfreiche Rückmeldung an ihrem Teil um.",
-          "prompt": "Zeige deine Stelle vorher → nachher und den Grund. Prüfe mit der Partnerperson außerdem den ergänzten Rechtehinweis.",
-          "contribution": "Überarbeite deinen Abschnitt. Halte die alte und die neue Formulierung kurz in deiner eigenen Spur fest. Kontrolliere deine Sachquelle; ersetze „Internet“ durch die konkrete Fundstelle, falls sie noch fehlt.",
-          "exchange": "Lest beide Abschnitte zusammen. Prüft eure bereits angepasste Nachrichtenregel an der Prüfkarte und ergänzt den vollständigen Hinweis. Falls euer Entwurf sonstige fremde Bilder oder kopierte Texte enthält: Erlaubnis klären oder diese Teile entfernen und eigene Formulierungen nutzen. Speichert eine gemeinsame Endfassung.",
-          "return": "Erkläre deine inhaltliche Änderung und eine Verbesserung am Quellen- oder Rechtehinweis. Ein neues Datum allein ist keine Überarbeitung.",
+          "text": "Arbeitet im gemeinsamen Teamplan. Bleibt dein Abschnitt begründet unverändert, überarbeite stattdessen selbst die unvollständige Entwurfszeile oben. Beide Wege bleiben in derselben Überarbeitungszeit.",
+          "prompt": "Zeige deine Inhaltsentscheidung und die tatsächlich überarbeitete Stelle vorher → nachher. Prüft den vollständigen Rechtehinweis gemeinsam.",
+          "contribution": "Setze eine hilfreiche Rückmeldung an deinem Abschnitt um und halte Stelle und Grund kurz in deiner eigenen Spur fest. Kann er unverändert bleiben, notiere die konkrete Prüffrage, die erhaltene Antwort und deinen Grund. Überarbeite dann selbst „Unsere Regel: Wir fragen genau. Quelle: Internet.“ zu einem passenden Hinweis auf eure angepasste Prüfkarte. Nenne dabei eure tatsächliche Änderung; kopiere nicht nur den Beispielhinweis.",
+          "exchange": "Lest beide Abschnitte erneut zusammen. Die Partnerperson erklärt die geänderte oder überprüfte Aussage und zeigt die Fundstelle. Vergleicht eure Nachrichtenregel mit der Prüfkarte und vervollständigt den Hinweis. Falls sonstige fremde Bilder oder kopierte Texte enthalten sind: Erlaubnis klären oder eigene Formulierungen nutzen. Speichert eine gemeinsame Endfassung.",
+          "return": "Erkläre: Was habt ihr nach der Rückmeldung geändert oder begründet beibehalten? Zeige außerdem deine tatsächlich überarbeitete Stelle am Abschnitt oder am Regelhinweis. Ein neues Datum allein ist keine Überarbeitung.",
           "responseMode": "oral",
           "responseHint": "Nutze eure tatsächliche Endfassung als Beleg.",
           "help": [
@@ -876,13 +876,13 @@
       "checkHelp": [
         {
           "title": "Wir haben nur umformatiert",
-          "text": "Suche die erhaltene Rückfrage. Welche Aussage oder Überschrift wird durch deine Änderung verständlicher?",
+          "text": "Zeige die echte Rückmeldung und die geprüfte Aussage. Ändere eine unklare Stelle mit Grund. Ist der Abschnitt schon tragfähig, erkläre das Prüfergebnis und zeige deine Überarbeitung am unvollständigen Regelhinweis.",
           "knowledge": "feedback",
           "label": "Wissen dazu öffnen"
         }
       ],
       "prerequisites": [
-        "Jede Person hat eine echte Rückmeldung erhalten und eine hilfreiche Änderung vereinbart. Eure Nachrichtenregel steht bereits im Teamplan."
+        "Jede Person hat eine echte Rückmeldung erhalten und eine Änderung oder weitere Prüfung vereinbart. Eure angepasste Nachrichtenregel steht bereits im Teamplan."
       ],
       "materialNeeds": [
         "Gemeinsame erste Fassung und tatsächlich erhaltene Rückmeldung",
@@ -966,7 +966,7 @@
           "title": "Zwei Wege, derselbe Plan",
           "text": "Weg 1 ist eure Endfassung im geschlossenen Kursraum. Weg 2 ist die digitale Vorführung am Gerät vor einem anderen Paar. Nutzt nur den erlaubten Leserkreis.",
           "prompt": "Zeige deinen Beitrag und die dazugehörige Rückmeldung. Erkläre, wozu die beiden Weitergabewege passen und was gegebenenfalls noch fehlt.",
-          "contribution": "Zeige im Teamplan deinen eigenen Abschnitt und deine Änderung. Begründe, wie ihr bei eurem Austausch eine konkrete Kommunikationsregel angewandt habt.",
+          "contribution": "Zeige im Teamplan deinen eigenen Abschnitt und deine Entscheidung nach der Rückmeldung. Zeige auch deine konkrete Überarbeitung am Abschnitt oder am Regelhinweis. Begründe, wie ihr eine Kommunikationsregel beim Austausch angewandt habt.",
           "exchange": "Legt die Endfassung mit ihren Quellen am vereinbarten Ort im Kursraum ab. Eure Partnerperson öffnet sie selbst. Zeigt eurem zugeordneten Paar die Fassung auf dem Bildschirm. Das andere Paar nennt eure Leitfrage in eigenen Worten. Wechselt die Rollen. Zeigt nur das Arbeitsdokument.",
           "return": "Erkläre: Im Kursraum können Berechtigte später weiterarbeiten; bei der Vorführung könnt ihr direkt erläutern und Rückfragen beantworten. Welcher Weg passt zu einer abwesenden Partnerperson? Was muss dafür vorher geklärt sein?",
           "responseMode": "oral",
@@ -1018,7 +1018,7 @@
       "checkHelp": [
         {
           "title": "Wir haben nur einen fertigen Text",
-          "text": "Zeige deinen gesendeten Beitrag, die empfangene Rückmeldung und die daraus entstandene Änderung. Fehlt etwas, holt genau diesen Teil nach.",
+          "text": "Zeige deinen gesendeten Beitrag, die empfangene Rückmeldung und die daraus begründete Entscheidung. Zeige auch eine tatsächliche Überarbeitung am Abschnitt oder am Regelhinweis. Fehlt etwas, holt genau diesen Teil nach.",
           "knowledge": "team",
           "label": "Wissen dazu öffnen"
         },
@@ -1030,7 +1030,7 @@
         }
       ],
       "prerequisites": [
-        "Eure Gliederung ist nach echter Rückmeldung überarbeitet; Quellen und Rechtehinweis sind geprüft."
+        "Eure Gliederung ist nach echter Rückmeldung erneut geprüft; jede Person zeigt eine konkrete Überarbeitung. Quellen und Rechtehinweis sind geprüft."
       ],
       "materialNeeds": [
         "Überarbeiteter Teamplan und beide eigenen Beitragsspuren",

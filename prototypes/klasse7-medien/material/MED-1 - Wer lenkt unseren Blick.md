@@ -7,7 +7,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 ---
 
 # MED-1 · Wer lenkt unseren Blick?
@@ -72,27 +72,31 @@ Loop zeigt Mikas Beitrag Jugendlichen mit Interesse an Sport und Alltagstipps. D
 
 **Urheber:** Redaktion Flaschenblick · **Veröffentlichung:** eigene Vergleichsseite · **Finanzierung:** „Bei einem Kauf über unsere Links erhalten wir eine Provision.“ · **Publikum:** Menschen auf Produktsuche
 
+Eine **Provision** ist hier eine Zahlung an Flaschenblick, wenn jemand über einen seiner Links kauft.
+
 „Unsere Top 3: Fizz steht auf Platz 1.“ Gezeigt werden **4,8 Sterne aus 25 Bewertungen**. Die Seite nennt keine eigenen Testbedingungen. Kommentar: „Die Rangfolge hat mir beim Kauf geholfen.“
 
 **Gemeinsam an A:** Welche Rolle spielt der kritische Kommentar? Prüft, ob er eine neue Frage eröffnet oder schon beweist, dass der Test falsch ist. Die Lehrperson hält die Unterscheidung fest.
 
 ## 3 · Deine Redaktionsnotiz · 15 Minuten
 
-Fülle für B und C je eine Zeile aus. Wähle für B eine Stelle, die du im Spot oder im Hörvergleich gesehen, gehört oder gelesen hast. Beschreibe ihren möglichen Einfluss auf deinen Eindruck und eine Eigenschaft der Flasche, die du anders prüfen müsstest.
+**Dein Umfang:** zwei Tabellenzeilen, vier kurze Erklärungen und eine Schlussentscheidung in derselben Notiz. Stichpunkte genügen, wenn Beleg und Gedankengang erkennbar bleiben.
+
+**Zuerst etwa 5 Minuten:** Fülle für B und C je eine Zeile aus. Wähle für B eine Stelle, die du im Spot oder im Hörvergleich gesehen, gehört oder gelesen hast. Beschreibe ihren möglichen Einfluss auf deinen Eindruck und eine Eigenschaft der Flasche, die du anders prüfen müsstest.
 
 | Beitrag | Urheber / Plattform oder Veröffentlichungsort / Werbepartner / Publikum | Belegtes oder vermutetes Interesse | Merkmal und mögliche Wirkung, bei B auch eine offene Prüffrage |
 |---|---|---|---|
 | B | … | … | … |
 | C | … | … | … |
 
-Schreibe darunter vier kurze Sätze. Verwende je einen Beleg aus A, B oder C:
+**Danach etwa 7 Minuten:** Ergänze darunter vier kurze Erklärungen. Verwende je einen Beleg aus A, B oder C:
 
 1. **Auswahl:** Wie kann „Für dich“ beeinflussen, welche Flaschen du überhaupt wahrnimmst? Was wissen wir hier über die Auswahl, was nicht?
 2. **Bewertungen:** Was können viele Likes oder Sterne mit dem ersten Eindruck machen? Was belegen sie nicht?
 3. **Kommentare:** Wie könnten der angeheftete Kommentar und die Frage zum warmen Wasser unterschiedlich wirken?
 4. **Werbung:** Wer hat hier ein finanzielles Interesse, und an welchem Merkmal erkennst du es?
 
-Entscheide abschließend: Welchen Beitrag würdest du für eine Aussage zur Dichtigkeit zuerst prüfen? Nenne den konkreten Grund und eine noch offene Frage. Ein Beitrag mit Werbung kann richtige Informationen enthalten. Ein Schulblog kann sich irren.
+**Zum Schluss etwa 3 Minuten:** Welchen Beitrag würdest du für eine Aussage zur Dichtigkeit zuerst prüfen? Nenne den konkreten Grund und eine noch offene Frage. Ein Beitrag mit Werbung kann richtige Informationen enthalten. Ein Schulblog kann sich irren.
 
 <details><summary>Hilfe: Ich vermische Interesse und Wirkung.</summary>
 

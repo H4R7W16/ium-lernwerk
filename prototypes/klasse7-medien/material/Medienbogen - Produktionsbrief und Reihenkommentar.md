@@ -8,7 +8,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-07
 tags:
   - output/planung
 ---
@@ -43,11 +43,11 @@ Der Zusammenhang schafft einen Zweck für die Produkte, erzwingt aber keinen öf
 
 MED-1/2: kurze nummerierte Belege statt freier Websuche, damit die begründete Prüfung in 45 Minuten möglich bleibt. Das Quellenpaket unterscheidet Originalbefund, unabhängige Beobachtung und bloße Wiederholung. Absicht wird nicht aus einer falschen Zahl erschlossen.
 
-MED-3: eigene, ausdrücklich konstruierte Hofillustration mit verschiedenen Teilbereichen. Sie kann beschnitten und farblich verändert werden; sie dokumentiert keinen realen Schulhof. PNG als Arbeitsdatei, SVG als bearbeitbare Quelle. Der Auftrag fordert eigene Varianten, tatsächliche Revision und erneutes Öffnen. Eine vorgefertigte Variante gilt nicht als eigener Nachweis. Bedienkarte für bekannte Editoren plus konkret beschriebener Photopea-Referenzweg; schulische Werkzeugfreigabe bleibt Voraussetzung.
+MED-3: ein KI-generiertes Hofmotiv ohne Personen mit verschiedenen Teilbereichen. Es kann beschnitten und farblich verändert werden; es dokumentiert keinen realen Schulhof. Eine gemeinsame PNG ist Ausgangspunkt aller Varianten; die frühere schematische SVG/PNG bleibt dokumentierter Altbestand. Mehr Details eröffnen eigene Ausschnitte; keine fertigen gegensätzlichen Varianten vorführen. Beispiele für Absichten stehen nur bei Bedarf in der Hilfe; der gemeinsame Methoden-Mindestumfang ist vor der Planung klar. P3 bietet einen direkten Zugang zum ganzen Original. Der Auftrag fordert eigene Varianten, tatsächliche Revision und erneutes Öffnen. Eine vorgefertigte Variante gilt nicht als eigener Nachweis. Bedienkarte für bekannte Editoren plus konkret beschriebener Photopea-Referenzweg; schulische Werkzeugfreigabe bleibt Voraussetzung.
 
 MED-4: zwei eigene Bild-Text-Karten mit denselben Figuren, unterschiedlichen Rollen und Botschaften. Keine realen Körper, Prominentenfotos oder Bewertung der Mitschülerinnen und Mitschüler. Auch die Gegenkarte wird kritisch geprüft; sie ist kein Beweis für tatsächliche Vielfalt oder Gleichberechtigung.
 
-MED-5: vier Fälle mit ausdrücklich festgelegten Kommunikationsbedingungen. Zwei Zuordnungen werden vorgemacht; alle vier werden individuell vollständig notiert. Social Engineering und Missverständnis verlangen kurze, begründete Handlungen. Kein Versand, keine Zugangsdaten, keine Angriffsübung.
+MED-5: vier Fälle mit ausdrücklich festgelegten Kommunikationsbedingungen. K1 und K2 stehen als ausgefüllte Beispiele bereit; K3 und K4 werden individuell in zwei eigenen Zeilen begründet zugeordnet. Social Engineering und Missverständnis verlangen kurze, begründete Handlungen. Kein Versand, keine Zugangsdaten, keine Angriffsübung.
 
 ## Zeit und Abhängigkeiten
 

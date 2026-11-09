@@ -12,11 +12,11 @@ updated: 2026-10-28
 
 # Bedienkarte · Ausschnitt, Farben, Datei
 
-Nutze zuerst den in eurer Schule vereinbarten Editor. Die Lehrperson zeigt, wo dort **Öffnen, Zuschneiden, Sättigung oder Farbfilter, Rückgängig und Als Kopie speichern/Exportieren** liegen. Verwende ausschließlich die bereitgestellte Hofzeichnung.
+Nutze zuerst den in eurer Schule vereinbarten Editor. Die Lehrperson zeigt, wo dort **Öffnen, Zuschneiden, Sättigung oder Farbfilter, Rückgängig und Als Kopie speichern/Exportieren** liegen. Verwende ausschließlich die bereitgestellte Hofbild.
 
 ## Immer derselbe sichere Arbeitsweg
 
-1. Lade [hof-original.png](../../../../../Assets/IuM-Lernwerk/Medien/2026-10-28-Fassung-1.0/material/hof-original.png) in deinen vereinbarten Arbeitsordner. Bewahre das Original.
+1. Lade [hof-original.png](../inhalt/material/hof-arbeitsbild.png) in deinen vereinbarten Arbeitsordner. Bewahre das Original.
 2. Öffne das Bild im Editor. Für jede neue Variante wieder das Original öffnen.
 3. **Ausschnitt:** Wähle Zuschneiden, ziehe den gewünschten Rahmen und bestätige. Beim Zoomen ändert sich nur die Ansicht, beim Zuschneiden der gespeicherte Bildinhalt.
 4. **Farbe:** Ändere Sättigung oder einen Farbfilter. Vergleiche mit dem Ausgangsbild. Nicht jede Farbveränderung heißt im Programm „Filter“; sie kann unter „Anpassen“ stehen.

@@ -6,7 +6,7 @@ project: IuM-Lernwerk
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-07
 ---
 
 # Briefing · Wer lenkt unseren Blick?
@@ -19,7 +19,7 @@ Nutzen Sie die ersten zehn Minuten für den ersten Eindruck und das Radwerkstatt
 
 In den nächsten zehn Minuten erschließt die Klasse A, B und C. Öffnen Sie bei B den dreizehnsekündigen Spot. Fragen Sie nach der ersten Sichtung, welches Detail den Blick gelenkt hat. Zeigen Sie dann denselben Sprung zweimal im Hörvergleich. Welcher Eindruck ändert sich? Bei Bedarf stehen zuschaltbare Untertitel und eine beschreibende Lesefassung bereit. Untersuchen Sie gemeinsam die Gegenfrage zum Test in A.
 
-In den folgenden fünfzehn Minuten entstehen die B- und C-Zeile. Fordern Sie für B ein selbst gewähltes Detail aus Bild, Ton oder Lesefassung, den möglichen Eindruck und eine offene Frage zur Flasche. Die vier kurzen Sätze zu Auswahl, Bewertungen, Kommentaren und Werbung bleiben Teil derselben Notiz. Bei Unklarheit fragen Sie: Was hat Mika gestaltet? Was fügt Loop im Feed hinzu?
+In den folgenden fünfzehn Minuten entstehen die B- und C-Zeile. Fordern Sie für B ein selbst gewähltes Detail aus Bild, Ton oder Lesefassung, den möglichen Eindruck und eine offene Frage zur Flasche. Die Notiz umfasst zwei Tabellenzeilen, vier kurze Erklärungen zu Auswahl, Bewertungen, Kommentaren und Werbung sowie die begründete Quellenwahl mit offener Frage. Als Orientierung dienen fünf Minuten für die Tabelle, sieben für die Erklärungen und drei für den Schluss. Stichpunkte sind möglich, wenn Beleg und Gedankengang erkennbar bleiben. Bei Unklarheit fragen Sie: Was hat Mika gestaltet? Was fügt Loop im Feed hinzu?
 
 Die letzten zehn Minuten enthalten Rückmeldung, Präzisierung, einen neuen Platzierungsfall und die Sicherung. Im neuen Fall steht ein bezahlter Clip trotz weniger Likes oben. Wer daraus geringe oder hohe Qualität ableitet, braucht noch die Unterscheidung zwischen Sichtbarkeit und Beleg.
 

@@ -10,7 +10,7 @@ test('Gamingpaket enthält sechs Aufgaben, sieben Briefings, sechs Projektionen 
  for(let i=1;i<=6;i++){assert.ok(published.has(ROOT+'gam-'+i+'-briefing.html'));assert.ok(published.has(ROOT+'projektion-'+i+'.html'));}
 });
 test('Lernhandlungen, Sicherung, private Reflexion und Briefings bleiben gegenüber der geprüften Quelle unverändert',()=>{
- assert.equal(Object.keys(manifest.files).length,31);
+ assert.equal(Object.keys(manifest.files).length,35);
  for(const [file,hash]of Object.entries(manifest.files)){
   const source=fs.readFileSync(path.join(dir,file));assert.equal(sha(source),hash,file);
   if(file.endsWith('.html')&&!['gamingbogen-produktionsbrief-und-reihenkommentar.html','gamingbogen-durchfuhrung-und-auswertung.html','gamingbogen-quellen-und-nutzungsrechte.html'].includes(file))assertReadingContent(main(published.get(ROOT+file)),main(source.toString()),file);

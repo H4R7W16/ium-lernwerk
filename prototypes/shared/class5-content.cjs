@@ -43,6 +43,7 @@ function validateEditorial(pack,steps){
   if(s.checkHelp){if(!Array.isArray(s.checkHelp)||!s.checkHelp.length)throw new Error('Prüfhilfe fehlt');s.checkHelp.forEach(aid);}
   if(s.prerequisites)texts(s.prerequisites,'Schrittvoraussetzungen');if(s.timing!==undefined&&!['now','later'].includes(s.timing))throw new Error('Ungültiger Zeitpunkt');if(s.completion){text(s.completion.title,'Abschlusstitel');text(s.completion.text,'Abschluss');}text(s.task,'Auftrag');text(s.outcome,'Ergebnis');if(!s.knowledge?.length)throw new Error('Wissensbezug fehlt');refs(s.knowledge,knowledge,'Schrittwissen');texts(s.criteria,'Kriterien');
   for(const b of s.blocks){
+   if(b.libraryComparison!==undefined){if(pack.grade!==6||pack.area!=='medienprodukt'||s.id!=='auftrag'||b.id!=='bibliotheksvergleich'||b.type!=='example')throw new Error('Bibliotheksvergleich am falschen Ort');require('./m07-comparison.cjs').validate(b.libraryComparison);}
    if(b.network!==undefined&&(b.network!==true||pack.toolKind!=='network'||pack.grade!==6))throw new Error('Netzmodell ungültig');
    layout(b);refs(b.media,media,'Material');refs(b.sources,sources,'Blockquelle');
    if(b.links){if(!Array.isArray(b.links)||!b.links.length)throw new Error('Verweise fehlen');for(const l of b.links){text(l.label,'Verweistext');if(typeof l.href!=='string'||! /^(?:\.\.\/[a-z0-9-]+\/|\.\.\/)?[a-z0-9-]+\.html(?:#[a-z0-9-]+)?$/.test(l.href))throw new Error('Verweis ungültig');}}
@@ -70,6 +71,15 @@ function validate(pack){
   const fields=new Set();for(const b of step.blocks){
    if(!['explanation','example','task','external','cooperative','private','retrieval'].includes(b.type))throw new Error('Unbekannter Inhaltsbaustein: '+b.type);
    text(b.title,'Bausteintitel');text(b.text,'Bausteintext');
+   if(b.linksAfterItems!==undefined&&(b.linksAfterItems!==true||pack.area!=='recherche'||pack.grade!==5||step.id!=='pruefen'||b.id!=='eigene-zweite-seite'||b.type!=='explanation'||!b.items?.length||!b.externalLinks?.length))throw new Error('Quellenwahl braucht Regeln und Links am eigenen Vergleichsort');
+   if(b.sourceComparison!==undefined){
+    const c=b.sourceComparison;
+    if(pack.area!=='recherche'||pack.grade!==5||step.id!=='pruefen'||b.id!=='lea-prueft'||b.type!=='explanation'||!c||!Array.isArray(c.sources)||c.sources.length!==2)throw new Error('Quellenvergleich braucht zwei Quellen am Vergleichsort');
+    text(c.claim,'Quellenvergleich Aussage');text(c.wordHelp,'Quellenvergleich Worthilfe');
+    for(const source of c.sources){for(const key of ['label','text','source','location','url','shortSource'])text(source[key],'Quellenvergleich '+key);https(source.url);}
+    if(c.sources[0].url===c.sources[1].url)throw new Error('Quellenvergleich braucht unterschiedliche Quellen');
+   }
+   if(b.selectionModel!==undefined){if(b.selectionModel!==true||pack.grade!==6||pack.area!=='werbung'||step.id!=='modell'||b.type!=='task'||b.id!=='versuch')throw new Error('Unzulässiges Auswahlmodell');text(b.paperText,'Auswahlmodell Papiertext');}
    if(['task','external','cooperative','private','retrieval'].includes(b.type)){if(!id(b.id)||fields.has(b.id))throw new Error('Antwort-ID ungültig/doppelt');fields.add(b.id);text(b.prompt,'Eigenes Produkt');}
    if(b.responseParts){
     if(b.type!=='task'||!Array.isArray(b.responseParts)||!b.responseParts.length)throw new Error('Antwortgruppe braucht Teilfelder einer Aufgabe');
@@ -117,6 +127,7 @@ function renderBlocks(step,pack={},options={}){
  let privateUsed=false;
  const html=step.blocks.filter(b=>!options.paper||b.type!=='private').map(original=>{
   let b=original;
+  if(options.paper&&b.selectionModel)b={...b,text:b.paperText};
   if(options.paper&&pack.area==='ablaeufe'&&b.id==='code')b={...b,text:(step.id==='entwurf'?'Schreibe deinen eigenen Code für vier Karten auf.':'Schreibe wiederhole 3 [nimm markiere lege] auf.')+' Verfolge jeden Befehl mit Papierkarten. Halte nach jedem Schritt Vorrat, Platz und Ausgabe im Protokoll fest. Die digitale Eingabe und Ausführung im Interpreter holst du später im Lernwerk nach.',responseHint:'Papierweg: Code aufschreiben und mit Karten ausführen. Die praktische Programmierung bleibt noch offen.'};
   if(options.paper&&pack.area==='ablaeufe'&&b.id==='bedienung')b={...b,text:'Für die spätere Arbeit am Gerät: Öffne den Lernschritt Vorhersagen. Ausführen. Erklären. über den Link unten. Dort steht die Kartenstation direkt beim Codefeld. Die folgenden Gerätewege erklären diese Bildschirmfassung.'};
   if(options.paper&&pack.area==='ablaeufe'&&b.id==='spur')b={...b,text:'Schreibe die ausgeführte Folge und nach jedem Befehl Vorrat, Platz und Ausgabe auf. Bewahre den ersten Versuch auf. Ergänze in eigenen Worten, warum die Zustandsänderungen zu deinem Code passen und wo sie von der Vorhersage abweichen.'};
@@ -137,7 +148,7 @@ function renderBlocks(step,pack={},options={}){
   const help=(b.help||[]).map(h=>'<details class="lw-help"><summary>'+esc(h.title)+'</summary><p>'+esc(h.text)+'</p>'+actionLink(h)+'</details>').join('');
   const links=b.links?'<nav class="lw-reading-links" aria-label="Material und Arbeitsweg">'+b.links.map(l=>'<a href="'+esc(l.href)+'">'+esc(l.label)+' →</a>').join('')+'</nav>':'';
   const table=b.table?'<div class="lw-table-wrap"><table><thead><tr>'+b.table.headers.map(v=>'<th scope="col">'+esc(v)+'</th>').join('')+'</tr></thead><tbody>'+b.table.rows.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'';
-  return '<section class="lw-content-block lw-block-'+b.type+'"'+(b.type==='private'?' data-private':'')+(pack.grade===6&&b.type==='retrieval'?' id="recall-'+esc(step.id)+'-'+esc(b.id)+'"':'')+'><h2>'+esc(b.title)+'</h2><p>'+esc(b.text)+'</p>'+paragraphs(b.paragraphs)+(b.items?'<ol>'+b.items.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol>':'')+table+links+mediaHTML(b.media,pack,b.mediaLayout)+extra+(b.context==='device'?'':routes)+(b.storageNotice?'<aside class="lw-work-notice"><b>Antworten und Dateien</b><p>'+esc(b.storageNotice)+'</p></aside>':'')+(b.network?require('../m01-netze/render.cjs').render(!!options.paper):'')+answer+help+(b.type==='private'?'<p>Bleibt hier persönlich. Wird nicht in „Deine Arbeit“, Arbeitsdateien oder Druckausgaben übernommen. Bei einem Seitenwechsel kann diese Notiz verloren gehen.</p><button class="lw-button secondary" data-private-export="'+fieldId+'">Nur diese private Notiz gesondert sichern</button>':'')+(b.solution?'<details class="lw-solution"><summary>'+(b.type==='retrieval'?'Nach deinem Versuch vergleichen':'Mögliche Lösung vergleichen')+'</summary><p>'+esc(b.solution)+'</p></details>':'')+citations(b.sources,pack)+'</section>';
+  return '<section class="lw-content-block lw-block-'+b.type+'"'+(b.type==='private'?' data-private':'')+(pack.grade===6&&b.type==='retrieval'?' id="recall-'+esc(step.id)+'-'+esc(b.id)+'"':'')+'><h2>'+esc(b.title)+'</h2><p>'+esc(b.text)+'</p>'+paragraphs(b.paragraphs)+(b.items?'<ol>'+b.items.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol>':'')+table+links+mediaHTML(b.media,pack,b.mediaLayout)+(b.libraryComparison?require('./m07-comparison.cjs').render(b.libraryComparison,{paper:!!options.paper}):'')+extra+(b.context==='device'?'':routes)+(b.storageNotice?'<aside class="lw-work-notice"><b>Antworten und Dateien</b><p>'+esc(b.storageNotice)+'</p></aside>':'')+(b.network?require('../m01-netze/render.cjs').render(!!options.paper):'')+(b.selectionModel?require('./b17-render.cjs').render(!!options.paper):'')+answer+(b.selectionModel?require('./b17-render.cjs').returnLink(!!options.paper):'')+help+(b.type==='private'?'<p>Bleibt hier persönlich. Wird nicht in „Deine Arbeit“, Arbeitsdateien oder Druckausgaben übernommen. Bei einem Seitenwechsel kann diese Notiz verloren gehen.</p><button class="lw-button secondary" data-private-export="'+fieldId+'">Nur diese private Notiz gesondert sichern</button>':'')+(b.solution?'<details class="lw-solution"><summary>'+(b.type==='retrieval'?'Nach deinem Versuch vergleichen':'Mögliche Lösung vergleichen')+'</summary><p>'+esc(b.solution)+'</p></details>':'')+citations(b.sources,pack)+'</section>';
  }).join('');
  return html+(privateUsed?'<dialog id="lw-private-dialog" aria-labelledby="lw-private-title"><h2 id="lw-private-title">Nur deine private Notiz</h2><p>Diese Datei enthält die folgende persönliche Notiz. Andere Personen mit Zugriff auf die Datei können sie lesen.</p><pre id="lw-private-preview" class="lw-product"></pre><button id="lw-private-confirm" class="lw-button">Diese Notiz als eigene Textdatei anbieten</button><button id="lw-private-cancel" class="lw-button secondary">Abbrechen</button></dialog>':'');
 }
@@ -148,6 +159,7 @@ function load(grade=5){
 }
 function assets(pack){
  const root=fs.realpathSync(path.join(__dirname,'inhalte')),out=new Map();
+ if(pack.steps.some(s=>s.blocks.some(b=>b.sourceComparison)))out.set('quellenvergleich.css',fs.readFileSync(path.join(__dirname,'recherche-source-comparison.css'),'utf8'));
  for(const m of pack.media||[]){
   const file=fs.realpathSync(path.join(root,m.file));if(!file.startsWith(root+path.sep))throw new Error('Medium außerhalb des Inhaltsordners');
   const data=fs.readFileSync(file);if(data.length>2*1024*1024)throw new Error('Medium überschreitet 2 MB: '+m.file);

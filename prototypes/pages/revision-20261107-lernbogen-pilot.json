@@ -1,0 +1,43 @@
+{
+  "base": "1c7de92a6d669240d10f30dfb0b1a27c800c426d6535ade354689bcf0be780e6",
+  "date": "2026-11-07",
+  "scope": "Beauftragter Lernbogen-Pilot: reguläre Recherche Klasse 5 und Medienprodukt Klasse 6; Lernbewegung und Zeitkonten erhalten. Weitere Klasse-5-Seiten ändern nur eingebettete Inhalts-/Planungsdaten. Historische Bindungen bleiben erhalten.",
+  "changes": {
+    "klasse5/mantel-sw.js": {
+      "before": "225e58a94240bbd4a28ac48297372dfebb329d9993f2758440481592c67259e3",
+      "after": "f1fd82625f97687b9809946be55fda9d98c0672870fb6e84811126107c68a86b"
+    },
+    "klasse5/recherche/assets/recherche/recherche-notiz.txt": {
+      "before": "e79972bab1851912e0446a2e7eb75e6f2a00f8861b6d1e3a5a73be4fa8269b0e",
+      "after": "92d2378ab31e69ac8676faeae459f37b7e2a75894857a6a3cb53392b73220658"
+    },
+    "klasse5/recherche/baustein-pruefen.html": {
+      "before": "af0dcf884378b4af83429243013c6d1ac5f2af1370dc6ac7a88589a5f75a95c8",
+      "after": "766bc9ffb0392f00b7842b9a0335781f4a6066edc6a42d1dbf8140a95edfe47a"
+    },
+    "klasse5/recherche/briefing.html": {
+      "before": "961b8fdb92dd10e08088727831ed360597bde5b85966e62c0fb756718240bde5",
+      "after": "2d44b143a282e804eff8a14148a8e5d841ca704f196cb48a2013fcf06d3bcf26"
+    },
+    "klasse5/recherche/index.html": {
+      "before": "051bcac3c35526acb9ff7bf03546d9c90442eeed1d8b85f37a7c4fe67acfd6d4",
+      "after": "938e8bcdbf8be7789e1e4d900bc130e359d4131df02fccda03a9dd5d59fc794d"
+    },
+    "klasse5/recherche/lehrkraft.html": {
+      "before": "1a608ca5f794ff22153c9b7828bf810459fc4690ac2318b1193703c8e1916871",
+      "after": "af942f0bad700345265a2516828225cbb65b1867e0b179ae213c81260c355752"
+    },
+    "klasse5/recherche/schritt-pruefen.html": {
+      "before": "0d80e2d23caf01b1faf47b820d579b711ba1b35edad5709752598354de76be3f",
+      "after": "bd9bc5947bec8e288110867a970d882da3809986d5ff8306a8338837a912ad45"
+    },
+    "klasse5/reihe-recherche.html": {
+      "before": "fa4cccbf901da79e2a4d143da2b452c3655e0726ce4fc5cd20b80220089579db",
+      "after": "d0adc7ac872b0b709236c792fec4ca304dc45a00f78e751fdd8518619b3bd445"
+    },
+    "klasse5/recherche/wissen-pruefen.html": {
+      "before": "5257c9f8ddb9104c269d683ac359d5d39ebb8a07a776c054f0da7f5fda9352f8",
+      "after": "f35215b2bf342bd836e6f742f765c80eeafb498d81d4f7a85140d9cdd88fc4e6"
+    }
+  }
+}

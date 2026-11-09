@@ -97,7 +97,7 @@ document.addEventListener('click',event=>{
   if(button.dataset.check&&result.status!=='open'){a.checked=true;answers[bank][id]=a;renderMarkers(bank);}
  }
  if(button.dataset.sourceCheck){const id=button.dataset.sourceCheck;feedback('source-'+id+'-feedback',M.checkSource(id,$('source-'+id).value));}
- if(button.id==='answer-review')feedback('answer-feedback',{status:'reflection',title:'Prüfe einen Satz ganz genau',text:$('answer').value.trim()?'Zeige zu einer Aussage die genaue Stelle in deiner Belegübersicht. Erklärt dein Satz, warum sie passt? Überarbeite diese Verbindung und benenne anschließend, was offen bleibt.':'Formuliere deine Antwort zuerst hier, im Heft oder mündlich. Zeige dann zu einer Aussage die genaue Textstelle und erkläre, warum sie dein Urteil trägt.'});
+ if(button.id==='answer-review')feedback('answer-feedback',{status:'reflection',title:'Prüfe einen Satz ganz genau',text:$('answer').value.trim()?'Zeige zu einer Aussage die genaue Stelle in deiner Belegübersicht. Erklärt dein Satz, warum sie passt? Verbessere diese Verbindung oder begründe am Kriterium, warum sie schon passt. Benenne anschließend, was offen bleibt.':'Formuliere deine Antwort zuerst hier, im Heft oder mündlich. Zeige dann zu einer Aussage die genaue Textstelle und erkläre, warum sie dein Urteil trägt.'});
 });
 document.addEventListener('change',event=>{
  const input=event.target;
