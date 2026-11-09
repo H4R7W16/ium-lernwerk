@@ -84,3 +84,26 @@ test('Schlüsselpaar zeigt einen verlorenen Unterschied bei gleicher Auflösung 
  assert.deepEqual(differences,[[6,8]]);assert.equal(model.I8[5][7],'0');assert.equal(model.II8[5][7],'1');
  for(const [n,rows]of Object.entries(model)){const size=n.endsWith('4')?4:8;assert.equal(rows.length,size);assert.ok(rows.every(row=>row.length===size&&/^[01]+$/.test(row)));}
 });
+
+
+test('DAT-5 bündelt den Abschluss und führt von der Notiz zur passenden Vergleichsstufe',()=>{
+ const task=published.get(ROOT+'dat-5-welche-datenmenge-passt-zum-zweck.html'),notes=published.get(ROOT+'datenbogen-werkstattnotizen.html');
+ assert.match(task,/Gilt deine Empfehlung für das Leihplansymbol auch für diesen neuen Zweck/);
+ assert.match(task,/datenbogen-werkstattnotizen.html#dat-5-zwecknotiz/);assert.match(task,/datenbogen-werkstattnotizen.html#dat-5-feinnotiz/);
+ for(const id of ['dat-5-zwecknotiz','dat-5-feinnotiz'])assert.equal([...notes.matchAll(new RegExp('id="'+id+'"','g'))].length,1);
+ assert.match(notes,/dat-5-welche-datenmenge-passt-zum-zweck.html#dat-5-feinauftrag/);
+ const fine=task.slice(task.indexOf('id="vergleich-8"'),task.indexOf('id="gegenpruefung"'));
+ assert.match(fine,/id="dat-5-feinauftrag"/);assert.doesNotMatch(fine,/Begründe auch, was du damit noch nicht über echte Schlüssel weißt/);
+});
+test('DAT-5 vergrößert dieselben Bilder im Artikel und erhält native Vergleichsstufen',()=>{
+ for(const file of ['dat-5-welche-datenmenge-passt-zum-zweck.html','projektion-5.html']){
+  const html=published.get(ROOT+file);
+  for(const n of ['4','8','vorlagen']){
+   assert.equal([...html.matchAll(new RegExp('id="key-zoom-'+n+'"','g'))].length,1);
+   assert.match(html,new RegExp('<label[^>]*for="key-zoom-'+n+'"'));
+   assert.equal([...html.matchAll(new RegExp('src="material/schluesselpaar-'+n+'\\.svg"','g'))].length,1);
+  }
+  assert.doesNotMatch(html,/<a[^>]+href="material\/schluesselpaar-[^"]+"/);
+  assert.match(html,/<details id="vergleich-8">/);assert.match(html,/<details id="gegenpruefung">/);
+ }
+});

@@ -4,16 +4,16 @@ status: reviewed
 area: Unterricht
 project: IuM-Lernwerk
 klassenstufe: 7
-fassung: "1.0"
+fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-07
+updated: 2026-11-09
 tags:
   - output/briefing
 ---
 
 # DAT-5 · Briefing
 
-Vorlesetext zur Durchführung, Fassung 1.0 vom 28. Oktober 2026. Keine Audiodatei.
+Vorlesetext zur Durchführung, Fassung 1.1 vom 9. November 2026.
 
 Der Abschluss hat dreißig Minuten. Fünf Minuten klären den Zweck, fünf das Datenwegmodell, zehn dienen einer eigenen Empfehlung und zehn der Gegenprüfung, Revision und Sicherung. Halten Sie die Antworten kurz; zusätzliche Recherche passt nicht hinein.
 
@@ -23,6 +23,8 @@ Der Ressourcenbezug bleibt qualitativ. Bei gleichen weiteren Bedingungen müssen
 
 Prüfen Sie die Belegkette aus Zweck, Bilddetail, Rechnung und Ressourcenbezug. Es geht nicht um die moralisch gewünschte Wahl der kleinsten Datei. Eine größere Variante oder die begründete Ablehnung beider kann passend sein. Jede Person erhält eine konkrete Rückfrage und überarbeitet ihre Empfehlung oder begründet deren Bestand.
 
-Beim neuen Zweck untersuchen Lernende zuerst zwei 4×4-Bilder und halten ein erstes Urteil in derselben Notiz fest. Erst danach öffnen sie das 8×8-Paar. Beide Ansichten bleiben gleich groß. Eine kurze eigene Begründung mit einem Rasterfeld genügt; die Tabellen sind ein alternativer Zugang. Vorlagen und Gegenprüfung bleiben bis nach dem Urteil geschlossen. In Zeile 6, Spalte 8 wird erst bei 8×8 der verlängerte rechte Zahn von II sichtbar. 4×4 kann diesen Fall nicht unterscheiden; Vergrößern derselben Pixel hilft nicht. 8×8 reicht für diesen konstruierten Unterschied, garantiert jedoch keine Unterscheidbarkeit realer Schlüssel. Die bestehenden drei Transferminuten bleiben; die Gegenprüfung kann in der anschließenden Sicherung geöffnet werden.
+Beim neuen Zweck halten Lernende zuerst nur „4×4: …“ unter ihrer eigenen Empfehlung fest. Danach öffnen sie 8×8 und ergänzen „Nach 8×8 wähle ich …, weil …“ mit einem Feldbeleg. Die Leitfrage nimmt die ursprüngliche Leihplanempfehlung ausdrücklich wieder auf. Wer schon 8×8 gewählt hatte, darf die Wahl behalten und begründet sie nun am benötigten Unterschied. Eine zweite ausgearbeitete Empfehlung oder eine zusätzliche schriftliche Grenzbegründung ist nicht nötig.
+
+Die Bilder lassen sich ohne Seitenwechsel vergrößern; in der größeren Ansicht kann man seitlich verschieben. Die Notizhilfe bietet Rückwege zum groben und zum feinen Vergleich. Die vorhandenen drei Transferminuten sind für diese kurze Spur vorgesehen. Vorlagen, Gegenprüfung und die Grenze echter Schlüssel behandeln Sie anschließend in den drei gemeinsamen Sicherungsminuten. Erst nach eigenem Urteil öffnen: Bei 8×8 unterscheidet Zeile 6, Spalte 8 den längeren rechten Zahn von II. Vergrößern der 4×4-Anzeige gewinnt dieses Detail nicht zurück. Die feinere Darstellung löst diesen Modellfall, garantiert jedoch keine ausreichenden Bilder echter Schlüssel.
 
 Sichern Sie abschließend die Regel, Daten nur soweit zu reduzieren, dass die benötigte Information erhalten bleibt. Die spätere Wiederaufnahme folgt mit Abstand im eigenen Jahreskonto. Unterrichtsdauer und tatsächliche Nachweise werden erst nach Durchführung festgehalten.

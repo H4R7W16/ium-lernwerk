@@ -10,7 +10,7 @@ klassenstufe: 7
 fassung: "1.1"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-07
+updated: 2026-11-09
 tags:
   - output/durchfuehrung
 ---
@@ -120,11 +120,11 @@ Budget: 6 + 8 = **14 Byte**, also **6 Byte Rest**. Mit 16×16-Raster: 256 Bit = 
 - **0–5:** Zweck Schlüsselausleihe benennen. Lernende wählen Bild oder Tabellen direkt darunter. Ein Beispiel für eine prüfbare Stelle in B sind die weißen Felder in Zeile 2, Spalten 2 und 3, zwischen zwei schwarzen Feldern. Zusammen mit den Nachbarzeilen können sie die Form unabhängig deuten. Der Motivname allein genügt nicht.
 - **5–10:** Qualitatives Datenwegmodell erklären. A gemeinsam berechnen; B nicht zusätzlich vorrechnen. Mehr Bits beanspruchen unter gleichen Bedingungen mehr Datenübertragung und Speicher, daraus folgt kein fester Stromfaktor.
 - **10–20:** Individuelle Empfehlung, 3–5 Sätze oder entsprechend knappe Stichpunkte. Rechnung, Bildbeleg, Übertragung und Speicherung, Aussagegrenze gehören hinein.
-- **20–30:** Vier Minuten enge Gegenprüfung und Revision; drei Minuten neuer Zweck individuell; drei Minuten Besprechung und Sicherung 5. Eine Rückfrage pro Person genügt. Kein ausuferndes Nachhaltigkeitsreferat.
+- **20–30:** Vier Minuten enge Gegenprüfung und Revision; drei Minuten individueller Zweckwechsel mit zwei knappen Zeilen an derselben Empfehlung („4×4: … / Nach 8×8 wähle ich …, weil …“ samt Feldbeleg); drei Minuten gemeinsame Vorlagen-/Gegenprüfung und Sicherung 5. Eine Rückfrage pro Person genügt.
 
 **Erwartung:** A = 16 Bit = 2 Byte; B = 64 Bit = 8 Byte; B enthält viermal so viele Nutzdaten. B kann durch besser unterscheidbare Formteile als geeigneteres Leihplansymbol begründet werden. A nur akzeptieren, wenn der Lernende seine ausreichende Erkennbarkeit für den festgelegten Kontext plausibel belegt; „kleiner ist immer besser“ genügt nicht. Auch beide abzulehnen und ein klarer gestaltetes Zeichen zu fordern, kann begründet sein. Nicht die Variantenwahl bewerten, sondern die Belegkette.
 
-Neuer Zweck: B7 ersetzt den rein gedachten Unterschied durch ein konstruiertes Paar. Zuerst 4×4 zeigen und ein eigenes Urteil in derselben Notiz verlangen, danach 8×8 öffnen. Vorlagen/Gegenprüfung erst nach Beleg und Entscheidung, bei Bedarf in den drei Sicherungsminuten. Die 4×4-Raster sind identisch; bei 8×8 ist Zeile 6, Spalte 8 bei I weiß und II schwarz. Das belegt den längeren rechten Zahn der zweiten Vorlage. 8×8 genügt für diesen Modellunterschied, ist keine Garantie für echte Schlüssel. Nur Anzeigen vergrößern ergänzt keine verlorenen Details. Je Bild 16/64 Bit, für das Paar 32/128 Bit; echte SVG-Dateigröße getrennt halten. Für Papier 4×4 vorab, 8×8 danach und Vorlagen zuletzt ausgeben; die Abschnitte zum Ausdruck gezielt öffnen.
+Neuer Zweck: B7 ersetzt den rein gedachten Unterschied durch ein konstruiertes Paar. Zuerst 4×4 zeigen und das eigene Urteil kurz unter der bisherigen Empfehlung festhalten, danach 8×8 öffnen. Die Frage „Gilt deine Empfehlung auch für diesen neuen Zweck?“ ersetzt eine weitere unabhängige Auswahlaufgabe. Wahl und Feldbeleg stehen in der zweiten kurzen Zeile; bei schon gewähltem 8×8 muss der Grund zum neuen Zweck passen. Die Grenze echter Schlüssel sowie Vorlagen/Gegenprüfung gehören in die gemeinsame Sicherung nach dem eigenen Urteil. Die 4×4-Raster sind identisch; bei 8×8 ist Zeile 6, Spalte 8 bei I weiß und II schwarz. Das belegt den längeren rechten Zahn der zweiten Vorlage. 8×8 genügt für diesen Modellunterschied, ist keine Garantie für echte Schlüssel. Nur Anzeigen vergrößern ergänzt keine verlorenen Details. Je Bild 16/64 Bit, für das Paar 32/128 Bit; echte SVG-Dateigröße getrennt halten. Die Vergrößerung bleibt im Artikel und verändert nur die Anzeige; in ihr kann man seitlich verschieben. Die Notizhilfe führt gezielt zurück zu 4×4 oder zum 8×8-Auftrag. Für Papier 4×4 vorab, 8×8 danach und Vorlagen zuletzt ausgeben; die Abschnitte zum Ausdruck gezielt öffnen.
 
 **Beobachtung → Hilfe:** Nur „weniger CO₂“ → nach dem belegten Datenfaktor und den unbekannten Größen fragen. Nur Umweltmeinung → ein sichtbares Bilddetail und beide Rechnungen ergänzen. Strom proportional zur Bitzahl → Unterschied Datenmenge/Technikbetrieb an B6 erklären. Ohne Partnerperson prüft die Lehrperson mit einer konkreten Rückfrage. Individueller neuer Zweck bleibt erforderlich.
 
