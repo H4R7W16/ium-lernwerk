@@ -70,6 +70,13 @@ function validate(pack){
   const fields=new Set();for(const b of step.blocks){
    if(!['explanation','example','task','external','cooperative','private','retrieval'].includes(b.type))throw new Error('Unbekannter Inhaltsbaustein: '+b.type);
    text(b.title,'Bausteintitel');text(b.text,'Bausteintext');
+   if(b.sourceComparison!==undefined){
+    const c=b.sourceComparison;
+    if(pack.area!=='recherche'||pack.grade!==5||step.id!=='pruefen'||b.id!=='lea-prueft'||b.type!=='explanation'||!c||!Array.isArray(c.sources)||c.sources.length!==2)throw new Error('Quellenvergleich braucht zwei Quellen am Vergleichsort');
+    text(c.claim,'Quellenvergleich Aussage');text(c.wordHelp,'Quellenvergleich Worthilfe');
+    for(const source of c.sources){for(const key of ['label','text','source','location','url'])text(source[key],'Quellenvergleich '+key);https(source.url);}
+    if(c.sources[0].url===c.sources[1].url)throw new Error('Quellenvergleich braucht unterschiedliche Quellen');
+   }
    if(b.selectionModel!==undefined){if(b.selectionModel!==true||pack.grade!==6||pack.area!=='werbung'||step.id!=='modell'||b.type!=='task'||b.id!=='versuch')throw new Error('Unzulässiges Auswahlmodell');text(b.paperText,'Auswahlmodell Papiertext');}
    if(['task','external','cooperative','private','retrieval'].includes(b.type)){if(!id(b.id)||fields.has(b.id))throw new Error('Antwort-ID ungültig/doppelt');fields.add(b.id);text(b.prompt,'Eigenes Produkt');}
    if(b.responseParts){
@@ -150,6 +157,7 @@ function load(grade=5){
 }
 function assets(pack){
  const root=fs.realpathSync(path.join(__dirname,'inhalte')),out=new Map();
+ if(pack.steps.some(s=>s.blocks.some(b=>b.sourceComparison)))out.set('quellenvergleich.css',fs.readFileSync(path.join(__dirname,'recherche-source-comparison.css'),'utf8'));
  for(const m of pack.media||[]){
   const file=fs.realpathSync(path.join(root,m.file));if(!file.startsWith(root+path.sep))throw new Error('Medium außerhalb des Inhaltsordners');
   const data=fs.readFileSync(file);if(data.length>2*1024*1024)throw new Error('Medium überschreitet 2 MB: '+m.file);

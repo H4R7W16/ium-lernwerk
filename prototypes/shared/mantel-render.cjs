@@ -78,7 +78,7 @@ function augment(assets){
  for(const pack of packs){
   if(pack.authorVersion===2){
    const u=units.find(x=>x.id===pack.id);
-   for(const [file,body] of require('./class5-author-render.cjs').render(pack)){let html=page(pack.title,body,units,u,file);if(pack.area==='ablaeufe'&&body.includes('data-card-tool'))html=html.replace('</head>','<link rel="stylesheet" href="karten.css"><script src="karten-model.js" defer></script><script src="karten-view.js" defer></script><script src="karten-app.js" defer></script></head>');created.set(u.area+'/'+file,html);}
+   for(const [file,body] of require('./class5-author-render.cjs').render(pack)){let html=page(pack.title,body,units,u,file);if(pack.area==='ablaeufe'&&body.includes('data-card-tool'))html=html.replace('</head>','<link rel="stylesheet" href="karten.css"><script src="karten-model.js" defer></script><script src="karten-view.js" defer></script><script src="karten-app.js" defer></script></head>');if(body.includes('class="lw-ref-source-comparison"'))html=html.replace('</head>','<link rel="stylesheet" href="quellenvergleich.css"></head>');created.set(u.area+'/'+file,html);}
    if(pack.area==='ablaeufe')for(const [dest,source]of [['karten.css','style.css'],['karten-model.js','model.js'],['karten-view.js','view.js'],['karten-app.js','app.js']])created.set(u.area+'/'+dest,fs.readFileSync(path.join(__dirname,'../m06-kartenstation',source),'utf8'));
    for(const [file,data] of A.assets(pack))created.set(u.area+'/'+file,data);
    continue;

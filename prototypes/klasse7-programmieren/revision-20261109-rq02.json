@@ -1,0 +1,58 @@
+{
+  "base": "524f18affa1e320120854f60e7f1e32ee63756cd3b2e78872f9715143b98c4db",
+  "reason": "MP-RQ-02: Quellenvergleich einschließlich nachgeprüfter Führung und konsistenter DLR-Zugänge",
+  "changes": {
+    "klasse5/recherche/schritt-suchen.html": {
+      "before": "266f2a0b687664d507a48d09dd7fd17be4b85099872d001eca592e21aefe9f3a",
+      "after": "b291cc6d90408b9bfbbcf6a082004e6c0000be0f54f14edf4d2b4988a3bfcc76"
+    },
+    "klasse5/recherche/baustein-suchen.html": {
+      "before": "6d55d4f8bc415ce9150b69efb4c7153a6e9bf2c4d233a2013d13dcefe751fca3",
+      "after": "82520bea5209750ff137ec03b99239a8c24315c082261fc98147372846d71cd2"
+    },
+    "klasse5/recherche/schritt-pruefen.html": {
+      "before": "a32ca42fd7b25f1b6d1ff910593de86e56ec1baa223e0ede69d39222eefce4ef",
+      "after": "dc0ee4beda271105c26aad5bd81b16345cd5b5c15c80e03a49b7153145b29849"
+    },
+    "klasse5/recherche/baustein-pruefen.html": {
+      "before": "e94e91dfd4d3775145e9dfc25a3406a1fb64488f18451314e93507556223c2b3",
+      "after": "2940cac65aa725c263999cbda549fc4909e58e76bb04b829e1502a019dcdb811"
+    },
+    "klasse5/recherche/schritt-ordnen.html": {
+      "before": "a11412c7e30a2f6e1f7704e28495d03e7fab08387f4105edace5371155a512b4",
+      "after": "5f97091631cbbce039bc9e2862244cd71628c0679fc05e0a170a5c823906946c"
+    },
+    "klasse5/recherche/baustein-ordnen.html": {
+      "before": "ede6e22c0d0fde373e0f55606fa287915e061c16ed1ace39f0f35c7689113dca",
+      "after": "f30f71840d6e2919c70717579a7b02348abbc7a062d2caa2984a8b6f51f40db7"
+    },
+    "klasse5/recherche/lehrkraft.html": {
+      "before": "31afc44c820b7917c766feb0b8d13632beeccf1681574801e12795020c4d2ec4",
+      "after": "3cef360a69d1cb7fa60f5d7792f5eb52f04481b73bf4aac1378f3470f82e6d92"
+    },
+    "klasse5/recherche/briefing.html": {
+      "before": "081139ca0b624b30521eebb8c36e394c7af9485c644590966c6f1cc5f60156f4",
+      "after": "0004867c14e82b0af5222a4778b52958f0d4980f64005fd7be0f005823581d5e"
+    },
+    "klasse5/recherche/baustein-suchen-ipad.html": {
+      "before": "10a508a1e30c92a2c4e9eb5a0544da30090b664b99bd6f3496a4fe3f23906f13",
+      "after": "72ec007f33b56417600fb1983c4f9ea08247b790f16bdb9c11f739365ac486bb"
+    },
+    "klasse5/recherche/baustein-suchen-windows.html": {
+      "before": "fedbedabb894f50f307dde866dd92732a757f7d5290780496e4b1aeea408a1f5",
+      "after": "2203b77d285a7673a2c8602335e02f6aa4ac4dfcb42076306035ea886ab51f2c"
+    },
+    "klasse5/recherche/quellenvergleich.css": {
+      "before": null,
+      "after": "92bddf100b7a9036b4353f863618d3f7ab08b907b83095d61f290b0b10e3ef15"
+    },
+    "klasse5/recherche/assets/recherche/rq02/ersatztexte.txt": {
+      "before": "107d8fbebe57ec63caee3bf01b60124d136a014fc1d775dfbeeda8ef096b4fbf",
+      "after": "a0599840bdf1903e65ff00472e3dc7fcad082a60bf25915b179e6d0c4c8f0da2"
+    },
+    "klasse5/mantel-sw.js": {
+      "before": "8e8d06487025a88c602aca4f650767d0663639935e504b6038704d5435334b41",
+      "after": "ad300922675811d5d15f3ee6bca6bfb2c9fc1c6660c27630002cbb6245939193"
+    }
+  }
+}
