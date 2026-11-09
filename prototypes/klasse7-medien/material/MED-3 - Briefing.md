@@ -19,7 +19,7 @@ Das Ausgangsbild ist ein KI-generiertes Hofmotiv ohne Personen, keine Dokumentat
 
 Es folgen fünfzehn Minuten angeleitete Werkzeugpraxis. Original und Arbeitsdateien liegen am vereinbarten Ort; das Original bleibt unverändert. Jede Person schneidet zu, verändert Farben, speichert als bild-uebung.png und öffnet die Übungskopie wieder. Fehlende Dateiroutinen müssen jetzt sichtbar werden.
 
-Die nächsten fünfundvierzig Minuten gehören der eigenen Gestaltung. Zuerst werden zwei Absichten geplant. Plan, Rückmeldungen und Revision wachsen in einer einzigen Bildnotiz weiter. Dann entsteht die erste Variante. Bei zwei Einzelstunden liegt die Pause nach der fünfundvierzigsten Gesamtminute: A und der Plan für B müssen gesichert sein. Die Wiederöffnung ist im Zeitfenster für die zweite Variante enthalten. Beide Varianten zusammen verwenden Ausschnitt und Farbveränderung.
+Die nächsten fünfundvierzig Minuten gehören der eigenen Gestaltung. Der gemeinsame Mindestumfang steht vor der Planung: insgesamt mindestens ein Ausschnitt und eine Farbveränderung. Jede Person wählt zwei Absichten; Beispiele stehen nur in der Hilfe bei Bedarf. Plan, Rückmeldungen und Revision wachsen in einer Bildnotiz weiter. Nach Planung und A liegt bei zwei Einzelstunden die Pause nach der fünfundvierzigsten Gesamtminute: A und der Plan für B müssen gesichert sein. Die Wiederöffnung ist im Zeitfenster für B enthalten.
 
 Die Partnerperson deutet die Bilder zunächst ohne Kenntnis der Absicht und nennt ein Bildmerkmal. Danach werden die Rollen gewechselt. Jede Person erhält so eine Rückmeldung zu eigenen Dateien. Fehlt ein Gegenüber, übernehmen Sie diese kurze Funktion. Allgemeines Lob reicht nicht; fragen Sie nach Wirkung und verlorenem Kontext.
 

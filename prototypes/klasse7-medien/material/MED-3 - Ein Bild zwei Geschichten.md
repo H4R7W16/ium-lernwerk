@@ -14,7 +14,7 @@ updated: 2026-11-07
 
 **90 Minuten · Dein Ergebnis:** Original, zwei selbst bearbeitete Varianten, eine überarbeitete Variante und eine kurze Bildnotiz.
 
-Die Schulredaktion plant einen Beitrag über Aufenthaltsorte. Mit demselben Bild könntest du einen freundlichen Treffpunkt oder einen unaufgeräumten Winkel zeigen. Wie stark lässt sich der Eindruck verändern, ohne neue Gegenstände hineinzufügen?
+Die Schulredaktion plant einen Beitrag über Aufenthaltsorte. Wie könntest du denselben Ort im Bild unterschiedlich wirken lassen, ohne neue Gegenstände hinzuzufügen?
 
 ## 1 · Was zeigt das ganze Bild? · 15 Minuten
 
@@ -39,21 +39,24 @@ Speichere die veränderte Übungskopie als `bild-uebung.png`, öffne sie wieder 
 
 Ergänze während der folgenden Schritte eine einzige [[Medienbogen - Werkstattnotizen#MED-3 · Bildnotiz|Bildnotiz]]: zuerst den Plan, dann Rückmeldung und Revision.
 
-**Planen, 5 Minuten:** Wähle zwei unterschiedliche Wirkungsabsichten für die Leserinnen und Leser des Schulblogs. Zum Beispiel „Hier möchte man sitzen“ und „Hier sollte aufgeräumt werden“. Eigene Absichten sind möglich, wenn du sie an Bildmerkmalen prüfen kannst. Notiere beide **vor** dem Bearbeiten. Skizziere oder beschreibe den jeweils geplanten Ausschnitt und die Farbwirkung.
+**Für A und B zusammen:** Verwende insgesamt **mindestens einen Ausschnitt und eine Farbveränderung**. Du darfst beide Mittel kombinieren; halte sie in deiner Bildnotiz auseinander. Füge keine Gegenstände hinzu.
+
+**Planen, 5 Minuten:** Wähle selbst zwei unterschiedliche Wirkungsabsichten für die Leserinnen und Leser des Schulblogs. Sie müssen sich an Bildmerkmalen prüfen lassen. Notiere beide **vor** dem Bearbeiten. Skizziere oder beschreibe den jeweils geplanten Ausschnitt und die Farbwirkung.
+
+<details><summary>Hilfe: Ich weiß nicht, was ich verändern soll.</summary>
+
+Du könntest etwa „Hier möchte man sitzen“ und „Hier sollte aufgeräumt werden“ prüfen. Wähle selbst zwei Bildbereiche. Welche Details stützen jeweils deine Absicht? Was würde dein Ausschnitt ausblenden? Probiere danach die Sättigung aus und vergleiche. Die Wirkung muss sich am Bild erklären lassen; eine passende Überschrift allein reicht nicht.
+
+</details>
 
 **Variante A, 10 Minuten:** Bearbeite eine Kopie. Speichere als `bild-A.png`. Wenn hier die erste 45-Minuten-Stunde endet, sichere auch deine Notiz. Dein Zwischenstand ist A plus Plan für B.
 
-**Variante B, 15 Minuten:** Öffne bei einem neuen Termin zuerst A zur Kontrolle, dann das Original für B. Speichere B als `bild-B.png`. Verwende in deinen zwei Varianten insgesamt **mindestens einen Ausschnitt und eine Farbveränderung**. Füge keine Gegenstände hinzu. Du darfst beide Mittel kombinieren, musst sie aber in deiner Notiz auseinanderhalten.
+**Variante B, 15 Minuten:** Öffne bei einem neuen Termin zuerst A zur Kontrolle, dann das Original für B. Speichere B als `bild-B.png`.
 
 **Wirkung prüfen, 10 Minuten:** Zeige einer Partnerperson A und B zunächst ohne deine Absichten. Sie nennt für jedes Bild einen Eindruck und ein sichtbares Detail. Erst dann zeigst du deinen Plan. Tauscht die Rollen. Notiere knapp, wo Absicht und Deutung zusammenpassen oder auseinandergehen. Jede Person bearbeitet ihre eigenen Dateien. Fehlt eine Partnerperson, übernimmt die Lehrperson den Blick von außen.
 
 **Revision planen, 5 Minuten:** Wähle eine konkrete Verbesserung an einer Variante, die sich aus der Rückmeldung ergibt. Auch bei passender Wirkung kann etwa mehr Kontext die Aussage ehrlicher oder ein genauerer Ausschnitt die Absicht verständlicher machen. Notiere: „Ich ändere …, damit … .“
 
-<details><summary>Hilfe: Ich weiß nicht, was ich verändern soll.</summary>
-
-Vergleiche die Bereiche links und rechts. Entscheide selbst, welche Details für deine Absicht wichtig sind. Wähle zuerst einen Ausschnitt. Ändere danach die Sättigung und vergleiche. Prüfe, ob du die Wirkung wirklich am Bild erklären kannst oder nur eine Überschrift darüberklebst.
-
-</details>
 
 <details><summary>Hilfe: Die andere Person sieht etwas anderes.</summary>
 

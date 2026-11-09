@@ -38,9 +38,9 @@ Offene Ergebnisstruktur: Behauptung → Beleg → Reichweite → offene Frage.
 
 ## P3 · Ein Bild, zwei Geschichten
 
-IuM-Lernwerk, KI-generiert mit OpenAI, 2026, CC BY-SA 4.0; kein realer Schulhof.
+IuM-Lernwerk, KI-generiert mit OpenAI, 2026, CC BY-SA 4.0; kein realer Schulhof. [Bild vergrößern](../inhalt/material/hof-arbeitsbild.png).
 
-![KI-generierter Hof ohne Personen: links Baum, Bänke und bepflanzte Beete; mittig Pflaster, Kreidemarkierungen und ein Ball; rechts Papierkorb mit drei Papierstücken. Hinten ein Gebäude und zwei Fahrräder.](../inhalt/material/hof-arbeitsbild.png)
+[![KI-generierter Hof ohne Personen: links Baum, Bänke und bepflanzte Beete; mittig Pflaster, Kreidemarkierungen und ein Ball; rechts Papierkorb mit drei Papierstücken. Hinten ein Gebäude und zwei Fahrräder.](../inhalt/material/hof-arbeitsbild.png)](../inhalt/material/hof-arbeitsbild.png)
 
 **Was sehen wir tatsächlich? Was deuten wir? Was könnte ein Ausschnitt verbergen?**
 

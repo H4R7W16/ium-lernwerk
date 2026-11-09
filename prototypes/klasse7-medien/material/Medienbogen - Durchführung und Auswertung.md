@@ -67,13 +67,13 @@ Mögliche Überschrift: „18 von 20 freiwillig Befragten am Kiosk wünschen lä
 
 ## MED-3 · Eigene Bildbearbeitung · 90 Minuten
 
-**Material:** [[MED-3 - Ein Bild zwei Geschichten]], [[MED-3 - Bedienkarte Bildbearbeitung]], gemeinsames KI-Arbeitsbild als PNG, Projektion P3, Sicherung MED-3. Keine vorgefertigten Schülerlösungen verteilen.
+**Material:** [[MED-3 - Ein Bild zwei Geschichten]], [[MED-3 - Bedienkarte Bildbearbeitung]], gemeinsames KI-Arbeitsbild als PNG, Projektion P3, Sicherung MED-3. Keine vorgefertigten Schülerlösungen verteilen. In P3 öffnet „Bild vergrößern“ das ganze Original; mit Browser-Zurück geht es zur Projektion.
 
 | Zeit | Handeln und Steuerung | Beobachtung → nächste Hilfe |
 |---|---|---|
 | 0–15 | Original betrachten, zwei Details nennen, Beobachtung/Deutung trennen. Ausschnitt demonstrieren und rückgängig machen. | „Der Hof ist immer schmutzig“? Räumlichen und zeitlichen Aussageumfang klären. |
 | 15–30 | Original unverändert am vereinbarten Ort ablegen. Alle öffnen, schneiden, ändern Sättigung, speichern als bild-uebung.png und öffnen erneut. | Nach 7 min Dateiweg prüfen. Wenn ein grundlegender Bedienweg fehlt, kurze gezielte Demonstration; keine gesamte Designschulung. |
-| 30–35 | Jede Person plant zwei Absichten samt Mitteln; dieselbe Bildnotiz später um Rückmeldung und Revision ergänzen. | Vor Plan keine fertige Variante abnehmen. Nur „schön/hässlich“? Zielgruppe und konkrete Bildmerkmale nachfragen. |
+| 30–35 | Mindestumfang vor der Planung klären. Jede Person wählt zwei Absichten samt Mitteln; Beispiele nur bei Bedarf aus der Hilfe. Dieselbe Bildnotiz fortführen. | Vor Plan keine fertige Variante abnehmen. Nur „schön/hässlich“? Zielgruppe und konkrete Bildmerkmale nachfragen. |
 | 35–45 | A erstellen und sichern. Bei zwei Einzelstunden hier unterbrechen. | A-Datei und Plan B sichtbar; Stoppsignal zwei Minuten vorher. |
 | 45–60 | Bei Unterbrechung Datei wieder öffnen, dann B vom Original erstellen. | B nur Kopie von A ohne neue Absicht? Plan abgleichen. |
 | 60–70 | Partnerdeutung ohne bekannte Absicht, Bildbeleg, dann Planvergleich; Rollenwechsel. | Beide geben und erhalten eine merkmalsbezogene Rückmeldung. Bei Ausfall Lehrperson als Gegenüber. |
