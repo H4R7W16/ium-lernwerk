@@ -75,3 +75,32 @@ test('B17 Browserlaufzeit erzeugt keine Cookies, Speicherstände oder Netzabfrag
  assert.doesNotMatch(source,/\b(?:fetch|XMLHttpRequest|WebSocket|localStorage|sessionStorage|indexedDB)\b|document\.cookie|history\./);
  assert.match(source,/stopPropagation/);
 });
+test('B17 Vergleich gibt neue Ergebnisse erst nach der zweiten Prüfung frei',()=>{
+ const M=core();assert.equal(typeof M.comparison,'function','Geprüfter Vergleich fehlt');
+ let s=M.createState();assert.deepEqual(M.comparison(s),{start:null,after:null});
+ s=M.transition(s,'CHECK_START');const start=M.comparison(s).start;assert.equal(start.context,'buch');assert.equal(start.history,'stifte');
+ s=M.transition(s,'CHOOSE_VISIT',1);assert.deepEqual(M.comparison(s),{start,after:null});
+ s=M.transition(s,'CHOOSE_VISIT',0);assert.equal(M.comparison(s).after,null);
+ assert.throws(()=>M.comparison({phase:'fremd'}));
+});
+test('B17 Vergleich bewahrt Start und zugehörige Zählung für alle eigenen Eingriffe',()=>{
+ const M=core();assert.equal(typeof M.comparison,'function','Geprüfter Vergleich fehlt');
+ for(const [index,history,counts]of [[0,'stifte',{lesen:0,zeichnen:3}],[1,'buch',{lesen:2,zeichnen:1}],[2,'buch',{lesen:2,zeichnen:1}]]){
+  let s=M.transition(M.createState(),'CHECK_START');s=M.transition(s,'CHOOSE_VISIT',index);s=M.transition(s,'CHECK_CHANGE');
+  const c=M.comparison(s);assert.deepEqual(c.start.counts,{lesen:1,zeichnen:2});assert.equal(c.start.history,'stifte');assert.equal(c.after.context,'buch');assert.equal(c.after.history,history);assert.deepEqual(c.after.counts,counts);
+  c.start.counts.lesen=99;assert.equal(M.comparison(s).start.counts.lesen,1);
+ }
+});
+test('B17 nächste Handlung und Startknopf stehen vor den Stationen, vollständige Regel bleibt erreichbar',()=>{
+ const html=R.render(pack()).get('schritt-modell.html'),p=html.indexOf('data-b17-status');
+ assert.ok(p>0&&p<html.indexOf('class="b17-stations"'),'Phasenimpuls kommt zu spät');
+ assert.ok(html.indexOf('data-b17-start')<html.indexOf('class="b17-stations"'),'Startknopf kommt zu spät');
+ assert.match(html,/href="#arbeitsstelle-unser-modell-kennt-nur-zwei-themen"/);
+});
+test('B17 Rückwege verbinden weiterhin genau ein Antwortfeld, Papier hat keine Bildschirmwege',()=>{
+ const pages=R.render(pack()),html=pages.get('schritt-modell.html'),paper=pages.get('baustein-modell.html');
+ assert.equal((html.match(/<textarea\b[^>]*id="answer-modell-versuch"/g)||[]).length,1);
+ assert.match(html,/href="#answer-modell-versuch"[^>]*data-b17-to-answer/);
+ assert.match(html,/href="#b17-hilfe"[^>]*data-b17-return/);
+ assert.match(html,/id="b17-hilfe"/);assert.doesNotMatch(paper,/data-b17-(?:to-answer|return)|id="b17-hilfe"/);
+});

@@ -9,13 +9,32 @@ function validate(s){if(!s||!phases.includes(s.phase)||(['predict-start','choose
 function historyFor(s){validate(s);return original.map((t,i)=>i===s.selected?(t==='lesen'?'zeichnen':'lesen'):t);}
 function transition(s,action,index){validate(s);if(action==='RESET')return createState();if(action==='CHECK_START'&&s.phase==='predict-start')return{phase:'choose',selected:null};if(action==='CHOOSE_VISIT'&&['choose','predict-change'].includes(s.phase)&&Number.isInteger(index)&&index>=0&&index<3)return{phase:'predict-change',selected:index};if(action==='CHECK_CHANGE'&&s.phase==='predict-change')return{...s,phase:'compare'};throw new Error('Aktion hier nicht möglich');}
 const label=t=>t==='lesen'?'Lesen':'Zeichnen',ad=a=>a==='buch'?'Buchwerbung':'Stiftewerbung';
-function result(r){return 'K: '+ad(r.context)+' (aktuelle Seite Lesen). V: '+ad(r.history)+' (frühere Besuche: '+r.counts.lesen+' Lesen, '+r.counts.zeichnen+' Zeichnen).';}
-function mount(root){if(root.dataset.b17Ready)return;root.dataset.b17Ready='true';let state=createState();const q=s=>root.querySelector(s),radios=[...root.querySelectorAll('input[name="b17-visit"]')],start=q('[data-b17-start]'),check=q('[data-b17-check]'),reset=q('[data-b17-reset]'),status=q('[data-b17-status]'),results=q('[data-b17-results]'),before=q('[data-b17-before]');
-function paint(){const s=state,visits=historyFor(s),checked=['choose','compare'].includes(s.phase);radios.forEach((r,i)=>{r.disabled=['predict-start','compare'].includes(s.phase);r.checked=s.selected===i;q('[data-b17-topic="'+i+'"]').textContent=s.selected===i?label(original[i])+' → '+label(visits[i]):label(visits[i]);r.closest('label').classList.toggle('b17-changed',s.selected===i);});start.hidden=s.phase!=='predict-start';check.hidden=s.phase!=='predict-change';reset.hidden=s.phase==='predict-start';before.hidden=!['predict-change','compare'].includes(s.phase);results.hidden=!checked;q('[data-b17-counts]').textContent=checked?result(evaluate('lesen',visits)):'';
-q('[data-b17-list-label]').textContent=s.selected===null?'Frühere Besuche · Start':'Frühere Besuche · nach deinem Eingriff';
-status.textContent={ 'predict-start':'1 · Sage K und V für den Start voraus. Halte deine Vorhersage in deiner Versuchsspur fest. Dann: Start prüfen.',choose:'2 · Start geprüft. Wähle genau einen früheren Besuch. Sein Thema wechselt; die aktuelle Seite bleibt Lesen.','predict-change':'3 · Sage K und V nach deinem Eingriff voraus. Halte auch diese Vorhersage fest. Dann: Änderung prüfen.',compare:'4 · Vergleiche Start und Eingriff. '+(evaluate('lesen',visits).history==='stifte'?'V bleibt gleich.':'V ändert sich.')+' K bleibt gleich. Erkläre mit den verwendeten Daten, warum.'}[s.phase];
-q('[data-b17-rule-note]').hidden=s.phase!=='compare';}
-function act(action,index){state=transition(state,action,index);paint();if(action==='CHECK_START')radios[0].focus();if(action==='CHECK_CHANGE')reset.focus();if(action==='RESET')start.focus();}
-start.addEventListener('click',()=>act('CHECK_START'));check.addEventListener('click',()=>act('CHECK_CHANGE'));reset.addEventListener('click',()=>act('RESET'));root.addEventListener('input',e=>e.stopPropagation());root.addEventListener('change',e=>{e.stopPropagation();if(radios.includes(e.target))act('CHOOSE_VISIT',Number(e.target.value));});paint();}
-return{evaluate,createState,transition,historyFor,mount};
+
+function comparison(s){validate(s);return{start:s.phase==='predict-start'?null:evaluate('lesen',original),after:s.phase==='compare'?evaluate('lesen',historyFor(s)):null};}
+function mount(root){
+ if(root.dataset.b17Ready)return;root.dataset.b17Ready='true';let state=createState();
+ const q=s=>root.querySelector(s),radios=[...root.querySelectorAll('input[name="b17-visit"]')],start=q('[data-b17-start]'),check=q('[data-b17-check]'),reset=q('[data-b17-reset]'),status=q('[data-b17-status]'),results=q('[data-b17-results]'),title=q('[data-b17-result-title]');
+ const block=root.closest('.lw-content-block'),answer=block.querySelector('#answer-modell-versuch'),back=block.querySelector('[data-b17-return]');
+ function paint(){
+  const s=state,visits=historyFor(s),c=comparison(s);
+  radios.forEach((r,i)=>{r.disabled=['predict-start','compare'].includes(s.phase);r.checked=s.selected===i;q('[data-b17-topic="'+i+'"]').textContent=s.selected===i?label(original[i])+' → '+label(visits[i]):label(visits[i]);r.closest('label').classList.toggle('b17-changed',s.selected===i);});
+  start.hidden=s.phase!=='predict-start';check.hidden=s.phase!=='predict-change';reset.hidden=s.phase==='predict-start';results.hidden=!c.start;
+  root.querySelectorAll('[data-b17-after]').forEach(n=>{n.hidden=!c.after;});
+  for(const [side,value]of [['start',c.start],['after',c.after]])for(const key of ['context','history','counts'])q('[data-b17-cell="'+key+'-'+side+'"]').textContent=!value?'':key==='counts'?value.counts.lesen+' Lesen · '+value.counts.zeichnen+' Zeichnen':ad(value[key]);
+  q('[data-b17-explain]').hidden=s.phase!=='compare';
+  q('[data-b17-list-label]').textContent=s.selected===null?'Frühere Besuche · Start':'Frühere Besuche · dein Eingriff';
+  status.textContent={
+   'predict-start':'1 · Sage K und V für den Start voraus. Halte deine Vorhersage fest. Dann: Start prüfen.',
+   choose:'2 · Wähle genau einen früheren Besuch. Sein Thema wechselt. Die aktuelle Seite bleibt Lesen.',
+   'predict-change':'3 · Sage K und V nach deinem Eingriff voraus. Halte auch diese Vorhersage fest. Dann: Änderung prüfen.',
+   compare:'4 · Vergleiche K, V und die Zählungen. Erkläre in deiner Versuchsspur, warum die Auswahl gleich bleibt oder sich ändert.'
+  }[s.phase];
+ }
+ function act(action,index){state=transition(state,action,index);paint();if(action==='CHECK_START')radios[0].focus();if(action==='CHECK_CHANGE'){title.focus();title.scrollIntoView({block:'start'});}if(action==='RESET')start.focus();}
+ start.addEventListener('click',()=>act('CHECK_START'));check.addEventListener('click',()=>act('CHECK_CHANGE'));reset.addEventListener('click',()=>act('RESET'));
+ root.querySelectorAll('[data-b17-to-answer]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();answer.focus();answer.scrollIntoView({block:'center'});}));
+ back.addEventListener('click',e=>{e.preventDefault();root.closest('details').open=true;const target=state.phase==='predict-start'?start:state.phase==='choose'?radios[0]:state.phase==='predict-change'?check:title;target.focus();target.scrollIntoView({block:'center'});});
+ root.addEventListener('input',e=>e.stopPropagation());root.addEventListener('change',e=>{e.stopPropagation();if(radios.includes(e.target))act('CHOOSE_VISIT',Number(e.target.value));});paint();
+}
+return{evaluate,createState,transition,historyFor,comparison,mount};
 });
