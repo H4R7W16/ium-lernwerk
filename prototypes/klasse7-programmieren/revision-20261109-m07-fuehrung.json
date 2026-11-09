@@ -1,0 +1,42 @@
+{
+  "base": "be4df531a39d559f6b7f139018e6819b885609b43ea9b5f3d75befaafb5e6e3b",
+  "reason": "MP-M07-01 R01–R03: erklärter freiwilliger Gestaltungsvergleich, Blickauftrag vor Karten, erreichbare Einzelansicht und Rückweg; eigener Lernweg unverändert",
+  "changes": {
+    "klasse6/medienprodukt/schritt-auftrag.html": {
+      "before": "cd25703fb7e5f6d8988f94c0ce2b1c1f077dbdd6d03a5ef7be028e6534704bf7",
+      "after": "62dcbc3e18fe57423742c4ea1b09b0e5111e98d8256cf08a5e6603ece759ea3d"
+    },
+    "klasse6/medienprodukt/baustein-auftrag.html": {
+      "before": "8d37166732eb329fe188f13779de44e9b2f9539a885f75aaeb85f3e542eeb20e",
+      "after": "3cdc8adb810cdf9e506ecae8f2683455a12af3773d6bc34ae2d3fdbb11bd8f20"
+    },
+    "klasse6/medienprodukt/material.html": {
+      "before": "22fa733172f3f5dd883c0b6b6f04c831fd39d63ccdb01811cc98b1c3dcd32b86",
+      "after": "0b76e0c884a5ea276733319a8752f7a3e07980af973ef8c40a68f45722928330"
+    },
+    "klasse6/medienprodukt/lehrkraft.html": {
+      "before": "c79ddc2516b96e160527aaeecfae6a0f2f12f0268fc7482ae1f23073157ed493",
+      "after": "08eef5bb9af644b2abe6dc90d4223e9c98591dc8de9d4f456acb7ecf2b5df5ff"
+    },
+    "klasse6/medienprodukt/briefing.html": {
+      "before": "279a28ddf45276777ba034bb0d1e381d3638eab7a228aeb7a8ecc38aea39d27c",
+      "after": "172a845d633fbe4eaa43d1ad8e37d40c9f28e2a0c52d21df9cc030e2cc84a9c6"
+    },
+    "klasse6/medienprodukt/bild-vergleich.html": {
+      "before": "7bc3d0122977572d8dea13e0ef9945a7801c3a249b9b868961079e4ba3fa6879",
+      "after": "9bc4b14cdd1706804ad985c14e77fb5edae4b5950182c5d851361ca248262394"
+    },
+    "klasse6/medienprodukt/projektion.html": {
+      "before": "3cc903ef47e16132823001cfcff65224548e8d4ad5d98a2308864d8f963c1efa",
+      "after": "514d38f85294e6d9d56b64c5a3add1fa3ff82e5763ed53f1ac1219e74e2ae7ba"
+    },
+    "klasse6/reihe-m07.html": {
+      "before": "9f8ac511a47e247b08a1f6a13f16df6d1f05ecbfc59fa9c3ee92b21c5ddb9eca",
+      "after": "5fcda449346bf52292ae6823f14fea6ef276f83312336384e93254c34a87a4ea"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "32045f0bfc0ba5e7f11ab4c69c3448c75d651e4ec588ef372b28504ea20ed404",
+      "after": "53b3c8295737ba6d47c88ce10f622f08bd4b2623a4f774eb0976e6df309a7520"
+    }
+  }
+}

@@ -410,14 +410,15 @@
               "oldNotice": "Der alte Mai-Aushang gilt nicht mehr.",
               "source": "Quelle: erfundene Bibliotheksordnung, Abschnitt Leihfristen, gültig ab Juni.",
               "credit": "Text und Formen: IuM-Lernwerk, selbst gestaltet."
-            }
+            },
+            "readingPrompt": "Erkläre an einer Stelle, was C verständlicher macht. Nenne außerdem etwas, das schönes Aussehen allein nicht beweisen kann."
           }
         },
         {
           "type": "task",
           "id": "wirkung",
           "title": "Was bewirkt die Änderung?",
-          "text": "Erkläre an einer Stelle, was C verständlicher macht. Nenne außerdem etwas, das schönes Aussehen allein nicht beweisen kann.",
+          "text": "Erkläre mündlich oder notiere kurz.",
           "prompt": "Eine Änderung, ihre Wirkung und eine Grenze.",
           "responseMode": "oral",
           "solution": "A übernimmt eine zu allgemeine Aussage. B korrigiert den Inhalt und ergänzt die aktuelle Regel und Quelle; die einfache Gestaltung bleibt. C enthält dieselben Informationen wie B. Die zwei beschrifteten Buchgruppen machen die Zuordnung von Buch und Frist sichtbar. Gestaltung allein beweist nicht, dass die Regel gilt; dafür braucht es den passenden Beleg."
@@ -994,7 +995,7 @@
       "paragraphs": [
         "Füllen Sie die Werkzeugkarte aus und testen Sie die komplette Datei-/Empfängerfolge mit schulischem Testzugang: neue Datei, Zeichen/Absatz/Objekt, Zwischenablage, Speicherort, PDF, Präsentationsansicht, Schulkanal und ein anderer zugelassener digitaler Übertragungsweg. Menünamen sind absichtlich nicht für unbekannte Schulkonfigurationen erfunden. Karte sichtbar oder ausgedruckt bereitstellen; digitale Phasen erst beginnen, wenn Zugang und Hilfe geklärt sind.",
         "Zweierteams, Rollenwechsel, reale Rückmeldegruppe und erreichbare Ersatzperson festlegen. Nur zugewiesene Schulzugänge, keine privaten Konten, Passwörter oder echten Konfliktverläufe anfordern. Aktuelle Schulregeln, Rechte und Aufbewahrung prüfen. Quellen-/Rechteleiste vor erstem Teilen kontrollieren. Bei zu kleinem Geräteangebot Stationen und Nachholzeit festlegen; digitale Handlung nicht durch Papier als bewiesen erklären.",
-        "Bibliotheksvergleich: zuerst A/C betrachten und die vorhandene Wirkungsfrage bearbeiten. Bei vermischter Begründung B statt A einblenden: A/B trennt die sachliche Korrektur, B/C die Gestaltung bei gleichem Inhalt. B bleibt eine freiwillige Hilfe, keine dritte Pflichtaufgabe. Projektion und Einzelansicht verwenden denselben Vergleich; im Einzelmaterial gehört B zu „Mit Hilfen“. Kein vorgegebenes Pluto-Layout daraus machen."
+        "Bibliotheksvergleich: den Blickauftrag vor den Karten lesen lassen. A/C bleibt der Grundweg. Bei vermischter Begründung B statt A einblenden: A/B trennt die sachliche Korrektur, B/C die Gestaltung bei gleichen Informationen. Der Schalter erklärt diesen Zweck. B bleibt freiwillig, keine dritte Pflichtaufgabe. Die vorhandene Einzelansicht ist vom Vergleich und Materialzugang aus erreichbar und führt zur eigenen Erklärung zurück. Im Einzelmaterial gehört B zu „Mit Hilfen“. Kein vorgegebenes Pluto-Layout daraus machen."
       ]
     },
     {
@@ -1023,7 +1024,7 @@
     {
       "title": "Material, Projektion und zentrale Sicherung",
       "paragraphs": [
-        "Lernbogen und alle Einzelmaterialien sind auf der Materialseite erreichbar. Die Werkzeugkarte steht dort als Textdatei; die Projektspur ist die Alternative zu den Lernwerk-Feldern, kein zusätzliches Protokoll. Die Bibliotheksabbildung mit vollständiger Textbeschreibung dient dem Vergleich, die zusätzliche Projektionsansicht bündelt Frage, Modellvergleich, Rückmeldeauftrag und Sicherung für das gemeinsame Gespräch.",
+        "Lernbogen und alle Einzelmaterialien sind auf der Materialseite erreichbar. Die Werkzeugkarte steht dort als Textdatei; die Projektspur ist die Alternative zu den Lernwerk-Feldern, kein zusätzliches Protokoll. Der Bibliotheksvergleich ist direkt lesbar und bei Bedarf einzeln zu öffnen; der Rückweg führt zur eigenen Erklärung. Die Projektionsansicht bündelt denselben frühen Blickauftrag, Vergleich, Rückmeldeauftrag und Sicherung für das gemeinsame Gespräch.",
         "Die zentrale geprüfte Sicherung steht im Schritt „Vorstellen, prüfen, übertragen“ und im Wissen. Klären Sie sie im Gespräch anhand konkreter Produkte; der individuelle Nachweis zeigt, was die einzelne Person erklären kann. Lehrpersonenbriefing liegt als separate readerfähige HTML-Seite vor; es ist Vorlesetext, keine produzierte Audiodatei.",
         "Für die Papierbrücke zusätzlich die sechs Original-Abrufblätter aus M01–M06 bereitstellen, für den Zwischentermin das M06-Abrufblatt erneut. Die direkten Links stehen auf dem Organisationsblatt und im Materialzugang. M02 ist ausdrücklich „Ein veraltetes Register“, Kennung abruf-index; der Quellenabruf gehört vor M03. Die Organisationsblätter ersetzen diese Aufgaben nicht."
       ]
@@ -1053,7 +1054,7 @@
     }
   ],
   "briefing": [
-    "M07 führt zu einer kleinen gemeinsamen Informationskarte für Klasse fünf. Zwei Lernende verarbeiten die Pluto-Frage aus M02, gestalten selbst und überarbeiten nach echter Rückmeldung. Die Bibliothekskarte erklärt den Weg an einem anderen Thema. Im Bibliotheksvergleich bleiben A und C der Grundweg. Bei Bedarf B statt A zeigen: gleicher einfacher Stil, sachlich berichtigt; B und C haben dieselben Informationen und Quellen. Das ersetzt die bisherige Grafik und wiederholenden Volltext innerhalb der bestehenden Modellzeit.",
+    "M07 führt zu einer kleinen gemeinsamen Informationskarte für Klasse fünf. Zwei Lernende verarbeiten die Pluto-Frage aus M02, gestalten selbst und überarbeiten nach echter Rückmeldung. Die Bibliothekskarte erklärt den Weg an einem anderen Thema. Der Blickauftrag steht vor den Bibliothekskarten. A/C bleibt der Grundweg; der freiwillige Schalter erklärt den Gestaltungsvergleich mit B/C bei gleichen Informationen. Die einzeln erreichbare Vergleichsansicht führt zur eigenen Erklärung zurück. Vergleich und Erklärung bleiben in der vorhandenen Modellzeit.",
     "Bereiten Sie eine ausgefüllte Werkzeugkarte vor. Prüfen Sie Schulkanal, zweiten digitalen Teilweg, Empfängergerät und Speicherort tatsächlich. Jede Person braucht eine eigene Bedienphase. Eine reale Ersatzperson sichert Rückmeldung bei Ausfall. Es werden keine privaten Konten oder Passwörter gebraucht.",
     "Planen Sie 210 Kernminuten: 20 Auftrag, 30 Werkstatt, 55 Entwurf, 25 Austausch, 30 Revision, 20 Teilen und 30 Sicherung. Die zusätzlichen 30 Minuten für Aushandlung, Revision und zweiten Teilweg sind darin enthalten. Vier volle Schulstunden reichen für 210 Minuten nicht.",
     "Vor dem Projekt sind 39 Minuten Wiederaufnahme aus früheren Reihen vorgesehen, verteilt auf zwei Termine. Für R12 unterbrechen die Teams ihren Entwurf zu Beginn der UE 34 für fünf Minuten und kehren danach zur gemerkten Stelle zurück. Vom Projektabschluss führen Links direkt zu R13 und R14 an zwei verschiedenen späteren Tagen, je sechs Minuten. Diese Zeiten stammen aus dem vorhandenen Jahresabrufkonto.",

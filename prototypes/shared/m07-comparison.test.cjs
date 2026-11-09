@@ -27,3 +27,20 @@ test('M07 nutzt denselben optionalen Vergleich auf Lernseite, Projektion und Ein
  const u=A.unit(p);assert.equal(p.version,'2.0.0');assert.ok(u.fields.every(f=>!f.includes('m07-choice')));assert.match(p.duration,/210 Kernminuten/);
  assert.match(pages.get('schritt-auftrag.html'),/answer-auftrag-wirkung/);
 });
+
+test('M07 stellt den Blickauftrag voran, erklärt die optionale Hilfe und erschließt die Einzelansicht mit Rückweg',()=>{
+ const p=pack(),pages=R.render(p),C=require('./m07-comparison.cjs'),model=example(p).libraryComparison;
+ assert.ok(model.readingPrompt,'Vorhandener Wirkungsauftrag braucht einen gemeinsamen frühen Ort');
+ const prompt=plain(model.readingPrompt);
+ for(const html of [pages.get('schritt-auftrag.html'),pages.get('baustein-auftrag.html'),pages.get('bild-vergleich.html'),require('./class6-media-project.cjs').projection()]){
+  assert.ok(html.indexOf(prompt)>=0&&html.indexOf(prompt)<html.indexOf('data-m07-state="A"'),'Blickauftrag muss vor der ersten Karte stehen');
+  assert.equal(plain(html).split(prompt).length-1,1,'Wirkungsauftrag nicht doppelt stellen');
+ }
+ for(const html of [pages.get('schritt-auftrag.html'),pages.get('bild-vergleich.html')]){
+  assert.match(html,/aria-describedby="m07-gestaltung-hilfe"/);
+  assert.match(html,/id="m07-gestaltung-hilfe"[^>]*>[^<]*B und C enthalten dieselben Informationen/);
+ }
+ for(const name of ['schritt-auftrag.html','material.html'])assert.match(pages.get(name),/<a[^>]+href="bild-vergleich.html"/,'Einzelansicht muss erreichbar sein: '+name);
+ assert.doesNotMatch(pages.get('bild-vergleich.html'),/href="bild-vergleich.html"/,'Kein Selbstlink');
+ assert.match(pages.get('bild-vergleich.html'),/href="schritt-auftrag.html#arbeitsstelle-was-bewirkt-die-anderung"/);
+});
