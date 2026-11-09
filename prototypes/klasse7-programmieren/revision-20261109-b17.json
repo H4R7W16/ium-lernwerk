@@ -1,0 +1,35 @@
+{
+  "base": "3d4e6a5622eff765dbf75dd96b877e73d60eba83c0826c75644b1af006fca32b",
+  "date": "2026-11-09",
+  "scope": "B17: optionale Bildschirmhilfe im bestehenden eigenen Versuch, Papierweg/Antwortschema erhalten; nur M03 und abhängiges Offline-Manifest. Keine historischen Bindungen ersetzt.",
+  "changes": {
+    "klasse6/werbung/schritt-modell.html": {
+      "before": "0975c39b461838600f8c166f2d08f56afaec4f82fd32c8d42692fe39970ae85e",
+      "after": "ac3a3eb0ead4969344908ffdb4bc06b552d183b310eb6d56082c55dd2ed49033"
+    },
+    "klasse6/werbung/lehrkraft.html": {
+      "before": "949135d8a5bd616512b36a050abfa9b7016af4f58906f266eeb31f198b2174c2",
+      "after": "6a2e3df526074161777b8f2e1c98d5368f2c5b4f392f611da656a63720225a7f"
+    },
+    "klasse6/werbung/briefing.html": {
+      "before": "a2d428b5bb5efc9cc5c88426f5ec6314c85ef27c58b7d9188673545734e76611",
+      "after": "00a3fe189665f15ddb55ab922bc04a3f2e11776f6839582df517a880f2039265"
+    },
+    "klasse6/werbung/b17-model.js": {
+      "before": null,
+      "after": "6706b0c54503fa9ec2ada41c0d7e4965a483bf0b3833f042b8b31a8a4a0abfa9"
+    },
+    "klasse6/werbung/b17-model.css": {
+      "before": null,
+      "after": "7b3f69802819605667cf8f1c3a61f76cc2fe36d52a787fb99306a86049296267"
+    },
+    "klasse6/reihe-m03.html": {
+      "before": "916023d6c59c80772a59755939005077ef215eec352400d643e08032f499b0e2",
+      "after": "4efe5fe936396490fdd95b6572921f5d045ed8d7a24b7a7a831452d9ded8bb0c"
+    },
+    "klasse6/mantel-sw.js": {
+      "before": "1efecf28a1945ef01c250ca130cd580c456acbdbe0f5dd64d6d7edeccc595346",
+      "after": "c00dde204bc4c33278ce9fa1e8241deb2bec25612b725d394898722ef57c402f"
+    }
+  }
+}
