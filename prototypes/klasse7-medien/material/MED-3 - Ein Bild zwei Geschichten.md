@@ -18,11 +18,14 @@ Die Schulredaktion plant einen Beitrag über Aufenthaltsorte. Mit demselben Bild
 
 ## 1 · Was zeigt das ganze Bild? · 15 Minuten
 
-![Konstruierte Hofszene: links ein Baum, eine Bank und freie Fläche, rechts ein Papierkorb mit drei Papierstücken auf dem Boden. Hinten ein Gebäude und ein Spielfeld.](../../../../../Assets/IuM-Lernwerk/Medien/2026-10-28-Fassung-1.0/material/hof-original.png)
+Beschreibe zuerst zwei sichtbare Details. Trenne davon deinen Eindruck.
 
-**Ausgangsbild: „Ein Hof mit verschiedenen Ecken“ · IuM-Lernwerk, 2026 · eigene schematische Illustration · CC BY-SA 4.0.** Kein Foto und kein Beleg für einen realen Schulhof. Die Zeichnung enthält keine Personen. [Arbeitsbild herunterladen](../../../../../Assets/IuM-Lernwerk/Medien/2026-10-28-Fassung-1.0/material/hof-original.png) · [Bearbeitbare SVG-Quelle](../../../../../Assets/IuM-Lernwerk/Medien/2026-10-28-Fassung-1.0/material/hof-original.svg).
+**Ausgangsbild: „Ein Hof mit verschiedenen Ecken“ · IuM-Lernwerk, 2026 · KI-generiert mit OpenAI · CC BY-SA 4.0.** Konstruierte Szene ohne Personen; kein Beleg für einen realen Schulhof.
 
-Beschreibe zuerst zwei sichtbare Details. Trenne davon deinen Eindruck. Ein **Ausschnitt** lässt Teile des Bildes weg. Eine **Farbveränderung**, etwa verringerte Sättigung, ändert die Darstellung der sichtbaren Farben. Beide können den Eindruck verändern. „Wirkt auf mich düster“ ist eine begründbare Deutung, kein sicherer Befund über die Stimmung aller Menschen dort.
+![KI-generierter Hof ohne Personen: links Baum, Bänke und bepflanzte Beete; mittig Pflaster, Kreidemarkierungen und ein Ball; rechts Papierkorb mit drei Papierstücken. Hinten ein Gebäude und zwei Fahrräder.](../inhalt/material/hof-arbeitsbild.png)
+ [Bild in Originalgröße öffnen](../inhalt/material/hof-arbeitsbild.png) · [Arbeitsbild herunterladen](../inhalt/material/hof-arbeitsbild.png).
+
+Ein **Ausschnitt** lässt Teile des Bildes weg. Eine **Farbveränderung**, etwa verringerte Sättigung, ändert die Darstellung der sichtbaren Farben. Beide können den Eindruck verändern. „Wirkt auf mich düster“ ist eine begründbare Deutung, kein sicherer Befund über die Stimmung aller Menschen dort.
 
 Die Lehrperson zeigt am Original einmal einen engeren Ausschnitt und macht ihn rückgängig. Erkläre: Welche Information fehlt jetzt? Was hat sich am gezeigten Ort dadurch nicht verändert?
 
@@ -72,7 +75,7 @@ Tauscht die Rollen. Ergänze dann knapp dieselbe Bildnotiz:
 - Absicht A und B; je eine verwendete Veränderung mit möglicher Wirkung.
 - Erste Rückmeldung und deine Änderung. Halte für den zweiten Blick fest: erster Eindruck einer neuen Person oder Vergleich mit der Vorfassung? Nenne die Deutung und die Bildstelle, auf die sie sich stützt.
 - Welche Information geht in einem Ausschnitt verloren? Welche Aussage über den ganzen Hof wäre damit nicht belegt?
-- Bildnachweis: „IuM-Lernwerk: Ein Hof mit verschiedenen Ecken, 2026, CC BY-SA 4.0. Bearbeitet: Ausschnitt/Farben … .“ Ergänze deine zutreffenden Änderungen.
+- Bildnachweis: „IuM-Lernwerk: Ein Hof mit verschiedenen Ecken, 2026, KI-generiert mit OpenAI, CC BY-SA 4.0. Bearbeitet: Ausschnitt/Farben … .“ Ergänze deine zutreffenden Änderungen.
 
 **3 Minuten gemeinsam:** Neuer Fall: Ein Vereinsfoto zeigt nur jubelnde Personen am Rand. Kann die Redaktion daraus schließen, dass alle Gäste begeistert waren? Nenne den fehlenden Kontext und eine mögliche Gegenprüfung. Übertragt das auf eure eigenen Bilder.
 

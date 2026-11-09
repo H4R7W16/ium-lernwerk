@@ -67,7 +67,7 @@ Mögliche Überschrift: „18 von 20 freiwillig Befragten am Kiosk wünschen lä
 
 ## MED-3 · Eigene Bildbearbeitung · 90 Minuten
 
-**Material:** [[MED-3 - Ein Bild zwei Geschichten]], [[MED-3 - Bedienkarte Bildbearbeitung]], Original-PNG und SVG, Projektion P3, Sicherung MED-3. Keine vorgefertigten Schülerlösungen verteilen.
+**Material:** [[MED-3 - Ein Bild zwei Geschichten]], [[MED-3 - Bedienkarte Bildbearbeitung]], gemeinsames KI-Arbeitsbild als PNG, Projektion P3, Sicherung MED-3. Keine vorgefertigten Schülerlösungen verteilen.
 
 | Zeit | Handeln und Steuerung | Beobachtung → nächste Hilfe |
 |---|---|---|
@@ -82,7 +82,7 @@ Mögliche Überschrift: „18 von 20 freiwillig Befragten am Kiosk wünschen lä
 | 82–87 | Zwei Nachbarpaare tauschen möglichst die Gegenüber. Je etwa eine Minute pro Bild, dann Bildnotiz und Bildnachweis ergänzen. | Neue Person: Revision allein deuten. Ist die Absicht bekannt, Vorfassung und Revision vergleichen. In beiden Fällen nach der Bildstelle fragen. |
 | 87–90 | Neuer Vereinsfoto-Fall und gemeinsamer Sicherungssatz. | Ausschnitt beweist keine Stimmung aller Gäste. Gegenprüfung am Gesamtbild oder weiteren Beobachtungen. |
 
-**Erwartung und Freiheit:** Ein enger rechter Ausschnitt kann Papierstücke hervorheben; ein linker Ausschnitt Bank/Baum. Entsättigung kann kühler oder dokumentarischer wirken, kräftige Farben lebendiger oder künstlicher. Das sind plausible Deutungen, keine universellen Farbgesetze. Jede andere am Bild begründete Absicht ist zulässig. Original+zwei echte Varianten+echte Revision müssen vorhanden sein. Mindestens einmal Ausschnitt und einmal Farbveränderung erklären; bei Kombination beide unterscheiden. Eine Revision kann die Wirkung schärfen oder Kontext zurückgeben. „Original“ bedeutet hier unbearbeitete Ausgangszeichnung, nicht unvermittelte Wirklichkeit.
+**Erwartung und Freiheit:** Ein enger rechter Ausschnitt kann Papierstücke hervorheben; ein linker Ausschnitt Bank/Baum. Entsättigung kann kühler oder dokumentarischer wirken, kräftige Farben lebendiger oder künstlicher. Das sind plausible Deutungen, keine universellen Farbgesetze. Jede andere am Bild begründete Absicht ist zulässig. Original+zwei echte Varianten+echte Revision müssen vorhanden sein. Mindestens einmal Ausschnitt und einmal Farbveränderung erklären; bei Kombination beide unterscheiden. Eine Revision kann die Wirkung schärfen oder Kontext zurückgeben. „Original“ bedeutet hier unbearbeitete KI-Ausgangsdatei, nicht unvermittelte Wirklichkeit.
 
 **Nachweis:** Lehrperson sieht eine eigene Bedienhandlung und die geöffneten Ausgaben; Bildnotiz erklärt Absicht, Mittel, fremde Rückmeldung und Änderung. Partnerprodukt nicht als individuelle Handlung verbuchen. Ein bloßer Vorher-Nachher-Dateiname oder übernommene Musterbilder umgehen das Ziel.
 

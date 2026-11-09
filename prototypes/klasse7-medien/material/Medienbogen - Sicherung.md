@@ -39,7 +39,7 @@ Ein tragfähiges Urteil sagt: **Was ist mit welchem Beleg gestützt? Was bleibt 
 
 Ein Ausschnitt entfernt sichtbaren Kontext. Eine Farbveränderung verändert die Darstellung vorhandener Bildinformationen. Beide können Deutungen nahelegen; nicht alle Menschen reagieren gleich. Auch ein unverändertes Ausgangsbild ist bereits gestaltet oder ausgewählt.
 
-Unsere Bildarbeit verbindet **Absicht → Bearbeitung → fremde Deutung → begründete Revision**. Dateien und eine eigene Erklärung machen die Handlung nachvollziehbar. Eine dunklere Ecke beweist keine allgemeine Stimmung; ein Papierstück keine dauerhafte Verwahrlosung. In einer Veröffentlichung gehören Herkunft, Lizenz und Änderungen zum Bildnachweis. Die Hofzeichnung ist eine Illustration, keine reale Dokumentation.
+Unsere Bildarbeit verbindet **Absicht → Bearbeitung → fremde Deutung → begründete Revision**. Dateien und eine eigene Erklärung machen die Handlung nachvollziehbar. Eine dunklere Ecke beweist keine allgemeine Stimmung; ein Papierstück keine dauerhafte Verwahrlosung. In einer Veröffentlichung gehören Herkunft, Lizenz und Änderungen zum Bildnachweis. Das Hofbild ist KI-generiert, keine reale Dokumentation.
 
 ## MED-4 · Erwartungen sind keine Eigenschaften
 

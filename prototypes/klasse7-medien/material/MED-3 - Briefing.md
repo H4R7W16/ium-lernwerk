@@ -15,7 +15,7 @@ Vorlesetext, Fassung eins. Keine Audiodatei.
 
 Diese Werkstatt dauert neunzig Minuten. Prüfen Sie vor dem Unterricht am Schulgerät den vollständigen Weg vom Bilddownload bis zum erneuten Öffnen einer gespeicherten Variante. Der bekannte, freigegebene Editor ist vorrangig. Photopea ist ein möglicher Referenzweg, keine bereits erteilte Schulfreigabe.
 
-Das Ausgangsbild ist eine eigene schematische Hofzeichnung. Es dokumentiert keine reale Schule. Links liegen Bank und Baum, rechts Papierkorb und Papierstücke. In den ersten fünfzehn Minuten trennt die Klasse Beobachtung und Deutung. Demonstrieren Sie einen Ausschnitt und machen Sie ihn wieder rückgängig. Welche Information verschwindet, welche Aussage wäre nun zu weitgehend?
+Das Ausgangsbild ist ein KI-generiertes Hofmotiv ohne Personen, keine Dokumentation einer realen Schule. Bänke, Beete, Spielfläche und Papierkorb bieten mehrere mögliche Ausschnitte. In den ersten fünfzehn Minuten trennt die Klasse Beobachtung und Deutung. Demonstrieren Sie einen Ausschnitt und machen Sie ihn wieder rückgängig. Welche Information verschwindet, welche Aussage wäre nun zu weitgehend?
 
 Es folgen fünfzehn Minuten angeleitete Werkzeugpraxis. Original und Arbeitsdateien liegen am vereinbarten Ort; das Original bleibt unverändert. Jede Person schneidet zu, verändert Farben, speichert als bild-uebung.png und öffnet die Übungskopie wieder. Fehlende Dateiroutinen müssen jetzt sichtbar werden.
 
