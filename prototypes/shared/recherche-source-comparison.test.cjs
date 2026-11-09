@@ -24,3 +24,32 @@ test('RQ02 Lernseite und Papier vergleichen vor der geschlossenen Lösung; Arbei
  assert.match(out.get('baustein-pruefen.html'),/class="lw-print-url">https:\/\/www\.dlr\.de/);
  assert.equal(p.version,'2.0.0');assert.equal(A.unit(p).fields.length,0);assert.equal(p.steps.length,7);assert.equal(p.teachingPlan.reduce((a,s)=>a+s.minutes,0),225);
 });
+
+test('RQ02 Quellenwahl steht nur im eigenen Vergleich vor den aktivierbaren Links',()=>{
+ const p=pack(),own=p.steps.find(s=>s.id==='pruefen').blocks.find(b=>b.id==='eigene-zweite-seite');
+ assert.equal(own.linksAfterItems,true,'Wahlregel braucht Vorrang');
+ const pages=R.render(p);
+ for(const file of ['schritt-pruefen.html','baustein-pruefen.html']){
+  const html=pages.get(file),body=html.slice(html.indexOf('id="eigene-zweite-seite"'),html.indexOf('id="aussage-vergleichen"'));
+  for(const [,url]of own.externalLinks)assert.ok(body.indexOf(A.esc(own.items[0]))<body.indexOf('href="'+A.esc(url)+'"'),'Regel vor '+url);
+  assert.match(body,/Erste Quelle DLR_next\? Nimm jetzt timeanddate\. Erste Quelle timeanddate\? Nimm jetzt DLR_next\./);
+ }
+ const search=pages.get('schritt-suchen.html');const ordinary=search.slice(search.indexOf('id="eigene-suche"'),search.indexOf('id="eigene-notiz"'));
+ assert.ok(ordinary.indexOf('https://www.fragfinn.de/')<ordinary.indexOf('<ol>'),'Andere Reihenfolge bleibt erhalten');
+ const invalid=pack();invalid.steps.find(s=>s.id==='pruefen').blocks.find(b=>b.id==='lea-prueft').linksAfterItems=true;assert.throws(()=>A.validate(invalid),/Quellenwahl/);
+});
+
+test('RQ02 Worthilfe kommt beim Lesen rechtzeitig; Herkunft bleibt sichtbar, nachschlagbar und auf Papier vollständig',()=>{
+ const p=pack(),c=block(p).sourceComparison,out=R.render(p);
+ for(const file of ['schritt-pruefen.html','baustein-pruefen.html']){
+  const html=out.get(file),start=html.indexOf('class="lw-ref-source-comparison"'),end=html.indexOf('id="lea-vergleich"'),comparison=html.slice(start,end);
+  assert.ok(comparison.indexOf('class="lw-ref-wordhelp"')<comparison.indexOf('class="lw-ref-source-grid"'),'Worthilfe vor Auszügen');
+  for(const source of c.sources){
+   assert.ok(source.shortSource);assert.ok(comparison.includes(A.esc(source.shortSource)));
+   assert.ok(comparison.includes('href="'+A.esc(source.url)+'"'));
+   assert.ok(comparison.includes('<details class="lw-ref-source-details">'),'Quellenangaben geschlossen nachschlagbar');
+   assert.ok(comparison.includes('<p class="lw-ref-source-print">'+A.esc(source.location)+' · '+A.esc(source.source)+'</p>'),'Druckherkunft unabhängig vom Klappzustand');
+  }
+ }
+ const bad=pack();block(bad).sourceComparison.sources[0].shortSource='';assert.throws(()=>A.validate(bad),/Quellenvergleich/);
+});

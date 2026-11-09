@@ -8,5 +8,8 @@
 .lw-ref-source-card blockquote p{margin:0}
 .lw-ref-source-card figcaption{font-size:.9em;line-height:1.5;overflow-wrap:anywhere}
 .lw-ref-source-card figcaption p{margin:.45rem 0}
+.lw-ref-source-card .lw-ref-source-details{margin:.35rem 0 0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.lw-ref-source-card .lw-ref-source-details>summary{cursor:pointer;padding:.25rem 0;min-height:32px;line-height:1.5}
+.lw-ref-source-card .lw-ref-source-print{display:none}
 @media(max-width:650px){.lw-ref-source-grid{grid-template-columns:minmax(0,1fr)}}
-@media print{.lw-ref-source-comparison{break-inside:avoid}.lw-ref-source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lw-ref-source-card{border-color:#666;background:transparent}.lw-ref-source-claim{background:transparent;color:#000}}
+@media print{.lw-ref-source-details{display:none}.lw-ref-source-card .lw-ref-source-print{display:block}.lw-ref-source-comparison{break-inside:avoid}.lw-ref-source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lw-ref-source-card{border-color:#666;background:transparent}.lw-ref-source-claim{background:transparent;color:#000}}

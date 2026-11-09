@@ -1,0 +1,30 @@
+{
+  "base": "f7ba0a3b93acfda2b2283dc63b81d808b19a306bf59c7969c378b7c050571f43",
+  "reason": "MP-RQ-02 R01–R03 samt geprüfter kompakter Quellenangaben; Lernbewegung und Herkunft erhalten",
+  "changes": {
+    "klasse5/recherche/schritt-pruefen.html": {
+      "before": "dc0ee4beda271105c26aad5bd81b16345cd5b5c15c80e03a49b7153145b29849",
+      "after": "a1638697e5825948ef2b790522369a28bf2f73b02af227af03382d01bd969e12"
+    },
+    "klasse5/recherche/baustein-pruefen.html": {
+      "before": "2940cac65aa725c263999cbda549fc4909e58e76bb04b829e1502a019dcdb811",
+      "after": "af9330160e64487c0593f3ee50845e8192fe21df1382acfda7ce164f8c7d5d31"
+    },
+    "klasse5/recherche/lehrkraft.html": {
+      "before": "3cef360a69d1cb7fa60f5d7792f5eb52f04481b73bf4aac1378f3470f82e6d92",
+      "after": "232094559c5d86fcf00d48bab710868703a542fe6b6cee616148e4b87e35a088"
+    },
+    "klasse5/recherche/briefing.html": {
+      "before": "0004867c14e82b0af5222a4778b52958f0d4980f64005fd7be0f005823581d5e",
+      "after": "306f25a3c31accfec0e8e131f7c81d43e9cb7b344a7cfca18ccc7ed96d3b5c0f"
+    },
+    "klasse5/recherche/quellenvergleich.css": {
+      "before": "92bddf100b7a9036b4353f863618d3f7ab08b907b83095d61f290b0b10e3ef15",
+      "after": "47c7d1676c7e7518e5e7183939df302ac8b5165e45fc454e16d01d462938caad"
+    },
+    "klasse5/mantel-sw.js": {
+      "before": "ad300922675811d5d15f3ee6bca6bfb2c9fc1c6660c27630002cbb6245939193",
+      "after": "1121cce66f9b477b0ea2ce6718312582df61b3e7a42b6a1dfb79ad4dc79ea38c"
+    }
+  }
+}

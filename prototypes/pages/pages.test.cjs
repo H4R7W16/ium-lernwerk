@@ -1,6 +1,6 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),crypto=require('node:crypto');
-const {preparePages}=require('./build.cjs'),preserved=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'),require('./revision-20261105-lernaufgaben.json'),require('./revision-20261106-papierbruecke.json'),require('./revision-20261106-papierbruecke-v2.json'),require('./revision-20261107-lernbogen-pilot.json'),require('./revision-20261107-gesamtrevision.json'),require('./revision-20261109-rq02.json'));
+const {preparePages}=require('./build.cjs'),preserved=require('../shared/revision-contract.cjs').expected(require('./bestand-sha256.json'),require('./revision-20261103.json'),require('./revision-20261105.json'),require('./revision-20261105-lernaufgaben.json'),require('./revision-20261106-papierbruecke.json'),require('./revision-20261106-papierbruecke-v2.json'),require('./revision-20261107-lernbogen-pilot.json'),require('./revision-20261107-gesamtrevision.json'),require('./revision-20261109-rq02.json'),require('./revision-20261109-rq02-fuehrung.json'));
 const all=preparePages(),Y=require('../shared/class6-year.cjs');
 test('historischer Bestand oder explizit gebundene Gesamtfassung; ungeplante Änderungen werden abgewiesen',()=>{
  assert.equal(Object.keys(require('./bestand-sha256.json').files).length,812);
