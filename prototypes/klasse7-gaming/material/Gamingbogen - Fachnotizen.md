@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.1"
 created: 2026-10-28
-updated: 2026-11-07
+updated: 2026-11-09
 tags:
   - output/lernmaterial
 ---
@@ -17,7 +17,7 @@ Nutze ein bekanntes Dokument oder dein Heft. Diese Seite speichert keine Eingabe
 | Aufgabe | Was du festhältst | Woran du die Qualität prüfst |
 |---|---|---|
 | [[GAM-1 - Warum noch eine Runde|GAM-1]] | Vier Befunde; überarbeitete Stelle; Antwort zum neuen Jo-Fall | Begriff, Zusammenhang, Textbeleg und Grenze; Zugehörigkeit und Druck unterscheiden |
-| [[GAM-2 - Kostenlos oder bezahlt|GAM-2]] | Drei Angebotszeilen; Rat mit zwei Kriterien und einem Nachteil; Abo-Kurzfall | Wer zahlt wofür? Interesse am Kartenmerkmal erklären; nicht pauschal „kostenlos“ urteilen |
+| [[GAM-2 - Kostenlos oder bezahlt|GAM-2]] | Drei Angebotszeilen mit eigener C-Rechnung; Rat mit zwei Kriterien und einem Nachteil; Abo-Kurzfall. <a href="gam-2-kostenlos-oder-bezahlt.html#gam-2-rechenauftrag">Zur C-Rechnung</a> | Wer zahlt wofür? Nötige Zahlung und Rest selbst berechnen; Interesse am Karten- oder Shopmerkmal erklären |
 | [[GAM-3 - Was tut gut was belastet|GAM-3]] | Vier Zeilen zu Kim; Änderung mit Begründung für Lee | Psychische und physische Aspekte; mögliche Ursache und alternative Erklärung trennen |
 | [[GAM-4 - Eine Strategie wirklich ausprobieren|GAM-4]] | Nach vier Minuten Lesen: in zwei Minuten Kosten, Kaufanreiz und Empfehlung für Robin festhalten. Später: geänderte Bedingung und Strategie für Pat | Strategie muss zum Problem passen; eigene Beobachtungen stehen hier nicht |
 | [[GAM-5 - Grenzen schützen Hilfe erreichen|GAM-5]] | Vier Felder zur Fallentscheidung und allgemeiner schulischer Hilfeweg | Grenze und mögliche Folgen, sichere Handlung, erreichbare Person und Ersatzweg |

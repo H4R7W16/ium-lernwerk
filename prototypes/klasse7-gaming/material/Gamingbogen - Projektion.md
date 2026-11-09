@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-11-05
+updated: 2026-11-09
 tags:
   - output/projektion
 ---
@@ -35,6 +35,8 @@ Erfundene Äußerungen aus GAM-1. Wir sprechen über Fälle, nicht über Persone
 **Wer zahlt wofür? Welches Interesse entsteht?**
 
 Nötige Zahlung ≠ rechnerischer Anteil
+
+<p><a href="gam-2-kostenlos-oder-bezahlt.html#wolkenteam-shopfolge">C als Shopfolge oder in Einzelansichten zeigen</a> · Ende vor dem Kauf.</p>
 
 Erfundene Angebote. Eigene Entscheidung später privat festhalten.
 

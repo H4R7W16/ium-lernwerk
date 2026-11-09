@@ -8,7 +8,7 @@ klassenstufe: 7
 fassung: "1.0"
 owner_agent: Codex
 created: 2026-10-28
-updated: 2026-11-07
+updated: 2026-11-09
 tags:
   - output/durchfuehrung
 ---
@@ -91,9 +91,11 @@ Material: [[GAM-2 - Kostenlos oder bezahlt]], private Denkpause, P2. Ziel: G03, 
 | Phase | Konkrete Durchführung | Beobachtung → Hilfe |
 |---|---|---|
 | 0–10 Erklärung | Behauptung und Angebote; Einnahmewege klären. | „Geld nur von Spielenden“ → Geldfluss von Werbekunden bei B lesen. |
-| 10–20 Gelenkte Übung | A-Beispiel, B-Übertragung und Sterne-Rechnung gemeinsam klären. | 4,50 € als Zahlung → zeige, dass ausschließlich 500er-Pakete kaufbar sind. |
+| 10–20 Gelenkte Übung | A-Beispiel und B-Übertragung; für C wahlweise Textkarte, stille 24-Sekunden-Shopfolge oder Einzelansichten nutzen. Zahlung und Rest zunächst selbst rechnen, dann klären. | 4,50 € als Zahlung → zeige, dass ausschließlich 500er-Pakete kaufbar sind. |
 | 20–35 Eigene Anwendung | 11 Minuten drei Zeilen und Rat; 4 Minuten geschützte Ausgangsentscheidung/Fallweg. | Nur billigstes Angebot → Alex' Zweck und einen Nachteil der Wahl ergänzen. |
 | 35–45 Rückmeldung | 3 Vergleich, 3 Revision, 3 Abo-Kurzfall, 1 Abschluss. Private Notiz bleibt geschlossen. | Abo als Einmalkauf → wiederkehrende Zahlung und Ende des Zugangs unterscheiden. |
+
+Die Shopfolge zeigt nur die vorhandenen Angaben zu C und endet vor dem Kauf. Keine zweite Pflichtsichtung nach der Textkarte und keine Zusatzminuten: Sie ersetzt deren erneute Beschreibung innerhalb der Übung. Film bei Bedarf pausieren oder Einzelansichten öffnen; bei kleiner Darstellung deren vollständigen Text lesen. „Nur heute!“ bleibt ein zu deutender Hinweis, kein laufender Countdown. Auch C ist begründet empfehlbar; eine dramatische Darstellung darf kein Urteil ersetzen. Wer 4,50 € nennt, prüft das einzige verfügbare Paket. Mindestzahlung 5 €, Rest 50 Sterne; den möglichen Einfluss des Restes erst nach eigenem Versuch besprechen, nicht im Film vorgeben.
 
 Erwartung neuer Fall: 4 € monatlich für den Zugang, Anbieterinteresse an fortgesetztem Abo. Die Dauer beeinflusst die Gesamtausgabe. Kein reales Kündigungsverfahren oder Kauf nötig. Private Entscheidung wird nicht vorgelesen und nicht auf „vernünftige“ Nutzung hin kontrolliert.
 

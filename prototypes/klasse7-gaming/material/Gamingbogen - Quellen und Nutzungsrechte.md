@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-09
 tags:
   - output/quellen
 ---
@@ -41,6 +41,10 @@ Eigene Lerntexte, Fallkarten, Aufgaben und Projektionen: **IuM-Lernwerk, erstell
 Die beiden LMZ-Seiten weisen für ihre Texte CC BY-SA aus; der verfolgte Lizenzlink führt zu [CC BY-SA 2.0 Deutschland](https://creativecommons.org/licenses/by-sa/2.0/de/). Es werden hier keine Textpassagen oder fremden Bilder übernommen, sondern fachliche Sachverhalte in eigener didaktischer Form erläutert. Für spätere Textübernahmen wäre deren konkrete Lizenz- und Bearbeitungsbedingung erneut zu prüfen. Die dortigen Fotos sind ausdrücklich nicht vom Text-Lizenzhinweis umfasst.
 
 Alle anderen externen Seiten werden nur verlinkt und als fachliche Referenzen genutzt. Ihre Texte, Logos, Fotos und Beratungsoberflächen werden nicht als eigene OER weiterlizenziert. Das IuM-7-Reihenlogo und Favicon stammen aus dem bestehenden eigenen Medienbogen; keine Fremdillustration wird benötigt. Es wurden keine Materialien von snap.schule oder echten Spieleherstellern in diesen Bogen kopiert.
+
+## Shopfolge Wolkenteam
+
+Die stille Shopfolge zu Wolkenteam in GAM-2 (24 Sekunden, drei Zustände) und die drei SVG-Shopansichten sind eigene konstruierte Medien des IuM-Lernwerks, mit KI-Unterstützung erstellt, 2026, CC BY-SA 4.0. Sie übernehmen ausschließlich die Modellangaben aus Karte C; keine echte Spieloberfläche, Marke, Personenaufnahme oder Marktdaten. Der Film enthält weder Musik noch Sprache oder einen Audiostream. Vollständige Textbeschreibungen stehen bei den ruhenden Ansichten. Editierbare Daten und Erzeugungscode werden mit der Quelle versioniert; der Code folgt dem MIT-Projektstandard. Systemschriften werden nicht als Fontdateien mitgeliefert.
 
 ## Daten und Grenzen
 
