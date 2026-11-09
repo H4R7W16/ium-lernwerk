@@ -59,7 +59,7 @@ Digitales Primärmedium mit aufklappbaren Hilfen, verbundenen Materialien und ge
 
 ## Medienintegration GAM-2 · 09.11.2026
 
-Für Angebot C in GAM-2 ergänzt eine stille, kontrollierte Shopfolge die Textkarte als alternative Darstellung: Einstieg → Outfit → Sternepaket. Die vorhandenen Preise und Bedingungen bleiben identisch. Drei ruhende Zustände mit vollständigem Text sind ohne Filmlauf nutzbar. Die Folge liegt in der bisherigen gelenkten Übung und endet vor dem Kauf; Rechnung, belegte Anreizwirkung, A/B/C-Vergleich und private Entscheidung bleiben eigene Leistungen. Mehr Aufmerksamkeit für C und die zusätzliche Darstellungswahl sind Kosten; kein neuer Lernnachweis und keine Zusatzzeit werden eingeführt. Die Medienprüfung ist ein redaktioneller Selbstreview, keine Wirkungsmessung.
+Die C-Rechenfrage steht vor der optionalen Medienhilfe. Die Person hat für diesen Rechenfall noch keine Sterne und kauft die benötigten Sterne. Mit Karte C kann direkt gerechnet werden; Film und Einzelansichten unterstützen bei Bedarf. Die stille 24-Sekunden-Shopfolge zeigt dieselben Preise und Bedingungen wie die Karte: Einstieg → Outfit → Sternepaket. Drei ruhende Zustände haben vollständigen Textzugang. Die bisherigen Anker und Projektionslinks führen zuerst zum Rechenauftrag. Eigene Rechnung, Anreizbegründung, A/B/C-Vergleich und private Entscheidung bleiben erhalten. Die vorhandene Übungszeit und das Aufgabenprodukt ändern sich nicht. Mehr Aufmerksamkeit für C, Medienwahl und Scrollweg bleiben Kosten; reale Lernwirkung ist nicht gemessen.
 
 ## Prüfrahmen
 

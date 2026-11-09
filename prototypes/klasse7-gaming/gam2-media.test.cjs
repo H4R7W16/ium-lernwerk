@@ -12,7 +12,9 @@ test('GAM-2 bietet den stillen Film als steuerbare Alternative innerhalb der bes
  assert.match(media,/<video\b[^>]*controls[^>]*preload="none"/);
  assert.match(media,/material\/wolkenteam-shopfolge\.mp4/);
  assert.doesNotMatch(media,/\b(?:autoplay|loop)\b|<script\b|<iframe\b|<form\b/i);
- assert.match(html,/Karte C oder die Shopfolge/);
+ assert.ok(html.indexOf('id="gam-2-rechenauftrag"')<html.indexOf('class="shop-media"'),'Konkrete Frage vor der Medienhilfe');
+ assert.match(html,/Mit Karte C kannst du direkt rechnen/);
+ assert.match(html,/Bei Bedarf helfen dir die Shopfolge oder die Einzelansichten/);
  assert.match(html,/Wie viele Sterne bleiben übrig/);
  assert.match(media,/Ende vor dem Kauf/);
 });
@@ -39,4 +41,14 @@ test('Ruhende Shopansichten und vollständiger Textzugang bewahren den Angebotsv
  assert.match(html,/Du darfst A, B, C oder keines empfehlen/);
  assert.match(html,/Die private Notiz bleibt geschlossen/);
  const projection=read('projektion-2.html');assert.match(projection,/gam-2-kostenlos-oder-bezahlt\.html#wolkenteam-shopfolge/);
+});
+
+test('C-Rechenfall legt fehlendes Sternenguthaben fest, ohne Zahlung oder Rest vorzugeben',()=>{
+ const html=read('gam-2-kostenlos-oder-bezahlt.html');
+ const question=html.match(/<p id="gam-2-rechenauftrag">([\s\S]*?)<\/p>/)?.[1];
+ assert.ok(question,'Rechenauftrag bleibt gezielt erreichbar');
+ assert.match(question,/Die Person hat noch keine Sterne und kauft die benötigten Sterne im Shop/);
+ assert.match(question,/Wie viel muss sie für das Outfit mindestens bezahlen/);
+ assert.doesNotMatch(question,/5 €|\b50 Sterne|ein Paket/);
+ assert.ok(html.indexOf('id="wolkenteam-shopfolge"')<html.indexOf('id="gam-2-rechenauftrag"'),'Bisheriger Medienanker führt zuerst zur Frage');
 });

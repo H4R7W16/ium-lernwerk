@@ -3,3 +3,6 @@ main>p,main>ul,main>ol{max-width:78ch}.case-grid{display:grid;grid-template-colu
 
 /* Wahlweise Shopdarstellung in GAM-2. */
 .shop-media{margin:24px 0;padding:20px;border:1px solid var(--line);border-radius:10px;background:#f7faf7}.shop-media h3{margin-top:0}.shop-media video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#edf3ee;border-radius:8px}.shop-media figure{margin:24px 0}.shop-media figure img{width:100%;height:auto;margin:0 0 10px}.shop-media figcaption{font-size:17px;line-height:1.6}.shop-media details{background:white}.shop-media a{display:inline-block;padding:8px 0;min-height:44px}#gam-2-rechenauftrag,#wolkenteam-shopfolge{scroll-margin-top:20px}@media(max-width:600px){.shop-media{padding:14px}.shop-media details{padding:8px 12px}.shop-media figcaption{font-size:17px}}@media print{.shop-video{display:none}.shop-media{border:0;padding:0}.shop-media figure{break-inside:avoid}}
+
+/* Lesebreite des vorgezogenen C-Rechenauftrags. */
+.shop-task>p{max-width:78ch}

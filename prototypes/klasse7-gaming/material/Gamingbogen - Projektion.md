@@ -34,6 +34,8 @@ Erfundene Äußerungen aus GAM-1. Wir sprechen über Fälle, nicht über Persone
 
 **Wer zahlt wofür? Welches Interesse entsteht?**
 
+<strong>Rechenfall C:</strong> Start ohne Sterne; benötigte Sterne werden gekauft.
+
 Nötige Zahlung ≠ rechnerischer Anteil
 
 <p><a href="gam-2-kostenlos-oder-bezahlt.html#wolkenteam-shopfolge">C als Shopfolge oder in Einzelansichten zeigen</a> · Ende vor dem Kauf.</p>

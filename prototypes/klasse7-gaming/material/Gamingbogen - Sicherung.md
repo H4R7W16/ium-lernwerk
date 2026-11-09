@@ -5,7 +5,7 @@ area: Unterricht
 project: IuM-Lernwerk
 fassung: "1.0"
 created: 2026-10-28
-updated: 2026-10-28
+updated: 2026-11-09
 tags:
   - output/sicherung
 ---
@@ -32,7 +32,7 @@ In B1 gehört Sam zum Team und hilft konkret: Zugehörigkeit beschreibt die sozi
 | B | Werbekunden bezahlen für ausgespielte Anzeigen | Weitere Anzeigen ermöglichen Einnahmen; Spielende zahlen hier kein Geld, wenden aber Aufmerksamkeit/Zeit auf |
 | C | Spielende kaufen Sterne, um ein Outfit zu erwerben | Shop-Anreiz kann Käufe fördern; Aufgaben bleiben ohne Kauf lösbar, das Outfit verbessert keine Fähigkeiten |
 
-Für 450 Sterne müssen im Modell **5 €** bezahlt werden: Ein 500-Sterne-Paket reicht, **50 Sterne** bleiben. Ein rechnerischer Anteil von 4,50 € wäre nicht die nötige Zahlung. Der Rest verpflichtet nicht zu einem weiteren Kauf.
+Im Rechenfall hat die Person noch keine Sterne und kauft die benötigten Sterne im Shop. Für 450 Sterne müssen **5 €** bezahlt werden: Ein 500-Sterne-Paket reicht, **50 Sterne** bleiben. Ein rechnerischer Anteil von 4,50 € wäre nicht die nötige Zahlung. Der Rest verpflichtet nicht zu einem weiteren Kauf.
 
 Eine Empfehlung für Alex kann A wegen fehlender Werbung und Zusatzkäufe bevorzugen; Nachteil ist der Einstiegspreis. Auch Nichtnutzung ist mit Alex' Zweck begründbar. B oder C brauchen eine Erklärung, wie Alex mit Werbung beziehungsweise Kaufanreizen umgehen möchte. Ein Preis allein beweist weder Fairness noch pädagogische Eignung.
 
