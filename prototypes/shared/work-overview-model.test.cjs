@@ -19,3 +19,44 @@ test('foreign grade, format, executable URL fields, duplicates and unknown field
 test('exact input size limits reject without silent truncation',()=>{for(const options of [{next:'x'.repeat(501)},{locations:[{...location,hint:'x'.repeat(301)}]},{locations:[{...location,filename:'x'.repeat(161)}]},{locations:Array.from({length:6},()=>location)}]){assert.equal(add(undefined,options).ok,false);}assert.equal(M.parseFile(' '.repeat(M.MAX_BYTES+1),catalog).ok,false);let s=add().store;s.cards=Array.from({length:201},(_,i)=>({...s.cards[0],id:`00000000-0000-4000-8000-${String(i).padStart(12,'0')}`}));assert.equal(M.parseStore(JSON.stringify(s),catalog).ok,false);});
 test('invalid storage snapshots and invalid IDs cannot enter model',()=>{const s=add().store;assert.equal(M.parseStore(JSON.stringify({...s,grade:5}),catalog).ok,false);assert.equal(M.save(M.empty(),{taskId:'dat-1',place:'missing',locations:[],next:'',inheritAreaHint:false},catalog,{id,now}).ok,false);assert.equal(M.save(M.empty(),{taskId:'dat-1',place:'',locations:[],next:'',inheritAreaHint:false},catalog,{id:'no-id',now}).ok,false);assert.equal(M.applyImport(s,s.cards,[{sourceId:id,mode:'add',newId:id}],catalog,now).ok,false);});
 test('edit and remove preserve unrelated cards and immutable input',()=>{let s=add().store;s=M.save(s,{taskId:'alg-5',place:'',locations:[],next:'Testnotiz',inheritAreaHint:false},catalog,{id:id2,now}).store;const edited=M.save(s,{id,taskId:'dat-1',place:'',locations:[],next:'Neuer Schritt',inheritAreaHint:false},catalog,{id:id3,now});assert.equal(edited.ok,true);assert.equal(edited.store.cards[0].id,id);assert.equal(s.cards[0].next,'Vergleiche die Häufigkeiten.');assert.equal(M.remove(edited.store,id).cards[0].id,id2);});
+
+const xml = '<project name="Mein Rover" app="Snap!" version="1"><notes>Eigene Arbeit</notes><stage name="Stage"><sprites><sprite name="Rover"><scripts/></sprite></sprites></stage></project>';
+function project(value=xml) { return {format:'snap-project',version:1,xml:value,filename:'Mein_Rover.xml',savedAt:now}; }
+function algStore() { return M.save(add().store,{taskId:'alg-5',place:'',locations:[],next:'Station 60 testen',inheritAreaHint:false},catalog,{id:id2,now}).store; }
+test('ALG-5 project survives save, hint edit, export, selected import and targeted replacement',()=>{
+ const before=algStore(), result=M.setProject(before,id2,project(),catalog);
+ assert.equal(result.ok,true); assert.equal(before.cards[1].project,undefined);
+ assert.equal(result.store.version,2); assert.equal(result.card.project.xml,xml);
+ const edited=M.save(result.store,{id:id2,taskId:'alg-5',place:'',locations:[],next:'Danach Station 80 testen',inheritAreaHint:false},catalog,{id:id3,now});
+ assert.equal(edited.card.project.xml,xml); assert.equal(edited.card.project.savedAt,now);
+ const exported=JSON.parse(M.exportFile(edited.store,catalog,now)); assert.equal(exported.version,2);
+ const imported=M.parseFile(JSON.stringify(exported),catalog); assert.equal(imported.ok,true);
+ const adopted=M.applyImport(before,imported.cards,[{sourceId:id2,mode:'replace',targetId:id2}],catalog,now);
+ assert.equal(adopted.ok,true); assert.equal(adopted.store.cards[1].project.xml,xml); assert.deepEqual(adopted.store.cards[0],before.cards[0]);
+ const removed=M.removeProject(adopted.store,id2,catalog,now); assert.equal(removed.ok,true); assert.equal(removed.card.project,undefined); assert.equal(adopted.store.cards[1].project.xml,xml);
+});
+test('v1 files and stores migrate, while v1 project injection and unsupported versions fail',()=>{
+ const legacy=add().store; legacy.version=1;
+ const parsed=M.parseStore(JSON.stringify(legacy),catalog); assert.equal(parsed.ok,true); assert.equal(parsed.store.version,2); assert.deepEqual(parsed.store.cards,legacy.cards);
+ const file=JSON.parse(M.exportFile(algStore(),catalog,now)); file.version=1;
+ assert.equal(M.parseFile(JSON.stringify(file),catalog).ok,true);
+ file.cards[1].project=project(); assert.equal(M.parseFile(JSON.stringify(file),catalog).ok,false);
+ file.version=3; assert.equal(M.parseFile(JSON.stringify(file),catalog).ok,false);
+ legacy.cards[0].project=project(); assert.equal(M.parseStore(JSON.stringify(legacy),catalog).ok,false);
+});
+test('projects only attach to ALG-5 and invalid project input never changes existing state',()=>{
+ const base=M.setProject(algStore(),id2,project(),catalog).store, snapshot=JSON.stringify(base);
+ assert.equal(M.setProject(base,id,project(),catalog).ok,false);
+ for(const invalid of [{...project(),xml:'<project><stage></project>'},{...project(),filename:'../Rover.xml'},{...project(),savedAt:'yesterday'},{...project(),extra:true},{...project(),version:2}]) assert.equal(M.setProject(base,id2,invalid,catalog).ok,false);
+ assert.equal(JSON.stringify(base),snapshot);
+ const file=JSON.parse(M.exportFile(base,catalog,now)); file.cards[0].project=project(); assert.equal(M.parseFile(JSON.stringify(file),catalog).ok,false);
+});
+test('project limits and total package limit reject atomically without dropping previous projects',()=>{
+ const big='<project><notes>'+('x'.repeat(9*1024*1024))+'</notes><stage/></project>';
+ let store=algStore();
+ store=M.setProject(store,id2,project(big),catalog).store;
+ for(let n=3;n<=4;n++){const nextId='00000000-0000-4000-8000-'+String(n).padStart(12,'0');store=M.save(store,{taskId:'alg-5',place:'',locations:[],next:'',inheritAreaHint:false},catalog,{id:nextId,now}).store;store=M.setProject(store,nextId,project(big),catalog).store;assert.ok(store);}
+ const lastId='00000000-0000-4000-8000-000000000005'; store=M.save(store,{taskId:'alg-5',place:'',locations:[],next:'',inheritAreaHint:false},catalog,{id:lastId,now}).store;
+ const before=JSON.stringify(store); const refused=M.setProject(store,lastId,project(big),catalog); assert.equal(refused.ok,false); assert.match(refused.error,/32/); assert.equal(JSON.stringify(store),before);
+ const oversize=project('<project><stage>'+('x'.repeat(M.MAX_PROJECT_BYTES))+'</stage></project>'); assert.equal(M.validateProject(oversize).ok,false);
+});
